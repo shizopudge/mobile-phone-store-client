@@ -853,7 +853,7 @@ class __$$_ChangeEmailCopyWithImpl<$Res>
     Object? email = null,
   }) {
     return _then(_$_ChangeEmail(
-      email: null == email
+      null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
@@ -864,7 +864,7 @@ class __$$_ChangeEmailCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_ChangeEmail implements _ChangeEmail {
-  const _$_ChangeEmail({required this.email});
+  const _$_ChangeEmail(this.email);
 
   @override
   final String email;
@@ -997,7 +997,7 @@ class _$_ChangeEmail implements _ChangeEmail {
 }
 
 abstract class _ChangeEmail implements AuthEvent {
-  const factory _ChangeEmail({required final String email}) = _$_ChangeEmail;
+  const factory _ChangeEmail(final String email) = _$_ChangeEmail;
 
   String get email;
   @JsonKey(ignore: true)
@@ -1028,7 +1028,7 @@ class __$$_ChangeUsernameCopyWithImpl<$Res>
     Object? username = null,
   }) {
     return _then(_$_ChangeUsername(
-      username: null == username
+      null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
               as String,
@@ -1039,7 +1039,7 @@ class __$$_ChangeUsernameCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_ChangeUsername implements _ChangeUsername {
-  const _$_ChangeUsername({required this.username});
+  const _$_ChangeUsername(this.username);
 
   @override
   final String username;
@@ -1173,8 +1173,7 @@ class _$_ChangeUsername implements _ChangeUsername {
 }
 
 abstract class _ChangeUsername implements AuthEvent {
-  const factory _ChangeUsername({required final String username}) =
-      _$_ChangeUsername;
+  const factory _ChangeUsername(final String username) = _$_ChangeUsername;
 
   String get username;
   @JsonKey(ignore: true)
@@ -1205,7 +1204,7 @@ class __$$_ChangePasswordCopyWithImpl<$Res>
     Object? password = null,
   }) {
     return _then(_$_ChangePassword(
-      password: null == password
+      null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
@@ -1216,7 +1215,7 @@ class __$$_ChangePasswordCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_ChangePassword implements _ChangePassword {
-  const _$_ChangePassword({required this.password});
+  const _$_ChangePassword(this.password);
 
   @override
   final String password;
@@ -1350,8 +1349,7 @@ class _$_ChangePassword implements _ChangePassword {
 }
 
 abstract class _ChangePassword implements AuthEvent {
-  const factory _ChangePassword({required final String password}) =
-      _$_ChangePassword;
+  const factory _ChangePassword(final String password) = _$_ChangePassword;
 
   String get password;
   @JsonKey(ignore: true)

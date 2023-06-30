@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/styles/styles.dart';
+import '../../styles/styles.dart';
 
-class AuthButton extends StatelessWidget {
+class CasualButton extends StatelessWidget {
   final VoidCallback onTap;
   final String text;
   final bool isEnabled;
-  const AuthButton({
+  const CasualButton({
     super.key,
     required this.isEnabled,
     required this.text,

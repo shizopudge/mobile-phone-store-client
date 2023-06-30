@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/styles/styles.dart';
+import '../../styles/styles.dart';
 
 class PasswordCheckBox extends StatelessWidget {
   final String requirement;
-  final bool isFits;
+  final bool isValidated;
   const PasswordCheckBox({
     super.key,
     required this.requirement,
-    required this.isFits,
+    required this.isValidated,
   });
 
   @override
@@ -19,14 +19,15 @@ class PasswordCheckBox extends StatelessWidget {
       margin: const EdgeInsets.only(right: 8),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
-        color: isFits ? kLightBlue.withOpacity(.25) : kGrey.withOpacity(.25),
+        color:
+            isValidated ? kLightBlue.withOpacity(.25) : kGrey.withOpacity(.25),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
           Icon(
             Icons.check_circle_outline,
-            color: isFits ? kLightBlue : kDarkBlue.withOpacity(.5),
+            color: isValidated ? kLightBlue : kDarkBlue.withOpacity(.5),
           ),
           const SizedBox(
             width: 8,
@@ -34,7 +35,7 @@ class PasswordCheckBox extends StatelessWidget {
           Text(
             requirement,
             style: kMedium.copyWith(
-              color: isFits ? kLightBlue : kDarkBlue.withOpacity(.5),
+              color: isValidated ? kLightBlue : kDarkBlue.withOpacity(.5),
               fontSize: 18,
               height: .5,
             ),

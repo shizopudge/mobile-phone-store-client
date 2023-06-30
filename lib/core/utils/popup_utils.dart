@@ -1,12 +1,16 @@
-import 'package:flutter/material.dart';
+import 'dart:io';
 
-import '../failures/failure.dart';
+import 'package:auto_size_text/auto_size_text.dart';
+import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+
+import '../failure/failure.dart';
 import '../styles/styles.dart';
 
 class PopupUtils {
   static void showFailureSnackBar(
       {required BuildContext context, required Failure failure}) {
-    //? Select an icon depending on the type of error
+    final message = Failure.dynamicMessageToString(failure.message);
     ScaffoldMessenger.of(context)
       ..clearSnackBars()
       ..showSnackBar(
@@ -21,13 +25,25 @@ class PopupUtils {
             children: [
               const Icon(Icons.error_outline, color: kRed),
               const SizedBox(width: 10),
-              Text(
-                failure.message.toString(),
-                style: kRegular.copyWith(color: kWhite, fontSize: 18),
+              Flexible(
+                child: AutoSizeText(
+                  message,
+                  maxLines: 4,
+                  overflow: TextOverflow.ellipsis,
+                  style: kRegular.copyWith(color: kWhite, fontSize: 16),
+                  minFontSize: 14,
+                ),
               ),
             ],
           ),
         ),
       );
+  }
+
+  static Future<File?> pickImage() async {
+    final XFile? pickedFile =
+        await ImagePicker().pickImage(source: ImageSource.gallery);
+    if (pickedFile != null) return File(pickedFile.path);
+    return null;
   }
 }

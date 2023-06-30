@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 
 import '../../../../core/constants/enums.dart';
-import '../../../../core/failures/failure.dart';
+import '../../../../core/failure/failure.dart';
 import '../repositories/auth_repository.dart';
 
 class GetLoginType {

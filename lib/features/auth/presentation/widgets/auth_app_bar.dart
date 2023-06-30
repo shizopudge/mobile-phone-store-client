@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:phone_store/core/presentation/animations/fade_animation_y_down.dart';
 
+import '../../../../core/presentation/animations/fade_animation_y_down.dart';
 import '../../../../core/styles/styles.dart';
 import '../bloc/auth_bloc.dart';
 

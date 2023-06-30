@@ -9,3 +9,15 @@ extension PasswordValidators on String {
     return regEx.hasMatch(this);
   }
 }
+
+extension FirstToUpperCase on String {
+  String firstToUpperCase() {
+    String str = '';
+    List<String> msg = split('');
+    msg[0] = msg[0].toUpperCase();
+    for (var item in msg) {
+      str += item;
+    }
+    return str;
+  }
+}

@@ -7,7 +7,14 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../features/auth/data/datasources/auth_local_data_source.dart';
 import '../../features/auth/data/datasources/auth_remote_data_source.dart';
 import '../../features/auth/data/repositories/auth_repository_impl.dart';
+import '../../features/auth/domain/usecases/get_current_user.dart';
+import '../../features/auth/domain/usecases/get_login_type.dart';
+import '../../features/auth/domain/usecases/login.dart';
+import '../../features/auth/domain/usecases/login_as_guest.dart';
+import '../../features/auth/domain/usecases/logout.dart';
 import '../../features/auth/domain/usecases/refresh_tokens.dart';
+import '../../features/auth/domain/usecases/register.dart';
+import '../../features/auth/presentation/bloc/auth_bloc.dart';
 import '../api/dio_client.dart';
 import '../api/interceptors.dart';
 import '../utils/app_router.dart';
@@ -35,7 +42,19 @@ Future<void> appSetup() async {
   // Interceptors initialization
   getIt<DioClient>().dio.interceptors.addAll({
     AccessInterceptor(
-        getIt<DioClient>().dio, RefreshTokens(getIt<AuthRepositoryImpl>())),
+        dio: getIt<DioClient>().dio,
+        refreshTokens: RefreshTokens(getIt<AuthRepositoryImpl>()),
+        storage: getIt<FlutterSecureStorage>()),
     const LoggerInterceptor()
   });
+
+  // Global blocs
+
+  getIt.registerSingleton(AuthBloc(
+      loginUsecase: Login(getIt<AuthRepositoryImpl>()),
+      registerUsecase: Register(getIt<AuthRepositoryImpl>()),
+      getCurrentUserUsecase: GetCurrentUser(getIt<AuthRepositoryImpl>()),
+      loginAsGuestUsecase: LoginAsGuest(getIt<AuthRepositoryImpl>()),
+      getLoginTypeUsecase: GetLoginType(getIt<AuthRepositoryImpl>()),
+      logoutUsecase: Logout(getIt<AuthRepositoryImpl>())));
 }

@@ -1,15 +1,16 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/presentation/animations/fade_animation_y_down.dart';
+import '../../../../core/presentation/widgets/casual_button.dart';
+import '../../../../core/presentation/widgets/casual_text_field.dart';
+import '../../../../core/presentation/widgets/password_checkbox.dart';
+import '../../../../core/presentation/widgets/password_text_field.dart';
 import '../../../../core/styles/styles.dart';
 import '../bloc/auth_bloc.dart';
-import 'auth_button.dart';
-import 'auth_password_checkbox.dart';
-import 'auth_password_text_field.dart';
 import 'auth_policy.dart';
-import 'auth_text_field.dart';
 
 class SignUpBody extends StatelessWidget {
   final VoidCallback switchPage;
@@ -70,10 +71,17 @@ class SignUpBody extends StatelessWidget {
                     ),
                     FadeAnimationYDown(
                       delay: .15,
-                      child: AuthTextField(
+                      child: CasualTextField(
                         controller: _emailController,
                         hintText: 'Email',
                         isValidated: state.validation.isEmailValidated,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.deny(
+                            RegExp('[ ]'),
+                          ),
+                          FilteringTextInputFormatter.allow(
+                              RegExp(r'[0-9a-zA-Z\.@]'))
+                        ],
                       ),
                     ),
                     const SizedBox(
@@ -81,10 +89,17 @@ class SignUpBody extends StatelessWidget {
                     ),
                     FadeAnimationYDown(
                       delay: .2,
-                      child: AuthTextField(
+                      child: CasualTextField(
                         controller: _usernameController,
                         hintText: 'Username',
                         isValidated: state.validation.isUsernameValidated,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.deny(
+                            RegExp('[ ]'),
+                          ),
+                          FilteringTextInputFormatter.allow(
+                              RegExp(r'[0-9a-zA-Z]'))
+                        ],
                       ),
                     ),
                     const SizedBox(
@@ -92,9 +107,8 @@ class SignUpBody extends StatelessWidget {
                     ),
                     FadeAnimationYDown(
                       delay: .25,
-                      child: AuthPasswordTextField(
+                      child: PasswordTextField(
                         passwordController: _passwordController,
-                        hintText: 'Password',
                         isAvailable: state.validation.isUsernameValidated,
                       ),
                     ),
@@ -111,17 +125,17 @@ class SignUpBody extends StatelessWidget {
                           children: [
                             PasswordCheckBox(
                               requirement: '6+ characters',
-                              isFits: state.validation.passwordValidation
+                              isValidated: state.validation.passwordValidation
                                   .isPassLongEnough,
                             ),
                             PasswordCheckBox(
                               requirement: '1 upper case letter',
-                              isFits: state.validation.passwordValidation
+                              isValidated: state.validation.passwordValidation
                                   .isPassHasUpperCaseLetter,
                             ),
                             PasswordCheckBox(
                               requirement: '1 lower case letter',
-                              isFits: state.validation.passwordValidation
+                              isValidated: state.validation.passwordValidation
                                   .isPassHasLowerCaseLetter,
                             ),
                           ],
@@ -133,7 +147,7 @@ class SignUpBody extends StatelessWidget {
                     ),
                     FadeAnimationYDown(
                       delay: .35,
-                      child: AuthButton(
+                      child: CasualButton(
                         onTap: () {
                           primaryFocus?.unfocus();
                           context

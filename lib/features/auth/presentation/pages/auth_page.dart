@@ -4,12 +4,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/presentation/widgets/overlapping_loader.dart';
 import '../../../../core/styles/styles.dart';
 import '../../../../core/utils/popup_utils.dart';
+import '../../../home/home_page.dart';
 import '../bloc/auth_bloc.dart';
 import '../widgets/auth_app_bar.dart';
 import '../widgets/auth_sign_up_body.dart';
 import '../widgets/auth_sing_in_body.dart';
 
 class AuthPage extends StatefulWidget {
+  static const String path = '/auth';
   const AuthPage({super.key});
 
   @override
@@ -27,15 +29,15 @@ class _AuthPageState extends State<AuthPage> {
 
   void _emailListener() => context
       .read<AuthBloc>()
-      .add(AuthEvent.changeEmail(email: _emailController.text.trim()));
+      .add(AuthEvent.changeEmail(_emailController.text.trim()));
 
   void _usernameListener() => context
       .read<AuthBloc>()
-      .add(AuthEvent.changeUsername(username: _usernameController.text.trim()));
+      .add(AuthEvent.changeUsername(_usernameController.text.trim()));
 
   void _passwordListener() => context
       .read<AuthBloc>()
-      .add(AuthEvent.changePassword(password: _passwordController.text.trim()));
+      .add(AuthEvent.changePassword(_passwordController.text.trim()));
 
   void _switchPage() {
     if (_pageController.page == 0) {
@@ -47,6 +49,12 @@ class _AuthPageState extends State<AuthPage> {
       _pageController.animateToPage(0,
           duration: const Duration(milliseconds: 150), curve: Curves.linear);
     }
+  }
+
+  @override
+  void initState() {
+    context.read<AuthBloc>().add(const AuthEvent.dropState());
+    super.initState();
   }
 
   void _clearTextFields() {
@@ -73,9 +81,9 @@ class _AuthPageState extends State<AuthPage> {
         final AuthStatus status = state.status;
         status.when(
           authorized: () => Navigator.of(context)
-              .pushNamedAndRemoveUntil('/home', (route) => false),
+              .pushNamedAndRemoveUntil(HomePage.path, (route) => false),
           guest: () => Navigator.of(context)
-              .pushNamedAndRemoveUntil('/home', (route) => false),
+              .pushNamedAndRemoveUntil(HomePage.path, (route) => false),
           failure: () => PopupUtils.showFailureSnackBar(
             context: context,
             failure: state.failure,

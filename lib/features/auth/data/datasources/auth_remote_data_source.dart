@@ -4,7 +4,7 @@ import 'package:dio/dio.dart';
 
 import '../../../../core/api/api_constants.dart';
 import '../../../../core/api/dio_client.dart';
-import '../../../../core/failures/failure.dart';
+import '../../../../core/failure/failure.dart';
 import '../models/auth_response/auth_response_model.dart';
 import '../models/current_user/current_user_model.dart';
 import '../models/tokens/tokens_model.dart';

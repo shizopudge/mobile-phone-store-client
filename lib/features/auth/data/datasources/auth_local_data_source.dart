@@ -2,7 +2,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../core/constants/enums.dart';
-import '../../../../core/failures/failure.dart';
+import '../../../../core/failure/failure.dart';
 import '../models/tokens/tokens_model.dart';
 
 abstract interface class AuthLocalDataSource {

@@ -2,13 +2,14 @@ import 'package:dio/dio.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 import '../../features/auth/domain/usecases/refresh_tokens.dart';
-import '../di/get_it.dart';
 import '../domain/usecases/usecase.dart';
 
 class AccessInterceptor extends Interceptor {
   final Dio dio;
   final RefreshTokens refreshTokens;
-  const AccessInterceptor(this.dio, this.refreshTokens);
+  final FlutterSecureStorage storage;
+  const AccessInterceptor(
+      {required this.dio, required this.refreshTokens, required this.storage});
 
   static const List<String> _denyRefreshPaths = [
     '/auth/login',
@@ -18,7 +19,6 @@ class AccessInterceptor extends Interceptor {
   @override
   void onRequest(
       RequestOptions options, RequestInterceptorHandler handler) async {
-    final storage = getIt<FlutterSecureStorage>();
     if (options.path == '/auth/refresh-tokens') {
       final refreshToken = await storage.read(key: 'refreshToken');
       options.headers['Authorization'] = 'Bearer $refreshToken';
@@ -35,7 +35,6 @@ class AccessInterceptor extends Interceptor {
     if (response != null) {
       final statusCode = response.statusCode;
       if (statusCode == 401 && _validatePath(response.requestOptions.path)) {
-        final storage = getIt<FlutterSecureStorage>();
         if (await storage.containsKey(key: 'refreshToken')) {
           final res = await refreshTokens.call(NoParams());
           if (res.isRight()) {

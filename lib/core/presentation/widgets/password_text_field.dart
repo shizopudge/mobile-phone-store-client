@@ -2,30 +2,30 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/styles/styles.dart';
+import '../../styles/styles.dart';
 
-class AuthPasswordTextFieldCubit extends Cubit<bool> {
-  AuthPasswordTextFieldCubit() : super(false);
+class PasswordTextFieldCubit extends Cubit<bool> {
+  PasswordTextFieldCubit() : super(false);
 
   void toggleVisibility() => state ? emit(false) : emit(true);
 }
 
-class AuthPasswordTextField extends StatelessWidget {
+class PasswordTextField extends StatelessWidget {
   final TextEditingController _passwordController;
-  final String hintText;
   final bool isAvailable;
-  const AuthPasswordTextField({
+  final String hint;
+  const PasswordTextField({
     super.key,
     required TextEditingController passwordController,
     required this.isAvailable,
-    required this.hintText,
+    this.hint = 'Password',
   }) : _passwordController = passwordController;
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => AuthPasswordTextFieldCubit(),
-      child: BlocBuilder<AuthPasswordTextFieldCubit, bool>(
+      create: (_) => PasswordTextFieldCubit(),
+      child: BlocBuilder<PasswordTextFieldCubit, bool>(
         builder: (context, state) => TextField(
           controller: _passwordController,
           inputFormatters: [
@@ -39,13 +39,13 @@ class AuthPasswordTextField extends StatelessWidget {
           cursorColor: kDarkBlue,
           obscureText: !state,
           decoration: InputDecoration(
-            hintText: hintText,
+            hintText: hint,
             hintStyle: kSemiBold.copyWith(color: kGrey, fontSize: 18),
             suffixIcon: isAvailable
                 ? state
                     ? IconButton(
                         onPressed: () => context
-                            .read<AuthPasswordTextFieldCubit>()
+                            .read<PasswordTextFieldCubit>()
                             .toggleVisibility(),
                         icon: const Icon(
                           Icons.visibility_off_outlined,
@@ -54,7 +54,7 @@ class AuthPasswordTextField extends StatelessWidget {
                       )
                     : IconButton(
                         onPressed: () => context
-                            .read<AuthPasswordTextFieldCubit>()
+                            .read<PasswordTextFieldCubit>()
                             .toggleVisibility(),
                         icon: const Icon(
                           Icons.visibility_outlined,

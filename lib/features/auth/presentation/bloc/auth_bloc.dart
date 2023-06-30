@@ -5,7 +5,7 @@ import 'package:bloc/bloc.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:equatable/equatable.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import '../../../../core/constants/enums.dart';
+import '../../../../core/domain/entities/password_validation.dart';
 import '../../domain/usecases/logout.dart';
 import '../../../../core/domain/usecases/usecase.dart';
 import '../../../../core/constants/extensions.dart';
@@ -15,7 +15,7 @@ import '../../domain/usecases/login.dart';
 import '../../domain/usecases/login_as_guest.dart';
 import '../../domain/usecases/register.dart';
 
-import '../../../../core/failures/failure.dart';
+import '../../../../core/failure/failure.dart';
 import '../../domain/entities/current_user.dart';
 
 part 'auth_event.dart';
@@ -57,13 +57,11 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
   FutureOr<void> _initial(_Initial event, Emitter<AuthState> emit) async {
     await Future.delayed(const Duration(milliseconds: 1000)); //?
-    late LoginType loginType;
     final res = _getLoginTypeUsecase.call();
     await res.fold((failure) {
       emit(AuthState(status: AuthStatus.failure, failure: failure));
       emit(const AuthState(status: AuthStatus.notAuthorized));
-    }, (r) async {
-      loginType = r;
+    }, (loginType) async {
       if (loginType.isGuest) {
         emit(state.copyWith(status: AuthStatus.guest));
       } else {
@@ -147,7 +145,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         emit(state.copyWith(status: AuthStatus.failure, failure: failure));
         _dropFailure(emit);
       },
-      (r) => emit(state.copyWith(status: AuthStatus.guest)),
+      (r) => emit(const AuthState(status: AuthStatus.guest)),
     );
   }
 

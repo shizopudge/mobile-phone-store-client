@@ -3,9 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/styles/styles.dart';
 import '../../../../core/utils/popup_utils.dart';
+import '../../../home/home_page.dart';
 import '../bloc/auth_bloc.dart';
+import 'auth_page.dart';
 
 class AuthSplashPage extends StatelessWidget {
+  static const String path = '/';
   const AuthSplashPage({super.key});
 
   @override
@@ -15,16 +18,16 @@ class AuthSplashPage extends StatelessWidget {
         final AuthStatus status = state.status;
         status.when(
           authorized: () => Navigator.of(context)
-              .pushNamedAndRemoveUntil('/home', (route) => false),
+              .pushNamedAndRemoveUntil(HomePage.path, (route) => false),
           notAuthorized: () => Navigator.of(context)
-              .pushNamedAndRemoveUntil('/auth', (route) => false),
+              .pushNamedAndRemoveUntil(AuthPage.path, (route) => false),
           guest: () => Navigator.of(context)
-              .pushNamedAndRemoveUntil('/home', (route) => false),
+              .pushNamedAndRemoveUntil(HomePage.path, (route) => false),
           failure: () {
             PopupUtils.showFailureSnackBar(
                 context: context, failure: state.failure);
             Navigator.of(context)
-                .pushNamedAndRemoveUntil('/auth', (route) => false);
+                .pushNamedAndRemoveUntil(AuthPage.path, (route) => false);
           },
         );
       },

@@ -1,13 +1,14 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/presentation/animations/fade_animation_y_down.dart';
+import '../../../../core/presentation/widgets/casual_button.dart';
+import '../../../../core/presentation/widgets/casual_text_field.dart';
+import '../../../../core/presentation/widgets/password_text_field.dart';
 import '../../../../core/styles/styles.dart';
 import '../bloc/auth_bloc.dart';
-import 'auth_button.dart';
-import 'auth_password_text_field.dart';
-import 'auth_text_field.dart';
 
 class SignInBody extends StatelessWidget {
   final VoidCallback switchPage;
@@ -62,11 +63,18 @@ class SignInBody extends StatelessWidget {
                     ),
                     FadeAnimationYDown(
                       delay: .15,
-                      child: AuthTextField(
+                      child: CasualTextField(
                         controller: _emailController,
                         hintText: 'Email',
                         isValidated: state.validation.isEmailValidated,
                         showCheckIcon: false,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.deny(
+                            RegExp('[ ]'),
+                          ),
+                          FilteringTextInputFormatter.allow(
+                              RegExp(r'[0-9a-zA-Z\.@]'))
+                        ],
                       ),
                     ),
                     const SizedBox(
@@ -74,9 +82,8 @@ class SignInBody extends StatelessWidget {
                     ),
                     FadeAnimationYDown(
                       delay: .2,
-                      child: AuthPasswordTextField(
+                      child: PasswordTextField(
                         passwordController: _passwordController,
-                        hintText: 'Password',
                         isAvailable: state.validation.isEmailValidated,
                       ),
                     ),
@@ -85,7 +92,7 @@ class SignInBody extends StatelessWidget {
                     ),
                     FadeAnimationYDown(
                       delay: .25,
-                      child: AuthButton(
+                      child: CasualButton(
                         onTap: () {
                           primaryFocus?.unfocus();
                           context.read<AuthBloc>().add(const AuthEvent.login());

@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 
 import '../../../../core/constants/enums.dart';
 import '../../../../core/constants/type_defs.dart';
-import '../../../../core/failures/failure.dart';
+import '../../../../core/failure/failure.dart';
 import '../entities/current_user.dart';
 
 abstract interface class AuthRepository {

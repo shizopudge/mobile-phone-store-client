@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 
 import '../../../../core/constants/enums.dart';
 import '../../../../core/constants/type_defs.dart';
-import '../../../../core/failures/failure.dart';
+import '../../../../core/failure/failure.dart';
 import '../../domain/entities/current_user.dart';
 import '../../domain/repositories/auth_repository.dart';
 import '../datasources/auth_local_data_source.dart';

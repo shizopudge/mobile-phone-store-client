@@ -1,31 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../../../../core/styles/styles.dart';
+import '../../styles/styles.dart';
 
-class AuthTextField extends StatelessWidget {
+class CasualTextField extends StatelessWidget {
   final TextEditingController _controller;
   final String hintText;
   final bool isValidated;
   final bool showCheckIcon;
-  const AuthTextField({
+  final List<TextInputFormatter>? inputFormatters;
+  const CasualTextField({
     super.key,
     required TextEditingController controller,
     required this.hintText,
     required this.isValidated,
     this.showCheckIcon = true,
+    this.inputFormatters,
   }) : _controller = controller;
 
   @override
   Widget build(BuildContext context) {
     return TextField(
       controller: _controller,
-      inputFormatters: [
-        FilteringTextInputFormatter.deny(
-          RegExp('[ ]'),
-        ),
-        FilteringTextInputFormatter.allow(RegExp(r'[0-9a-zA-Z\.@]'))
-      ],
+      inputFormatters: inputFormatters,
       style: kSemiBold.copyWith(color: kDarkBlue, fontSize: 18),
       cursorColor: kDarkBlue,
       decoration: InputDecoration(
