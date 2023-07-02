@@ -1,12 +1,17 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../constants/extensions.dart';
+import '../logic/auth/auth_bloc.dart';
+import '../utils/popup_utils.dart';
 
 part 'failure.freezed.dart';
 part 'failure.g.dart';
 
 @freezed
 class Failure with _$Failure {
+  const Failure._();
   const factory Failure.unknownFailure({
     @Default('Something went wrong...') String message,
   }) = UnknownFailure;
@@ -37,4 +42,25 @@ class Failure with _$Failure {
       return message.toString().firstToUpperCase();
     }
   }
+
+  void call(BuildContext context) {
+    if (isUnauthorized) {
+      callUnauthorized(context);
+    } else {
+      PopupUtils.showFailureSnackBar(context: context, failure: this);
+    }
+  }
+
+  void callUnauthorized(BuildContext context) {
+    PopupUtils.showFailureSnackBar(context: context, failure: this);
+    context.read<AuthBloc>().add(const AuthEvent.kickUnauthorizedUser());
+  }
+
+  bool _isUnauthorizedFailure() {
+    final Failure failure = this;
+    if (failure is ServerFailure && failure.statusCode == 401) return true;
+    return false;
+  }
+
+  bool get isUnauthorized => _isUnauthorizedFailure();
 }

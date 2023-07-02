@@ -132,10 +132,11 @@ class __$$UnknownFailureCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$UnknownFailure implements UnknownFailure {
+class _$UnknownFailure extends UnknownFailure {
   const _$UnknownFailure(
       {this.message = 'Something went wrong...', final String? $type})
-      : $type = $type ?? 'unknownFailure';
+      : $type = $type ?? 'unknownFailure',
+        super._();
 
   factory _$UnknownFailure.fromJson(Map<String, dynamic> json) =>
       _$$UnknownFailureFromJson(json);
@@ -249,8 +250,9 @@ class _$UnknownFailure implements UnknownFailure {
   }
 }
 
-abstract class UnknownFailure implements Failure {
+abstract class UnknownFailure extends Failure {
   const factory UnknownFailure({final String message}) = _$UnknownFailure;
+  const UnknownFailure._() : super._();
 
   factory UnknownFailure.fromJson(Map<String, dynamic> json) =
       _$UnknownFailure.fromJson;
@@ -305,13 +307,14 @@ class __$$ServerFailureCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ServerFailure implements ServerFailure {
+class _$ServerFailure extends ServerFailure {
   const _$ServerFailure(
       {required this.message,
       this.error,
       required this.statusCode,
       final String? $type})
-      : $type = $type ?? 'serverFailure';
+      : $type = $type ?? 'serverFailure',
+        super._();
 
   factory _$ServerFailure.fromJson(Map<String, dynamic> json) =>
       _$$ServerFailureFromJson(json);
@@ -432,11 +435,12 @@ class _$ServerFailure implements ServerFailure {
   }
 }
 
-abstract class ServerFailure implements Failure {
+abstract class ServerFailure extends Failure {
   const factory ServerFailure(
       {required final dynamic message,
       final String? error,
       required final int statusCode}) = _$ServerFailure;
+  const ServerFailure._() : super._();
 
   factory ServerFailure.fromJson(Map<String, dynamic> json) =
       _$ServerFailure.fromJson;
@@ -483,9 +487,10 @@ class __$$CacheFailureCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$CacheFailure implements CacheFailure {
+class _$CacheFailure extends CacheFailure {
   const _$CacheFailure({required this.message, final String? $type})
-      : $type = $type ?? 'cacheFailure';
+      : $type = $type ?? 'cacheFailure',
+        super._();
 
   factory _$CacheFailure.fromJson(Map<String, dynamic> json) =>
       _$$CacheFailureFromJson(json);
@@ -598,8 +603,9 @@ class _$CacheFailure implements CacheFailure {
   }
 }
 
-abstract class CacheFailure implements Failure {
+abstract class CacheFailure extends Failure {
   const factory CacheFailure({required final String message}) = _$CacheFailure;
+  const CacheFailure._() : super._();
 
   factory CacheFailure.fromJson(Map<String, dynamic> json) =
       _$CacheFailure.fromJson;

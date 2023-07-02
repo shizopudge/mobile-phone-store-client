@@ -13,12 +13,14 @@ class PasswordTextFieldCubit extends Cubit<bool> {
 class PasswordTextField extends StatelessWidget {
   final TextEditingController _passwordController;
   final bool isAvailable;
+  final bool autofocus;
   final String hint;
   const PasswordTextField({
     super.key,
     required TextEditingController passwordController,
     required this.isAvailable,
     this.hint = 'Password',
+    this.autofocus = false,
   }) : _passwordController = passwordController;
 
   @override
@@ -34,6 +36,7 @@ class PasswordTextField extends StatelessWidget {
             ),
             FilteringTextInputFormatter.allow(RegExp('[0-9a-zA-Z]'))
           ],
+          autofocus: autofocus,
           enabled: isAvailable,
           style: kSemiBold.copyWith(color: kDarkBlue, fontSize: 18),
           cursorColor: kDarkBlue,

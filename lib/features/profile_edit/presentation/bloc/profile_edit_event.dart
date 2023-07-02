@@ -12,4 +12,6 @@ class ProfileEditEvent with _$ProfileEditEvent {
       _ChangeNewPassword;
   const factory ProfileEditEvent.toggleEditPassword() = _ToggleEditPassword;
   const factory ProfileEditEvent.editProfile() = _EditProfile;
+  const factory ProfileEditEvent.pickImage() = _PickImage;
+  const factory ProfileEditEvent.deleteImage() = _DeleteImage;
 }

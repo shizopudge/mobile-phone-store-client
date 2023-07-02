@@ -3,6 +3,8 @@
 enum UserRole {
   CASUAL,
   ADMIN;
+
+  bool get isAdmin => this == UserRole.ADMIN;
 }
 
 enum LoginType {

@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
-import '../../features/auth/domain/usecases/refresh_tokens.dart';
+import '../domain/usecases/auth/refresh_tokens.dart';
 import '../domain/usecases/usecase.dart';
 
 class AccessInterceptor extends Interceptor {
@@ -31,19 +31,24 @@ class AccessInterceptor extends Interceptor {
 
   @override
   void onError(DioException err, ErrorInterceptorHandler handler) async {
-    final response = err.response;
-    if (response != null) {
-      final statusCode = response.statusCode;
-      if (statusCode == 401 && _validatePath(response.requestOptions.path)) {
-        if (await storage.containsKey(key: 'refreshToken')) {
-          final res = await refreshTokens.call(NoParams());
-          if (res.isRight()) {
-            return handler.resolve(await _retry(err.requestOptions));
+    try {
+      final response = err.response;
+      if (response != null) {
+        final statusCode = response.statusCode;
+        if (statusCode == 401 && _validatePath(response.requestOptions.path)) {
+          if (await storage.containsKey(key: 'refreshToken')) {
+            final res = await refreshTokens.call(NoParams());
+            if (res.isRight()) {
+              return handler.resolve(await _retry(err.requestOptions));
+            }
           }
         }
+        return handler.next(err);
       }
+      return handler.next(err);
+    } on DioException catch (e) {
+      return handler.next(e);
     }
-    return handler.next(err);
   }
 
   Future<Response<dynamic>> _retry(RequestOptions requestOptions) async {

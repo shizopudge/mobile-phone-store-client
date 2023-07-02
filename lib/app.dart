@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'core/di/get_it.dart';
+import 'core/logic/auth/auth_bloc.dart';
 import 'core/styles/styles.dart';
 import 'core/utils/app_router.dart';
-import 'features/auth/presentation/bloc/auth_bloc.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -14,7 +14,7 @@ class App extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (_) => getIt<AuthBloc>()..add(const AuthEvent.initial()),
+          create: (_) => getIt<AuthBloc>()..add(const AuthEvent.start()),
         )
       ],
       child: MaterialApp(

@@ -1,24 +1,36 @@
 import 'dart:async';
 import 'dart:io';
+import 'dart:ui';
 
 import 'package:bloc/bloc.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:equatable/equatable.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import '../../../../core/domain/entities/current_user.dart';
+import '../../../../core/domain/usecases/usecase.dart';
 
 import '../../../../core/constants/extensions.dart';
 import '../../../../core/domain/entities/password_validation.dart';
+import '../../../../core/domain/usecases/image/pick_image.dart';
 import '../../../../core/failure/failure.dart';
-import '../../../auth/domain/entities/current_user.dart';
+import '../../domain/usecases/delete_image.dart';
 import '../../domain/usecases/edit_profile.dart';
+import '../../domain/usecases/upload_image.dart';
 
 part 'profile_edit_bloc.freezed.dart';
 part 'profile_edit_event.dart';
 part 'profile_edit_state.dart';
 
 class ProfileEditBloc extends Bloc<ProfileEditEvent, ProfileEditState> {
-  ProfileEditBloc({required EditProfile editProfileUsecase})
+  ProfileEditBloc(
+      {required EditProfile editProfileUsecase,
+      required UploadUserImage uploadUserImageUsecase,
+      required PickImage pickImageUsecase,
+      required DeleteUserImage deleteUserImageUsecase})
       : _editProfileUsecase = editProfileUsecase,
+        _uploadUserImageUsecase = uploadUserImageUsecase,
+        _pickImageUsecase = pickImageUsecase,
+        _deleteUserImageUsecase = deleteUserImageUsecase,
         super(const ProfileEditState()) {
     on<_Initial>(_initial);
     on<_ChangeEmail>(_changeEmail);
@@ -27,9 +39,14 @@ class ProfileEditBloc extends Bloc<ProfileEditEvent, ProfileEditState> {
     on<_ChangeNewPassword>(_changeNewPassword);
     on<_ToggleEditPassword>(_toggleEditPassword);
     on<_EditProfile>(_editProfile);
+    on<_PickImage>(_pickImage);
+    on<_DeleteImage>(_deleteImage);
   }
 
   final EditProfile _editProfileUsecase;
+  final UploadUserImage _uploadUserImageUsecase;
+  final PickImage _pickImageUsecase;
+  final DeleteUserImage _deleteUserImageUsecase;
 
   FutureOr<void> _initial(_Initial event, Emitter<ProfileEditState> emit) {
     emit(state.copyWith(
@@ -46,7 +63,6 @@ class ProfileEditBloc extends Bloc<ProfileEditEvent, ProfileEditState> {
         email: event.email,
         validation:
             state.validation.copyWith(isEmailValidated: isEmailValidated)));
-    _isEdited(emit);
   }
 
   FutureOr<void> _changeUsername(
@@ -56,21 +72,11 @@ class ProfileEditBloc extends Bloc<ProfileEditEvent, ProfileEditState> {
         username: event.username,
         validation: state.validation
             .copyWith(isUsernameValidated: isUsernameValidated)));
-    _isEdited(emit);
   }
 
   FutureOr<void> _changePassword(
       _ChangePassword event, Emitter<ProfileEditState> emit) {
-    final bool isPassHasUpperCaseLetter = event.password.containsUpperCase();
-    final bool isPassHasLowerCaseLetter = event.password.containsLowercase();
-    final bool isPassLongEnough = event.password.length >= 6;
-    emit(state.copyWith(
-        password: event.password,
-        validation: state.validation.copyWith(
-            passwordValidation: state.validation.passwordValidation.copyWith(
-                isPassHasLowerCaseLetter: isPassHasLowerCaseLetter,
-                isPassHasUpperCaseLetter: isPassHasUpperCaseLetter,
-                isPassLongEnough: isPassLongEnough))));
+    emit(state.copyWith(password: event.password));
   }
 
   FutureOr<void> _changeNewPassword(
@@ -80,7 +86,6 @@ class ProfileEditBloc extends Bloc<ProfileEditEvent, ProfileEditState> {
     final bool isPassLongEnough = event.newPassword.length >= 6;
     emit(state.copyWith(
         newPassword: event.newPassword,
-        isEdited: true,
         validation: state.validation.copyWith(
             passwordValidation: state.validation.passwordValidation.copyWith(
                 isPassHasLowerCaseLetter: isPassHasLowerCaseLetter,
@@ -90,10 +95,10 @@ class ProfileEditBloc extends Bloc<ProfileEditEvent, ProfileEditState> {
 
   FutureOr<void> _toggleEditPassword(
       _ToggleEditPassword event, Emitter<ProfileEditState> emit) {
-    if (state.isEditPassword) {
-      emit(state.copyWith(isEditPassword: false));
+    if (state.newPassword == null) {
+      emit(state.copyWith(newPassword: ''));
     } else {
-      emit(state.copyWith(isEditPassword: true));
+      emit(state.copyWith(newPassword: null));
     }
   }
 
@@ -105,19 +110,54 @@ class ProfileEditBloc extends Bloc<ProfileEditEvent, ProfileEditState> {
         username: state.username,
         password: state.password,
         newPassword: state.newPassword));
-    res.fold((failure) {
-      emit(state.copyWith(status: ProfileEditStatus.failure, failure: failure));
-    },
-        (editedUser) => emit(state.copyWith(
-            status: ProfileEditStatus.success, currentUser: editedUser)));
+    await res.fold((failure) {
+      _emitFailure(emit, failure);
+    }, (editedUser) async {
+      if (state.image != null) {
+        final res = await _uploadUserImageUsecase
+            .call(UploadImageParams(image: state.image!));
+        res.fold((failure) {
+          _emitFailure(emit, failure);
+        }, (uploadedImage) {
+          emit(state.copyWith(
+              status: ProfileEditStatus.success,
+              currentUser: state.currentUser?.copyWith(image: uploadedImage)));
+          emit(state.copyWith(status: ProfileEditStatus.initial));
+        });
+      } else {
+        emit(state.copyWith(
+            status: ProfileEditStatus.success, currentUser: editedUser));
+        emit(state.copyWith(status: ProfileEditStatus.initial));
+      }
+    });
   }
 
-  void _isEdited(Emitter<ProfileEditState> emit) {
-    if (state.username != state.currentUser?.username ||
-        state.email != state.currentUser?.email) {
-      emit(state.copyWith(isEdited: true));
-    } else {
-      emit(state.copyWith(isEdited: false));
-    }
+  void _emitFailure(Emitter<ProfileEditState> emit, Failure failure) {
+    emit(state.copyWith(status: ProfileEditStatus.failure, failure: failure));
+    emit(state.copyWith(status: ProfileEditStatus.initial));
+  }
+
+  FutureOr<void> _pickImage(
+      _PickImage event, Emitter<ProfileEditState> emit) async {
+    emit(state.copyWith(status: ProfileEditStatus.loading));
+    final res = await _pickImageUsecase.call(NoParams());
+    res.fold((failure) {
+      _emitFailure(emit, failure);
+    },
+        (pickedImage) => emit(state.copyWith(
+            image: pickedImage, status: ProfileEditStatus.initial)));
+  }
+
+  FutureOr<void> _deleteImage(
+      _DeleteImage event, Emitter<ProfileEditState> emit) async {
+    emit(state.copyWith(status: ProfileEditStatus.loading));
+    final res = await _deleteUserImageUsecase.call(NoParams());
+    res.fold((failure) {
+      _emitFailure(emit, failure);
+    }, (r) {
+      emit(state.copyWith(
+          currentUser: state.currentUser?.copyWithNewImage(image: null),
+          status: ProfileEditStatus.success));
+    });
   }
 }

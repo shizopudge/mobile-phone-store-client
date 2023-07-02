@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'widgets/admin_interface.dart';
+import 'widgets/guest_interface.dart';
+import 'widgets/user_interface.dart';
 
-import '../../core/styles/styles.dart';
-import '../auth/presentation/bloc/auth_bloc.dart';
-import '../auth/presentation/pages/auth_page.dart';
-import '../profile/presentation/profile_page.dart';
+import '../../core/domain/entities/current_user.dart';
+import '../../core/logic/auth/auth_bloc.dart';
+import '../../core/presentation/widgets/access_listener.dart';
+import '../../core/presentation/widgets/buttons/casual_text_button.dart';
+import '../../core/presentation/widgets/pages/error_page.dart';
+import '../../core/presentation/widgets/stack_loading.dart';
 import 'cubit/home_cubit.dart';
 
 class HomePage extends StatelessWidget {
@@ -13,65 +18,33 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => HomeCubit(),
-      child: BlocListener<AuthBloc, AuthState>(
-        listener: (context, state) {
-          final AuthStatus status = state.status;
-          status.when(
-            notAuthorized: () => Navigator.of(context)
-                .pushNamedAndRemoveUntil(AuthPage.path, (route) => false),
-          );
-        },
-        child: BlocBuilder<HomeCubit, HomeState>(
-          builder: (context, state) => Scaffold(
-            backgroundColor: kWhite,
-            body: IndexedStack(
-              index: state.page,
-              children: const [
-                Text('Search'),
-                Text('Wishlist'),
-                Text('Cart'),
-                ProfilePage(),
-              ],
-            ),
-            bottomNavigationBar: BottomNavigationBar(
-              onTap: (page) => context.read<HomeCubit>().changePage(page),
-              currentIndex: state.page,
-              type: BottomNavigationBarType.fixed,
-              enableFeedback: false,
-              useLegacyColorScheme: false,
-              selectedLabelStyle:
-                  kMedium.copyWith(fontSize: 14, color: kLightBlue),
-              unselectedLabelStyle:
-                  kMedium.copyWith(fontSize: 14, color: kGrey),
-              selectedItemColor: kLightBlue,
-              unselectedItemColor: kGrey,
-              showSelectedLabels: true,
-              showUnselectedLabels: true,
-              items: const [
-                BottomNavigationBarItem(
-                    icon: Icon(
-                      Icons.search_rounded,
-                    ),
-                    label: 'Search'),
-                BottomNavigationBarItem(
-                    icon: Icon(
-                      Icons.favorite_rounded,
-                    ),
-                    label: 'Wishlist'),
-                BottomNavigationBarItem(
-                    icon: Icon(
-                      Icons.shopping_bag_rounded,
-                    ),
-                    label: 'Cart'),
-                BottomNavigationBarItem(
-                    icon: Icon(
-                      Icons.person_rounded,
-                    ),
-                    label: 'Profile'),
-              ],
-            ),
+    final isLoading = context.watch<AuthBloc>().state.isLoading;
+    return AccessListener(
+      child: StackLoading(
+        isLoading: isLoading,
+        child: BlocProvider(
+          create: (_) => HomeCubit(),
+          child: BlocBuilder<AuthBloc, AuthState>(
+            buildWhen: (previous, current) => !current.isUnauthorized,
+            builder: (context, state) {
+              final CurrentUser? user = state.user;
+              if (user != null) {
+                if (user.isAdmin) {
+                  return const AdminInterface();
+                }
+                return const UserInterface();
+              } else if (state.isGuest) {
+                return const GuestInterface();
+              }
+              return ErrorPage(
+                action: CasualTextButton(
+                  onTap: () {
+                    //TODO! СБРАСЫВАТь СТЕЙТ ВСЕГО ПРИЛОЖЕНИЯ И ЧИСТИТЬ ВЕСЬ КЕШ
+                  },
+                  text: 'Reload app',
+                ),
+              );
+            },
           ),
         ),
       ),

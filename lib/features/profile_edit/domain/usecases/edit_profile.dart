@@ -1,9 +1,9 @@
 import 'package:equatable/equatable.dart';
-import '../repositories/profile_edit_repository.dart';
 
 import '../../../../core/constants/type_defs.dart';
+import '../../../../core/domain/entities/current_user.dart';
 import '../../../../core/domain/usecases/usecase.dart';
-import '../../../auth/domain/entities/current_user.dart';
+import '../repositories/profile_edit_repository.dart';
 
 class EditProfile implements UseCase<CurrentUser, EditProfileParams> {
   final ProfileEditRepository repository;

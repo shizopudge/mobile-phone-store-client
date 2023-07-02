@@ -25,6 +25,8 @@ mixin _$ProfileEditEvent {
     required TResult Function(String newPassword) changeNewPassword,
     required TResult Function() toggleEditPassword,
     required TResult Function() editProfile,
+    required TResult Function() pickImage,
+    required TResult Function() deleteImage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -36,6 +38,8 @@ mixin _$ProfileEditEvent {
     TResult? Function(String newPassword)? changeNewPassword,
     TResult? Function()? toggleEditPassword,
     TResult? Function()? editProfile,
+    TResult? Function()? pickImage,
+    TResult? Function()? deleteImage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -47,6 +51,8 @@ mixin _$ProfileEditEvent {
     TResult Function(String newPassword)? changeNewPassword,
     TResult Function()? toggleEditPassword,
     TResult Function()? editProfile,
+    TResult Function()? pickImage,
+    TResult Function()? deleteImage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -59,6 +65,8 @@ mixin _$ProfileEditEvent {
     required TResult Function(_ChangeNewPassword value) changeNewPassword,
     required TResult Function(_ToggleEditPassword value) toggleEditPassword,
     required TResult Function(_EditProfile value) editProfile,
+    required TResult Function(_PickImage value) pickImage,
+    required TResult Function(_DeleteImage value) deleteImage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -70,6 +78,8 @@ mixin _$ProfileEditEvent {
     TResult? Function(_ChangeNewPassword value)? changeNewPassword,
     TResult? Function(_ToggleEditPassword value)? toggleEditPassword,
     TResult? Function(_EditProfile value)? editProfile,
+    TResult? Function(_PickImage value)? pickImage,
+    TResult? Function(_DeleteImage value)? deleteImage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -81,6 +91,8 @@ mixin _$ProfileEditEvent {
     TResult Function(_ChangeNewPassword value)? changeNewPassword,
     TResult Function(_ToggleEditPassword value)? toggleEditPassword,
     TResult Function(_EditProfile value)? editProfile,
+    TResult Function(_PickImage value)? pickImage,
+    TResult Function(_DeleteImage value)? deleteImage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -175,6 +187,8 @@ class _$_Initial implements _Initial {
     required TResult Function(String newPassword) changeNewPassword,
     required TResult Function() toggleEditPassword,
     required TResult Function() editProfile,
+    required TResult Function() pickImage,
+    required TResult Function() deleteImage,
   }) {
     return initial(currentUser);
   }
@@ -189,6 +203,8 @@ class _$_Initial implements _Initial {
     TResult? Function(String newPassword)? changeNewPassword,
     TResult? Function()? toggleEditPassword,
     TResult? Function()? editProfile,
+    TResult? Function()? pickImage,
+    TResult? Function()? deleteImage,
   }) {
     return initial?.call(currentUser);
   }
@@ -203,6 +219,8 @@ class _$_Initial implements _Initial {
     TResult Function(String newPassword)? changeNewPassword,
     TResult Function()? toggleEditPassword,
     TResult Function()? editProfile,
+    TResult Function()? pickImage,
+    TResult Function()? deleteImage,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -221,6 +239,8 @@ class _$_Initial implements _Initial {
     required TResult Function(_ChangeNewPassword value) changeNewPassword,
     required TResult Function(_ToggleEditPassword value) toggleEditPassword,
     required TResult Function(_EditProfile value) editProfile,
+    required TResult Function(_PickImage value) pickImage,
+    required TResult Function(_DeleteImage value) deleteImage,
   }) {
     return initial(this);
   }
@@ -235,6 +255,8 @@ class _$_Initial implements _Initial {
     TResult? Function(_ChangeNewPassword value)? changeNewPassword,
     TResult? Function(_ToggleEditPassword value)? toggleEditPassword,
     TResult? Function(_EditProfile value)? editProfile,
+    TResult? Function(_PickImage value)? pickImage,
+    TResult? Function(_DeleteImage value)? deleteImage,
   }) {
     return initial?.call(this);
   }
@@ -249,6 +271,8 @@ class _$_Initial implements _Initial {
     TResult Function(_ChangeNewPassword value)? changeNewPassword,
     TResult Function(_ToggleEditPassword value)? toggleEditPassword,
     TResult Function(_EditProfile value)? editProfile,
+    TResult Function(_PickImage value)? pickImage,
+    TResult Function(_DeleteImage value)? deleteImage,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -338,6 +362,8 @@ class _$_ChangeEmail implements _ChangeEmail {
     required TResult Function(String newPassword) changeNewPassword,
     required TResult Function() toggleEditPassword,
     required TResult Function() editProfile,
+    required TResult Function() pickImage,
+    required TResult Function() deleteImage,
   }) {
     return changeEmail(email);
   }
@@ -352,6 +378,8 @@ class _$_ChangeEmail implements _ChangeEmail {
     TResult? Function(String newPassword)? changeNewPassword,
     TResult? Function()? toggleEditPassword,
     TResult? Function()? editProfile,
+    TResult? Function()? pickImage,
+    TResult? Function()? deleteImage,
   }) {
     return changeEmail?.call(email);
   }
@@ -366,6 +394,8 @@ class _$_ChangeEmail implements _ChangeEmail {
     TResult Function(String newPassword)? changeNewPassword,
     TResult Function()? toggleEditPassword,
     TResult Function()? editProfile,
+    TResult Function()? pickImage,
+    TResult Function()? deleteImage,
     required TResult orElse(),
   }) {
     if (changeEmail != null) {
@@ -384,6 +414,8 @@ class _$_ChangeEmail implements _ChangeEmail {
     required TResult Function(_ChangeNewPassword value) changeNewPassword,
     required TResult Function(_ToggleEditPassword value) toggleEditPassword,
     required TResult Function(_EditProfile value) editProfile,
+    required TResult Function(_PickImage value) pickImage,
+    required TResult Function(_DeleteImage value) deleteImage,
   }) {
     return changeEmail(this);
   }
@@ -398,6 +430,8 @@ class _$_ChangeEmail implements _ChangeEmail {
     TResult? Function(_ChangeNewPassword value)? changeNewPassword,
     TResult? Function(_ToggleEditPassword value)? toggleEditPassword,
     TResult? Function(_EditProfile value)? editProfile,
+    TResult? Function(_PickImage value)? pickImage,
+    TResult? Function(_DeleteImage value)? deleteImage,
   }) {
     return changeEmail?.call(this);
   }
@@ -412,6 +446,8 @@ class _$_ChangeEmail implements _ChangeEmail {
     TResult Function(_ChangeNewPassword value)? changeNewPassword,
     TResult Function(_ToggleEditPassword value)? toggleEditPassword,
     TResult Function(_EditProfile value)? editProfile,
+    TResult Function(_PickImage value)? pickImage,
+    TResult Function(_DeleteImage value)? deleteImage,
     required TResult orElse(),
   }) {
     if (changeEmail != null) {
@@ -502,6 +538,8 @@ class _$_ChangeUsername implements _ChangeUsername {
     required TResult Function(String newPassword) changeNewPassword,
     required TResult Function() toggleEditPassword,
     required TResult Function() editProfile,
+    required TResult Function() pickImage,
+    required TResult Function() deleteImage,
   }) {
     return changeUsername(username);
   }
@@ -516,6 +554,8 @@ class _$_ChangeUsername implements _ChangeUsername {
     TResult? Function(String newPassword)? changeNewPassword,
     TResult? Function()? toggleEditPassword,
     TResult? Function()? editProfile,
+    TResult? Function()? pickImage,
+    TResult? Function()? deleteImage,
   }) {
     return changeUsername?.call(username);
   }
@@ -530,6 +570,8 @@ class _$_ChangeUsername implements _ChangeUsername {
     TResult Function(String newPassword)? changeNewPassword,
     TResult Function()? toggleEditPassword,
     TResult Function()? editProfile,
+    TResult Function()? pickImage,
+    TResult Function()? deleteImage,
     required TResult orElse(),
   }) {
     if (changeUsername != null) {
@@ -548,6 +590,8 @@ class _$_ChangeUsername implements _ChangeUsername {
     required TResult Function(_ChangeNewPassword value) changeNewPassword,
     required TResult Function(_ToggleEditPassword value) toggleEditPassword,
     required TResult Function(_EditProfile value) editProfile,
+    required TResult Function(_PickImage value) pickImage,
+    required TResult Function(_DeleteImage value) deleteImage,
   }) {
     return changeUsername(this);
   }
@@ -562,6 +606,8 @@ class _$_ChangeUsername implements _ChangeUsername {
     TResult? Function(_ChangeNewPassword value)? changeNewPassword,
     TResult? Function(_ToggleEditPassword value)? toggleEditPassword,
     TResult? Function(_EditProfile value)? editProfile,
+    TResult? Function(_PickImage value)? pickImage,
+    TResult? Function(_DeleteImage value)? deleteImage,
   }) {
     return changeUsername?.call(this);
   }
@@ -576,6 +622,8 @@ class _$_ChangeUsername implements _ChangeUsername {
     TResult Function(_ChangeNewPassword value)? changeNewPassword,
     TResult Function(_ToggleEditPassword value)? toggleEditPassword,
     TResult Function(_EditProfile value)? editProfile,
+    TResult Function(_PickImage value)? pickImage,
+    TResult Function(_DeleteImage value)? deleteImage,
     required TResult orElse(),
   }) {
     if (changeUsername != null) {
@@ -666,6 +714,8 @@ class _$_ChangePassword implements _ChangePassword {
     required TResult Function(String newPassword) changeNewPassword,
     required TResult Function() toggleEditPassword,
     required TResult Function() editProfile,
+    required TResult Function() pickImage,
+    required TResult Function() deleteImage,
   }) {
     return changePassword(password);
   }
@@ -680,6 +730,8 @@ class _$_ChangePassword implements _ChangePassword {
     TResult? Function(String newPassword)? changeNewPassword,
     TResult? Function()? toggleEditPassword,
     TResult? Function()? editProfile,
+    TResult? Function()? pickImage,
+    TResult? Function()? deleteImage,
   }) {
     return changePassword?.call(password);
   }
@@ -694,6 +746,8 @@ class _$_ChangePassword implements _ChangePassword {
     TResult Function(String newPassword)? changeNewPassword,
     TResult Function()? toggleEditPassword,
     TResult Function()? editProfile,
+    TResult Function()? pickImage,
+    TResult Function()? deleteImage,
     required TResult orElse(),
   }) {
     if (changePassword != null) {
@@ -712,6 +766,8 @@ class _$_ChangePassword implements _ChangePassword {
     required TResult Function(_ChangeNewPassword value) changeNewPassword,
     required TResult Function(_ToggleEditPassword value) toggleEditPassword,
     required TResult Function(_EditProfile value) editProfile,
+    required TResult Function(_PickImage value) pickImage,
+    required TResult Function(_DeleteImage value) deleteImage,
   }) {
     return changePassword(this);
   }
@@ -726,6 +782,8 @@ class _$_ChangePassword implements _ChangePassword {
     TResult? Function(_ChangeNewPassword value)? changeNewPassword,
     TResult? Function(_ToggleEditPassword value)? toggleEditPassword,
     TResult? Function(_EditProfile value)? editProfile,
+    TResult? Function(_PickImage value)? pickImage,
+    TResult? Function(_DeleteImage value)? deleteImage,
   }) {
     return changePassword?.call(this);
   }
@@ -740,6 +798,8 @@ class _$_ChangePassword implements _ChangePassword {
     TResult Function(_ChangeNewPassword value)? changeNewPassword,
     TResult Function(_ToggleEditPassword value)? toggleEditPassword,
     TResult Function(_EditProfile value)? editProfile,
+    TResult Function(_PickImage value)? pickImage,
+    TResult Function(_DeleteImage value)? deleteImage,
     required TResult orElse(),
   }) {
     if (changePassword != null) {
@@ -831,6 +891,8 @@ class _$_ChangeNewPassword implements _ChangeNewPassword {
     required TResult Function(String newPassword) changeNewPassword,
     required TResult Function() toggleEditPassword,
     required TResult Function() editProfile,
+    required TResult Function() pickImage,
+    required TResult Function() deleteImage,
   }) {
     return changeNewPassword(newPassword);
   }
@@ -845,6 +907,8 @@ class _$_ChangeNewPassword implements _ChangeNewPassword {
     TResult? Function(String newPassword)? changeNewPassword,
     TResult? Function()? toggleEditPassword,
     TResult? Function()? editProfile,
+    TResult? Function()? pickImage,
+    TResult? Function()? deleteImage,
   }) {
     return changeNewPassword?.call(newPassword);
   }
@@ -859,6 +923,8 @@ class _$_ChangeNewPassword implements _ChangeNewPassword {
     TResult Function(String newPassword)? changeNewPassword,
     TResult Function()? toggleEditPassword,
     TResult Function()? editProfile,
+    TResult Function()? pickImage,
+    TResult Function()? deleteImage,
     required TResult orElse(),
   }) {
     if (changeNewPassword != null) {
@@ -877,6 +943,8 @@ class _$_ChangeNewPassword implements _ChangeNewPassword {
     required TResult Function(_ChangeNewPassword value) changeNewPassword,
     required TResult Function(_ToggleEditPassword value) toggleEditPassword,
     required TResult Function(_EditProfile value) editProfile,
+    required TResult Function(_PickImage value) pickImage,
+    required TResult Function(_DeleteImage value) deleteImage,
   }) {
     return changeNewPassword(this);
   }
@@ -891,6 +959,8 @@ class _$_ChangeNewPassword implements _ChangeNewPassword {
     TResult? Function(_ChangeNewPassword value)? changeNewPassword,
     TResult? Function(_ToggleEditPassword value)? toggleEditPassword,
     TResult? Function(_EditProfile value)? editProfile,
+    TResult? Function(_PickImage value)? pickImage,
+    TResult? Function(_DeleteImage value)? deleteImage,
   }) {
     return changeNewPassword?.call(this);
   }
@@ -905,6 +975,8 @@ class _$_ChangeNewPassword implements _ChangeNewPassword {
     TResult Function(_ChangeNewPassword value)? changeNewPassword,
     TResult Function(_ToggleEditPassword value)? toggleEditPassword,
     TResult Function(_EditProfile value)? editProfile,
+    TResult Function(_PickImage value)? pickImage,
+    TResult Function(_DeleteImage value)? deleteImage,
     required TResult orElse(),
   }) {
     if (changeNewPassword != null) {
@@ -969,6 +1041,8 @@ class _$_ToggleEditPassword implements _ToggleEditPassword {
     required TResult Function(String newPassword) changeNewPassword,
     required TResult Function() toggleEditPassword,
     required TResult Function() editProfile,
+    required TResult Function() pickImage,
+    required TResult Function() deleteImage,
   }) {
     return toggleEditPassword();
   }
@@ -983,6 +1057,8 @@ class _$_ToggleEditPassword implements _ToggleEditPassword {
     TResult? Function(String newPassword)? changeNewPassword,
     TResult? Function()? toggleEditPassword,
     TResult? Function()? editProfile,
+    TResult? Function()? pickImage,
+    TResult? Function()? deleteImage,
   }) {
     return toggleEditPassword?.call();
   }
@@ -997,6 +1073,8 @@ class _$_ToggleEditPassword implements _ToggleEditPassword {
     TResult Function(String newPassword)? changeNewPassword,
     TResult Function()? toggleEditPassword,
     TResult Function()? editProfile,
+    TResult Function()? pickImage,
+    TResult Function()? deleteImage,
     required TResult orElse(),
   }) {
     if (toggleEditPassword != null) {
@@ -1015,6 +1093,8 @@ class _$_ToggleEditPassword implements _ToggleEditPassword {
     required TResult Function(_ChangeNewPassword value) changeNewPassword,
     required TResult Function(_ToggleEditPassword value) toggleEditPassword,
     required TResult Function(_EditProfile value) editProfile,
+    required TResult Function(_PickImage value) pickImage,
+    required TResult Function(_DeleteImage value) deleteImage,
   }) {
     return toggleEditPassword(this);
   }
@@ -1029,6 +1109,8 @@ class _$_ToggleEditPassword implements _ToggleEditPassword {
     TResult? Function(_ChangeNewPassword value)? changeNewPassword,
     TResult? Function(_ToggleEditPassword value)? toggleEditPassword,
     TResult? Function(_EditProfile value)? editProfile,
+    TResult? Function(_PickImage value)? pickImage,
+    TResult? Function(_DeleteImage value)? deleteImage,
   }) {
     return toggleEditPassword?.call(this);
   }
@@ -1043,6 +1125,8 @@ class _$_ToggleEditPassword implements _ToggleEditPassword {
     TResult Function(_ChangeNewPassword value)? changeNewPassword,
     TResult Function(_ToggleEditPassword value)? toggleEditPassword,
     TResult Function(_EditProfile value)? editProfile,
+    TResult Function(_PickImage value)? pickImage,
+    TResult Function(_DeleteImage value)? deleteImage,
     required TResult orElse(),
   }) {
     if (toggleEditPassword != null) {
@@ -1101,6 +1185,8 @@ class _$_EditProfile implements _EditProfile {
     required TResult Function(String newPassword) changeNewPassword,
     required TResult Function() toggleEditPassword,
     required TResult Function() editProfile,
+    required TResult Function() pickImage,
+    required TResult Function() deleteImage,
   }) {
     return editProfile();
   }
@@ -1115,6 +1201,8 @@ class _$_EditProfile implements _EditProfile {
     TResult? Function(String newPassword)? changeNewPassword,
     TResult? Function()? toggleEditPassword,
     TResult? Function()? editProfile,
+    TResult? Function()? pickImage,
+    TResult? Function()? deleteImage,
   }) {
     return editProfile?.call();
   }
@@ -1129,6 +1217,8 @@ class _$_EditProfile implements _EditProfile {
     TResult Function(String newPassword)? changeNewPassword,
     TResult Function()? toggleEditPassword,
     TResult Function()? editProfile,
+    TResult Function()? pickImage,
+    TResult Function()? deleteImage,
     required TResult orElse(),
   }) {
     if (editProfile != null) {
@@ -1147,6 +1237,8 @@ class _$_EditProfile implements _EditProfile {
     required TResult Function(_ChangeNewPassword value) changeNewPassword,
     required TResult Function(_ToggleEditPassword value) toggleEditPassword,
     required TResult Function(_EditProfile value) editProfile,
+    required TResult Function(_PickImage value) pickImage,
+    required TResult Function(_DeleteImage value) deleteImage,
   }) {
     return editProfile(this);
   }
@@ -1161,6 +1253,8 @@ class _$_EditProfile implements _EditProfile {
     TResult? Function(_ChangeNewPassword value)? changeNewPassword,
     TResult? Function(_ToggleEditPassword value)? toggleEditPassword,
     TResult? Function(_EditProfile value)? editProfile,
+    TResult? Function(_PickImage value)? pickImage,
+    TResult? Function(_DeleteImage value)? deleteImage,
   }) {
     return editProfile?.call(this);
   }
@@ -1175,6 +1269,8 @@ class _$_EditProfile implements _EditProfile {
     TResult Function(_ChangeNewPassword value)? changeNewPassword,
     TResult Function(_ToggleEditPassword value)? toggleEditPassword,
     TResult Function(_EditProfile value)? editProfile,
+    TResult Function(_PickImage value)? pickImage,
+    TResult Function(_DeleteImage value)? deleteImage,
     required TResult orElse(),
   }) {
     if (editProfile != null) {
@@ -1189,18 +1285,304 @@ abstract class _EditProfile implements ProfileEditEvent {
 }
 
 /// @nodoc
+abstract class _$$_PickImageCopyWith<$Res> {
+  factory _$$_PickImageCopyWith(
+          _$_PickImage value, $Res Function(_$_PickImage) then) =
+      __$$_PickImageCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_PickImageCopyWithImpl<$Res>
+    extends _$ProfileEditEventCopyWithImpl<$Res, _$_PickImage>
+    implements _$$_PickImageCopyWith<$Res> {
+  __$$_PickImageCopyWithImpl(
+      _$_PickImage _value, $Res Function(_$_PickImage) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_PickImage implements _PickImage {
+  const _$_PickImage();
+
+  @override
+  String toString() {
+    return 'ProfileEditEvent.pickImage()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_PickImage);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(CurrentUser currentUser) initial,
+    required TResult Function(String email) changeEmail,
+    required TResult Function(String username) changeUsername,
+    required TResult Function(String password) changePassword,
+    required TResult Function(String newPassword) changeNewPassword,
+    required TResult Function() toggleEditPassword,
+    required TResult Function() editProfile,
+    required TResult Function() pickImage,
+    required TResult Function() deleteImage,
+  }) {
+    return pickImage();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(CurrentUser currentUser)? initial,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String username)? changeUsername,
+    TResult? Function(String password)? changePassword,
+    TResult? Function(String newPassword)? changeNewPassword,
+    TResult? Function()? toggleEditPassword,
+    TResult? Function()? editProfile,
+    TResult? Function()? pickImage,
+    TResult? Function()? deleteImage,
+  }) {
+    return pickImage?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(CurrentUser currentUser)? initial,
+    TResult Function(String email)? changeEmail,
+    TResult Function(String username)? changeUsername,
+    TResult Function(String password)? changePassword,
+    TResult Function(String newPassword)? changeNewPassword,
+    TResult Function()? toggleEditPassword,
+    TResult Function()? editProfile,
+    TResult Function()? pickImage,
+    TResult Function()? deleteImage,
+    required TResult orElse(),
+  }) {
+    if (pickImage != null) {
+      return pickImage();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_ChangeEmail value) changeEmail,
+    required TResult Function(_ChangeUsername value) changeUsername,
+    required TResult Function(_ChangePassword value) changePassword,
+    required TResult Function(_ChangeNewPassword value) changeNewPassword,
+    required TResult Function(_ToggleEditPassword value) toggleEditPassword,
+    required TResult Function(_EditProfile value) editProfile,
+    required TResult Function(_PickImage value) pickImage,
+    required TResult Function(_DeleteImage value) deleteImage,
+  }) {
+    return pickImage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangeUsername value)? changeUsername,
+    TResult? Function(_ChangePassword value)? changePassword,
+    TResult? Function(_ChangeNewPassword value)? changeNewPassword,
+    TResult? Function(_ToggleEditPassword value)? toggleEditPassword,
+    TResult? Function(_EditProfile value)? editProfile,
+    TResult? Function(_PickImage value)? pickImage,
+    TResult? Function(_DeleteImage value)? deleteImage,
+  }) {
+    return pickImage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_ChangeEmail value)? changeEmail,
+    TResult Function(_ChangeUsername value)? changeUsername,
+    TResult Function(_ChangePassword value)? changePassword,
+    TResult Function(_ChangeNewPassword value)? changeNewPassword,
+    TResult Function(_ToggleEditPassword value)? toggleEditPassword,
+    TResult Function(_EditProfile value)? editProfile,
+    TResult Function(_PickImage value)? pickImage,
+    TResult Function(_DeleteImage value)? deleteImage,
+    required TResult orElse(),
+  }) {
+    if (pickImage != null) {
+      return pickImage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PickImage implements ProfileEditEvent {
+  const factory _PickImage() = _$_PickImage;
+}
+
+/// @nodoc
+abstract class _$$_DeleteImageCopyWith<$Res> {
+  factory _$$_DeleteImageCopyWith(
+          _$_DeleteImage value, $Res Function(_$_DeleteImage) then) =
+      __$$_DeleteImageCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_DeleteImageCopyWithImpl<$Res>
+    extends _$ProfileEditEventCopyWithImpl<$Res, _$_DeleteImage>
+    implements _$$_DeleteImageCopyWith<$Res> {
+  __$$_DeleteImageCopyWithImpl(
+      _$_DeleteImage _value, $Res Function(_$_DeleteImage) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_DeleteImage implements _DeleteImage {
+  const _$_DeleteImage();
+
+  @override
+  String toString() {
+    return 'ProfileEditEvent.deleteImage()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_DeleteImage);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(CurrentUser currentUser) initial,
+    required TResult Function(String email) changeEmail,
+    required TResult Function(String username) changeUsername,
+    required TResult Function(String password) changePassword,
+    required TResult Function(String newPassword) changeNewPassword,
+    required TResult Function() toggleEditPassword,
+    required TResult Function() editProfile,
+    required TResult Function() pickImage,
+    required TResult Function() deleteImage,
+  }) {
+    return deleteImage();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(CurrentUser currentUser)? initial,
+    TResult? Function(String email)? changeEmail,
+    TResult? Function(String username)? changeUsername,
+    TResult? Function(String password)? changePassword,
+    TResult? Function(String newPassword)? changeNewPassword,
+    TResult? Function()? toggleEditPassword,
+    TResult? Function()? editProfile,
+    TResult? Function()? pickImage,
+    TResult? Function()? deleteImage,
+  }) {
+    return deleteImage?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(CurrentUser currentUser)? initial,
+    TResult Function(String email)? changeEmail,
+    TResult Function(String username)? changeUsername,
+    TResult Function(String password)? changePassword,
+    TResult Function(String newPassword)? changeNewPassword,
+    TResult Function()? toggleEditPassword,
+    TResult Function()? editProfile,
+    TResult Function()? pickImage,
+    TResult Function()? deleteImage,
+    required TResult orElse(),
+  }) {
+    if (deleteImage != null) {
+      return deleteImage();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_ChangeEmail value) changeEmail,
+    required TResult Function(_ChangeUsername value) changeUsername,
+    required TResult Function(_ChangePassword value) changePassword,
+    required TResult Function(_ChangeNewPassword value) changeNewPassword,
+    required TResult Function(_ToggleEditPassword value) toggleEditPassword,
+    required TResult Function(_EditProfile value) editProfile,
+    required TResult Function(_PickImage value) pickImage,
+    required TResult Function(_DeleteImage value) deleteImage,
+  }) {
+    return deleteImage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangeUsername value)? changeUsername,
+    TResult? Function(_ChangePassword value)? changePassword,
+    TResult? Function(_ChangeNewPassword value)? changeNewPassword,
+    TResult? Function(_ToggleEditPassword value)? toggleEditPassword,
+    TResult? Function(_EditProfile value)? editProfile,
+    TResult? Function(_PickImage value)? pickImage,
+    TResult? Function(_DeleteImage value)? deleteImage,
+  }) {
+    return deleteImage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_ChangeEmail value)? changeEmail,
+    TResult Function(_ChangeUsername value)? changeUsername,
+    TResult Function(_ChangePassword value)? changePassword,
+    TResult Function(_ChangeNewPassword value)? changeNewPassword,
+    TResult Function(_ToggleEditPassword value)? toggleEditPassword,
+    TResult Function(_EditProfile value)? editProfile,
+    TResult Function(_PickImage value)? pickImage,
+    TResult Function(_DeleteImage value)? deleteImage,
+    required TResult orElse(),
+  }) {
+    if (deleteImage != null) {
+      return deleteImage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DeleteImage implements ProfileEditEvent {
+  const factory _DeleteImage() = _$_DeleteImage;
+}
+
+/// @nodoc
 mixin _$ProfileEditState {
   String get email => throw _privateConstructorUsedError;
   String get username => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
-  String get newPassword => throw _privateConstructorUsedError;
-  bool get isEdited => throw _privateConstructorUsedError;
-  bool get isEditPassword => throw _privateConstructorUsedError;
   ProfileEditValidation get validation => throw _privateConstructorUsedError;
   ProfileEditStatus get status => throw _privateConstructorUsedError;
   Failure get failure => throw _privateConstructorUsedError;
   File? get image => throw _privateConstructorUsedError;
   CurrentUser? get currentUser => throw _privateConstructorUsedError;
+  String? get newPassword => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ProfileEditStateCopyWith<ProfileEditState> get copyWith =>
@@ -1217,14 +1599,12 @@ abstract class $ProfileEditStateCopyWith<$Res> {
       {String email,
       String username,
       String password,
-      String newPassword,
-      bool isEdited,
-      bool isEditPassword,
       ProfileEditValidation validation,
       ProfileEditStatus status,
       Failure failure,
       File? image,
-      CurrentUser? currentUser});
+      CurrentUser? currentUser,
+      String? newPassword});
 
   $FailureCopyWith<$Res> get failure;
 }
@@ -1245,14 +1625,12 @@ class _$ProfileEditStateCopyWithImpl<$Res, $Val extends ProfileEditState>
     Object? email = null,
     Object? username = null,
     Object? password = null,
-    Object? newPassword = null,
-    Object? isEdited = null,
-    Object? isEditPassword = null,
     Object? validation = null,
     Object? status = null,
     Object? failure = null,
     Object? image = freezed,
     Object? currentUser = freezed,
+    Object? newPassword = freezed,
   }) {
     return _then(_value.copyWith(
       email: null == email
@@ -1267,18 +1645,6 @@ class _$ProfileEditStateCopyWithImpl<$Res, $Val extends ProfileEditState>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
-      newPassword: null == newPassword
-          ? _value.newPassword
-          : newPassword // ignore: cast_nullable_to_non_nullable
-              as String,
-      isEdited: null == isEdited
-          ? _value.isEdited
-          : isEdited // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isEditPassword: null == isEditPassword
-          ? _value.isEditPassword
-          : isEditPassword // ignore: cast_nullable_to_non_nullable
-              as bool,
       validation: null == validation
           ? _value.validation
           : validation // ignore: cast_nullable_to_non_nullable
@@ -1299,6 +1665,10 @@ class _$ProfileEditStateCopyWithImpl<$Res, $Val extends ProfileEditState>
           ? _value.currentUser
           : currentUser // ignore: cast_nullable_to_non_nullable
               as CurrentUser?,
+      newPassword: freezed == newPassword
+          ? _value.newPassword
+          : newPassword // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 
@@ -1323,14 +1693,12 @@ abstract class _$$_ProfileEditStateCopyWith<$Res>
       {String email,
       String username,
       String password,
-      String newPassword,
-      bool isEdited,
-      bool isEditPassword,
       ProfileEditValidation validation,
       ProfileEditStatus status,
       Failure failure,
       File? image,
-      CurrentUser? currentUser});
+      CurrentUser? currentUser,
+      String? newPassword});
 
   @override
   $FailureCopyWith<$Res> get failure;
@@ -1350,14 +1718,12 @@ class __$$_ProfileEditStateCopyWithImpl<$Res>
     Object? email = null,
     Object? username = null,
     Object? password = null,
-    Object? newPassword = null,
-    Object? isEdited = null,
-    Object? isEditPassword = null,
     Object? validation = null,
     Object? status = null,
     Object? failure = null,
     Object? image = freezed,
     Object? currentUser = freezed,
+    Object? newPassword = freezed,
   }) {
     return _then(_$_ProfileEditState(
       email: null == email
@@ -1372,18 +1738,6 @@ class __$$_ProfileEditStateCopyWithImpl<$Res>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
-      newPassword: null == newPassword
-          ? _value.newPassword
-          : newPassword // ignore: cast_nullable_to_non_nullable
-              as String,
-      isEdited: null == isEdited
-          ? _value.isEdited
-          : isEdited // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isEditPassword: null == isEditPassword
-          ? _value.isEditPassword
-          : isEditPassword // ignore: cast_nullable_to_non_nullable
-              as bool,
       validation: null == validation
           ? _value.validation
           : validation // ignore: cast_nullable_to_non_nullable
@@ -1404,25 +1758,28 @@ class __$$_ProfileEditStateCopyWithImpl<$Res>
           ? _value.currentUser
           : currentUser // ignore: cast_nullable_to_non_nullable
               as CurrentUser?,
+      newPassword: freezed == newPassword
+          ? _value.newPassword
+          : newPassword // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_ProfileEditState implements _ProfileEditState {
+class _$_ProfileEditState extends _ProfileEditState {
   const _$_ProfileEditState(
       {this.email = '',
       this.username = '',
       this.password = '',
-      this.newPassword = '',
-      this.isEdited = false,
-      this.isEditPassword = false,
       this.validation = const ProfileEditValidation(),
       this.status = ProfileEditStatus.initial,
       this.failure = const UnknownFailure(),
       this.image,
-      this.currentUser});
+      this.currentUser,
+      this.newPassword})
+      : super._();
 
   @override
   @JsonKey()
@@ -1433,15 +1790,6 @@ class _$_ProfileEditState implements _ProfileEditState {
   @override
   @JsonKey()
   final String password;
-  @override
-  @JsonKey()
-  final String newPassword;
-  @override
-  @JsonKey()
-  final bool isEdited;
-  @override
-  @JsonKey()
-  final bool isEditPassword;
   @override
   @JsonKey()
   final ProfileEditValidation validation;
@@ -1455,10 +1803,12 @@ class _$_ProfileEditState implements _ProfileEditState {
   final File? image;
   @override
   final CurrentUser? currentUser;
+  @override
+  final String? newPassword;
 
   @override
   String toString() {
-    return 'ProfileEditState(email: $email, username: $username, password: $password, newPassword: $newPassword, isEdited: $isEdited, isEditPassword: $isEditPassword, validation: $validation, status: $status, failure: $failure, image: $image, currentUser: $currentUser)';
+    return 'ProfileEditState(email: $email, username: $username, password: $password, validation: $validation, status: $status, failure: $failure, image: $image, currentUser: $currentUser, newPassword: $newPassword)';
   }
 
   @override
@@ -1471,35 +1821,20 @@ class _$_ProfileEditState implements _ProfileEditState {
                 other.username == username) &&
             (identical(other.password, password) ||
                 other.password == password) &&
-            (identical(other.newPassword, newPassword) ||
-                other.newPassword == newPassword) &&
-            (identical(other.isEdited, isEdited) ||
-                other.isEdited == isEdited) &&
-            (identical(other.isEditPassword, isEditPassword) ||
-                other.isEditPassword == isEditPassword) &&
             (identical(other.validation, validation) ||
                 other.validation == validation) &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.failure, failure) || other.failure == failure) &&
             (identical(other.image, image) || other.image == image) &&
             (identical(other.currentUser, currentUser) ||
-                other.currentUser == currentUser));
+                other.currentUser == currentUser) &&
+            (identical(other.newPassword, newPassword) ||
+                other.newPassword == newPassword));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      email,
-      username,
-      password,
-      newPassword,
-      isEdited,
-      isEditPassword,
-      validation,
-      status,
-      failure,
-      image,
-      currentUser);
+  int get hashCode => Object.hash(runtimeType, email, username, password,
+      validation, status, failure, image, currentUser, newPassword);
 
   @JsonKey(ignore: true)
   @override
@@ -1508,19 +1843,18 @@ class _$_ProfileEditState implements _ProfileEditState {
       __$$_ProfileEditStateCopyWithImpl<_$_ProfileEditState>(this, _$identity);
 }
 
-abstract class _ProfileEditState implements ProfileEditState {
+abstract class _ProfileEditState extends ProfileEditState {
   const factory _ProfileEditState(
       {final String email,
       final String username,
       final String password,
-      final String newPassword,
-      final bool isEdited,
-      final bool isEditPassword,
       final ProfileEditValidation validation,
       final ProfileEditStatus status,
       final Failure failure,
       final File? image,
-      final CurrentUser? currentUser}) = _$_ProfileEditState;
+      final CurrentUser? currentUser,
+      final String? newPassword}) = _$_ProfileEditState;
+  const _ProfileEditState._() : super._();
 
   @override
   String get email;
@@ -1528,12 +1862,6 @@ abstract class _ProfileEditState implements ProfileEditState {
   String get username;
   @override
   String get password;
-  @override
-  String get newPassword;
-  @override
-  bool get isEdited;
-  @override
-  bool get isEditPassword;
   @override
   ProfileEditValidation get validation;
   @override
@@ -1544,6 +1872,8 @@ abstract class _ProfileEditState implements ProfileEditState {
   File? get image;
   @override
   CurrentUser? get currentUser;
+  @override
+  String? get newPassword;
   @override
   @JsonKey(ignore: true)
   _$$_ProfileEditStateCopyWith<_$_ProfileEditState> get copyWith =>

@@ -1,8 +1,5 @@
-import 'dart:io';
-
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
 
 import '../failure/failure.dart';
 import '../styles/styles.dart';
@@ -38,12 +35,5 @@ class PopupUtils {
           ),
         ),
       );
-  }
-
-  static Future<File?> pickImage() async {
-    final XFile? pickedFile =
-        await ImagePicker().pickImage(source: ImageSource.gallery);
-    if (pickedFile != null) return File(pickedFile.path);
-    return null;
   }
 }

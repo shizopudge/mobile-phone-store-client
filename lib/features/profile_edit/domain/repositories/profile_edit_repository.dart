@@ -1,5 +1,7 @@
+import 'dart:io';
+
 import '../../../../core/constants/type_defs.dart';
-import '../../../auth/domain/entities/current_user.dart';
+import '../../../../core/domain/entities/current_user.dart';
 
 abstract interface class ProfileEditRepository {
   FutureEither<CurrentUser> editProfile({
@@ -8,4 +10,8 @@ abstract interface class ProfileEditRepository {
     required String password,
     required String? newPassword,
   });
+
+  FutureEither<String> uploadImage(File image);
+
+  FutureEither<void> deleteImage();
 }
