@@ -10,6 +10,8 @@ const Color kBlack = Color.fromRGBO(0, 0, 0, 1);
 
 const Color kWhite = Color.fromRGBO(228, 234, 245, 1);
 
+const Color kLightWhite = Color.fromRGBO(255, 255, 255, 1);
+
 const Color kOrange = Color.fromRGBO(247, 116, 54, 1);
 
 const Color kRed = Color.fromRGBO(253, 53, 18, 1);

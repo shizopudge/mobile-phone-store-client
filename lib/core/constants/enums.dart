@@ -24,3 +24,27 @@ enum LoginType {
     return user;
   }
 }
+
+enum OperatingSystem {
+  IOS,
+  ANDROID;
+}
+
+enum DisplayType {
+  TN,
+  IPS,
+  OLED,
+  AMOLED,
+  SuperAMOLED;
+}
+
+enum SortBy {
+  asc,
+  desc;
+
+  @override
+  String toString() {
+    if (this == SortBy.asc) return 'asc';
+    return 'desc';
+  }
+}

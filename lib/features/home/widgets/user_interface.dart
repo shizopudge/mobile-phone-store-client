@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/styles/styles.dart';
+import '../../products/presentation/pages/products_page.dart';
 import '../../profile/presentation/profile_page.dart';
 import '../cubit/home_cubit.dart';
 
@@ -18,7 +19,7 @@ class UserInterface extends StatelessWidget {
         body: IndexedStack(
           index: state.page,
           children: const [
-            Text('Search'),
+            ProductsPage(),
             Text('Wishlist'),
             Text('Cart'),
             ProfilePage(),
