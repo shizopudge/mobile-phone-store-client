@@ -19,6 +19,7 @@ class ProductsBloc extends Bloc<ProductsEvent, ProductsState> {
       : _getProductsUsecase = getProductsUsecase,
         super(const ProductsState()) {
     on<_Start>(_start);
+    on<_GetProducts>(_getProducts);
   }
 
   final GetProducts _getProductsUsecase;
@@ -35,11 +36,34 @@ class ProductsBloc extends Bloc<ProductsEvent, ProductsState> {
           emit(ProductsState(status: ProductStatus.failure, failure: failure)),
       (r) => emit(
         ProductsState(
-          status: ProductStatus.success,
-          products: r.products,
-          info: r.info,
-        ),
+            status: ProductStatus.success,
+            info: r.info,
+            products: r.products,
+            filter: state.filter.copyWith(page: state.filter.page + 1)),
       ),
+    );
+  }
+
+  FutureOr<void> _getProducts(
+      _GetProducts event, Emitter<ProductsState> emit) async {
+    final res = await _getProductsUsecase.call(GetProductsParams(
+      page: state.filter.page,
+      limit: state.filter.limit,
+      query: state.filter.query,
+      sort: state.filter.sort.toString(),
+    ));
+    res.fold(
+      (failure) =>
+          emit(state.copyWith(status: ProductStatus.failure, failure: failure)),
+      (r) {
+        emit(
+          state.copyWith(
+              status: ProductStatus.success,
+              info: r.info,
+              products: state.products..addAll(r.products),
+              filter: state.filter.copyWith(page: state.filter.page + 1)),
+        );
+      },
     );
   }
 }

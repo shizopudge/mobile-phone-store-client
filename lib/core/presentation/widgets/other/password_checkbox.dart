@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../styles/styles.dart';
+import '../../../styles/styles.dart';
+import '../../../utils/size_config.dart';
 
 class PasswordCheckBox extends StatelessWidget {
   final String requirement;
@@ -14,11 +15,10 @@ class PasswordCheckBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 32,
-      padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       margin: const EdgeInsets.only(right: 8),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: BorderRadius.circular(SizeConfig.radiusLarge),
         color:
             isValidated ? kLightBlue.withOpacity(.25) : kGrey.withOpacity(.25),
       ),
@@ -27,6 +27,7 @@ class PasswordCheckBox extends StatelessWidget {
         children: [
           Icon(
             Icons.check_circle_outline,
+            size: SizeConfig.iconSmall,
             color: isValidated ? kLightBlue : kDarkBlue.withOpacity(.5),
           ),
           const SizedBox(
@@ -36,8 +37,7 @@ class PasswordCheckBox extends StatelessWidget {
             requirement,
             style: kMedium.copyWith(
               color: isValidated ? kLightBlue : kDarkBlue.withOpacity(.5),
-              fontSize: 18,
-              height: .5,
+              fontSize: SizeConfig.fontSubtitle,
             ),
           ),
         ],

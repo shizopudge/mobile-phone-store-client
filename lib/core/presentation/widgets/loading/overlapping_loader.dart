@@ -3,8 +3,8 @@ import 'dart:ui';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
-import '../../styles/styles.dart';
-import '../animations/fade_animation_y_down.dart';
+import '../../../styles/styles.dart';
+import '../../animations/fade_animation_y_down.dart';
 
 class OverlappingLoader extends StatelessWidget {
   final String text;

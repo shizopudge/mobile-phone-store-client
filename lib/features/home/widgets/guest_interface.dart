@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../core/presentation/widgets/pages/offer_to_authorize.dart';
+import '../../../core/presentation/widgets/pages/unauthorized_page.dart';
 import '../../../core/styles/styles.dart';
+import '../../../core/utils/size_config.dart';
 import '../cubit/home_cubit.dart';
 
 class GuestInterface extends StatelessWidget {
@@ -20,10 +21,14 @@ class GuestInterface extends StatelessWidget {
           children: const [
             Text('Search'),
             Text('Cart'),
-            OfferToAuthorize(),
+            UnauthorizedPage(
+              text:
+                  'To access the full functionality, you need to log in or register an account',
+            ),
           ],
         ),
         bottomNavigationBar: BottomNavigationBar(
+          iconSize: SizeConfig.iconMedium,
           onTap: (page) => context.read<HomeCubit>().changePage(page),
           currentIndex: state.page,
           type: BottomNavigationBarType.fixed,

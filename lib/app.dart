@@ -2,6 +2,7 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'core/constants/objects.dart';
 import 'core/di/get_it.dart';
 import 'core/logic/auth/auth_bloc.dart';
 import 'core/styles/styles.dart';
@@ -22,6 +23,7 @@ class App extends StatelessWidget {
         locale: DevicePreview.locale(context),
         builder: DevicePreview.appBuilder,
         debugShowCheckedModeBanner: false,
+        scrollBehavior: MyCustomScrollBehavior(),
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: kDarkBlue),
           fontFamily: 'OpenSans_Condensed',

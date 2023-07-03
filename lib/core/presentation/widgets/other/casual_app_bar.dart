@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../styles/styles.dart';
+import '../../../styles/styles.dart';
+import '../../../utils/size_config.dart';
 
 class CasualAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
@@ -14,17 +15,25 @@ class CasualAppBar extends StatelessWidget implements PreferredSizeWidget {
   });
 
   @override
-  Size get preferredSize => const Size.fromHeight(50);
+  Size get preferredSize => Size.fromHeight(SizeConfig.isMobile
+      ? SizeConfig.screenWidth! * .2
+      : SizeConfig.isTablet
+          ? SizeConfig.screenWidth! * .15
+          : SizeConfig.screenWidth! * .1);
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig.init(context);
     return AppBar(
+      toolbarHeight: preferredSize.height,
+      centerTitle: false,
       backgroundColor: backgroundColor,
       leading: canGoBack
           ? IconButton(
               onPressed: () => Navigator.of(context).pop(),
-              icon: const Icon(
+              icon: Icon(
                 Icons.arrow_back_ios,
+                size: SizeConfig.iconLarge,
                 color: kDarkBlue,
               ),
             )
@@ -32,7 +41,7 @@ class CasualAppBar extends StatelessWidget implements PreferredSizeWidget {
       title: Text(
         title,
         style: kBold.copyWith(
-          fontSize: 32,
+          fontSize: SizeConfig.fontHeaderLarge,
           color: kDarkBlue,
         ),
       ),

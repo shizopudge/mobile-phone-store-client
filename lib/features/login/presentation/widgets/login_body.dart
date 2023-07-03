@@ -5,9 +5,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/presentation/animations/fade_animation_y_down.dart';
 import '../../../../core/presentation/widgets/buttons/casual_button.dart';
-import '../../../../core/presentation/widgets/casual_text_field.dart';
-import '../../../../core/presentation/widgets/password_text_field.dart';
+import '../../../../core/presentation/widgets/text_fields/casual_text_field.dart';
+import '../../../../core/presentation/widgets/text_fields/password_text_field.dart';
 import '../../../../core/styles/styles.dart';
+import '../../../../core/utils/size_config.dart';
 import '../bloc/login_bloc.dart';
 
 class LoginBody extends StatelessWidget {
@@ -50,7 +51,7 @@ class LoginBody extends StatelessWidget {
                       child: Text(
                         'Sign in',
                         style: kBold.copyWith(
-                          fontSize: 38,
+                          fontSize: SizeConfig.fontHeaderLarge,
                           color: kDarkBlue,
                         ),
                       ),
@@ -63,7 +64,7 @@ class LoginBody extends StatelessWidget {
                       child: Text(
                         'Access your account',
                         style: kSemiBold.copyWith(
-                          fontSize: 21,
+                          fontSize: SizeConfig.fontTitle,
                           color: kDarkBlue,
                         ),
                       ),
@@ -124,7 +125,8 @@ class LoginBody extends StatelessWidget {
                           child: Text(
                             'Forgot the password?',
                             style: kSemiBold.copyWith(
-                                color: kLightBlue, fontSize: 18),
+                                color: kLightBlue,
+                                fontSize: SizeConfig.fontSmall),
                           )),
                     ),
                     const SizedBox(
@@ -138,14 +140,14 @@ class LoginBody extends StatelessWidget {
                           text: 'Dont\' have an account? ',
                           style: kSemiBold.copyWith(
                             color: kGrey,
-                            fontSize: 16,
+                            fontSize: SizeConfig.fontSmall,
                           ),
                           children: [
                             TextSpan(
                               text: 'Sign up',
                               style: kMedium.copyWith(
                                 color: kLightBlue,
-                                fontSize: 16,
+                                fontSize: SizeConfig.fontSmall,
                               ),
                               recognizer: TapGestureRecognizer()
                                 ..onTap = switchPage,

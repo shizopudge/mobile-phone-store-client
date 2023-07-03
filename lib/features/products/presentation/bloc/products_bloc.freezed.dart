@@ -19,32 +19,38 @@ mixin _$ProductsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() start,
+    required TResult Function() getProducts,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? start,
+    TResult? Function()? getProducts,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? start,
+    TResult Function()? getProducts,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Start value) start,
+    required TResult Function(_GetProducts value) getProducts,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Start value)? start,
+    TResult? Function(_GetProducts value)? getProducts,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Start value)? start,
+    TResult Function(_GetProducts value)? getProducts,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -105,6 +111,7 @@ class _$_Start implements _Start {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() start,
+    required TResult Function() getProducts,
   }) {
     return start();
   }
@@ -113,6 +120,7 @@ class _$_Start implements _Start {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? start,
+    TResult? Function()? getProducts,
   }) {
     return start?.call();
   }
@@ -121,6 +129,7 @@ class _$_Start implements _Start {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? start,
+    TResult Function()? getProducts,
     required TResult orElse(),
   }) {
     if (start != null) {
@@ -133,6 +142,7 @@ class _$_Start implements _Start {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Start value) start,
+    required TResult Function(_GetProducts value) getProducts,
   }) {
     return start(this);
   }
@@ -141,6 +151,7 @@ class _$_Start implements _Start {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Start value)? start,
+    TResult? Function(_GetProducts value)? getProducts,
   }) {
     return start?.call(this);
   }
@@ -149,6 +160,7 @@ class _$_Start implements _Start {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Start value)? start,
+    TResult Function(_GetProducts value)? getProducts,
     required TResult orElse(),
   }) {
     if (start != null) {
@@ -163,9 +175,111 @@ abstract class _Start implements ProductsEvent {
 }
 
 /// @nodoc
+abstract class _$$_GetProductsCopyWith<$Res> {
+  factory _$$_GetProductsCopyWith(
+          _$_GetProducts value, $Res Function(_$_GetProducts) then) =
+      __$$_GetProductsCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_GetProductsCopyWithImpl<$Res>
+    extends _$ProductsEventCopyWithImpl<$Res, _$_GetProducts>
+    implements _$$_GetProductsCopyWith<$Res> {
+  __$$_GetProductsCopyWithImpl(
+      _$_GetProducts _value, $Res Function(_$_GetProducts) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_GetProducts implements _GetProducts {
+  const _$_GetProducts();
+
+  @override
+  String toString() {
+    return 'ProductsEvent.getProducts()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_GetProducts);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() start,
+    required TResult Function() getProducts,
+  }) {
+    return getProducts();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? start,
+    TResult? Function()? getProducts,
+  }) {
+    return getProducts?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? start,
+    TResult Function()? getProducts,
+    required TResult orElse(),
+  }) {
+    if (getProducts != null) {
+      return getProducts();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Start value) start,
+    required TResult Function(_GetProducts value) getProducts,
+  }) {
+    return getProducts(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Start value)? start,
+    TResult? Function(_GetProducts value)? getProducts,
+  }) {
+    return getProducts?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Start value)? start,
+    TResult Function(_GetProducts value)? getProducts,
+    required TResult orElse(),
+  }) {
+    if (getProducts != null) {
+      return getProducts(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetProducts implements ProductsEvent {
+  const factory _GetProducts() = _$_GetProducts;
+}
+
+/// @nodoc
 mixin _$ProductsState {
-  List<Product> get products => throw _privateConstructorUsedError;
   Info get info => throw _privateConstructorUsedError;
+  List<Product> get products => throw _privateConstructorUsedError;
   ProductsFilter get filter => throw _privateConstructorUsedError;
   ProductStatus get status => throw _privateConstructorUsedError;
   Failure get failure => throw _privateConstructorUsedError;
@@ -183,8 +297,8 @@ abstract class $ProductsStateCopyWith<$Res> {
       _$ProductsStateCopyWithImpl<$Res, ProductsState>;
   @useResult
   $Res call(
-      {List<Product> products,
-      Info info,
+      {Info info,
+      List<Product> products,
       ProductsFilter filter,
       ProductStatus status,
       Failure failure,
@@ -206,22 +320,22 @@ class _$ProductsStateCopyWithImpl<$Res, $Val extends ProductsState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? products = null,
     Object? info = null,
+    Object? products = null,
     Object? filter = null,
     Object? status = null,
     Object? failure = null,
     Object? selectedProduct = freezed,
   }) {
     return _then(_value.copyWith(
-      products: null == products
-          ? _value.products
-          : products // ignore: cast_nullable_to_non_nullable
-              as List<Product>,
       info: null == info
           ? _value.info
           : info // ignore: cast_nullable_to_non_nullable
               as Info,
+      products: null == products
+          ? _value.products
+          : products // ignore: cast_nullable_to_non_nullable
+              as List<Product>,
       filter: null == filter
           ? _value.filter
           : filter // ignore: cast_nullable_to_non_nullable
@@ -259,8 +373,8 @@ abstract class _$$_ProductsStateCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {List<Product> products,
-      Info info,
+      {Info info,
+      List<Product> products,
       ProductsFilter filter,
       ProductStatus status,
       Failure failure,
@@ -281,22 +395,22 @@ class __$$_ProductsStateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? products = null,
     Object? info = null,
+    Object? products = null,
     Object? filter = null,
     Object? status = null,
     Object? failure = null,
     Object? selectedProduct = freezed,
   }) {
     return _then(_$_ProductsState(
-      products: null == products
-          ? _value._products
-          : products // ignore: cast_nullable_to_non_nullable
-              as List<Product>,
       info: null == info
           ? _value.info
           : info // ignore: cast_nullable_to_non_nullable
               as Info,
+      products: null == products
+          ? _value._products
+          : products // ignore: cast_nullable_to_non_nullable
+              as List<Product>,
       filter: null == filter
           ? _value.filter
           : filter // ignore: cast_nullable_to_non_nullable
@@ -321,8 +435,8 @@ class __$$_ProductsStateCopyWithImpl<$Res>
 
 class _$_ProductsState extends _ProductsState {
   const _$_ProductsState(
-      {final List<Product> products = const [],
-      this.info = const Info.initial(),
+      {this.info = const Info.initial(),
+      final List<Product> products = const [],
       this.filter = const ProductsFilter(),
       this.status = ProductStatus.loading,
       this.failure = const UnknownFailure(),
@@ -330,6 +444,9 @@ class _$_ProductsState extends _ProductsState {
       : _products = products,
         super._();
 
+  @override
+  @JsonKey()
+  final Info info;
   final List<Product> _products;
   @override
   @JsonKey()
@@ -339,9 +456,6 @@ class _$_ProductsState extends _ProductsState {
     return EqualUnmodifiableListView(_products);
   }
 
-  @override
-  @JsonKey()
-  final Info info;
   @override
   @JsonKey()
   final ProductsFilter filter;
@@ -356,7 +470,7 @@ class _$_ProductsState extends _ProductsState {
 
   @override
   String toString() {
-    return 'ProductsState(products: $products, info: $info, filter: $filter, status: $status, failure: $failure, selectedProduct: $selectedProduct)';
+    return 'ProductsState(info: $info, products: $products, filter: $filter, status: $status, failure: $failure, selectedProduct: $selectedProduct)';
   }
 
   @override
@@ -364,8 +478,8 @@ class _$_ProductsState extends _ProductsState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ProductsState &&
-            const DeepCollectionEquality().equals(other._products, _products) &&
             (identical(other.info, info) || other.info == info) &&
+            const DeepCollectionEquality().equals(other._products, _products) &&
             (identical(other.filter, filter) || other.filter == filter) &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.failure, failure) || other.failure == failure) &&
@@ -376,8 +490,8 @@ class _$_ProductsState extends _ProductsState {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(_products),
       info,
+      const DeepCollectionEquality().hash(_products),
       filter,
       status,
       failure,
@@ -392,8 +506,8 @@ class _$_ProductsState extends _ProductsState {
 
 abstract class _ProductsState extends ProductsState {
   const factory _ProductsState(
-      {final List<Product> products,
-      final Info info,
+      {final Info info,
+      final List<Product> products,
       final ProductsFilter filter,
       final ProductStatus status,
       final Failure failure,
@@ -401,9 +515,9 @@ abstract class _ProductsState extends ProductsState {
   const _ProductsState._() : super._();
 
   @override
-  List<Product> get products;
-  @override
   Info get info;
+  @override
+  List<Product> get products;
   @override
   ProductsFilter get filter;
   @override

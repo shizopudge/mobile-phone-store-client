@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/presentation/animations/fade_animation_y_down.dart';
-import '../../../../core/styles/colors.dart';
-import '../../../../core/styles/fonts.dart';
+import '../../../../../core/presentation/animations/fade_animation_y_down.dart';
+import '../../../../../core/styles/colors.dart';
+import '../../../../../core/styles/fonts.dart';
 
 class CasualDialog extends StatelessWidget {
   final String title;

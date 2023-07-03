@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/presentation/animations/fade_animation_y_down.dart';
 import '../../../../core/presentation/widgets/buttons/casual_button.dart';
-import '../../../../core/presentation/widgets/casual_dialog.dart';
-import '../../../../core/presentation/widgets/password_text_field.dart';
+import '../../../../core/presentation/widgets/other/casual_dialog.dart';
+import '../../../../core/presentation/widgets/text_fields/password_text_field.dart';
 
 class ProfileEditPasswordVerifyDialog extends StatelessWidget {
   final VoidCallback onTap;

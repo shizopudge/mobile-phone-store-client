@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../styles/styles.dart';
+import '../../../utils/size_config.dart';
 
 class CasualButton extends StatelessWidget {
   final VoidCallback onTap;
@@ -19,14 +20,14 @@ class CasualButton extends StatelessWidget {
       onPressed: isEnabled ? onTap : () {},
       enableFeedback: isEnabled,
       minWidth: double.infinity,
-      height: 70,
+      height: SizeConfig.buttonSmallHeight,
       color: isEnabled ? kBlack : kGrey,
       elevation: 0,
       child: Text(
         text,
         style: kMedium.copyWith(
           color: kWhite,
-          fontSize: 24,
+          fontSize: SizeConfig.fontTitle,
         ),
       ),
     );

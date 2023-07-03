@@ -5,6 +5,7 @@ import '../../../../features/home/home_page.dart';
 import '../../../../features/login/presentation/login_page.dart';
 import '../../../logic/auth/auth_bloc.dart';
 import '../../../styles/styles.dart';
+import '../../../utils/size_config.dart';
 
 class AuthSplashPage extends StatelessWidget {
   static const String path = '/';
@@ -12,6 +13,7 @@ class AuthSplashPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig.init(context);
     return BlocListener<AuthBloc, AuthState>(
       listener: (context, state) => state.callWhen(
         authorized: () => Navigator.of(context)
@@ -38,7 +40,7 @@ class AuthSplashPage extends StatelessWidget {
                   'MOBILE STORE',
                   textAlign: TextAlign.center,
                   style: kSemiBold.copyWith(
-                    fontSize: 42,
+                    fontSize: SizeConfig.fontHeaderLarge,
                     color: kDarkBlue,
                     letterSpacing: 6.4,
                   ),

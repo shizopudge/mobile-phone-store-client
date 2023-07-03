@@ -16,8 +16,8 @@ enum ProductStatus {
 class ProductsState with _$ProductsState {
   const ProductsState._();
   const factory ProductsState({
-    @Default([]) List<Product> products,
     @Default(Info.initial()) Info info,
+    @Default([]) List<Product> products,
     @Default(ProductsFilter()) ProductsFilter filter,
     @Default(ProductStatus.loading) ProductStatus status,
     @Default(UnknownFailure()) Failure failure,
@@ -37,7 +37,7 @@ class ProductsFilter extends Equatable {
   final SortBy sort;
   const ProductsFilter({
     this.page = 1,
-    this.limit = 10,
+    this.limit = 2,
     this.query = '',
     this.sort = SortBy.desc,
   });

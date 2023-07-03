@@ -7,6 +7,7 @@ import 'package:shimmer/shimmer.dart';
 import '../../../../core/api/api_constants.dart';
 import '../../../../core/presentation/animations/fade_animation_x.dart';
 import '../../../../core/styles/styles.dart';
+import '../../../../core/utils/size_config.dart';
 
 class ProfileEditUserImage extends StatelessWidget {
   final VoidCallback onTap;
@@ -21,62 +22,45 @@ class ProfileEditUserImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final radius = SizeConfig.radiusLarge;
     return GestureDetector(
       onTap: onTap,
       child: pickedImage != null
           ? CircleAvatar(
               backgroundImage: FileImage(pickedImage!),
               backgroundColor: kGrey,
-              radius: 75,
+              radius: radius,
             )
           : CachedNetworkImage(
               imageUrl: '${ApiConstants.imagesUrl}/$userImage',
-              imageBuilder: (context, imageProvider) => Stack(
-                clipBehavior: Clip.none,
-                alignment: Alignment.topRight,
-                children: [
-                  Hero(
-                    tag: 'user_image',
-                    child: CircleAvatar(
-                      backgroundImage: imageProvider,
-                      backgroundColor: kGrey,
-                      radius: 75,
-                    ),
-                  ),
-                  const Positioned(
-                    top: 8,
-                    right: -5,
-                    child: FadeAnimationX(
-                      delay: .25,
-                      child: Icon(
-                        Icons.edit,
-                        color: kDarkBlue,
-                        size: 32,
-                      ),
-                    ),
-                  ),
-                ],
+              imageBuilder: (context, imageProvider) => Hero(
+                tag: 'user_image',
+                child: CircleAvatar(
+                  backgroundImage: imageProvider,
+                  backgroundColor: kGrey,
+                  radius: radius,
+                ),
               ),
               placeholder: (context, url) => FadeAnimationX(
                 delay: .25,
                 child: Shimmer.fromColors(
                   baseColor: kGrey,
                   highlightColor: kWhite,
-                  child: const CircleAvatar(
+                  child: CircleAvatar(
                     backgroundColor: kGrey,
-                    radius: 75,
+                    radius: radius,
                   ),
                 ),
               ),
-              errorWidget: (context, url, error) => const FadeAnimationX(
+              errorWidget: (context, url, error) => FadeAnimationX(
                 delay: .25,
                 child: CircleAvatar(
                   backgroundColor: kDarkBlue,
-                  radius: 75,
+                  radius: radius,
                   child: Icon(
                     Icons.file_upload_rounded,
                     color: kWhite,
-                    size: 50,
+                    size: SizeConfig.iconMedium,
                   ),
                 ),
               ),

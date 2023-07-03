@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/presentation/animations/fade_animation_y_down.dart';
-import '../../../../core/presentation/widgets/casual_dialog.dart';
+import '../../../../core/presentation/widgets/other/casual_dialog.dart';
 import '../../../../core/styles/colors.dart';
 import '../../../../core/styles/fonts.dart';
 

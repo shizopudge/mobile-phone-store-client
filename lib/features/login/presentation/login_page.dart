@@ -3,9 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/di/get_it.dart';
 import '../../../core/logic/auth/auth_bloc.dart';
-import '../../../core/presentation/widgets/stack_loading.dart';
+import '../../../core/presentation/widgets/loading/stack_loading.dart';
 import '../../../core/styles/styles.dart';
 import '../../../core/utils/popup_utils.dart';
+import '../../../core/utils/size_config.dart';
 import '../../home/home_page.dart';
 import '../data/repositories/login_repository_impl.dart';
 import '../domain/usecases/login.dart';
@@ -61,6 +62,7 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig.init(context);
     return BlocListener<AuthBloc, AuthState>(
       listener: (context, state) {
         state.callWhen(

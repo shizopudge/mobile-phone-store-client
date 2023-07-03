@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'styles.dart';
+import 'colors.dart';
 
 const TextStyle kBold = TextStyle(
   fontWeight: FontWeight.w700,

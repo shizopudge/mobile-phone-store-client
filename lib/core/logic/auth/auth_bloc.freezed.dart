@@ -19,7 +19,7 @@ mixin _$AuthEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() start,
-    required TResult Function(CurrentUser user) setUser,
+    required TResult Function(CurrentUser? user) setUser,
     required TResult Function(AuthState state) setState,
     required TResult Function() kickUnauthorizedUser,
     required TResult Function() logout,
@@ -28,7 +28,7 @@ mixin _$AuthEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? start,
-    TResult? Function(CurrentUser user)? setUser,
+    TResult? Function(CurrentUser? user)? setUser,
     TResult? Function(AuthState state)? setState,
     TResult? Function()? kickUnauthorizedUser,
     TResult? Function()? logout,
@@ -37,7 +37,7 @@ mixin _$AuthEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? start,
-    TResult Function(CurrentUser user)? setUser,
+    TResult Function(CurrentUser? user)? setUser,
     TResult Function(AuthState state)? setState,
     TResult Function()? kickUnauthorizedUser,
     TResult Function()? logout,
@@ -128,7 +128,7 @@ class _$_Start implements _Start {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() start,
-    required TResult Function(CurrentUser user) setUser,
+    required TResult Function(CurrentUser? user) setUser,
     required TResult Function(AuthState state) setState,
     required TResult Function() kickUnauthorizedUser,
     required TResult Function() logout,
@@ -140,7 +140,7 @@ class _$_Start implements _Start {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? start,
-    TResult? Function(CurrentUser user)? setUser,
+    TResult? Function(CurrentUser? user)? setUser,
     TResult? Function(AuthState state)? setState,
     TResult? Function()? kickUnauthorizedUser,
     TResult? Function()? logout,
@@ -152,7 +152,7 @@ class _$_Start implements _Start {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? start,
-    TResult Function(CurrentUser user)? setUser,
+    TResult Function(CurrentUser? user)? setUser,
     TResult Function(AuthState state)? setState,
     TResult Function()? kickUnauthorizedUser,
     TResult Function()? logout,
@@ -215,7 +215,7 @@ abstract class _$$_SetUserCopyWith<$Res> {
           _$_SetUser value, $Res Function(_$_SetUser) then) =
       __$$_SetUserCopyWithImpl<$Res>;
   @useResult
-  $Res call({CurrentUser user});
+  $Res call({CurrentUser? user});
 }
 
 /// @nodoc
@@ -228,13 +228,13 @@ class __$$_SetUserCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? user = null,
+    Object? user = freezed,
   }) {
     return _then(_$_SetUser(
-      null == user
+      freezed == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
-              as CurrentUser,
+              as CurrentUser?,
     ));
   }
 }
@@ -245,7 +245,7 @@ class _$_SetUser implements _SetUser {
   const _$_SetUser(this.user);
 
   @override
-  final CurrentUser user;
+  final CurrentUser? user;
 
   @override
   String toString() {
@@ -273,7 +273,7 @@ class _$_SetUser implements _SetUser {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() start,
-    required TResult Function(CurrentUser user) setUser,
+    required TResult Function(CurrentUser? user) setUser,
     required TResult Function(AuthState state) setState,
     required TResult Function() kickUnauthorizedUser,
     required TResult Function() logout,
@@ -285,7 +285,7 @@ class _$_SetUser implements _SetUser {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? start,
-    TResult? Function(CurrentUser user)? setUser,
+    TResult? Function(CurrentUser? user)? setUser,
     TResult? Function(AuthState state)? setState,
     TResult? Function()? kickUnauthorizedUser,
     TResult? Function()? logout,
@@ -297,7 +297,7 @@ class _$_SetUser implements _SetUser {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? start,
-    TResult Function(CurrentUser user)? setUser,
+    TResult Function(CurrentUser? user)? setUser,
     TResult Function(AuthState state)? setState,
     TResult Function()? kickUnauthorizedUser,
     TResult Function()? logout,
@@ -351,9 +351,9 @@ class _$_SetUser implements _SetUser {
 }
 
 abstract class _SetUser implements AuthEvent {
-  const factory _SetUser(final CurrentUser user) = _$_SetUser;
+  const factory _SetUser(final CurrentUser? user) = _$_SetUser;
 
-  CurrentUser get user;
+  CurrentUser? get user;
   @JsonKey(ignore: true)
   _$$_SetUserCopyWith<_$_SetUser> get copyWith =>
       throw _privateConstructorUsedError;
@@ -434,7 +434,7 @@ class _$_SetState implements _SetState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() start,
-    required TResult Function(CurrentUser user) setUser,
+    required TResult Function(CurrentUser? user) setUser,
     required TResult Function(AuthState state) setState,
     required TResult Function() kickUnauthorizedUser,
     required TResult Function() logout,
@@ -446,7 +446,7 @@ class _$_SetState implements _SetState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? start,
-    TResult? Function(CurrentUser user)? setUser,
+    TResult? Function(CurrentUser? user)? setUser,
     TResult? Function(AuthState state)? setState,
     TResult? Function()? kickUnauthorizedUser,
     TResult? Function()? logout,
@@ -458,7 +458,7 @@ class _$_SetState implements _SetState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? start,
-    TResult Function(CurrentUser user)? setUser,
+    TResult Function(CurrentUser? user)? setUser,
     TResult Function(AuthState state)? setState,
     TResult Function()? kickUnauthorizedUser,
     TResult Function()? logout,
@@ -559,7 +559,7 @@ class _$_KickUnauthorizedUser implements _KickUnauthorizedUser {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() start,
-    required TResult Function(CurrentUser user) setUser,
+    required TResult Function(CurrentUser? user) setUser,
     required TResult Function(AuthState state) setState,
     required TResult Function() kickUnauthorizedUser,
     required TResult Function() logout,
@@ -571,7 +571,7 @@ class _$_KickUnauthorizedUser implements _KickUnauthorizedUser {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? start,
-    TResult? Function(CurrentUser user)? setUser,
+    TResult? Function(CurrentUser? user)? setUser,
     TResult? Function(AuthState state)? setState,
     TResult? Function()? kickUnauthorizedUser,
     TResult? Function()? logout,
@@ -583,7 +583,7 @@ class _$_KickUnauthorizedUser implements _KickUnauthorizedUser {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? start,
-    TResult Function(CurrentUser user)? setUser,
+    TResult Function(CurrentUser? user)? setUser,
     TResult Function(AuthState state)? setState,
     TResult Function()? kickUnauthorizedUser,
     TResult Function()? logout,
@@ -677,7 +677,7 @@ class _$_Logout implements _Logout {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() start,
-    required TResult Function(CurrentUser user) setUser,
+    required TResult Function(CurrentUser? user) setUser,
     required TResult Function(AuthState state) setState,
     required TResult Function() kickUnauthorizedUser,
     required TResult Function() logout,
@@ -689,7 +689,7 @@ class _$_Logout implements _Logout {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? start,
-    TResult? Function(CurrentUser user)? setUser,
+    TResult? Function(CurrentUser? user)? setUser,
     TResult? Function(AuthState state)? setState,
     TResult? Function()? kickUnauthorizedUser,
     TResult? Function()? logout,
@@ -701,7 +701,7 @@ class _$_Logout implements _Logout {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? start,
-    TResult Function(CurrentUser user)? setUser,
+    TResult Function(CurrentUser? user)? setUser,
     TResult Function(AuthState state)? setState,
     TResult Function()? kickUnauthorizedUser,
     TResult Function()? logout,

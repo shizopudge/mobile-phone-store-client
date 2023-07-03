@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../../styles/styles.dart';
+import '../../../styles/styles.dart';
+import '../../../utils/size_config.dart';
 
 class CasualTextField extends StatelessWidget {
   final TextEditingController _controller;
@@ -23,15 +24,18 @@ class CasualTextField extends StatelessWidget {
     return TextField(
       controller: _controller,
       inputFormatters: inputFormatters,
-      style: kSemiBold.copyWith(color: kDarkBlue, fontSize: 18),
+      style:
+          kSemiBold.copyWith(color: kDarkBlue, fontSize: SizeConfig.fontTitle),
       cursorColor: kDarkBlue,
       decoration: InputDecoration(
         hintText: hintText,
-        hintStyle: kSemiBold.copyWith(color: kGrey, fontSize: 18),
+        hintStyle:
+            kSemiBold.copyWith(color: kGrey, fontSize: SizeConfig.fontTitle),
         suffixIcon: showCheckIcon
             ? isValidated
-                ? const Icon(
+                ? Icon(
                     Icons.check_rounded,
+                    size: SizeConfig.iconMedium,
                     color: kLightBlue,
                   )
                 : null

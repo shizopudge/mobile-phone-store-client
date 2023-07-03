@@ -27,7 +27,7 @@ class ProductsRemoteDataSourceImpl implements ProductsRemoteDataSource {
     try {
       final res = await dioClient.dio.get(
         ApiConstants.products,
-        data: {
+        queryParameters: {
           'page': page,
           'limit': limit,
           'query': query,

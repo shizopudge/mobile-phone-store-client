@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/styles/styles.dart';
+import '../../../../core/utils/size_config.dart';
 
 class ProfileListTile extends StatelessWidget {
   final VoidCallback onTap;
@@ -20,7 +21,7 @@ class ProfileListTile extends StatelessWidget {
       title: Text(
         title,
         style: kBold.copyWith(
-          fontSize: 21,
+          fontSize: SizeConfig.fontTitle,
           color: kDarkBlue,
         ),
       ),
@@ -28,14 +29,14 @@ class ProfileListTile extends StatelessWidget {
           ? Text(
               subtitle!,
               style: kBold.copyWith(
-                fontSize: 16,
+                fontSize: SizeConfig.fontSubtitle,
                 color: kGrey,
               ),
             )
           : null,
-      trailing: const Icon(
+      trailing: Icon(
         Icons.arrow_forward_ios,
-        size: 18,
+        size: SizeConfig.iconSmall,
         color: kGrey,
       ),
     );

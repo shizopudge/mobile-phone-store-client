@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ProfileEditEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(CurrentUser currentUser) initial,
+    required TResult Function() initial,
     required TResult Function(String email) changeEmail,
     required TResult Function(String username) changeUsername,
     required TResult Function(String password) changePassword,
@@ -31,7 +31,7 @@ mixin _$ProfileEditEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(CurrentUser currentUser)? initial,
+    TResult? Function()? initial,
     TResult? Function(String email)? changeEmail,
     TResult? Function(String username)? changeUsername,
     TResult? Function(String password)? changePassword,
@@ -44,7 +44,7 @@ mixin _$ProfileEditEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CurrentUser currentUser)? initial,
+    TResult Function()? initial,
     TResult Function(String email)? changeEmail,
     TResult Function(String username)? changeUsername,
     TResult Function(String password)? changePassword,
@@ -121,8 +121,6 @@ abstract class _$$_InitialCopyWith<$Res> {
   factory _$$_InitialCopyWith(
           _$_Initial value, $Res Function(_$_Initial) then) =
       __$$_InitialCopyWithImpl<$Res>;
-  @useResult
-  $Res call({CurrentUser currentUser});
 }
 
 /// @nodoc
@@ -131,56 +129,31 @@ class __$$_InitialCopyWithImpl<$Res>
     implements _$$_InitialCopyWith<$Res> {
   __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? currentUser = null,
-  }) {
-    return _then(_$_Initial(
-      null == currentUser
-          ? _value.currentUser
-          : currentUser // ignore: cast_nullable_to_non_nullable
-              as CurrentUser,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$_Initial implements _Initial {
-  const _$_Initial(this.currentUser);
-
-  @override
-  final CurrentUser currentUser;
+  const _$_Initial();
 
   @override
   String toString() {
-    return 'ProfileEditEvent.initial(currentUser: $currentUser)';
+    return 'ProfileEditEvent.initial()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_Initial &&
-            (identical(other.currentUser, currentUser) ||
-                other.currentUser == currentUser));
+        (other.runtimeType == runtimeType && other is _$_Initial);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, currentUser);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_InitialCopyWith<_$_Initial> get copyWith =>
-      __$$_InitialCopyWithImpl<_$_Initial>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(CurrentUser currentUser) initial,
+    required TResult Function() initial,
     required TResult Function(String email) changeEmail,
     required TResult Function(String username) changeUsername,
     required TResult Function(String password) changePassword,
@@ -190,13 +163,13 @@ class _$_Initial implements _Initial {
     required TResult Function() pickImage,
     required TResult Function() deleteImage,
   }) {
-    return initial(currentUser);
+    return initial();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(CurrentUser currentUser)? initial,
+    TResult? Function()? initial,
     TResult? Function(String email)? changeEmail,
     TResult? Function(String username)? changeUsername,
     TResult? Function(String password)? changePassword,
@@ -206,13 +179,13 @@ class _$_Initial implements _Initial {
     TResult? Function()? pickImage,
     TResult? Function()? deleteImage,
   }) {
-    return initial?.call(currentUser);
+    return initial?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CurrentUser currentUser)? initial,
+    TResult Function()? initial,
     TResult Function(String email)? changeEmail,
     TResult Function(String username)? changeUsername,
     TResult Function(String password)? changePassword,
@@ -224,7 +197,7 @@ class _$_Initial implements _Initial {
     required TResult orElse(),
   }) {
     if (initial != null) {
-      return initial(currentUser);
+      return initial();
     }
     return orElse();
   }
@@ -283,12 +256,7 @@ class _$_Initial implements _Initial {
 }
 
 abstract class _Initial implements ProfileEditEvent {
-  const factory _Initial(final CurrentUser currentUser) = _$_Initial;
-
-  CurrentUser get currentUser;
-  @JsonKey(ignore: true)
-  _$$_InitialCopyWith<_$_Initial> get copyWith =>
-      throw _privateConstructorUsedError;
+  const factory _Initial() = _$_Initial;
 }
 
 /// @nodoc
@@ -355,7 +323,7 @@ class _$_ChangeEmail implements _ChangeEmail {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(CurrentUser currentUser) initial,
+    required TResult Function() initial,
     required TResult Function(String email) changeEmail,
     required TResult Function(String username) changeUsername,
     required TResult Function(String password) changePassword,
@@ -371,7 +339,7 @@ class _$_ChangeEmail implements _ChangeEmail {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(CurrentUser currentUser)? initial,
+    TResult? Function()? initial,
     TResult? Function(String email)? changeEmail,
     TResult? Function(String username)? changeUsername,
     TResult? Function(String password)? changePassword,
@@ -387,7 +355,7 @@ class _$_ChangeEmail implements _ChangeEmail {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CurrentUser currentUser)? initial,
+    TResult Function()? initial,
     TResult Function(String email)? changeEmail,
     TResult Function(String username)? changeUsername,
     TResult Function(String password)? changePassword,
@@ -531,7 +499,7 @@ class _$_ChangeUsername implements _ChangeUsername {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(CurrentUser currentUser) initial,
+    required TResult Function() initial,
     required TResult Function(String email) changeEmail,
     required TResult Function(String username) changeUsername,
     required TResult Function(String password) changePassword,
@@ -547,7 +515,7 @@ class _$_ChangeUsername implements _ChangeUsername {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(CurrentUser currentUser)? initial,
+    TResult? Function()? initial,
     TResult? Function(String email)? changeEmail,
     TResult? Function(String username)? changeUsername,
     TResult? Function(String password)? changePassword,
@@ -563,7 +531,7 @@ class _$_ChangeUsername implements _ChangeUsername {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CurrentUser currentUser)? initial,
+    TResult Function()? initial,
     TResult Function(String email)? changeEmail,
     TResult Function(String username)? changeUsername,
     TResult Function(String password)? changePassword,
@@ -707,7 +675,7 @@ class _$_ChangePassword implements _ChangePassword {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(CurrentUser currentUser) initial,
+    required TResult Function() initial,
     required TResult Function(String email) changeEmail,
     required TResult Function(String username) changeUsername,
     required TResult Function(String password) changePassword,
@@ -723,7 +691,7 @@ class _$_ChangePassword implements _ChangePassword {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(CurrentUser currentUser)? initial,
+    TResult? Function()? initial,
     TResult? Function(String email)? changeEmail,
     TResult? Function(String username)? changeUsername,
     TResult? Function(String password)? changePassword,
@@ -739,7 +707,7 @@ class _$_ChangePassword implements _ChangePassword {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CurrentUser currentUser)? initial,
+    TResult Function()? initial,
     TResult Function(String email)? changeEmail,
     TResult Function(String username)? changeUsername,
     TResult Function(String password)? changePassword,
@@ -884,7 +852,7 @@ class _$_ChangeNewPassword implements _ChangeNewPassword {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(CurrentUser currentUser) initial,
+    required TResult Function() initial,
     required TResult Function(String email) changeEmail,
     required TResult Function(String username) changeUsername,
     required TResult Function(String password) changePassword,
@@ -900,7 +868,7 @@ class _$_ChangeNewPassword implements _ChangeNewPassword {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(CurrentUser currentUser)? initial,
+    TResult? Function()? initial,
     TResult? Function(String email)? changeEmail,
     TResult? Function(String username)? changeUsername,
     TResult? Function(String password)? changePassword,
@@ -916,7 +884,7 @@ class _$_ChangeNewPassword implements _ChangeNewPassword {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CurrentUser currentUser)? initial,
+    TResult Function()? initial,
     TResult Function(String email)? changeEmail,
     TResult Function(String username)? changeUsername,
     TResult Function(String password)? changePassword,
@@ -1034,7 +1002,7 @@ class _$_ToggleEditPassword implements _ToggleEditPassword {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(CurrentUser currentUser) initial,
+    required TResult Function() initial,
     required TResult Function(String email) changeEmail,
     required TResult Function(String username) changeUsername,
     required TResult Function(String password) changePassword,
@@ -1050,7 +1018,7 @@ class _$_ToggleEditPassword implements _ToggleEditPassword {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(CurrentUser currentUser)? initial,
+    TResult? Function()? initial,
     TResult? Function(String email)? changeEmail,
     TResult? Function(String username)? changeUsername,
     TResult? Function(String password)? changePassword,
@@ -1066,7 +1034,7 @@ class _$_ToggleEditPassword implements _ToggleEditPassword {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CurrentUser currentUser)? initial,
+    TResult Function()? initial,
     TResult Function(String email)? changeEmail,
     TResult Function(String username)? changeUsername,
     TResult Function(String password)? changePassword,
@@ -1178,7 +1146,7 @@ class _$_EditProfile implements _EditProfile {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(CurrentUser currentUser) initial,
+    required TResult Function() initial,
     required TResult Function(String email) changeEmail,
     required TResult Function(String username) changeUsername,
     required TResult Function(String password) changePassword,
@@ -1194,7 +1162,7 @@ class _$_EditProfile implements _EditProfile {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(CurrentUser currentUser)? initial,
+    TResult? Function()? initial,
     TResult? Function(String email)? changeEmail,
     TResult? Function(String username)? changeUsername,
     TResult? Function(String password)? changePassword,
@@ -1210,7 +1178,7 @@ class _$_EditProfile implements _EditProfile {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CurrentUser currentUser)? initial,
+    TResult Function()? initial,
     TResult Function(String email)? changeEmail,
     TResult Function(String username)? changeUsername,
     TResult Function(String password)? changePassword,
@@ -1322,7 +1290,7 @@ class _$_PickImage implements _PickImage {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(CurrentUser currentUser) initial,
+    required TResult Function() initial,
     required TResult Function(String email) changeEmail,
     required TResult Function(String username) changeUsername,
     required TResult Function(String password) changePassword,
@@ -1338,7 +1306,7 @@ class _$_PickImage implements _PickImage {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(CurrentUser currentUser)? initial,
+    TResult? Function()? initial,
     TResult? Function(String email)? changeEmail,
     TResult? Function(String username)? changeUsername,
     TResult? Function(String password)? changePassword,
@@ -1354,7 +1322,7 @@ class _$_PickImage implements _PickImage {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CurrentUser currentUser)? initial,
+    TResult Function()? initial,
     TResult Function(String email)? changeEmail,
     TResult Function(String username)? changeUsername,
     TResult Function(String password)? changePassword,
@@ -1466,7 +1434,7 @@ class _$_DeleteImage implements _DeleteImage {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(CurrentUser currentUser) initial,
+    required TResult Function() initial,
     required TResult Function(String email) changeEmail,
     required TResult Function(String username) changeUsername,
     required TResult Function(String password) changePassword,
@@ -1482,7 +1450,7 @@ class _$_DeleteImage implements _DeleteImage {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(CurrentUser currentUser)? initial,
+    TResult? Function()? initial,
     TResult? Function(String email)? changeEmail,
     TResult? Function(String username)? changeUsername,
     TResult? Function(String password)? changePassword,
@@ -1498,7 +1466,7 @@ class _$_DeleteImage implements _DeleteImage {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CurrentUser currentUser)? initial,
+    TResult Function()? initial,
     TResult Function(String email)? changeEmail,
     TResult Function(String username)? changeUsername,
     TResult Function(String password)? changePassword,

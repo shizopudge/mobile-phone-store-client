@@ -2,7 +2,7 @@ part of 'profile_edit_bloc.dart';
 
 @freezed
 class ProfileEditEvent with _$ProfileEditEvent {
-  const factory ProfileEditEvent.initial(CurrentUser currentUser) = _Initial;
+  const factory ProfileEditEvent.initial() = _Initial;
   const factory ProfileEditEvent.changeEmail(String email) = _ChangeEmail;
   const factory ProfileEditEvent.changeUsername(String username) =
       _ChangeUsername;

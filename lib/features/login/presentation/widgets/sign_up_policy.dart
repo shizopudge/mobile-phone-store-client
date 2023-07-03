@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/styles/styles.dart';
+import '../../../../core/utils/size_config.dart';
 
 class PolicyText extends StatelessWidget {
   const PolicyText({
@@ -16,15 +17,14 @@ class PolicyText extends StatelessWidget {
         text: 'By signing up, you agree to\n',
         style: kSemiBold.copyWith(
           color: kGrey,
-          fontSize: 16,
+          fontSize: SizeConfig.fontSmall,
         ),
         children: [
           TextSpan(
             text: 'Terms of Service & Privacy Policy',
             style: kMedium.copyWith(
               color: kLightBlue,
-              fontSize: 16,
-              height: 1.5,
+              fontSize: SizeConfig.fontSmall,
             ),
             recognizer: TapGestureRecognizer()..onTap = () {},
           ),

@@ -6,13 +6,14 @@ import 'package:bloc/bloc.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:equatable/equatable.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import '../../../../core/domain/entities/current_user.dart';
-import '../../../../core/domain/usecases/usecase.dart';
 
 import '../../../../core/constants/extensions.dart';
-import '../../../../core/domain/entities/password_validation.dart';
+import '../../../../core/constants/password_validation.dart';
+import '../../../../core/domain/entities/current_user.dart';
 import '../../../../core/domain/usecases/image/pick_image.dart';
+import '../../../../core/domain/usecases/usecase.dart';
 import '../../../../core/failure/failure.dart';
+import '../../../../core/logic/auth/auth_bloc.dart';
 import '../../domain/usecases/delete_image.dart';
 import '../../domain/usecases/edit_profile.dart';
 import '../../domain/usecases/upload_image.dart';
@@ -22,15 +23,17 @@ part 'profile_edit_event.dart';
 part 'profile_edit_state.dart';
 
 class ProfileEditBloc extends Bloc<ProfileEditEvent, ProfileEditState> {
-  ProfileEditBloc(
-      {required EditProfile editProfileUsecase,
-      required UploadUserImage uploadUserImageUsecase,
-      required PickImage pickImageUsecase,
-      required DeleteUserImage deleteUserImageUsecase})
-      : _editProfileUsecase = editProfileUsecase,
+  ProfileEditBloc({
+    required EditProfile editProfileUsecase,
+    required UploadUserImage uploadUserImageUsecase,
+    required PickImage pickImageUsecase,
+    required DeleteUserImage deleteUserImageUsecase,
+    required AuthBloc authBloc,
+  })  : _editProfileUsecase = editProfileUsecase,
         _uploadUserImageUsecase = uploadUserImageUsecase,
         _pickImageUsecase = pickImageUsecase,
         _deleteUserImageUsecase = deleteUserImageUsecase,
+        _authBloc = authBloc,
         super(const ProfileEditState()) {
     on<_Initial>(_initial);
     on<_ChangeEmail>(_changeEmail);
@@ -47,13 +50,20 @@ class ProfileEditBloc extends Bloc<ProfileEditEvent, ProfileEditState> {
   final UploadUserImage _uploadUserImageUsecase;
   final PickImage _pickImageUsecase;
   final DeleteUserImage _deleteUserImageUsecase;
+  final AuthBloc _authBloc;
 
   FutureOr<void> _initial(_Initial event, Emitter<ProfileEditState> emit) {
-    emit(state.copyWith(
-      email: event.currentUser.email,
-      username: event.currentUser.username,
-      currentUser: event.currentUser,
-    ));
+    final CurrentUser? user = _authBloc.state.user;
+    if (user != null) {
+      emit(state.copyWith(
+        email: user.email,
+        username: user.username,
+        currentUser: user,
+      ));
+    } else {
+      emit(const ProfileEditState(
+          status: ProfileEditStatus.failure, failure: UnknownFailure()));
+    }
   }
 
   FutureOr<void> _changeEmail(
@@ -119,15 +129,16 @@ class ProfileEditBloc extends Bloc<ProfileEditEvent, ProfileEditState> {
         res.fold((failure) {
           _emitFailure(emit, failure);
         }, (uploadedImage) {
+          _authBloc.add(
+              AuthEvent.setUser(editedUser.copyWith(image: uploadedImage)));
           emit(state.copyWith(
               status: ProfileEditStatus.success,
-              currentUser: state.currentUser?.copyWith(image: uploadedImage)));
-          emit(state.copyWith(status: ProfileEditStatus.initial));
+              currentUser: editedUser.copyWith(image: uploadedImage)));
         });
       } else {
+        _authBloc.add(AuthEvent.setUser(editedUser));
         emit(state.copyWith(
             status: ProfileEditStatus.success, currentUser: editedUser));
-        emit(state.copyWith(status: ProfileEditStatus.initial));
       }
     });
   }
@@ -155,6 +166,8 @@ class ProfileEditBloc extends Bloc<ProfileEditEvent, ProfileEditState> {
     res.fold((failure) {
       _emitFailure(emit, failure);
     }, (r) {
+      _authBloc.add(
+          AuthEvent.setUser(state.currentUser?.copyWithNewImage(image: null)));
       emit(state.copyWith(
           currentUser: state.currentUser?.copyWithNewImage(image: null),
           status: ProfileEditStatus.success));

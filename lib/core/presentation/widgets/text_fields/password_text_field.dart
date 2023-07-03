@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../styles/styles.dart';
+import '../../../styles/styles.dart';
+import '../../../utils/size_config.dart';
 
 class PasswordTextFieldCubit extends Cubit<bool> {
   PasswordTextFieldCubit() : super(false);
@@ -38,20 +39,23 @@ class PasswordTextField extends StatelessWidget {
           ],
           autofocus: autofocus,
           enabled: isAvailable,
-          style: kSemiBold.copyWith(color: kDarkBlue, fontSize: 18),
+          style: kSemiBold.copyWith(
+              color: kDarkBlue, fontSize: SizeConfig.fontTitle),
           cursorColor: kDarkBlue,
           obscureText: !state,
           decoration: InputDecoration(
             hintText: hint,
-            hintStyle: kSemiBold.copyWith(color: kGrey, fontSize: 18),
+            hintStyle: kSemiBold.copyWith(
+                color: kGrey, fontSize: SizeConfig.fontTitle),
             suffixIcon: isAvailable
                 ? state
                     ? IconButton(
                         onPressed: () => context
                             .read<PasswordTextFieldCubit>()
                             .toggleVisibility(),
-                        icon: const Icon(
+                        icon: Icon(
                           Icons.visibility_off_outlined,
+                          size: SizeConfig.iconMedium,
                           color: kLightBlue,
                         ),
                       )
@@ -59,8 +63,9 @@ class PasswordTextField extends StatelessWidget {
                         onPressed: () => context
                             .read<PasswordTextFieldCubit>()
                             .toggleVisibility(),
-                        icon: const Icon(
+                        icon: Icon(
                           Icons.visibility_outlined,
+                          size: SizeConfig.iconMedium,
                           color: kLightBlue,
                         ),
                       )

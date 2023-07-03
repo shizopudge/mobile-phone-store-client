@@ -5,10 +5,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/presentation/animations/fade_animation_y_down.dart';
 import '../../../../core/presentation/widgets/buttons/casual_button.dart';
-import '../../../../core/presentation/widgets/casual_text_field.dart';
-import '../../../../core/presentation/widgets/password_checkbox.dart';
-import '../../../../core/presentation/widgets/password_text_field.dart';
+import '../../../../core/presentation/widgets/other/password_checkbox.dart';
+import '../../../../core/presentation/widgets/text_fields/casual_text_field.dart';
+import '../../../../core/presentation/widgets/text_fields/password_text_field.dart';
 import '../../../../core/styles/styles.dart';
+import '../../../../core/utils/size_config.dart';
 import '../bloc/login_bloc.dart';
 import 'sign_up_policy.dart';
 
@@ -58,7 +59,7 @@ class SignUpBody extends StatelessWidget {
                       child: Text(
                         'Sign up',
                         style: kBold.copyWith(
-                          fontSize: 38,
+                          fontSize: SizeConfig.fontHeaderLarge,
                           color: kDarkBlue,
                         ),
                       ),
@@ -71,7 +72,7 @@ class SignUpBody extends StatelessWidget {
                       child: Text(
                         'Create your account',
                         style: kSemiBold.copyWith(
-                          fontSize: 21,
+                          fontSize: SizeConfig.fontTitle,
                           color: kDarkBlue,
                         ),
                       ),
@@ -128,7 +129,11 @@ class SignUpBody extends StatelessWidget {
                     FadeAnimationYDown(
                       delay: .3,
                       child: SizedBox(
-                        height: 32,
+                        height: SizeConfig.isMobile
+                            ? SizeConfig.screenWidth! * .1
+                            : SizeConfig.isTablet
+                                ? SizeConfig.screenWidth! * .08
+                                : SizeConfig.screenWidth! * .05,
                         child: ListView(
                           scrollDirection: Axis.horizontal,
                           shrinkWrap: true,
@@ -178,14 +183,14 @@ class SignUpBody extends StatelessWidget {
                           text: 'Already have an account? ',
                           style: kSemiBold.copyWith(
                             color: kGrey,
-                            fontSize: 16,
+                            fontSize: SizeConfig.fontSmall,
                           ),
                           children: [
                             TextSpan(
                               text: 'Sign in',
                               style: kMedium.copyWith(
                                 color: kLightBlue,
-                                fontSize: 16,
+                                fontSize: SizeConfig.fontSmall,
                               ),
                               recognizer: TapGestureRecognizer()
                                 ..onTap = switchPage,
