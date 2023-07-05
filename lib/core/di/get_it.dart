@@ -57,7 +57,9 @@ Future<void> appSetup() async {
         dio: getIt<DioClient>().dio,
         refreshTokens: RefreshTokens(getIt<AuthRepositoryImpl>()),
         storage: getIt<FlutterSecureStorage>()),
-    const LoggerInterceptor()
+    const LoggerInterceptor(),
+    //! TODO Remove on release
+    const AwaitInterceptor()
   });
 
   // Global blocs

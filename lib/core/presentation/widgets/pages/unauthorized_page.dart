@@ -29,7 +29,7 @@ class UnauthorizedPage extends StatelessWidget {
                   text,
                   textAlign: TextAlign.center,
                   style: kMedium.copyWith(
-                    fontSize: SizeConfig.fontHeaderSmall,
+                    fontSize: SizeConfig.h2,
                     color: kDarkBlue,
                   ),
                 ),

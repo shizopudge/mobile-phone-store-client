@@ -5,11 +5,15 @@ import '../../../utils/size_config.dart';
 
 class SearchField extends StatelessWidget {
   final TextEditingController _searchController;
+  final VoidCallback onClear;
+  final VoidCallback onFilter;
   final bool showFilter;
   const SearchField({
     super.key,
     required TextEditingController searchController,
     this.showFilter = true,
+    required this.onClear,
+    required this.onFilter,
   }) : _searchController = searchController;
 
   @override
@@ -20,7 +24,7 @@ class SearchField extends StatelessWidget {
       style: kMedium.copyWith(
         color: kDarkBlue,
         height: 1,
-        fontSize: SizeConfig.fontTitle,
+        fontSize: SizeConfig.body1,
       ),
       decoration: InputDecoration(
         fillColor: kLightWhite,
@@ -43,7 +47,7 @@ class SearchField extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 CloseButton(
-                  onPressed: () {},
+                  onPressed: onClear,
                   color: kDarkBlue,
                   style: ButtonStyle(
                     iconSize: MaterialStatePropertyAll(
@@ -53,7 +57,7 @@ class SearchField extends StatelessWidget {
                 ),
                 if (showFilter)
                   IconButton(
-                    onPressed: () {},
+                    onPressed: onFilter,
                     icon: Icon(
                       Icons.filter_list_rounded,
                       color: kDarkBlue,
@@ -68,7 +72,7 @@ class SearchField extends StatelessWidget {
         hintStyle: kSemiBold.copyWith(
           color: kGrey,
           height: 1,
-          fontSize: SizeConfig.fontTitle,
+          fontSize: SizeConfig.body1,
         ),
         border: OutlineInputBorder(
           borderSide: const BorderSide(style: BorderStyle.none),

@@ -11,7 +11,8 @@ import 'product_message.dart';
 
 class ProductCard extends StatelessWidget {
   final Product product;
-  const ProductCard({super.key, required this.product});
+
+  const ProductCard(this.product, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +45,7 @@ class ProductCard extends StatelessWidget {
                 Column(
                   children: [
                     if (product.images.isNotEmpty)
-                      Flexible(
+                      Expanded(
                         child: CachedNetworkImage(
                           imageUrl:
                               '${ApiConstants.imagesUrl}/${product.images[0]}',
@@ -79,6 +80,22 @@ class ProductCard extends StatelessWidget {
                                 color: kGrey,
                                 borderRadius: BorderRadius.circular(21),
                               ),
+                            ),
+                          ),
+                        ),
+                      )
+                    else
+                      Expanded(
+                        child: Container(
+                          padding: const EdgeInsets.all(5),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(21),
+                          ),
+                          child: const FittedBox(
+                            fit: BoxFit.contain,
+                            child: Icon(
+                              Icons.image,
+                              color: kDarkBlue,
                             ),
                           ),
                         ),

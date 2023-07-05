@@ -27,7 +27,7 @@ class PasswordCheckBox extends StatelessWidget {
         children: [
           Icon(
             Icons.check_circle_outline,
-            size: SizeConfig.iconSmall,
+            size: SizeConfig.iconMedium,
             color: isValidated ? kLightBlue : kDarkBlue.withOpacity(.5),
           ),
           const SizedBox(
@@ -37,7 +37,7 @@ class PasswordCheckBox extends StatelessWidget {
             requirement,
             style: kMedium.copyWith(
               color: isValidated ? kLightBlue : kDarkBlue.withOpacity(.5),
-              fontSize: SizeConfig.fontSubtitle,
+              fontSize: SizeConfig.body2,
             ),
           ),
         ],

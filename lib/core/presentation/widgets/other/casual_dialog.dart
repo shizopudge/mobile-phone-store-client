@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../../core/presentation/animations/fade_animation_y_down.dart';
 import '../../../../../core/styles/colors.dart';
 import '../../../../../core/styles/fonts.dart';
+import '../../../utils/size_config.dart';
 
 class CasualDialog extends StatelessWidget {
   final String title;
@@ -42,10 +43,10 @@ class CasualDialog extends StatelessWidget {
                 children: [
                   Flexible(
                     child: Text(
-                      'Image actions',
+                      title,
                       overflow: TextOverflow.visible,
                       style: kBold.copyWith(
-                        fontSize: 24,
+                        fontSize: SizeConfig.body1,
                         color: kDarkBlue,
                       ),
                     ),
@@ -60,10 +61,10 @@ class CasualDialog extends StatelessWidget {
                 height: innerPadding,
               ),
               Text(
-                'What you want to do with your profile image?',
+                subtitle,
                 overflow: TextOverflow.visible,
                 style: kRegular.copyWith(
-                  fontSize: 16,
+                  fontSize: SizeConfig.body2,
                   color: kGrey,
                 ),
               ),

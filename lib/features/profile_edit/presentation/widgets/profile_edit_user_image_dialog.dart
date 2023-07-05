@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/presentation/animations/fade_animation_y_down.dart';
+import '../../../../core/presentation/widgets/buttons/casual_button.dart';
 import '../../../../core/presentation/widgets/other/casual_dialog.dart';
 import '../../../../core/styles/colors.dart';
-import '../../../../core/styles/fonts.dart';
+import '../../../../core/utils/size_config.dart';
 
 class ProfileEditUserImageDialog extends StatelessWidget {
   final VoidCallback onUpload;
@@ -28,34 +29,22 @@ class ProfileEditUserImageDialog extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  MaterialButton(
-                    onPressed: onUpload,
-                    color: kDarkBlue,
-                    minWidth: double.infinity,
-                    height: 50,
-                    child: Text(
-                      'Upload image',
-                      style: kSemiBold.copyWith(
-                        fontSize: 18,
-                        color: kWhite,
-                      ),
-                    ),
+                  CasualButton(
+                    text: 'Upload image',
+                    onTap: onUpload,
+                    enabledBgColor: kDarkBlue,
+                    height: 45,
+                    fontSize: SizeConfig.body2,
                   ),
                   const SizedBox(
                     height: 18,
                   ),
-                  MaterialButton(
-                    onPressed: onDelete,
-                    color: kRed,
-                    minWidth: double.infinity,
-                    height: 50,
-                    child: Text(
-                      'Delete image',
-                      style: kSemiBold.copyWith(
-                        fontSize: 18,
-                        color: kWhite,
-                      ),
-                    ),
+                  CasualButton(
+                    text: 'Delete image',
+                    onTap: onDelete,
+                    enabledBgColor: kRed,
+                    height: 45,
+                    fontSize: SizeConfig.body2,
                   ),
                 ],
               ),

@@ -21,6 +21,9 @@ class ProfileBody extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: [
+          const SizedBox(
+            height: 20,
+          ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Row(
@@ -46,7 +49,7 @@ class ProfileBody extends StatelessWidget {
                             'There should be your username',
                         overflow: TextOverflow.ellipsis,
                         style: kBold.copyWith(
-                          fontSize: SizeConfig.fontHeaderSmall,
+                          fontSize: SizeConfig.h2,
                           color: kDarkBlue,
                         ),
                       ),
@@ -54,7 +57,7 @@ class ProfileBody extends StatelessWidget {
                         currentUser?.email ?? 'There should be your email',
                         overflow: TextOverflow.ellipsis,
                         style: kRegular.copyWith(
-                          fontSize: SizeConfig.fontTitle,
+                          fontSize: SizeConfig.body1,
                           color: kGrey,
                           height: 1.5,
                         ),

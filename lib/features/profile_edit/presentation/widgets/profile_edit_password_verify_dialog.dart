@@ -4,6 +4,7 @@ import '../../../../core/presentation/animations/fade_animation_y_down.dart';
 import '../../../../core/presentation/widgets/buttons/casual_button.dart';
 import '../../../../core/presentation/widgets/other/casual_dialog.dart';
 import '../../../../core/presentation/widgets/text_fields/password_text_field.dart';
+import '../../../../core/utils/size_config.dart';
 
 class ProfileEditPasswordVerifyDialog extends StatelessWidget {
   final VoidCallback onTap;
@@ -33,9 +34,9 @@ class ProfileEditPasswordVerifyDialog extends StatelessWidget {
               height: 24,
             ),
             CasualButton(
-              isEnabled: true,
               text: 'Next',
               onTap: onTap,
+              fontSize: SizeConfig.body2,
             ),
           ],
         ),

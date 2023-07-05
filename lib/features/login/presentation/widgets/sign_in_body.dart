@@ -11,12 +11,12 @@ import '../../../../core/styles/styles.dart';
 import '../../../../core/utils/size_config.dart';
 import '../bloc/login_bloc.dart';
 
-class LoginBody extends StatelessWidget {
+class SignInBody extends StatelessWidget {
   final BuildContext loginPageContext;
   final VoidCallback switchPage;
   final TextEditingController _emailController;
   final TextEditingController _passwordController;
-  LoginBody({
+  SignInBody({
     super.key,
     required TextEditingController emailController,
     required TextEditingController passwordController,
@@ -50,8 +50,9 @@ class LoginBody extends StatelessWidget {
                       delay: .05,
                       child: Text(
                         'Sign in',
+                        textAlign: TextAlign.center,
                         style: kBold.copyWith(
-                          fontSize: SizeConfig.fontHeaderLarge,
+                          fontSize: SizeConfig.h1,
                           color: kDarkBlue,
                         ),
                       ),
@@ -63,14 +64,15 @@ class LoginBody extends StatelessWidget {
                       delay: .1,
                       child: Text(
                         'Access your account',
+                        textAlign: TextAlign.center,
                         style: kSemiBold.copyWith(
-                          fontSize: SizeConfig.fontTitle,
+                          fontSize: SizeConfig.h2,
                           color: kDarkBlue,
                         ),
                       ),
                     ),
                     const SizedBox(
-                      height: 25,
+                      height: 20,
                     ),
                     FadeAnimationYDown(
                       delay: .15,
@@ -89,7 +91,7 @@ class LoginBody extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(
-                      height: 25,
+                      height: 20,
                     ),
                     FadeAnimationYDown(
                       delay: .2,
@@ -113,10 +115,11 @@ class LoginBody extends StatelessWidget {
                         text: 'Sign in',
                         isEnabled: state.validation.isSignInFormValidated &&
                             state.password.isNotEmpty,
+                        fontSize: SizeConfig.body1,
                       ),
                     ),
                     const SizedBox(
-                      height: 15,
+                      height: 20,
                     ),
                     FadeAnimationYDown(
                       delay: .3,
@@ -124,9 +127,9 @@ class LoginBody extends StatelessWidget {
                           onPressed: () {},
                           child: Text(
                             'Forgot the password?',
+                            textAlign: TextAlign.center,
                             style: kSemiBold.copyWith(
-                                color: kLightBlue,
-                                fontSize: SizeConfig.fontSmall),
+                                color: kLightBlue, fontSize: SizeConfig.body3),
                           )),
                     ),
                     const SizedBox(
@@ -136,18 +139,19 @@ class LoginBody extends StatelessWidget {
                     FadeAnimationYDown(
                       delay: .35,
                       child: RichText(
+                        textAlign: TextAlign.center,
                         text: TextSpan(
                           text: 'Dont\' have an account? ',
                           style: kSemiBold.copyWith(
                             color: kGrey,
-                            fontSize: SizeConfig.fontSmall,
+                            fontSize: SizeConfig.body3,
                           ),
                           children: [
                             TextSpan(
                               text: 'Sign up',
                               style: kMedium.copyWith(
                                 color: kLightBlue,
-                                fontSize: SizeConfig.fontSmall,
+                                fontSize: SizeConfig.body3,
                               ),
                               recognizer: TapGestureRecognizer()
                                 ..onTap = switchPage,

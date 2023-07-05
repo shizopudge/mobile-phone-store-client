@@ -39,14 +39,14 @@ class PasswordTextField extends StatelessWidget {
           ],
           autofocus: autofocus,
           enabled: isAvailable,
-          style: kSemiBold.copyWith(
-              color: kDarkBlue, fontSize: SizeConfig.fontTitle),
+          style:
+              kSemiBold.copyWith(color: kDarkBlue, fontSize: SizeConfig.body1),
           cursorColor: kDarkBlue,
           obscureText: !state,
           decoration: InputDecoration(
             hintText: hint,
-            hintStyle: kSemiBold.copyWith(
-                color: kGrey, fontSize: SizeConfig.fontTitle),
+            hintStyle:
+                kSemiBold.copyWith(color: kGrey, fontSize: SizeConfig.body1),
             suffixIcon: isAvailable
                 ? state
                     ? IconButton(

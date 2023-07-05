@@ -96,3 +96,14 @@ class LoggerInterceptor extends Interceptor {
     return handler.next(err);
   }
 }
+
+class AwaitInterceptor extends Interceptor {
+  const AwaitInterceptor();
+
+  @override
+  void onRequest(
+      RequestOptions options, RequestInterceptorHandler handler) async {
+    await Future.delayed(const Duration(milliseconds: 1000));
+    return handler.next(options);
+  }
+}

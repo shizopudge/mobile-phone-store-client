@@ -6,6 +6,7 @@ import '../../../../features/login/presentation/login_page.dart';
 import '../../../logic/auth/auth_bloc.dart';
 import '../../../styles/styles.dart';
 import '../../../utils/size_config.dart';
+import '../loading/casual_loader.dart';
 
 class AuthSplashPage extends StatelessWidget {
   static const String path = '/';
@@ -40,7 +41,7 @@ class AuthSplashPage extends StatelessWidget {
                   'MOBILE STORE',
                   textAlign: TextAlign.center,
                   style: kSemiBold.copyWith(
-                    fontSize: SizeConfig.fontHeaderLarge,
+                    fontSize: SizeConfig.h1,
                     color: kDarkBlue,
                     letterSpacing: 6.4,
                   ),
@@ -49,8 +50,7 @@ class AuthSplashPage extends StatelessWidget {
               const Spacer(
                 flex: 2,
               ),
-              const CircularProgressIndicator(
-                strokeWidth: 1.5,
+              const CasualLoader(
                 color: kDarkBlue,
               ),
               const Spacer(),

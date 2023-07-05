@@ -25,7 +25,7 @@ class ErrorPage extends StatelessWidget {
                   failure?.message ?? 'Something went wrong...',
                   textAlign: TextAlign.center,
                   style: kSemiBold.copyWith(
-                    fontSize: SizeConfig.fontHeaderSmall,
+                    fontSize: SizeConfig.h2,
                     color: kDarkBlue,
                   ),
                 ),

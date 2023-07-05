@@ -7,5 +7,7 @@ abstract interface class ProductsRepository {
     required int limit,
     required String query,
     required String sort,
+    required bool withDiscount,
+    required bool newArrival,
   });
 }

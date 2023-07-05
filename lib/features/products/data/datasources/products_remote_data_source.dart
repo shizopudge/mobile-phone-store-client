@@ -11,6 +11,8 @@ abstract interface class ProductsRemoteDataSource {
     required int limit,
     required String query,
     required String sort,
+    required bool withDiscount,
+    required bool newArrival,
   });
 }
 
@@ -19,11 +21,14 @@ class ProductsRemoteDataSourceImpl implements ProductsRemoteDataSource {
 
   ProductsRemoteDataSourceImpl(this.dioClient);
   @override
-  Future<ProductsResponseModel> getProducts(
-      {required int page,
-      required int limit,
-      required String query,
-      required String sort}) async {
+  Future<ProductsResponseModel> getProducts({
+    required int page,
+    required int limit,
+    required String query,
+    required String sort,
+    required bool withDiscount,
+    required bool newArrival,
+  }) async {
     try {
       final res = await dioClient.dio.get(
         ApiConstants.products,
@@ -32,6 +37,8 @@ class ProductsRemoteDataSourceImpl implements ProductsRemoteDataSource {
           'limit': limit,
           'query': query,
           'sort': sort,
+          'withDiscount': withDiscount,
+          'newArrival': newArrival,
         },
       );
       return ProductsResponseModel.fromJson(res.data);

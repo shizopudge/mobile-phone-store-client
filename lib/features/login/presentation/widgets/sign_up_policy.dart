@@ -17,14 +17,14 @@ class PolicyText extends StatelessWidget {
         text: 'By signing up, you agree to\n',
         style: kSemiBold.copyWith(
           color: kGrey,
-          fontSize: SizeConfig.fontSmall,
+          fontSize: SizeConfig.body3,
         ),
         children: [
           TextSpan(
             text: 'Terms of Service & Privacy Policy',
             style: kMedium.copyWith(
               color: kLightBlue,
-              fontSize: SizeConfig.fontSmall,
+              fontSize: SizeConfig.body3,
             ),
             recognizer: TapGestureRecognizer()..onTap = () {},
           ),

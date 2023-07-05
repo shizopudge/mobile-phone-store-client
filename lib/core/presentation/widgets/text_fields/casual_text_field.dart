@@ -5,34 +5,44 @@ import '../../../styles/styles.dart';
 import '../../../utils/size_config.dart';
 
 class CasualTextField extends StatelessWidget {
-  final TextEditingController _controller;
+  final TextEditingController controller;
   final String hintText;
-  final bool isValidated;
+  final bool? isValidated;
   final bool showCheckIcon;
   final List<TextInputFormatter>? inputFormatters;
+  final void Function(String value)? onChange;
+  final double? fontSize;
+  final String? label;
+  final TextStyle? labelStyle;
   const CasualTextField({
     super.key,
-    required TextEditingController controller,
+    required this.controller,
     required this.hintText,
-    required this.isValidated,
-    this.showCheckIcon = true,
+    this.isValidated,
+    this.showCheckIcon = false,
     this.inputFormatters,
-  }) : _controller = controller;
+    this.onChange,
+    this.fontSize,
+    this.label,
+    this.labelStyle,
+  }) : assert(isValidated == null && showCheckIcon == false,
+            'showCheckIcon should be true if you use isValidated option');
 
   @override
   Widget build(BuildContext context) {
     return TextField(
-      controller: _controller,
+      controller: controller,
       inputFormatters: inputFormatters,
-      style:
-          kSemiBold.copyWith(color: kDarkBlue, fontSize: SizeConfig.fontTitle),
+      style: kSemiBold.copyWith(
+          color: kDarkBlue, fontSize: fontSize ?? SizeConfig.body1),
       cursorColor: kDarkBlue,
+      onChanged: onChange,
       decoration: InputDecoration(
         hintText: hintText,
-        hintStyle:
-            kSemiBold.copyWith(color: kGrey, fontSize: SizeConfig.fontTitle),
+        hintStyle: kSemiBold.copyWith(
+            color: kGrey, fontSize: fontSize ?? SizeConfig.body1),
         suffixIcon: showCheckIcon
-            ? isValidated
+            ? isValidated != null && isValidated!
                 ? Icon(
                     Icons.check_rounded,
                     size: SizeConfig.iconMedium,
@@ -40,6 +50,8 @@ class CasualTextField extends StatelessWidget {
                   )
                 : null
             : null,
+        labelText: label,
+        labelStyle: labelStyle,
         border: const UnderlineInputBorder(
           borderSide: BorderSide(color: kGrey, width: .8),
         ),

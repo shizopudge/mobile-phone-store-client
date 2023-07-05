@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../../utils/size_config.dart';
 
 import '../../../styles/styles.dart';
+import '../../../utils/size_config.dart';
 
 class CasualTextButton extends StatelessWidget {
   final VoidCallback onTap;
@@ -21,7 +21,7 @@ class CasualTextButton extends StatelessWidget {
       child: Text(
         text,
         style: kMedium.copyWith(
-          fontSize: SizeConfig.fontTitle,
+          fontSize: SizeConfig.body1,
           color: kLightBlue,
         ),
       ),

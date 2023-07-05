@@ -198,7 +198,7 @@ class _ProfileEditBodyState extends State<ProfileEditBody> {
                             : 'Edit password',
                         style: kMedium.copyWith(
                           color: kLightBlue,
-                          fontSize: SizeConfig.fontSubtitle,
+                          fontSize: SizeConfig.body2,
                         ),
                       ),
                     ),
@@ -224,6 +224,7 @@ class _ProfileEditBodyState extends State<ProfileEditBody> {
                       ),
                       isEnabled: state.isAvailable,
                       text: 'EDIT',
+                      fontSize: SizeConfig.body1,
                     ),
                   ),
                   const SizedBox(

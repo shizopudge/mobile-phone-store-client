@@ -16,10 +16,18 @@ class ProductsRepositoryImpl implements ProductsRepository {
     required int limit,
     required String query,
     required String sort,
+    required bool withDiscount,
+    required bool newArrival,
   }) async {
     try {
       final res = await remoteDataSource.getProducts(
-          page: page, limit: limit, query: query, sort: sort);
+        page: page,
+        limit: limit,
+        query: query,
+        sort: sort,
+        withDiscount: withDiscount,
+        newArrival: newArrival,
+      );
       final productsResponse = ProductsResponse.fromModel(res);
       return Right(productsResponse);
     } on Failure catch (e) {

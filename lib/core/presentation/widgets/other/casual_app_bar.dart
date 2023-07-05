@@ -17,9 +17,7 @@ class CasualAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Size get preferredSize => Size.fromHeight(SizeConfig.isMobile
       ? SizeConfig.screenWidth! * .2
-      : SizeConfig.isTablet
-          ? SizeConfig.screenWidth! * .15
-          : SizeConfig.screenWidth! * .1);
+      : SizeConfig.screenWidth! * .1);
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +31,7 @@ class CasualAppBar extends StatelessWidget implements PreferredSizeWidget {
               onPressed: () => Navigator.of(context).pop(),
               icon: Icon(
                 Icons.arrow_back_ios,
-                size: SizeConfig.iconLarge,
+                size: SizeConfig.iconMedium,
                 color: kDarkBlue,
               ),
             )
@@ -41,7 +39,7 @@ class CasualAppBar extends StatelessWidget implements PreferredSizeWidget {
       title: Text(
         title,
         style: kBold.copyWith(
-          fontSize: SizeConfig.fontHeaderLarge,
+          fontSize: SizeConfig.h1,
           color: kDarkBlue,
         ),
       ),

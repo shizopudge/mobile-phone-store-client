@@ -9,7 +9,6 @@ class AppBlocObserver extends BlocObserver {
 
   @override
   void onChange(BlocBase bloc, Change change) {
-    print(change.toString());
     super.onChange(bloc, change);
   }
 

@@ -14,7 +14,7 @@ import '../domain/usecases/login_as_guest.dart';
 import '../domain/usecases/register.dart';
 import 'bloc/login_bloc.dart';
 import 'widgets/login_app_bar.dart';
-import 'widgets/login_body.dart';
+import 'widgets/sign_in_body.dart';
 import 'widgets/sign_up_body.dart';
 
 class LoginPage extends StatefulWidget {
@@ -92,26 +92,30 @@ class _LoginPageState extends State<LoginPage> {
             isLoading: state.status.isLoading,
             child: Scaffold(
               backgroundColor: kWhite,
-              appBar: const LoginAppBar(),
-              body: PageView(
-                scrollDirection: Axis.horizontal,
-                controller: _pageController,
-                physics: const NeverScrollableScrollPhysics(),
-                children: [
-                  SignUpBody(
-                    context: context,
-                    switchPage: _switchPage,
-                    emailController: _emailController,
-                    usernameController: _usernameController,
-                    passwordController: _passwordController,
-                  ),
-                  LoginBody(
-                    context: context,
-                    switchPage: _switchPage,
-                    emailController: _emailController,
-                    passwordController: _passwordController,
-                  ),
-                ],
+              appBar: LoginAppBar(
+                key: UniqueKey(),
+              ),
+              body: SafeArea(
+                child: PageView(
+                  scrollDirection: Axis.horizontal,
+                  controller: _pageController,
+                  physics: const NeverScrollableScrollPhysics(),
+                  children: [
+                    SignUpBody(
+                      context: context,
+                      switchPage: _switchPage,
+                      emailController: _emailController,
+                      usernameController: _usernameController,
+                      passwordController: _passwordController,
+                    ),
+                    SignInBody(
+                      context: context,
+                      switchPage: _switchPage,
+                      emailController: _emailController,
+                      passwordController: _passwordController,
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

@@ -58,8 +58,9 @@ class SignUpBody extends StatelessWidget {
                       delay: .05,
                       child: Text(
                         'Sign up',
+                        textAlign: TextAlign.center,
                         style: kBold.copyWith(
-                          fontSize: SizeConfig.fontHeaderLarge,
+                          fontSize: SizeConfig.h1,
                           color: kDarkBlue,
                         ),
                       ),
@@ -71,8 +72,9 @@ class SignUpBody extends StatelessWidget {
                       delay: .1,
                       child: Text(
                         'Create your account',
+                        textAlign: TextAlign.center,
                         style: kSemiBold.copyWith(
-                          fontSize: SizeConfig.fontTitle,
+                          fontSize: SizeConfig.h2,
                           color: kDarkBlue,
                         ),
                       ),
@@ -129,11 +131,7 @@ class SignUpBody extends StatelessWidget {
                     FadeAnimationYDown(
                       delay: .3,
                       child: SizedBox(
-                        height: SizeConfig.isMobile
-                            ? SizeConfig.screenWidth! * .1
-                            : SizeConfig.isTablet
-                                ? SizeConfig.screenWidth! * .08
-                                : SizeConfig.screenWidth! * .05,
+                        height: SizeConfig.screenHeight! * .06,
                         child: ListView(
                           scrollDirection: Axis.horizontal,
                           shrinkWrap: true,
@@ -171,6 +169,7 @@ class SignUpBody extends StatelessWidget {
                         },
                         text: 'Next',
                         isEnabled: state.validation.isSignUpFormValidated,
+                        fontSize: SizeConfig.body1,
                       ),
                     ),
                     const SizedBox(
@@ -179,18 +178,19 @@ class SignUpBody extends StatelessWidget {
                     FadeAnimationYDown(
                       delay: .4,
                       child: RichText(
+                        textAlign: TextAlign.center,
                         text: TextSpan(
                           text: 'Already have an account? ',
                           style: kSemiBold.copyWith(
                             color: kGrey,
-                            fontSize: SizeConfig.fontSmall,
+                            fontSize: SizeConfig.body3,
                           ),
                           children: [
                             TextSpan(
                               text: 'Sign in',
                               style: kMedium.copyWith(
                                 color: kLightBlue,
-                                fontSize: SizeConfig.fontSmall,
+                                fontSize: SizeConfig.body3,
                               ),
                               recognizer: TapGestureRecognizer()
                                 ..onTap = switchPage,

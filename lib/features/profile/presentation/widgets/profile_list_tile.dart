@@ -21,7 +21,7 @@ class ProfileListTile extends StatelessWidget {
       title: Text(
         title,
         style: kBold.copyWith(
-          fontSize: SizeConfig.fontTitle,
+          fontSize: SizeConfig.body1,
           color: kDarkBlue,
         ),
       ),
@@ -29,7 +29,7 @@ class ProfileListTile extends StatelessWidget {
           ? Text(
               subtitle!,
               style: kBold.copyWith(
-                fontSize: SizeConfig.fontSubtitle,
+                fontSize: SizeConfig.body2,
                 color: kGrey,
               ),
             )
