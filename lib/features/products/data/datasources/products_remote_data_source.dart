@@ -11,6 +11,8 @@ abstract interface class ProductsRemoteDataSource {
     required int limit,
     required String query,
     required String sort,
+    required double? minCost,
+    required double? maxCost,
     required bool withDiscount,
     required bool newArrival,
   });
@@ -26,20 +28,25 @@ class ProductsRemoteDataSourceImpl implements ProductsRemoteDataSource {
     required int limit,
     required String query,
     required String sort,
+    required double? minCost,
+    required double? maxCost,
     required bool withDiscount,
     required bool newArrival,
   }) async {
     try {
+      final Map<String, dynamic> queryParameters = {
+        'page': page,
+        'limit': limit,
+        'query': query,
+        'sort': sort,
+        'withDiscount': withDiscount,
+        'newArrival': newArrival,
+      };
+      if (minCost != null) queryParameters['minCost'] = minCost;
+      if (maxCost != null) queryParameters['maxCost'] = maxCost;
       final res = await dioClient.dio.get(
         ApiConstants.products,
-        queryParameters: {
-          'page': page,
-          'limit': limit,
-          'query': query,
-          'sort': sort,
-          'withDiscount': withDiscount,
-          'newArrival': newArrival,
-        },
+        queryParameters: queryParameters,
       );
       return ProductsResponseModel.fromJson(res.data);
     } on DioException catch (e) {

@@ -57,6 +57,30 @@ class _ProfileEditBodyState extends State<ProfileEditBody> {
   void _newPasswordListener() => context.read<ProfileEditBloc>().add(
       ProfileEditEvent.changeNewPassword(_newPasswordController.text.trim()));
 
+  void _onProfileImageTap(String? userImage) {
+    if (userImage == null) {
+      context.read<ProfileEditBloc>().add(const ProfileEditEvent.pickImage());
+    } else {
+      showDialog(
+        context: context,
+        builder: (dialogContext) => ProfileEditUserImageDialog(
+          onUpload: () {
+            context
+                .read<ProfileEditBloc>()
+                .add(const ProfileEditEvent.pickImage());
+            Navigator.of(dialogContext).pop();
+          },
+          onDelete: () {
+            context
+                .read<ProfileEditBloc>()
+                .add(const ProfileEditEvent.deleteImage());
+            Navigator.of(dialogContext).pop();
+          },
+        ),
+      );
+    }
+  }
+
   @override
   void dispose() {
     _emailController.dispose();
@@ -84,32 +108,7 @@ class _ProfileEditBodyState extends State<ProfileEditBody> {
                     height: 15,
                   ),
                   ProfileEditUserImage(
-                    onTap: () {
-                      if (userImage == null) {
-                        context
-                            .read<ProfileEditBloc>()
-                            .add(const ProfileEditEvent.pickImage());
-                      } else {
-                        showDialog(
-                          context: context,
-                          builder: (dialogContext) =>
-                              ProfileEditUserImageDialog(
-                            onUpload: () {
-                              context
-                                  .read<ProfileEditBloc>()
-                                  .add(const ProfileEditEvent.pickImage());
-                              Navigator.of(dialogContext).pop();
-                            },
-                            onDelete: () {
-                              context
-                                  .read<ProfileEditBloc>()
-                                  .add(const ProfileEditEvent.deleteImage());
-                              Navigator.of(dialogContext).pop();
-                            },
-                          ),
-                        );
-                      }
-                    },
+                    onTap: () => _onProfileImageTap,
                     userImage: userImage,
                     pickedImage: state.image,
                   ),

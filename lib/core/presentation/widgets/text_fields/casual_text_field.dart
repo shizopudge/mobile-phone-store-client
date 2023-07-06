@@ -8,47 +8,54 @@ class CasualTextField extends StatelessWidget {
   final TextEditingController controller;
   final String hintText;
   final bool? isValidated;
-  final bool showCheckIcon;
   final List<TextInputFormatter>? inputFormatters;
   final void Function(String value)? onChange;
   final double? fontSize;
   final String? label;
   final TextStyle? labelStyle;
+  final TextInputType? keyboardType;
+  final int? maxLength;
+  final String? counterText;
+  final TextStyle? counterStyle;
   const CasualTextField({
     super.key,
     required this.controller,
     required this.hintText,
     this.isValidated,
-    this.showCheckIcon = false,
     this.inputFormatters,
     this.onChange,
     this.fontSize,
     this.label,
     this.labelStyle,
-  }) : assert(isValidated == null && showCheckIcon == false,
-            'showCheckIcon should be true if you use isValidated option');
+    this.keyboardType,
+    this.maxLength,
+    this.counterText,
+    this.counterStyle,
+  });
 
   @override
   Widget build(BuildContext context) {
     return TextField(
       controller: controller,
       inputFormatters: inputFormatters,
+      keyboardType: keyboardType,
       style: kSemiBold.copyWith(
           color: kDarkBlue, fontSize: fontSize ?? SizeConfig.body1),
       cursorColor: kDarkBlue,
       onChanged: onChange,
+      maxLength: maxLength,
       decoration: InputDecoration(
+        counterText: counterText,
+        counterStyle: counterStyle,
         hintText: hintText,
         hintStyle: kSemiBold.copyWith(
             color: kGrey, fontSize: fontSize ?? SizeConfig.body1),
-        suffixIcon: showCheckIcon
-            ? isValidated != null && isValidated!
-                ? Icon(
-                    Icons.check_rounded,
-                    size: SizeConfig.iconMedium,
-                    color: kLightBlue,
-                  )
-                : null
+        suffixIcon: isValidated != null && isValidated!
+            ? Icon(
+                Icons.check_rounded,
+                size: SizeConfig.iconMedium,
+                color: kLightBlue,
+              )
             : null,
         labelText: label,
         labelStyle: labelStyle,

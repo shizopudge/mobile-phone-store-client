@@ -7,7 +7,11 @@ class SizeConfig {
   static double? blockSizeHorizontal;
   static double? blockSizeVertical;
 
+  static int initCount = 0;
+
   static void init(BuildContext context) {
+    print(initCount);
+    initCount++;
     _mediaQueryData = MediaQuery.of(context);
     screenWidth = _mediaQueryData!.size.width;
     screenHeight = _mediaQueryData!.size.height;
@@ -53,8 +57,8 @@ class SizeConfig {
       isMobile ? blockSizeHorizontal! * 20 : blockSizeHorizontal! * 12;
 
   static double get radiusSmall =>
-      isMobile ? blockSizeHorizontal! * 8 : blockSizeHorizontal! * 4;
+      isMobile ? blockSizeHorizontal! * 8 : blockSizeHorizontal! * 5;
 
   static double get borderRadius =>
-      isMobile ? blockSizeHorizontal! * 5 : blockSizeHorizontal! * 3;
+      isMobile ? blockSizeHorizontal! * 4 : blockSizeHorizontal! * 3;
 }

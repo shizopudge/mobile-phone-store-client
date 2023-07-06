@@ -21,8 +21,8 @@ class SliverGridView<T> extends StatelessWidget {
       },
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: SizeConfig.isMobile ? 2 : 4,
-        crossAxisSpacing: SizeConfig.isMobile ? 10 : 20,
-        mainAxisSpacing: SizeConfig.isMobile ? 10 : 20,
+        crossAxisSpacing: SizeConfig.isMobile ? 15 : 40,
+        mainAxisSpacing: SizeConfig.isMobile ? 15 : 40,
         childAspectRatio: .7,
       ),
     );

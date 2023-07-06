@@ -131,7 +131,7 @@ class SignUpBody extends StatelessWidget {
                     FadeAnimationYDown(
                       delay: .3,
                       child: SizedBox(
-                        height: SizeConfig.screenHeight! * .06,
+                        height: SizeConfig.screenHeight! * .055,
                         child: ListView(
                           scrollDirection: Axis.horizontal,
                           shrinkWrap: true,

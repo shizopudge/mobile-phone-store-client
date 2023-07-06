@@ -79,8 +79,6 @@ class SignInBody extends StatelessWidget {
                       child: CasualTextField(
                         controller: _emailController,
                         hintText: 'Email',
-                        isValidated: state.validation.isEmailValidated,
-                        showCheckIcon: false,
                         inputFormatters: [
                           FilteringTextInputFormatter.deny(
                             RegExp('[ ]'),

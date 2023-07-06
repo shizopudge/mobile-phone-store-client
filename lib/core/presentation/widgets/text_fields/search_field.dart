@@ -7,10 +7,12 @@ class SearchField extends StatelessWidget {
   final TextEditingController _searchController;
   final VoidCallback onClear;
   final VoidCallback onFilter;
+  final bool showClose;
   final bool showFilter;
   const SearchField({
     super.key,
     required TextEditingController searchController,
+    required this.showClose,
     this.showFilter = true,
     required this.onClear,
     required this.onFilter,
@@ -46,15 +48,16 @@ class SearchField extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               mainAxisSize: MainAxisSize.min,
               children: [
-                CloseButton(
-                  onPressed: onClear,
-                  color: kDarkBlue,
-                  style: ButtonStyle(
-                    iconSize: MaterialStatePropertyAll(
-                      SizeConfig.iconMedium,
+                if (showClose)
+                  CloseButton(
+                    onPressed: onClear,
+                    color: kDarkBlue,
+                    style: ButtonStyle(
+                      iconSize: MaterialStatePropertyAll(
+                        SizeConfig.iconMedium,
+                      ),
                     ),
                   ),
-                ),
                 if (showFilter)
                   IconButton(
                     onPressed: onFilter,

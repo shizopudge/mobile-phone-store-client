@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:phone_store/core/utils/debouncer.dart';
 
 import '../../../../core/presentation/widgets/buttons/go_top_button.dart';
 import '../../../../core/presentation/widgets/cards/product/product_card.dart';
 import '../../../../core/presentation/widgets/loading/casual_loader.dart';
 import '../../../../core/presentation/widgets/scrollable/sliver_grid_view.dart';
+import '../../../../core/presentation/widgets/text_fields/search_field.dart';
 import '../../../../core/styles/styles.dart';
+import '../../../../core/utils/debouncer.dart';
 import '../../../../core/utils/size_config.dart';
 import '../../domain/entities/product.dart';
 import '../bloc/products_bloc.dart';
 import '../pages/products_page.dart';
-import 'products_app_bar.dart';
-import 'products_filter.dart';
+import 'produtcs_filter/products_filter.dart';
 
 class ProductsBody extends StatefulWidget {
   const ProductsBody({
@@ -88,24 +88,38 @@ class _ProductsBodyState extends State<ProductsBody> {
               SliverPadding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-                sliver: ProductsAppBar(
-                  onFilter: () => showModalBottomSheet(
-                    context: context,
-                    elevation: 0,
-                    backgroundColor: kLightWhite,
-                    useSafeArea: true,
-                    isScrollControlled: true,
-                    builder: (_) => ProductsFilterSheet(
+                sliver: SliverAppBar(
+                  automaticallyImplyLeading: false,
+                  backgroundColor: kWhite,
+                  toolbarHeight: SizeConfig.isMobile
+                      ? SizeConfig.screenWidth! * .2
+                      : SizeConfig.screenWidth! * .1,
+                  centerTitle: true,
+                  title: SearchField(
+                    searchController: _searchController,
+                    showClose: state.filter.query.isNotEmpty,
+                    onClear: () {
+                      _searchController.clear();
+                      context
+                          .read<ProductsBloc>()
+                          .add(const ProductsEvent.searchProducts(''));
+                    },
+                    onFilter: () => showModalBottomSheet(
                       context: context,
-                      currentFilter: state.filter,
+                      constraints: const BoxConstraints.expand(),
+                      backgroundColor: kLightWhite,
+                      useSafeArea: true,
+                      isScrollControlled: true,
+                      builder: (_) => ProductsFilterSheet(
+                        context: context,
+                        currentFilter: state.filter,
+                      ),
                     ),
                   ),
-                  searchController: _searchController,
                 ),
               ),
-              SliverVisibility(
-                visible: state.isRefreshing,
-                sliver: const SliverPadding(
+              if (state.isRefreshing)
+                const SliverPadding(
                   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                   sliver: SliverToBoxAdapter(
                     child: CasualLoader(
@@ -113,10 +127,8 @@ class _ProductsBodyState extends State<ProductsBody> {
                     ),
                   ),
                 ),
-              ),
-              SliverVisibility(
-                visible: state.products.isEmpty && !state.isLoading,
-                sliver: SliverToBoxAdapter(
+              if (state.products.isEmpty && !state.isLoading)
+                SliverToBoxAdapter(
                   child: Center(
                     child: Column(
                       children: [
@@ -135,7 +147,6 @@ class _ProductsBodyState extends State<ProductsBody> {
                     ),
                   ),
                 ),
-              ),
               SliverPadding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 sliver: SliverGridView<Product>(
@@ -143,9 +154,8 @@ class _ProductsBodyState extends State<ProductsBody> {
                   child: (item) => ProductCard(item),
                 ),
               ),
-              SliverVisibility(
-                visible: state.isPaginating,
-                sliver: SliverPadding(
+              if (state.isPaginating)
+                SliverPadding(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 20, vertical: 20)
                           .copyWith(top: 30, bottom: 75),
@@ -155,10 +165,8 @@ class _ProductsBodyState extends State<ProductsBody> {
                     ),
                   ),
                 ),
-              ),
-              SliverVisibility(
-                visible: state.isLastPage,
-                sliver: SliverPadding(
+              if (state.isLastPage)
+                SliverPadding(
                   padding: const EdgeInsets.symmetric(horizontal: 20)
                       .copyWith(top: 30, bottom: 75),
                   sliver: SliverToBoxAdapter(
@@ -168,13 +176,12 @@ class _ProductsBodyState extends State<ProductsBody> {
                         textAlign: TextAlign.center,
                         style: kMedium.copyWith(
                           color: kDarkBlue,
-                          fontSize: SizeConfig.body2,
+                          fontSize: SizeConfig.body3,
                         ),
                       ),
                     ),
                   ),
                 ),
-              ),
             ],
           ),
         ),

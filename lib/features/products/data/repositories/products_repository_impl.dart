@@ -16,6 +16,8 @@ class ProductsRepositoryImpl implements ProductsRepository {
     required int limit,
     required String query,
     required String sort,
+    required double? minCost,
+    required double? maxCost,
     required bool withDiscount,
     required bool newArrival,
   }) async {
@@ -25,6 +27,8 @@ class ProductsRepositoryImpl implements ProductsRepository {
         limit: limit,
         query: query,
         sort: sort,
+        minCost: minCost,
+        maxCost: maxCost,
         withDiscount: withDiscount,
         newArrival: newArrival,
       );

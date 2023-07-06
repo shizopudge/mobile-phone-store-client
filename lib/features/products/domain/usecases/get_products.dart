@@ -16,6 +16,8 @@ class GetProducts implements UseCase<ProductsResponse, GetProductsParams> {
         limit: params.limit,
         query: params.query,
         sort: params.sort,
+        minCost: params.minCost,
+        maxCost: params.maxCost,
         withDiscount: params.withDiscount,
         newArrival: params.newArrival,
       );
@@ -26,6 +28,8 @@ class GetProductsParams extends Equatable {
   final int limit;
   final String query;
   final String sort;
+  final double? minCost;
+  final double? maxCost;
   final bool withDiscount;
   final bool newArrival;
   const GetProductsParams({
@@ -33,11 +37,23 @@ class GetProductsParams extends Equatable {
     required this.limit,
     required this.query,
     required this.sort,
+    required this.minCost,
+    required this.maxCost,
     required this.withDiscount,
     required this.newArrival,
   });
 
   @override
-  List<Object> get props =>
-      [page, limit, query, sort, withDiscount, newArrival];
+  List<Object?> get props {
+    return [
+      page,
+      limit,
+      query,
+      sort,
+      minCost,
+      maxCost,
+      withDiscount,
+      newArrival,
+    ];
+  }
 }

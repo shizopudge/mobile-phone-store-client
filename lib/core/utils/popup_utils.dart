@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:phone_store/core/utils/size_config.dart';
 
 import '../failure/failure.dart';
 import '../styles/styles.dart';
@@ -20,7 +21,8 @@ class PopupUtils {
           behavior: SnackBarBehavior.floating,
           content: Row(
             children: [
-              const Icon(Icons.error_outline, color: kRed),
+              Icon(Icons.error_outline,
+                  size: SizeConfig.iconSmall, color: kRed),
               const SizedBox(width: 10),
               Flexible(
                 child: AutoSizeText(

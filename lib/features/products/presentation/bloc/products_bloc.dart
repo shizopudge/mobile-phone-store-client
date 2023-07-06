@@ -115,7 +115,9 @@ class ProductsBloc extends Bloc<ProductsEvent, ProductsState> {
   FutureOr<void> _changeFilter(
       _ChangeFilter event, Emitter<ProductsState> emit) async {
     emit(state.copyWith(
-        filter: event.filter, status: ProductsStatus.loading, products: []));
+        filter: event.filter.copyWith(page: 1),
+        status: ProductsStatus.loading,
+        products: []));
     final res = await _fetchProducts();
     res.fold(
       (failure) => emit(
@@ -144,6 +146,8 @@ class ProductsBloc extends Bloc<ProductsEvent, ProductsState> {
       limit: state.filter.limit,
       query: state.filter.query,
       sort: state.filter.sort.toString(),
+      minCost: state.filter.minCost,
+      maxCost: state.filter.maxCost,
       withDiscount: state.filter.withDiscount,
       newArrival: state.filter.newArrival,
     ));
