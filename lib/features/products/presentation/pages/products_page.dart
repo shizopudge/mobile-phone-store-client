@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/api/dio_client.dart';
 import '../../../../core/di/get_it.dart';
-import '../../../../core/presentation/widgets/loading/stack_loading.dart';
 import '../../../../core/utils/popup_utils.dart';
 import '../../data/datasources/products_remote_data_source.dart';
 import '../../data/repositories/products_repository_impl.dart';
@@ -30,22 +29,17 @@ class ProductsPage extends StatelessWidget {
               remoteDataSource:
                   ProductsRemoteDataSourceImpl(getIt<DioClient>()))))
         ..add(const ProductsEvent.start()),
-      child: BlocConsumer<ProductsBloc, ProductsState>(
+      child: BlocListener<ProductsBloc, ProductsState>(
         listener: (context, state) {
           if (state.isFailure) {
             PopupUtils.showFailureSnackBar(
                 context: context, failure: state.failure);
           }
         },
-        builder: (context, state) {
-          return StackLoading(
-            isLoading: state.isLoading,
-            child: BlocProvider(
-              create: (_) => ProductsScrollCubit(),
-              child: const ProductsBody(),
-            ),
-          );
-        },
+        child: BlocProvider(
+          create: (_) => ProductsScrollCubit(),
+          child: const ProductsBody(),
+        ),
       ),
     );
   }

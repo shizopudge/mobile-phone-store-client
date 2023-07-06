@@ -33,8 +33,8 @@ class UnauthorizedPage extends StatelessWidget {
                     color: kDarkBlue,
                   ),
                 ),
-                const SizedBox(
-                  height: 15,
+                SizedBox(
+                  height: SizeConfig.setPadding(15),
                 ),
                 CasualTextButton(
                   onTap: () => context.read<AuthBloc>().add(

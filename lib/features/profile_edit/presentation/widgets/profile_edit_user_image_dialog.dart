@@ -25,7 +25,9 @@ class ProfileEditUserImageDialog extends StatelessWidget {
           innerPadding: 12,
           child: Center(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8),
+              padding: EdgeInsets.symmetric(
+                horizontal: SizeConfig.setPadding(8),
+              ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -36,8 +38,8 @@ class ProfileEditUserImageDialog extends StatelessWidget {
                     height: 45,
                     fontSize: SizeConfig.body2,
                   ),
-                  const SizedBox(
-                    height: 18,
+                  SizedBox(
+                    height: SizeConfig.setPadding(12),
                   ),
                   CasualButton(
                     text: 'Delete image',

@@ -27,11 +27,15 @@ class CasualDialog extends StatelessWidget {
         backgroundColor: kWhite,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(
-            20,
+            SizeConfig.borderRadiusDefault,
           ),
         ),
-        insetPadding: const EdgeInsets.all(20),
-        contentPadding: const EdgeInsets.all(20.0),
+        insetPadding: EdgeInsets.all(
+          SizeConfig.setPadding(20),
+        ),
+        contentPadding: EdgeInsets.all(
+          SizeConfig.setPadding(20),
+        ),
         children: [
           Column(
             mainAxisSize: MainAxisSize.min,
@@ -42,12 +46,15 @@ class CasualDialog extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Flexible(
-                    child: Text(
-                      title,
-                      overflow: TextOverflow.visible,
-                      style: kBold.copyWith(
-                        fontSize: SizeConfig.body1,
-                        color: kDarkBlue,
+                    child: FadeAnimationYDown(
+                      delay: .2,
+                      child: Text(
+                        title,
+                        overflow: TextOverflow.visible,
+                        style: kBold.copyWith(
+                          fontSize: SizeConfig.body1,
+                          color: kDarkBlue,
+                        ),
                       ),
                     ),
                   ),
@@ -58,20 +65,23 @@ class CasualDialog extends StatelessWidget {
                 ],
               ),
               SizedBox(
-                height: innerPadding,
+                height: SizeConfig.setPadding(innerPadding),
               ),
-              Text(
-                subtitle,
-                overflow: TextOverflow.visible,
-                style: kRegular.copyWith(
-                  fontSize: SizeConfig.body2,
-                  color: kGrey,
+              FadeAnimationYDown(
+                delay: .3,
+                child: Text(
+                  subtitle,
+                  overflow: TextOverflow.visible,
+                  style: kRegular.copyWith(
+                    fontSize: SizeConfig.body2,
+                    color: kGrey,
+                  ),
                 ),
               ),
               SizedBox(
-                height: innerPadding,
+                height: SizeConfig.setPadding(innerPadding),
               ),
-              child,
+              FadeAnimationYDown(delay: .4, child: child),
             ],
           ),
         ],

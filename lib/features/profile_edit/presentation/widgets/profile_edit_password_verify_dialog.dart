@@ -30,8 +30,8 @@ class ProfileEditPasswordVerifyDialog extends StatelessWidget {
               isAvailable: true,
               autofocus: true,
             ),
-            const SizedBox(
-              height: 24,
+            SizedBox(
+              height: SizeConfig.setPadding(15),
             ),
             CasualButton(
               text: 'Next',

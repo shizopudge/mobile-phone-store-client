@@ -43,7 +43,12 @@ class SignInBody extends StatelessWidget {
           child: IntrinsicHeight(
             child: Center(
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+                padding: EdgeInsets.symmetric(
+                    horizontal: SizeConfig.setPadding(SizeConfig.isMobile
+                        ? 20
+                        : SizeConfig.isTablet
+                            ? 50
+                            : SizeConfig.screenWidth! * .12)),
                 child: Column(
                   children: [
                     FadeAnimationYDown(
@@ -57,8 +62,8 @@ class SignInBody extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const SizedBox(
-                      height: 10,
+                    SizedBox(
+                      height: SizeConfig.setPadding(10),
                     ),
                     FadeAnimationYDown(
                       delay: .1,
@@ -71,8 +76,8 @@ class SignInBody extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const SizedBox(
-                      height: 20,
+                    SizedBox(
+                      height: SizeConfig.setPadding(20),
                     ),
                     FadeAnimationYDown(
                       delay: .15,
@@ -88,8 +93,8 @@ class SignInBody extends StatelessWidget {
                         ],
                       ),
                     ),
-                    const SizedBox(
-                      height: 20,
+                    SizedBox(
+                      height: SizeConfig.setPadding(20),
                     ),
                     FadeAnimationYDown(
                       delay: .2,
@@ -98,8 +103,8 @@ class SignInBody extends StatelessWidget {
                         isAvailable: state.validation.isEmailValidated,
                       ),
                     ),
-                    const SizedBox(
-                      height: 40,
+                    SizedBox(
+                      height: SizeConfig.setPadding(40),
                     ),
                     FadeAnimationYDown(
                       delay: .25,
@@ -116,8 +121,8 @@ class SignInBody extends StatelessWidget {
                         fontSize: SizeConfig.body1,
                       ),
                     ),
-                    const SizedBox(
-                      height: 20,
+                    SizedBox(
+                      height: SizeConfig.setPadding(20),
                     ),
                     FadeAnimationYDown(
                       delay: .3,
@@ -130,8 +135,8 @@ class SignInBody extends StatelessWidget {
                                 color: kLightBlue, fontSize: SizeConfig.body3),
                           )),
                     ),
-                    const SizedBox(
-                      height: 20,
+                    SizedBox(
+                      height: SizeConfig.setPadding(20),
                     ),
                     const Spacer(),
                     FadeAnimationYDown(
@@ -158,8 +163,8 @@ class SignInBody extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const SizedBox(
-                      height: 25,
+                    SizedBox(
+                      height: SizeConfig.setPadding(25),
                     ),
                   ],
                 ),

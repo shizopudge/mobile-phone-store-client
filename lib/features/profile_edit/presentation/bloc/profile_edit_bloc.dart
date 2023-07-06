@@ -66,8 +66,7 @@ class ProfileEditBloc extends Bloc<ProfileEditEvent, ProfileEditState> {
     }
   }
 
-  FutureOr<void> _changeEmail(
-      _ChangeEmail event, Emitter<ProfileEditState> emit) {
+  void _changeEmail(_ChangeEmail event, Emitter<ProfileEditState> emit) {
     final bool isEmailValidated = EmailValidator.validate(event.email);
     emit(state.copyWith(
         email: event.email,
@@ -75,8 +74,7 @@ class ProfileEditBloc extends Bloc<ProfileEditEvent, ProfileEditState> {
             state.validation.copyWith(isEmailValidated: isEmailValidated)));
   }
 
-  FutureOr<void> _changeUsername(
-      _ChangeUsername event, Emitter<ProfileEditState> emit) {
+  void _changeUsername(_ChangeUsername event, Emitter<ProfileEditState> emit) {
     final bool isUsernameValidated = event.username.length >= 3;
     emit(state.copyWith(
         username: event.username,
@@ -84,12 +82,11 @@ class ProfileEditBloc extends Bloc<ProfileEditEvent, ProfileEditState> {
             .copyWith(isUsernameValidated: isUsernameValidated)));
   }
 
-  FutureOr<void> _changePassword(
-      _ChangePassword event, Emitter<ProfileEditState> emit) {
+  void _changePassword(_ChangePassword event, Emitter<ProfileEditState> emit) {
     emit(state.copyWith(password: event.password));
   }
 
-  FutureOr<void> _changeNewPassword(
+  void _changeNewPassword(
       _ChangeNewPassword event, Emitter<ProfileEditState> emit) {
     final bool isPassHasUpperCaseLetter = event.newPassword.containsUpperCase();
     final bool isPassHasLowerCaseLetter = event.newPassword.containsLowercase();

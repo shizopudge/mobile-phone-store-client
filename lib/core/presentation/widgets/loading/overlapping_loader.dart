@@ -35,22 +35,26 @@ class OverlappingLoader extends StatelessWidget {
               alignment: Alignment.center,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(
-                  SizeConfig.borderRadius,
+                  SizeConfig.borderRadiusSmall,
                 ),
                 color: kDarkBlue.withOpacity(.65),
               ),
               height: SizeConfig.isMobile
-                  ? SizeConfig.screenHeight! * .15
-                  : SizeConfig.screenHeight! * .2,
+                  ? SizeConfig.screenWidth! * .28
+                  : SizeConfig.isTablet
+                      ? SizeConfig.screenWidth! * .18
+                      : SizeConfig.screenWidth! * .12,
               width: SizeConfig.isMobile
-                  ? SizeConfig.screenHeight! * .14
-                  : SizeConfig.screenHeight! * .2,
-              padding: const EdgeInsets.all(18.0),
+                  ? SizeConfig.screenWidth! * .25
+                  : SizeConfig.isTablet
+                      ? SizeConfig.screenWidth! * .15
+                      : SizeConfig.screenWidth! * .1,
+              padding: const EdgeInsets.all(2.5),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Expanded(
-                    child: CasualLoader(height: double.maxFinite),
+                    child: CasualLoader(),
                   ),
                   Flexible(
                     child: AutoSizeText(
@@ -62,7 +66,7 @@ class OverlappingLoader extends StatelessWidget {
                       ),
                       overflow: TextOverflow.ellipsis,
                       maxLines: 1,
-                      minFontSize: 0,
+                      minFontSize: 8,
                     ),
                   ),
                 ],

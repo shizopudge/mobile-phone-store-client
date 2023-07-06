@@ -19,7 +19,7 @@ class GoTopButton extends StatelessWidget {
           duration: const Duration(milliseconds: 250), curve: Curves.easeOut),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(
-          SizeConfig.radiusLarge,
+          SizeConfig.borderRadiusDefault,
         ),
       ),
       backgroundColor: kDarkBlue,

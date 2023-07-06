@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../styles/styles.dart';
+import '../../../../utils/size_config.dart';
 
 class ProductMessage extends StatelessWidget {
   final String text;
@@ -23,7 +24,7 @@ class ProductMessage extends StatelessWidget {
       decoration: BoxDecoration(
           color: backgroundColor,
           borderRadius: BorderRadius.circular(
-            50,
+            SizeConfig.borderRadiusDefault,
           ),
           boxShadow: [
             BoxShadow(

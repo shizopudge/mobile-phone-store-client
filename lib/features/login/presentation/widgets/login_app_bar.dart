@@ -10,7 +10,11 @@ class LoginAppBar extends StatelessWidget implements PreferredSizeWidget {
   const LoginAppBar({super.key});
 
   @override
-  Size get preferredSize => Size.fromHeight(SizeConfig.setHeightByFactor(.075));
+  Size get preferredSize => Size.fromHeight(SizeConfig.isMobile
+      ? SizeConfig.screenWidth! * .12
+      : SizeConfig.isTablet
+          ? SizeConfig.screenWidth! * .07
+          : SizeConfig.screenWidth! * .05);
 
   @override
   Widget build(BuildContext context) {

@@ -1,9 +1,9 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:phone_store/core/utils/size_config.dart';
 
 import '../failure/failure.dart';
 import '../styles/styles.dart';
+import 'size_config.dart';
 
 class PopupUtils {
   static void showFailureSnackBar(
@@ -15,14 +15,15 @@ class PopupUtils {
         SnackBar(
           elevation: 8,
           backgroundColor: kDarkBlue,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          shape: RoundedRectangleBorder(
+              borderRadius:
+                  BorderRadius.circular(SizeConfig.borderRadiusSmall)),
           duration: const Duration(milliseconds: 10000),
           behavior: SnackBarBehavior.floating,
           content: Row(
             children: [
               Icon(Icons.error_outline,
-                  size: SizeConfig.iconSmall, color: kRed),
+                  size: SizeConfig.iconMedium, color: kRed),
               const SizedBox(width: 10),
               Flexible(
                 child: AutoSizeText(

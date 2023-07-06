@@ -6,6 +6,7 @@ import 'package:shimmer/shimmer.dart';
 import '../../../../../features/products/domain/entities/product.dart';
 import '../../../../api/api_constants.dart';
 import '../../../../styles/styles.dart';
+import '../../../../utils/size_config.dart';
 import 'discount.dart';
 import 'product_message.dart';
 
@@ -22,7 +23,9 @@ class ProductCard extends StatelessWidget {
         margin: const EdgeInsets.all(8),
         decoration: BoxDecoration(
           color: kLightWhite,
-          borderRadius: BorderRadius.circular(constraints.maxWidth * .12),
+          borderRadius: BorderRadius.circular(
+            SizeConfig.borderRadiusSmall,
+          ),
           boxShadow: [
             BoxShadow(
               color: kDarkBlue.withOpacity(.3),
@@ -52,7 +55,8 @@ class ProductCard extends StatelessWidget {
                           imageBuilder: (context, imageProvider) => Container(
                             padding: const EdgeInsets.all(5),
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(21),
+                              borderRadius: BorderRadius.circular(
+                                  SizeConfig.borderRadiusDefault),
                             ),
                             child: Image(
                               image: imageProvider,
@@ -66,7 +70,8 @@ class ProductCard extends StatelessWidget {
                               margin: const EdgeInsets.all(8),
                               decoration: BoxDecoration(
                                 color: kGrey,
-                                borderRadius: BorderRadius.circular(21),
+                                borderRadius: BorderRadius.circular(
+                                    SizeConfig.borderRadiusDefault),
                               ),
                             ),
                           ),
@@ -78,7 +83,8 @@ class ProductCard extends StatelessWidget {
                               margin: const EdgeInsets.all(8),
                               decoration: BoxDecoration(
                                 color: kGrey,
-                                borderRadius: BorderRadius.circular(21),
+                                borderRadius: BorderRadius.circular(
+                                    SizeConfig.borderRadiusDefault),
                               ),
                             ),
                           ),
@@ -89,7 +95,8 @@ class ProductCard extends StatelessWidget {
                         child: Container(
                           padding: const EdgeInsets.all(5),
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(21),
+                            borderRadius: BorderRadius.circular(
+                                SizeConfig.borderRadiusDefault),
                           ),
                           child: const FittedBox(
                             fit: BoxFit.contain,

@@ -32,7 +32,7 @@ class SearchField extends StatelessWidget {
         fillColor: kLightWhite,
         filled: true,
         prefixIcon: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15),
+          padding: EdgeInsets.symmetric(horizontal: SizeConfig.setPadding(15)),
           child: Icon(
             Icons.search_rounded,
             color: kDarkBlue,
@@ -40,7 +40,7 @@ class SearchField extends StatelessWidget {
           ),
         ),
         suffixIcon: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15),
+          padding: EdgeInsets.symmetric(horizontal: SizeConfig.setPadding(15)),
           child: SingleChildScrollView(
             physics: const NeverScrollableScrollPhysics(),
             scrollDirection: Axis.horizontal,
@@ -80,19 +80,19 @@ class SearchField extends StatelessWidget {
         border: OutlineInputBorder(
           borderSide: const BorderSide(style: BorderStyle.none),
           borderRadius: BorderRadius.circular(
-            SizeConfig.radiusLarge,
+            SizeConfig.borderRadiusDefault,
           ),
         ),
         enabledBorder: OutlineInputBorder(
           borderSide: const BorderSide(style: BorderStyle.none),
           borderRadius: BorderRadius.circular(
-            SizeConfig.radiusLarge,
+            SizeConfig.borderRadiusDefault,
           ),
         ),
         focusedBorder: OutlineInputBorder(
           borderSide: const BorderSide(style: BorderStyle.none),
           borderRadius: BorderRadius.circular(
-            SizeConfig.radiusLarge,
+            SizeConfig.borderRadiusDefault,
           ),
         ),
       ),

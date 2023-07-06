@@ -59,8 +59,7 @@ class ProfileEditState with _$ProfileEditState {
       return false;
     } else if ((username != currentUser?.username ||
             email != currentUser?.email ||
-            image != null ||
-            newPassword != null) &&
+            image != null) &&
         validation.isValidatedWithPass) {
       return true;
     }

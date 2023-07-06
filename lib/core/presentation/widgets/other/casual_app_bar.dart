@@ -16,8 +16,10 @@ class CasualAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Size get preferredSize => Size.fromHeight(SizeConfig.isMobile
-      ? SizeConfig.screenWidth! * .2
-      : SizeConfig.screenWidth! * .1);
+      ? SizeConfig.screenWidth! * .12
+      : SizeConfig.isTablet
+          ? SizeConfig.screenWidth! * .07
+          : SizeConfig.screenWidth! * .05);
 
   @override
   Widget build(BuildContext context) {

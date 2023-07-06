@@ -49,8 +49,10 @@ class _CasualLoaderState extends State<CasualLoader>
           'assets/icons/loader.svg',
           height: widget.height ??
               (SizeConfig.isMobile
-                  ? SizeConfig.screenHeight! * .075
-                  : SizeConfig.screenHeight! * .1),
+                  ? SizeConfig.screenWidth! * .15
+                  : SizeConfig.isTablet
+                      ? SizeConfig.screenWidth! * .1
+                      : SizeConfig.screenWidth! * .055),
           colorFilter: ColorFilter.mode(widget.color, BlendMode.srcIn),
         ),
       ),

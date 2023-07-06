@@ -50,23 +50,39 @@ class CasualTextField extends StatelessWidget {
         hintText: hintText,
         hintStyle: kSemiBold.copyWith(
             color: kGrey, fontSize: fontSize ?? SizeConfig.body1),
+        contentPadding: EdgeInsets.symmetric(
+            horizontal: SizeConfig.setPadding(12),
+            vertical: SizeConfig.setPadding(8)),
         suffixIcon: isValidated != null && isValidated!
-            ? Icon(
-                Icons.check_rounded,
-                size: SizeConfig.iconMedium,
-                color: kLightBlue,
+            ? Padding(
+                padding:
+                    EdgeInsets.symmetric(horizontal: SizeConfig.setPadding(8)),
+                child: Icon(
+                  Icons.check_rounded,
+                  size: SizeConfig.iconMedium,
+                  color: kLightBlue,
+                ),
               )
             : null,
         labelText: label,
         labelStyle: labelStyle,
-        border: const UnderlineInputBorder(
-          borderSide: BorderSide(color: kGrey, width: .8),
+        border: OutlineInputBorder(
+          borderSide: const BorderSide(color: kGrey),
+          borderRadius: BorderRadius.circular(
+            SizeConfig.borderRadiusDefault,
+          ),
         ),
-        enabledBorder: const UnderlineInputBorder(
-          borderSide: BorderSide(color: kDarkBlue, width: 1),
+        enabledBorder: OutlineInputBorder(
+          borderSide: const BorderSide(color: kDarkBlue),
+          borderRadius: BorderRadius.circular(
+            SizeConfig.borderRadiusDefault,
+          ),
         ),
-        focusedBorder: const UnderlineInputBorder(
-          borderSide: BorderSide(color: kDarkBlue, width: 1.5),
+        focusedBorder: OutlineInputBorder(
+          borderSide: const BorderSide(color: kLightBlue),
+          borderRadius: BorderRadius.circular(
+            SizeConfig.borderRadiusDefault,
+          ),
         ),
       ),
     );

@@ -42,7 +42,7 @@ class _ProfileEditBodyState extends State<ProfileEditBody> {
     super.initState();
   }
 
-  void _emailListener() => () => context
+  void _emailListener() => context
       .read<ProfileEditBloc>()
       .add(ProfileEditEvent.changeEmail(_emailController.text.trim()));
 
@@ -101,19 +101,21 @@ class _ProfileEditBodyState extends State<ProfileEditBody> {
           constraints: BoxConstraints(minHeight: constraints.maxHeight),
           child: IntrinsicHeight(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.symmetric(
+                  horizontal: SizeConfig.setPadding(SizeConfig.isMobile
+                      ? 20
+                      : SizeConfig.isTablet
+                          ? 40
+                          : 100)),
               child: Column(
                 children: [
-                  const SizedBox(
-                    height: 15,
-                  ),
                   ProfileEditUserImage(
-                    onTap: () => _onProfileImageTap,
+                    onTap: () => _onProfileImageTap(userImage),
                     userImage: userImage,
                     pickedImage: state.image,
                   ),
-                  const SizedBox(
-                    height: 15,
+                  SizedBox(
+                    height: SizeConfig.setPadding(15),
                   ),
                   FadeAnimationX(
                     delay: .3,
@@ -123,8 +125,8 @@ class _ProfileEditBodyState extends State<ProfileEditBody> {
                       isValidated: state.validation.isEmailValidated,
                     ),
                   ),
-                  const SizedBox(
-                    height: 15,
+                  SizedBox(
+                    height: SizeConfig.setPadding(15),
                   ),
                   FadeAnimationX(
                     delay: .4,
@@ -134,8 +136,8 @@ class _ProfileEditBodyState extends State<ProfileEditBody> {
                       isValidated: state.validation.isUsernameValidated,
                     ),
                   ),
-                  const SizedBox(
-                    height: 15,
+                  SizedBox(
+                    height: SizeConfig.setPadding(15),
                   ),
                   if (state.newPassword != null)
                     FadeAnimationX(
@@ -147,11 +149,15 @@ class _ProfileEditBodyState extends State<ProfileEditBody> {
                             hint: 'New password',
                             isAvailable: true,
                           ),
-                          const SizedBox(
-                            height: 15,
+                          SizedBox(
+                            height: SizeConfig.setPadding(15),
                           ),
                           SizedBox(
-                            height: 32,
+                            height: SizeConfig.isMobile
+                                ? SizeConfig.screenWidth! * .085
+                                : SizeConfig.isTablet
+                                    ? SizeConfig.screenWidth! * .055
+                                    : SizeConfig.screenWidth! * .03,
                             child: ListView(
                               scrollDirection: Axis.horizontal,
                               shrinkWrap: true,
@@ -178,8 +184,8 @@ class _ProfileEditBodyState extends State<ProfileEditBody> {
                               ],
                             ),
                           ),
-                          const SizedBox(
-                            height: 15,
+                          SizedBox(
+                            height: SizeConfig.setPadding(15),
                           ),
                         ],
                       ),
@@ -202,8 +208,8 @@ class _ProfileEditBodyState extends State<ProfileEditBody> {
                       ),
                     ),
                   ),
-                  const SizedBox(
-                    height: 15,
+                  SizedBox(
+                    height: SizeConfig.setPadding(15),
                   ),
                   FadeAnimationX(
                     delay: .6,
@@ -226,8 +232,8 @@ class _ProfileEditBodyState extends State<ProfileEditBody> {
                       fontSize: SizeConfig.body1,
                     ),
                   ),
-                  const SizedBox(
-                    height: 15,
+                  SizedBox(
+                    height: SizeConfig.setPadding(15),
                   ),
                 ],
               ),

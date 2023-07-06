@@ -22,7 +22,7 @@ class ProductsFilterButton extends StatelessWidget {
         duration: const Duration(milliseconds: 125),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(
-            SizeConfig.borderRadius,
+            SizeConfig.borderRadiusDefault,
           ),
           border: Border.all(
             width: 1.2,

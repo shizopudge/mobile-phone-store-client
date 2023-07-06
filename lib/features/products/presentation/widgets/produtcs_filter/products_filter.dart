@@ -1,7 +1,11 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:another_flushbar/flushbar.dart';
+import 'package:phone_store/core/presentation/animations/fade_animation_y_up.dart';
+import '../../../../../core/presentation/animations/fade_animation_x.dart';
+import '../../../../../core/presentation/animations/fade_animation_y_down.dart';
+import '../../../../../core/failure/failure.dart';
+import '../../../../../core/utils/popup_utils.dart';
 
 import '../../../../../core/constants/enums.dart';
 import '../../../../../core/presentation/widgets/buttons/casual_button.dart';
@@ -42,23 +46,10 @@ class ProductsFilterSheet extends StatelessWidget {
       callback(min, max);
       Navigator.of(context).pop();
     } else {
-      Flushbar(
-        messageText: Text(
-          'Min cost should be less then max',
-          style: kMedium.copyWith(
-            fontSize: SizeConfig.body3,
-            color: kLightWhite,
-          ),
-        ),
-        backgroundColor: kDarkBlue,
-        flushbarPosition: FlushbarPosition.TOP,
-        icon: Icon(
-          Icons.input_rounded,
-          size: SizeConfig.iconSmall,
-          color: kRed,
-        ),
-        duration: const Duration(seconds: 3),
-      ).show(context);
+      PopupUtils.showFailureSnackBar(
+          context: context,
+          failure: const Failure.unknownFailure(
+              message: 'Min cost should be less then max'));
     }
   }
 
@@ -94,56 +85,47 @@ class ProductsFilterSheet extends StatelessWidget {
     return BlocProvider<ProductsFilterCubit>(
       create: (_) => ProductsFilterCubit()..init(currentFilter),
       child: BlocBuilder<ProductsFilterCubit, ProductsFilter>(
-        builder: (context, filter) => Scaffold(
-          backgroundColor: Colors.transparent,
-          persistentFooterAlignment: AlignmentDirectional.bottomCenter,
-          persistentFooterButtons: [
-            CasualButton(
-              onTap: () {
-                productsContext
-                    .read<ProductsBloc>()
-                    .add(ProductsEvent.changeFilter(filter));
-                Navigator.of(context).pop();
-              },
-              text: 'Apply filter',
-              fontSize: SizeConfig.body2,
-              isEnabled: true,
+        builder: (context, filter) => Column(
+          children: [
+            SizedBox(
+              height: SizeConfig.setPadding(20),
             ),
-          ],
-          body: Column(
-            children: [
-              const SizedBox(
-                height: 20,
-              ),
-              const BottomSheetDivider(),
-              const SizedBox(
-                height: 20,
-              ),
-              Expanded(
-                child: ListView(
-                  padding: EdgeInsets.symmetric(
-                      horizontal: SizeConfig.isMobile ? 20 : 40),
-                  children: [
-                    ProductsFilterItem(
+            const FadeAnimationYDown(delay: .1, child: BottomSheetDivider()),
+            SizedBox(
+              height: SizeConfig.setPadding(20),
+            ),
+            Expanded(
+              child: ListView(
+                padding: EdgeInsets.symmetric(
+                    horizontal: SizeConfig.isMobile
+                        ? SizeConfig.setPadding(20)
+                        : SizeConfig.isTablet
+                            ? SizeConfig.setPadding(30)
+                            : SizeConfig.setPadding(45)),
+                children: [
+                  FadeAnimationX(
+                    delay: .4,
+                    child: ProductsFilterItem(
                       title: 'Filter',
-                      action: Flexible(
-                        child: TextButton(
-                          onPressed: () {
-                            productsContext.read<ProductsBloc>().add(
-                                const ProductsEvent.changeFilter(
-                                    ProductsFilter()));
-                            Navigator.of(context).pop();
-                          },
-                          child: AutoSizeText(
-                            'Reset',
-                            overflow: TextOverflow.ellipsis,
-                            style: kSemiBold.copyWith(
-                                fontSize: SizeConfig.body2, color: kLightBlue),
-                          ),
+                      action: TextButton(
+                        onPressed: () {
+                          productsContext.read<ProductsBloc>().add(
+                              const ProductsEvent.changeFilter(
+                                  ProductsFilter()));
+                          Navigator.of(context).pop();
+                        },
+                        child: AutoSizeText(
+                          'Reset',
+                          overflow: TextOverflow.ellipsis,
+                          style: kSemiBold.copyWith(
+                              fontSize: SizeConfig.body2, color: kLightBlue),
                         ),
                       ),
                     ),
-                    ProductsFilterItem(
+                  ),
+                  FadeAnimationX(
+                    delay: .5,
+                    child: ProductsFilterItem(
                       title: 'Sort by',
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -158,8 +140,8 @@ class ProductsFilterSheet extends StatelessWidget {
                               text: 'Asc',
                             ),
                           ),
-                          const SizedBox(
-                            width: 15,
+                          SizedBox(
+                            width: SizeConfig.setPadding(15),
                           ),
                           Expanded(
                             child: ProductsFilterButton(
@@ -174,7 +156,10 @@ class ProductsFilterSheet extends StatelessWidget {
                         ],
                       ),
                     ),
-                    ProductsFilterItem(
+                  ),
+                  FadeAnimationX(
+                    delay: .5,
+                    child: ProductsFilterItem(
                       title: 'Options',
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -190,8 +175,8 @@ class ProductsFilterSheet extends StatelessWidget {
                               text: 'New arrival',
                             ),
                           ),
-                          const SizedBox(
-                            width: 15,
+                          SizedBox(
+                            width: SizeConfig.setPadding(15),
                           ),
                           Expanded(
                             child: ProductsFilterButton(
@@ -207,7 +192,10 @@ class ProductsFilterSheet extends StatelessWidget {
                         ],
                       ),
                     ),
-                    ProductsFilterItem(
+                  ),
+                  FadeAnimationX(
+                    delay: .6,
+                    child: ProductsFilterItem(
                       title: 'Limit',
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -221,8 +209,8 @@ class ProductsFilterSheet extends StatelessWidget {
                               text: '10',
                             ),
                           ),
-                          const SizedBox(
-                            width: 15,
+                          SizedBox(
+                            width: SizeConfig.setPadding(15),
                           ),
                           Expanded(
                             child: ProductsFilterButton(
@@ -248,18 +236,19 @@ class ProductsFilterSheet extends StatelessWidget {
                         ],
                       ),
                     ),
-                    ProductsFilterItem(
+                  ),
+                  FadeAnimationX(
+                    delay: .7,
+                    child: ProductsFilterItem(
                       title: 'Cost interval',
-                      action: Flexible(
-                        child: TextButton(
-                          onPressed: () => _showCostIntervalDialog(
-                              context: context, filter: filter),
-                          child: AutoSizeText(
-                            'Enter manually',
-                            overflow: TextOverflow.ellipsis,
-                            style: kSemiBold.copyWith(
-                                fontSize: SizeConfig.body2, color: kLightBlue),
-                          ),
+                      action: TextButton(
+                        onPressed: () => _showCostIntervalDialog(
+                            context: context, filter: filter),
+                        child: AutoSizeText(
+                          'Enter manually',
+                          overflow: TextOverflow.ellipsis,
+                          style: kSemiBold.copyWith(
+                              fontSize: SizeConfig.body2, color: kLightBlue),
                         ),
                       ),
                       showDivider: false,
@@ -275,14 +264,28 @@ class ProductsFilterSheet extends StatelessWidget {
                                 ),
                       ),
                     ),
-                    const SizedBox(
-                      height: 25,
-                    ),
-                  ],
-                ),
+                  ),
+                  SizedBox(
+                    height: SizeConfig.setPadding(25),
+                  ),
+                ],
               ),
-            ],
-          ),
+            ),
+            FadeAnimationYUp(
+              delay: .8,
+              child: CasualButton(
+                onTap: () {
+                  productsContext
+                      .read<ProductsBloc>()
+                      .add(ProductsEvent.changeFilter(filter));
+                  Navigator.of(context).pop();
+                },
+                text: 'Apply filter',
+                fontSize: SizeConfig.body2,
+                isEnabled: true,
+              ),
+            ),
+          ],
         ),
       ),
     );

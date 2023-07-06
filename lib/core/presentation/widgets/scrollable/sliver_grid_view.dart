@@ -4,7 +4,7 @@ import '../../../utils/size_config.dart';
 
 class SliverGridView<T> extends StatelessWidget {
   final List<T> items;
-  final Widget Function(T item) child;
+  final Widget Function(T item, int index) child;
   const SliverGridView({
     super.key,
     required this.items,
@@ -17,12 +17,24 @@ class SliverGridView<T> extends StatelessWidget {
       itemCount: items.length,
       itemBuilder: (context, i) {
         final T item = items[i];
-        return child(item);
+        return child(item, i);
       },
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: SizeConfig.isMobile ? 2 : 4,
-        crossAxisSpacing: SizeConfig.isMobile ? 15 : 40,
-        mainAxisSpacing: SizeConfig.isMobile ? 15 : 40,
+        crossAxisCount: SizeConfig.isMobile
+            ? 2
+            : SizeConfig.isTablet
+                ? 3
+                : 6,
+        crossAxisSpacing: SizeConfig.isMobile
+            ? SizeConfig.setPadding(10)
+            : SizeConfig.isTablet
+                ? SizeConfig.setPadding(12)
+                : SizeConfig.setPadding(15),
+        mainAxisSpacing: SizeConfig.isMobile
+            ? SizeConfig.setPadding(10)
+            : SizeConfig.isTablet
+                ? SizeConfig.setPadding(12)
+                : SizeConfig.setPadding(15),
         childAspectRatio: .7,
       ),
     );

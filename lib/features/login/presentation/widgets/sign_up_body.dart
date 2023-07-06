@@ -51,7 +51,12 @@ class SignUpBody extends StatelessWidget {
           child: IntrinsicHeight(
             child: Center(
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+                padding: EdgeInsets.symmetric(
+                    horizontal: SizeConfig.setPadding(SizeConfig.isMobile
+                        ? 20
+                        : SizeConfig.isTablet
+                            ? 50
+                            : SizeConfig.screenWidth! * .12)),
                 child: Column(
                   children: [
                     FadeAnimationYDown(
@@ -65,8 +70,8 @@ class SignUpBody extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const SizedBox(
-                      height: 10,
+                    SizedBox(
+                      height: SizeConfig.setPadding(10),
                     ),
                     FadeAnimationYDown(
                       delay: .1,
@@ -79,8 +84,8 @@ class SignUpBody extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const SizedBox(
-                      height: 25,
+                    SizedBox(
+                      height: SizeConfig.setPadding(25),
                     ),
                     FadeAnimationYDown(
                       delay: .15,
@@ -97,8 +102,8 @@ class SignUpBody extends StatelessWidget {
                         ],
                       ),
                     ),
-                    const SizedBox(
-                      height: 25,
+                    SizedBox(
+                      height: SizeConfig.setPadding(25),
                     ),
                     FadeAnimationYDown(
                       delay: .2,
@@ -115,8 +120,8 @@ class SignUpBody extends StatelessWidget {
                         ],
                       ),
                     ),
-                    const SizedBox(
-                      height: 25,
+                    SizedBox(
+                      height: SizeConfig.setPadding(25),
                     ),
                     FadeAnimationYDown(
                       delay: .25,
@@ -125,13 +130,17 @@ class SignUpBody extends StatelessWidget {
                         isAvailable: state.validation.isUsernameValidated,
                       ),
                     ),
-                    const SizedBox(
-                      height: 15,
+                    SizedBox(
+                      height: SizeConfig.setPadding(15),
                     ),
                     FadeAnimationYDown(
                       delay: .3,
                       child: SizedBox(
-                        height: SizeConfig.screenHeight! * .055,
+                        height: SizeConfig.isMobile
+                            ? SizeConfig.screenWidth! * .085
+                            : SizeConfig.isTablet
+                                ? SizeConfig.screenWidth! * .055
+                                : SizeConfig.screenWidth! * .03,
                         child: ListView(
                           scrollDirection: Axis.horizontal,
                           shrinkWrap: true,
@@ -155,8 +164,8 @@ class SignUpBody extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const SizedBox(
-                      height: 40,
+                    SizedBox(
+                      height: SizeConfig.setPadding(40),
                     ),
                     FadeAnimationYDown(
                       delay: .35,
@@ -172,8 +181,8 @@ class SignUpBody extends StatelessWidget {
                         fontSize: SizeConfig.body1,
                       ),
                     ),
-                    const SizedBox(
-                      height: 20,
+                    SizedBox(
+                      height: SizeConfig.setPadding(20),
                     ),
                     FadeAnimationYDown(
                       delay: .4,
@@ -199,16 +208,16 @@ class SignUpBody extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const SizedBox(
-                      height: 10,
+                    SizedBox(
+                      height: SizeConfig.setPadding(10),
                     ),
                     const Spacer(),
                     const FadeAnimationYDown(
                       delay: .45,
                       child: PolicyText(),
                     ),
-                    const SizedBox(
-                      height: 25,
+                    SizedBox(
+                      height: SizeConfig.setPadding(25),
                     ),
                   ],
                 ),

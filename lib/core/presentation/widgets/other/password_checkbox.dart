@@ -18,7 +18,7 @@ class PasswordCheckBox extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       margin: const EdgeInsets.only(right: 8),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(SizeConfig.radiusLarge),
+        borderRadius: BorderRadius.circular(SizeConfig.borderRadiusDefault),
         color:
             isValidated ? kLightBlue.withOpacity(.25) : kGrey.withOpacity(.25),
       ),

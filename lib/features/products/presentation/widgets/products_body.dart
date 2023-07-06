@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../../core/presentation/animations/fade_animation_x.dart';
+import '../../../../core/presentation/animations/fade_animation_y_down.dart';
 
 import '../../../../core/presentation/widgets/buttons/go_top_button.dart';
 import '../../../../core/presentation/widgets/cards/product/product_card.dart';
@@ -69,7 +71,9 @@ class _ProductsBodyState extends State<ProductsBody> {
           ? FloatingActionButtonLocation.centerFloat
           : FloatingActionButtonLocation.endFloat,
       floatingActionButton: context.watch<ProductsScrollCubit>().state
-          ? GoTopButton(scrollController: _scrollController)
+          ? FadeAnimationYDown(
+              delay: .1,
+              child: GoTopButton(scrollController: _scrollController))
           : null,
       body: SafeArea(
         child: RefreshIndicator(
@@ -80,109 +84,141 @@ class _ProductsBodyState extends State<ProductsBody> {
                   .add(const ProductsEvent.refreshProducts());
             }
           },
-          child: CustomScrollView(
-            controller: _scrollController,
-            physics: const AlwaysScrollableScrollPhysics(
-                parent: ClampingScrollPhysics()),
-            slivers: [
-              SliverPadding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-                sliver: SliverAppBar(
-                  automaticallyImplyLeading: false,
-                  backgroundColor: kWhite,
-                  toolbarHeight: SizeConfig.isMobile
-                      ? SizeConfig.screenWidth! * .2
-                      : SizeConfig.screenWidth! * .1,
-                  centerTitle: true,
-                  title: SearchField(
-                    searchController: _searchController,
-                    showClose: state.filter.query.isNotEmpty,
-                    onClear: () {
-                      _searchController.clear();
-                      context
-                          .read<ProductsBloc>()
-                          .add(const ProductsEvent.searchProducts(''));
-                    },
-                    onFilter: () => showModalBottomSheet(
-                      context: context,
-                      constraints: const BoxConstraints.expand(),
-                      backgroundColor: kLightWhite,
-                      useSafeArea: true,
-                      isScrollControlled: true,
-                      builder: (_) => ProductsFilterSheet(
-                        context: context,
-                        currentFilter: state.filter,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              if (state.isRefreshing)
-                const SliverPadding(
-                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-                  sliver: SliverToBoxAdapter(
-                    child: CasualLoader(
-                      color: kDarkBlue,
-                    ),
-                  ),
-                ),
-              if (state.products.isEmpty && !state.isLoading)
-                SliverToBoxAdapter(
-                  child: Center(
-                    child: Column(
-                      children: [
-                        Icon(
-                          Icons.search_off_rounded,
-                          size: SizeConfig.iconLarge,
-                          color: kDarkBlue,
-                        ),
-                        Text(
-                          'Nothing was found',
-                          textAlign: TextAlign.center,
-                          style: kBold.copyWith(
-                              color: kDarkBlue, fontSize: SizeConfig.body2),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              SliverPadding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                sliver: SliverGridView<Product>(
-                  items: state.products,
-                  child: (item) => ProductCard(item),
-                ),
-              ),
-              if (state.isPaginating)
-                SliverPadding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 20)
-                          .copyWith(top: 30, bottom: 75),
-                  sliver: const SliverToBoxAdapter(
-                    child: CasualLoader(
-                      color: kDarkBlue,
-                    ),
-                  ),
-                ),
-              if (state.isLastPage)
-                SliverPadding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20)
-                      .copyWith(top: 30, bottom: 75),
-                  sliver: SliverToBoxAdapter(
-                    child: Center(
-                      child: Text(
-                        'You have viewed all products that match your search',
-                        textAlign: TextAlign.center,
-                        style: kMedium.copyWith(
-                          color: kDarkBlue,
-                          fontSize: SizeConfig.body3,
+          child: Padding(
+            padding:
+                EdgeInsets.symmetric(horizontal: SizeConfig.setPadding(20)),
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                CustomScrollView(
+                  controller: _scrollController,
+                  physics: const AlwaysScrollableScrollPhysics(
+                      parent: ClampingScrollPhysics()),
+                  slivers: [
+                    SliverPadding(
+                      padding: EdgeInsets.symmetric(
+                          vertical: SizeConfig.setPadding(20)),
+                      sliver: SliverToBoxAdapter(
+                        child: FadeAnimationYDown(
+                          delay: .4,
+                          child: SearchField(
+                            searchController: _searchController,
+                            showClose: state.filter.query.isNotEmpty,
+                            onClear: () {
+                              _searchController.clear();
+                              context
+                                  .read<ProductsBloc>()
+                                  .add(const ProductsEvent.searchProducts(''));
+                            },
+                            onFilter: () => showModalBottomSheet(
+                              context: context,
+                              constraints: const BoxConstraints.expand(),
+                              backgroundColor: kLightWhite,
+                              useSafeArea: true,
+                              isScrollControlled: true,
+                              builder: (_) => ProductsFilterSheet(
+                                context: context,
+                                currentFilter: state.filter,
+                              ),
+                            ),
+                          ),
                         ),
                       ),
                     ),
-                  ),
+                    if (state.isRefreshing)
+                      SliverPadding(
+                        padding: EdgeInsets.symmetric(
+                            vertical: SizeConfig.setPadding(20)),
+                        sliver: const SliverToBoxAdapter(
+                          child: FadeAnimationYDown(
+                            delay: .1,
+                            child: CasualLoader(
+                              color: kDarkBlue,
+                            ),
+                          ),
+                        ),
+                      ),
+                    if (state.products.isEmpty && !state.isLoading)
+                      SliverToBoxAdapter(
+                        child: Center(
+                          child: FadeAnimationYDown(
+                            delay: .1,
+                            child: Column(
+                              children: [
+                                Icon(
+                                  Icons.search_off_rounded,
+                                  size: SizeConfig.iconLarge,
+                                  color: kDarkBlue,
+                                ),
+                                Text(
+                                  'Nothing was found',
+                                  textAlign: TextAlign.center,
+                                  style: kBold.copyWith(
+                                      color: kDarkBlue,
+                                      fontSize: SizeConfig.body2),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    SliverGridView<Product>(
+                      items: state.products,
+                      child: (item, index) => FadeAnimationX(
+                          delay: index * .025, child: ProductCard(item)),
+                    ),
+                    if (state.isPaginating)
+                      SliverPadding(
+                        padding: EdgeInsets.only(
+                            top: SizeConfig.setPadding(30),
+                            bottom: SizeConfig.setPadding(75)),
+                        sliver: const SliverToBoxAdapter(
+                          child: FadeAnimationYDown(
+                            delay: .1,
+                            child: CasualLoader(
+                              color: kDarkBlue,
+                            ),
+                          ),
+                        ),
+                      ),
+                    if (state.isLastPage)
+                      SliverPadding(
+                        padding: EdgeInsets.only(
+                            top: SizeConfig.setPadding(20),
+                            bottom: SizeConfig.setPadding(SizeConfig.isMobile
+                                ? 75
+                                : SizeConfig.isTablet
+                                    ? 60
+                                    : 50)),
+                        sliver: SliverToBoxAdapter(
+                          child: Center(
+                            child: FadeAnimationYDown(
+                              delay: .5,
+                              child: Text(
+                                'You have viewed all products that match your search',
+                                textAlign: TextAlign.center,
+                                style: kMedium.copyWith(
+                                  color: kDarkBlue,
+                                  fontSize: SizeConfig.body3,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                  ],
                 ),
-            ],
+                if (state.isLoading)
+                  const Center(
+                    child: FadeAnimationYDown(
+                      delay: .1,
+                      child: CasualLoader(
+                        color: kDarkBlue,
+                      ),
+                    ),
+                  ),
+              ],
+            ),
           ),
         ),
       ),

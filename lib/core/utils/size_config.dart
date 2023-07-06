@@ -21,44 +21,111 @@ class SizeConfig {
 
   static bool get isMobile => screenWidth! < 650;
 
-  static bool get isDesktop => screenWidth! >= 900;
+  static bool get isTablet => screenWidth! >= 650 && screenWidth! <= 1100;
 
-  static double setHeightByFactor(double factor) {
-    assert(!factor.isNegative, 'Factor cant be negative');
-    assert(factor <= 1.0, 'Factor should be between 0.0 and 1.0');
-    return screenHeight! * factor;
-  }
+  static bool get isDesktop => screenWidth! > 1100;
 
   static double get h1 =>
-      isMobile ? blockSizeHorizontal! * 8 : blockSizeVertical! * 5;
+      blockSizeHorizontal! *
+      (isMobile
+          ? 5.5
+          : isTablet
+              ? 4
+              : 2.5);
 
   static double get h2 =>
-      isMobile ? blockSizeHorizontal! * 6.5 : blockSizeVertical! * 4.5;
+      blockSizeHorizontal! *
+      (isMobile
+          ? 5
+          : isTablet
+              ? 3.5
+              : 2);
 
   static double get body1 =>
-      isMobile ? blockSizeHorizontal! * 5.5 : blockSizeVertical! * 4;
+      blockSizeHorizontal! *
+      (isMobile
+          ? 4.5
+          : isTablet
+              ? 3
+              : 1.75);
 
   static double get body2 =>
-      isMobile ? blockSizeHorizontal! * 4.5 : blockSizeVertical! * 3.5;
+      blockSizeHorizontal! *
+      (isMobile
+          ? 4
+          : isTablet
+              ? 2.5
+              : 1.5);
 
   static double get body3 =>
-      isMobile ? blockSizeHorizontal! * 4 : blockSizeVertical! * 3;
+      blockSizeHorizontal! *
+      (isMobile
+          ? 3.5
+          : isTablet
+              ? 2
+              : 1.25);
 
   static double get iconLarge =>
-      isMobile ? blockSizeHorizontal! * 16 : blockSizeVertical! * 8;
+      blockSizeHorizontal! *
+      (isMobile
+          ? 7
+          : isTablet
+              ? 4
+              : 2.5);
 
   static double get iconMedium =>
-      isMobile ? blockSizeHorizontal! * 8 : blockSizeVertical! * 6;
+      blockSizeHorizontal! *
+      (isMobile
+          ? 6
+          : isTablet
+              ? 3.5
+              : 2);
 
   static double get iconSmall =>
-      isMobile ? blockSizeHorizontal! * 6 : blockSizeVertical! * 4;
+      blockSizeHorizontal! *
+      (isMobile
+          ? 5
+          : isTablet
+              ? 3
+              : 1.5);
 
   static double get radiusLarge =>
-      isMobile ? blockSizeHorizontal! * 20 : blockSizeHorizontal! * 12;
+      blockSizeHorizontal! *
+      (isMobile
+          ? 18
+          : isTablet
+              ? 12
+              : 8);
 
   static double get radiusSmall =>
-      isMobile ? blockSizeHorizontal! * 8 : blockSizeHorizontal! * 5;
+      blockSizeHorizontal! *
+      (isMobile
+          ? 10
+          : isTablet
+              ? 8
+              : 5);
 
-  static double get borderRadius =>
-      isMobile ? blockSizeHorizontal! * 4 : blockSizeHorizontal! * 3;
+  static double get borderRadiusDefault =>
+      blockSizeHorizontal! *
+      (isMobile
+          ? 8
+          : isTablet
+              ? 5
+              : 4);
+
+  static double get borderRadiusSmall =>
+      blockSizeHorizontal! *
+      (isMobile
+          ? 5
+          : isTablet
+              ? 4
+              : 2.5);
+
+  static double setPadding(double padding) =>
+      padding *
+      (isMobile
+          ? 1
+          : isTablet
+              ? 1.5
+              : 1.75);
 }
