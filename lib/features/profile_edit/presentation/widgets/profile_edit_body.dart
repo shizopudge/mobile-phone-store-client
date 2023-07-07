@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/logic/auth/auth_bloc.dart';
 import '../../../../core/presentation/animations/fade_animation_x.dart';
 import '../../../../core/presentation/widgets/buttons/casual_button.dart';
+import '../../../../core/presentation/widgets/buttons/casual_text_button.dart';
 import '../../../../core/presentation/widgets/other/password_checkbox.dart';
 import '../../../../core/presentation/widgets/text_fields/casual_text_field.dart';
 import '../../../../core/presentation/widgets/text_fields/password_text_field.dart';
-import '../../../../core/styles/styles.dart';
 import '../../../../core/utils/size_config.dart';
+import '../../../auth/presentation/bloc/auth_bloc.dart';
 import '../bloc/profile_edit_bloc.dart';
 import 'profile_edit_password_verify_dialog.dart';
 import 'profile_edit_user_image.dart';
@@ -193,19 +193,13 @@ class _ProfileEditBodyState extends State<ProfileEditBody> {
                   FadeAnimationX(
                     key: const ValueKey('toggle_password_button_anim'),
                     delay: .5,
-                    child: TextButton(
-                      onPressed: () => context
+                    child: CasualTextButton(
+                      onTap: () => context
                           .read<ProfileEditBloc>()
                           .add(const ProfileEditEvent.toggleEditPassword()),
-                      child: Text(
-                        state.newPassword != null
-                            ? 'Hide password'
-                            : 'Edit password',
-                        style: kMedium.copyWith(
-                          color: kLightBlue,
-                          fontSize: SizeConfig.body2,
-                        ),
-                      ),
+                      text: state.newPassword != null
+                          ? 'Hide password'
+                          : 'Edit password',
                     ),
                   ),
                   SizedBox(

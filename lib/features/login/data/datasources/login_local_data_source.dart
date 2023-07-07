@@ -2,8 +2,8 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../core/constants/enums.dart';
-import '../../../../core/data/models/tokens/tokens_model.dart';
 import '../../../../core/failure/failure.dart';
+import '../../../auth/data/models/tokens/tokens_model.dart';
 
 abstract interface class LoginLocalDataSource {
   Future<void> storeTokens(TokensModel tokens);

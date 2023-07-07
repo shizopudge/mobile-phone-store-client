@@ -19,18 +19,14 @@ class OverlappingLoader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.transparent,
-      body: Stack(
-        alignment: Alignment.center,
-        children: [
-          BackdropFilter(
-            filter: ImageFilter.blur(
-              sigmaX: 3.5,
-              sigmaY: 3.5,
-            ),
-            child: const SizedBox.expand(),
-          ),
-          FadeAnimationYDown(
-            delay: 0,
+      body: BackdropFilter(
+        filter: ImageFilter.blur(
+          sigmaX: 3.5,
+          sigmaY: 3.5,
+        ),
+        child: FadeAnimationYDown(
+          delay: 0,
+          child: Center(
             child: Container(
               alignment: Alignment.center,
               decoration: BoxDecoration(
@@ -73,7 +69,7 @@ class OverlappingLoader extends StatelessWidget {
               ),
             ),
           ),
-        ],
+        ),
       ),
     );
   }

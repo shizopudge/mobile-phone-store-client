@@ -13,7 +13,7 @@ import '../../../../core/domain/entities/current_user.dart';
 import '../../../../core/domain/usecases/image/pick_image.dart';
 import '../../../../core/domain/usecases/usecase.dart';
 import '../../../../core/failure/failure.dart';
-import '../../../../core/logic/auth/auth_bloc.dart';
+import '../../../auth/presentation/bloc/auth_bloc.dart';
 import '../../domain/usecases/delete_image.dart';
 import '../../domain/usecases/edit_profile.dart';
 import '../../domain/usecases/upload_image.dart';

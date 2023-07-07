@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
-import '../domain/usecases/auth/refresh_tokens.dart';
+import '../../features/auth/domain/usecases/refresh_tokens.dart';
 import '../domain/usecases/usecase.dart';
 
 class AccessInterceptor extends Interceptor {

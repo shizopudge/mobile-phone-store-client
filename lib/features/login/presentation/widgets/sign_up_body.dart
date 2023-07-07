@@ -65,7 +65,7 @@ class SignUpBody extends StatelessWidget {
                         'Sign up',
                         textAlign: TextAlign.center,
                         style: kBold.copyWith(
-                          fontSize: SizeConfig.h1,
+                          fontSize: SizeConfig.h3,
                           color: kDarkBlue,
                         ),
                       ),
@@ -79,7 +79,7 @@ class SignUpBody extends StatelessWidget {
                         'Create your account',
                         textAlign: TextAlign.center,
                         style: kSemiBold.copyWith(
-                          fontSize: SizeConfig.h2,
+                          fontSize: SizeConfig.h3,
                           color: kDarkBlue,
                         ),
                       ),

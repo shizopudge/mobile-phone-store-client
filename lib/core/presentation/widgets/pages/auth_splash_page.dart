@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../features/home/home_page.dart';
-import '../../../../features/login/presentation/login_page.dart';
-import '../../../logic/auth/auth_bloc.dart';
+import '../../../../features/auth/presentation/bloc/auth_bloc.dart';
+import '../../../../features/home/pages/home_page.dart';
+import '../../../../features/login/presentation/pages/login_page.dart';
 import '../../../styles/styles.dart';
 import '../../../utils/size_config.dart';
 import '../loading/casual_loader.dart';
@@ -41,7 +41,7 @@ class AuthSplashPage extends StatelessWidget {
                   'MOBILE STORE',
                   textAlign: TextAlign.center,
                   style: kSemiBold.copyWith(
-                    fontSize: SizeConfig.h1,
+                    fontSize: SizeConfig.h3,
                     color: kDarkBlue,
                     letterSpacing: 6.4,
                   ),

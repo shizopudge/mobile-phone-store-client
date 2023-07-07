@@ -28,12 +28,20 @@ class SizeConfig {
   static double get h1 =>
       blockSizeHorizontal! *
       (isMobile
+          ? 8.5
+          : isTablet
+              ? 6.5
+              : 5);
+
+  static double get h2 =>
+      blockSizeHorizontal! *
+      (isMobile
           ? 5.5
           : isTablet
               ? 4
               : 2.5);
 
-  static double get h2 =>
+  static double get h3 =>
       blockSizeHorizontal! *
       (isMobile
           ? 5
@@ -65,6 +73,14 @@ class SizeConfig {
               ? 2
               : 1.25);
 
+  static double get iconLarger =>
+      blockSizeHorizontal! *
+      (isMobile
+          ? 25
+          : isTablet
+              ? 18
+              : 12);
+
   static double get iconLarge =>
       blockSizeHorizontal! *
       (isMobile
@@ -89,6 +105,14 @@ class SizeConfig {
               ? 3
               : 1.5);
 
+  static double get radiusLarger =>
+      blockSizeHorizontal! *
+      (isMobile
+          ? 55
+          : isTablet
+              ? 45
+              : 30);
+
   static double get radiusLarge =>
       blockSizeHorizontal! *
       (isMobile
@@ -97,13 +121,29 @@ class SizeConfig {
               ? 12
               : 8);
 
-  static double get radiusSmall =>
+  static double get radiusMedium =>
       blockSizeHorizontal! *
       (isMobile
           ? 10
           : isTablet
               ? 8
               : 5);
+
+  static double get radiusSmall =>
+      blockSizeHorizontal! *
+      (isMobile
+          ? 2.5
+          : isTablet
+              ? 1.75
+              : 1.25);
+
+  static double get radiusSmaller =>
+      blockSizeHorizontal! *
+      (isMobile
+          ? 1.75
+          : isTablet
+              ? 1.25
+              : 1);
 
   static double get borderRadiusDefault =>
       blockSizeHorizontal! *

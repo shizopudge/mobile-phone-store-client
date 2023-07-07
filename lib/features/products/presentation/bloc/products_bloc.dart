@@ -25,8 +25,8 @@ class ProductsBloc extends Bloc<ProductsEvent, ProductsState> {
     on<_RefreshProducts>(_refreshProducts);
     on<_GetNextProducts>(_getNextProducts);
     on<_SearchProducts>(_searchProducts);
-    on<_ToggleSortBy>(_toggleSortBy);
     on<_ChangeFilter>(_changeFilter);
+    on<_ChangeProduct>(_changeProduct);
   }
 
   final GetProducts _getProductsUsecase;
@@ -132,12 +132,11 @@ class ProductsBloc extends Bloc<ProductsEvent, ProductsState> {
     );
   }
 
-  void _toggleSortBy(_ToggleSortBy event, Emitter<ProductsState> emit) {
-    if (state.filter.sort == SortBy.asc) {
-      emit(state.copyWith(filter: state.filter.copyWith(sort: SortBy.desc)));
-    } else {
-      emit(state.copyWith(filter: state.filter.copyWith(sort: SortBy.asc)));
+  void _changeProduct(_ChangeProduct event, Emitter<ProductsState> emit) async {
+    if (event.product == null) {
+      await Future.delayed(const Duration(milliseconds: 350));
     }
+    emit(state.copyWith(selectedProduct: event.product));
   }
 
   FutureEither<ProductsResponse> _fetchProducts() async {

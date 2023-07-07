@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/presentation/animations/fade_animation_y_down.dart';
 import '../../../../core/presentation/widgets/buttons/casual_button.dart';
+import '../../../../core/presentation/widgets/buttons/casual_text_button.dart';
 import '../../../../core/presentation/widgets/text_fields/casual_text_field.dart';
 import '../../../../core/presentation/widgets/text_fields/password_text_field.dart';
 import '../../../../core/styles/styles.dart';
@@ -57,7 +58,7 @@ class SignInBody extends StatelessWidget {
                         'Sign in',
                         textAlign: TextAlign.center,
                         style: kBold.copyWith(
-                          fontSize: SizeConfig.h1,
+                          fontSize: SizeConfig.h3,
                           color: kDarkBlue,
                         ),
                       ),
@@ -71,7 +72,7 @@ class SignInBody extends StatelessWidget {
                         'Access your account',
                         textAlign: TextAlign.center,
                         style: kSemiBold.copyWith(
-                          fontSize: SizeConfig.h2,
+                          fontSize: SizeConfig.h3,
                           color: kDarkBlue,
                         ),
                       ),
@@ -126,14 +127,10 @@ class SignInBody extends StatelessWidget {
                     ),
                     FadeAnimationYDown(
                       delay: .3,
-                      child: TextButton(
-                          onPressed: () {},
-                          child: Text(
-                            'Forgot the password?',
-                            textAlign: TextAlign.center,
-                            style: kSemiBold.copyWith(
-                                color: kLightBlue, fontSize: SizeConfig.body3),
-                          )),
+                      child: CasualTextButton(
+                        onTap: () {},
+                        text: 'Forgot the password?',
+                      ),
                     ),
                     SizedBox(
                       height: SizeConfig.setPadding(20),

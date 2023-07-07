@@ -4,9 +4,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'core/constants/objects.dart';
 import 'core/di/get_it.dart';
-import 'core/logic/auth/auth_bloc.dart';
 import 'core/styles/styles.dart';
 import 'core/utils/app_router.dart';
+import 'features/auth/presentation/bloc/auth_bloc.dart';
 
 class App extends StatelessWidget {
   const App({super.key});

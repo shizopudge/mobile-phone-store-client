@@ -10,6 +10,8 @@ class CasualButton extends StatelessWidget {
   final Color disabledBgColor;
   final double height;
   final double fontSize;
+  final bool? expand;
+  final double? borderRadius;
   const CasualButton({
     super.key,
     required this.onTap,
@@ -19,6 +21,8 @@ class CasualButton extends StatelessWidget {
     this.enabledBgColor = kBlack,
     this.disabledBgColor = kGrey,
     this.height = 55,
+    this.expand = true,
+    this.borderRadius,
   });
 
   @override
@@ -26,7 +30,11 @@ class CasualButton extends StatelessWidget {
     return MaterialButton(
       onPressed: isEnabled ? onTap : () {},
       enableFeedback: isEnabled,
-      minWidth: double.infinity,
+      shape: borderRadius != null
+          ? RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(borderRadius!))
+          : null,
+      minWidth: expand == true ? double.infinity : null,
       height: height,
       color: isEnabled ? enabledBgColor : disabledBgColor,
       elevation: 0,

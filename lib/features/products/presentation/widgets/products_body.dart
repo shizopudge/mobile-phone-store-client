@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../../../../core/presentation/animations/fade_animation_x.dart';
 import '../../../../core/presentation/animations/fade_animation_y_down.dart';
-
 import '../../../../core/presentation/widgets/buttons/go_top_button.dart';
-import '../../../../core/presentation/widgets/cards/product/product_card.dart';
 import '../../../../core/presentation/widgets/loading/casual_loader.dart';
 import '../../../../core/presentation/widgets/scrollable/sliver_grid_view.dart';
 import '../../../../core/presentation/widgets/text_fields/search_field.dart';
@@ -14,7 +13,8 @@ import '../../../../core/utils/size_config.dart';
 import '../../domain/entities/product.dart';
 import '../bloc/products_bloc.dart';
 import '../pages/products_page.dart';
-import 'produtcs_filter/products_filter.dart';
+import 'product_card/product_card.dart';
+import 'produtcs_filter/products_filter_sheet.dart';
 
 class ProductsBody extends StatefulWidget {
   const ProductsBody({
@@ -147,7 +147,7 @@ class _ProductsBodyState extends State<ProductsBody> {
                               children: [
                                 Icon(
                                   Icons.search_off_rounded,
-                                  size: SizeConfig.iconLarge,
+                                  size: SizeConfig.iconLarger,
                                   color: kDarkBlue,
                                 ),
                                 Text(
@@ -155,7 +155,7 @@ class _ProductsBodyState extends State<ProductsBody> {
                                   textAlign: TextAlign.center,
                                   style: kBold.copyWith(
                                       color: kDarkBlue,
-                                      fontSize: SizeConfig.body2),
+                                      fontSize: SizeConfig.body1),
                                 ),
                               ],
                             ),
@@ -164,8 +164,17 @@ class _ProductsBodyState extends State<ProductsBody> {
                       ),
                     SliverGridView<Product>(
                       items: state.products,
-                      child: (item, index) => FadeAnimationX(
-                          delay: index * .025, child: ProductCard(item)),
+                      child: (product, index) => FadeAnimationX(
+                        delay: index * .025,
+                        child: ProductCard(
+                          onTap: () => context.read<ProductsBloc>().add(
+                                ProductsEvent.changeProduct(
+                                  product,
+                                ),
+                              ),
+                          product: product,
+                        ),
+                      ),
                     ),
                     if (state.isPaginating)
                       SliverPadding(
@@ -199,7 +208,7 @@ class _ProductsBodyState extends State<ProductsBody> {
                                 textAlign: TextAlign.center,
                                 style: kMedium.copyWith(
                                   color: kDarkBlue,
-                                  fontSize: SizeConfig.body3,
+                                  fontSize: SizeConfig.body2,
                                 ),
                               ),
                             ),

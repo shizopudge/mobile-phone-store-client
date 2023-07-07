@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../logic/auth/auth_bloc.dart';
+import '../../../../features/auth/presentation/bloc/auth_bloc.dart';
 import '../../../styles/styles.dart';
 import '../../../utils/size_config.dart';
 import '../buttons/casual_text_button.dart';
@@ -29,7 +29,7 @@ class UnauthorizedPage extends StatelessWidget {
                   text,
                   textAlign: TextAlign.center,
                   style: kMedium.copyWith(
-                    fontSize: SizeConfig.h2,
+                    fontSize: SizeConfig.h3,
                     color: kDarkBlue,
                   ),
                 ),

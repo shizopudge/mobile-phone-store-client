@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../core/styles/styles.dart';
 import '../../products/presentation/pages/products_page.dart';
-import '../../profile/presentation/profile_page.dart';
+import '../../profile/presentation/pages/profile_page.dart';
 import 'home_body.dart';
 
 class UserUI extends StatelessWidget {

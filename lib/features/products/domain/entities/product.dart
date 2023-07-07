@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 
+import '../../../../core/domain/entities/current_user.dart';
 import '../../data/models/product/product_model.dart';
 import 'model.dart';
 
@@ -86,6 +87,59 @@ class Product extends Equatable {
         model: model.model != null ? Model.fromModel(model.model!) : null,
       );
 
+  List<String> _getColors() {
+    if (model != null) {
+      final Set<String> colors = {};
+      for (Product product in model!.products) {
+        if (product.storage == storage) {
+          colors.add(product.colorCode);
+        }
+      }
+      return colors.toList();
+    }
+    return [];
+  }
+
+  List<int> _getStorages() {
+    if (model != null) {
+      final Set<int> storages = {};
+      for (Product product in model!.products) {
+        if (product.colorCode == colorCode) {
+          storages.add(product.storage);
+        }
+      }
+      return storages.toList();
+    }
+    return [];
+  }
+
+  List<Product> _getProducts() {
+    if (model != null) {
+      final Set<Product> products = {};
+      for (Product product in model!.products) {
+        products.add(product.copyWith(model: model));
+      }
+      return products.toList();
+    }
+    return [];
+  }
+
+  Product getProductByStorage(int storage) => products
+      .firstWhere((product) =>
+          product.storage == storage && product.colorCode == colorCode)
+      .copyWith(model: model);
+
+  Product getProductByColor(String colorCode) => products
+      .firstWhere((product) =>
+          product.colorCode == colorCode && product.storage == storage)
+      .copyWith(model: model);
+
+  List<String> get colors => _getColors();
+
+  List<int> get storages => _getStorages();
+
+  List<Product> get products => _getProducts();
+
   @override
   List<Object?> get props {
     return [
@@ -103,6 +157,12 @@ class Product extends Equatable {
       model,
     ];
   }
+
+  bool isInCart(CurrentUser user) => user.cart.contains(this);
+
+  bool isInWishlist(CurrentUser user) => user.wishlist.contains(this);
+
+  bool isInPurchases(CurrentUser user) => user.purchases.contains(this);
 
   bool get isNew => DateTime.now().difference(createdAt).inDays < 7;
 

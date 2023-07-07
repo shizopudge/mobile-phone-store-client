@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../features/auth/presentation/bloc/auth_bloc.dart';
 import '../constants/extensions.dart';
-import '../logic/auth/auth_bloc.dart';
 import '../utils/popup_utils.dart';
 
 part 'failure.freezed.dart';

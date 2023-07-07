@@ -1,7 +1,7 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/presentation/widgets/buttons/casual_text_button.dart';
 import '../../../../core/styles/styles.dart';
 import '../../../../core/utils/size_config.dart';
 import '../bloc/login_bloc.dart';
@@ -24,17 +24,10 @@ class LoginAppBar extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: kWhite,
       titleSpacing: 0,
       actions: [
-        TextButton(
-          onPressed: () =>
+        CasualTextButton(
+          onTap: () =>
               context.read<LoginBloc>().add(const LoginEvent.loginAsGuest()),
-          child: AutoSizeText(
-            'Skip',
-            minFontSize: 0,
-            style: kBold.copyWith(
-              color: kGrey,
-              fontSize: SizeConfig.body2,
-            ),
-          ),
+          text: 'Skip',
         ),
       ],
     );

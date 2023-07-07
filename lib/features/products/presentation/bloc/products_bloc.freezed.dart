@@ -22,8 +22,8 @@ mixin _$ProductsEvent {
     required TResult Function() refreshProducts,
     required TResult Function() getNextProducts,
     required TResult Function(String query) searchProducts,
-    required TResult Function() toggleSortBy,
     required TResult Function(ProductsFilter filter) changeFilter,
+    required TResult Function(Product? product) changeProduct,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,8 +32,8 @@ mixin _$ProductsEvent {
     TResult? Function()? refreshProducts,
     TResult? Function()? getNextProducts,
     TResult? Function(String query)? searchProducts,
-    TResult? Function()? toggleSortBy,
     TResult? Function(ProductsFilter filter)? changeFilter,
+    TResult? Function(Product? product)? changeProduct,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -42,8 +42,8 @@ mixin _$ProductsEvent {
     TResult Function()? refreshProducts,
     TResult Function()? getNextProducts,
     TResult Function(String query)? searchProducts,
-    TResult Function()? toggleSortBy,
     TResult Function(ProductsFilter filter)? changeFilter,
+    TResult Function(Product? product)? changeProduct,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -53,8 +53,8 @@ mixin _$ProductsEvent {
     required TResult Function(_RefreshProducts value) refreshProducts,
     required TResult Function(_GetNextProducts value) getNextProducts,
     required TResult Function(_SearchProducts value) searchProducts,
-    required TResult Function(_ToggleSortBy value) toggleSortBy,
     required TResult Function(_ChangeFilter value) changeFilter,
+    required TResult Function(_ChangeProduct value) changeProduct,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,8 +63,8 @@ mixin _$ProductsEvent {
     TResult? Function(_RefreshProducts value)? refreshProducts,
     TResult? Function(_GetNextProducts value)? getNextProducts,
     TResult? Function(_SearchProducts value)? searchProducts,
-    TResult? Function(_ToggleSortBy value)? toggleSortBy,
     TResult? Function(_ChangeFilter value)? changeFilter,
+    TResult? Function(_ChangeProduct value)? changeProduct,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -73,8 +73,8 @@ mixin _$ProductsEvent {
     TResult Function(_RefreshProducts value)? refreshProducts,
     TResult Function(_GetNextProducts value)? getNextProducts,
     TResult Function(_SearchProducts value)? searchProducts,
-    TResult Function(_ToggleSortBy value)? toggleSortBy,
     TResult Function(_ChangeFilter value)? changeFilter,
+    TResult Function(_ChangeProduct value)? changeProduct,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -138,8 +138,8 @@ class _$_Start implements _Start {
     required TResult Function() refreshProducts,
     required TResult Function() getNextProducts,
     required TResult Function(String query) searchProducts,
-    required TResult Function() toggleSortBy,
     required TResult Function(ProductsFilter filter) changeFilter,
+    required TResult Function(Product? product) changeProduct,
   }) {
     return start();
   }
@@ -151,8 +151,8 @@ class _$_Start implements _Start {
     TResult? Function()? refreshProducts,
     TResult? Function()? getNextProducts,
     TResult? Function(String query)? searchProducts,
-    TResult? Function()? toggleSortBy,
     TResult? Function(ProductsFilter filter)? changeFilter,
+    TResult? Function(Product? product)? changeProduct,
   }) {
     return start?.call();
   }
@@ -164,8 +164,8 @@ class _$_Start implements _Start {
     TResult Function()? refreshProducts,
     TResult Function()? getNextProducts,
     TResult Function(String query)? searchProducts,
-    TResult Function()? toggleSortBy,
     TResult Function(ProductsFilter filter)? changeFilter,
+    TResult Function(Product? product)? changeProduct,
     required TResult orElse(),
   }) {
     if (start != null) {
@@ -181,8 +181,8 @@ class _$_Start implements _Start {
     required TResult Function(_RefreshProducts value) refreshProducts,
     required TResult Function(_GetNextProducts value) getNextProducts,
     required TResult Function(_SearchProducts value) searchProducts,
-    required TResult Function(_ToggleSortBy value) toggleSortBy,
     required TResult Function(_ChangeFilter value) changeFilter,
+    required TResult Function(_ChangeProduct value) changeProduct,
   }) {
     return start(this);
   }
@@ -194,8 +194,8 @@ class _$_Start implements _Start {
     TResult? Function(_RefreshProducts value)? refreshProducts,
     TResult? Function(_GetNextProducts value)? getNextProducts,
     TResult? Function(_SearchProducts value)? searchProducts,
-    TResult? Function(_ToggleSortBy value)? toggleSortBy,
     TResult? Function(_ChangeFilter value)? changeFilter,
+    TResult? Function(_ChangeProduct value)? changeProduct,
   }) {
     return start?.call(this);
   }
@@ -207,8 +207,8 @@ class _$_Start implements _Start {
     TResult Function(_RefreshProducts value)? refreshProducts,
     TResult Function(_GetNextProducts value)? getNextProducts,
     TResult Function(_SearchProducts value)? searchProducts,
-    TResult Function(_ToggleSortBy value)? toggleSortBy,
     TResult Function(_ChangeFilter value)? changeFilter,
+    TResult Function(_ChangeProduct value)? changeProduct,
     required TResult orElse(),
   }) {
     if (start != null) {
@@ -264,8 +264,8 @@ class _$_RefreshProducts implements _RefreshProducts {
     required TResult Function() refreshProducts,
     required TResult Function() getNextProducts,
     required TResult Function(String query) searchProducts,
-    required TResult Function() toggleSortBy,
     required TResult Function(ProductsFilter filter) changeFilter,
+    required TResult Function(Product? product) changeProduct,
   }) {
     return refreshProducts();
   }
@@ -277,8 +277,8 @@ class _$_RefreshProducts implements _RefreshProducts {
     TResult? Function()? refreshProducts,
     TResult? Function()? getNextProducts,
     TResult? Function(String query)? searchProducts,
-    TResult? Function()? toggleSortBy,
     TResult? Function(ProductsFilter filter)? changeFilter,
+    TResult? Function(Product? product)? changeProduct,
   }) {
     return refreshProducts?.call();
   }
@@ -290,8 +290,8 @@ class _$_RefreshProducts implements _RefreshProducts {
     TResult Function()? refreshProducts,
     TResult Function()? getNextProducts,
     TResult Function(String query)? searchProducts,
-    TResult Function()? toggleSortBy,
     TResult Function(ProductsFilter filter)? changeFilter,
+    TResult Function(Product? product)? changeProduct,
     required TResult orElse(),
   }) {
     if (refreshProducts != null) {
@@ -307,8 +307,8 @@ class _$_RefreshProducts implements _RefreshProducts {
     required TResult Function(_RefreshProducts value) refreshProducts,
     required TResult Function(_GetNextProducts value) getNextProducts,
     required TResult Function(_SearchProducts value) searchProducts,
-    required TResult Function(_ToggleSortBy value) toggleSortBy,
     required TResult Function(_ChangeFilter value) changeFilter,
+    required TResult Function(_ChangeProduct value) changeProduct,
   }) {
     return refreshProducts(this);
   }
@@ -320,8 +320,8 @@ class _$_RefreshProducts implements _RefreshProducts {
     TResult? Function(_RefreshProducts value)? refreshProducts,
     TResult? Function(_GetNextProducts value)? getNextProducts,
     TResult? Function(_SearchProducts value)? searchProducts,
-    TResult? Function(_ToggleSortBy value)? toggleSortBy,
     TResult? Function(_ChangeFilter value)? changeFilter,
+    TResult? Function(_ChangeProduct value)? changeProduct,
   }) {
     return refreshProducts?.call(this);
   }
@@ -333,8 +333,8 @@ class _$_RefreshProducts implements _RefreshProducts {
     TResult Function(_RefreshProducts value)? refreshProducts,
     TResult Function(_GetNextProducts value)? getNextProducts,
     TResult Function(_SearchProducts value)? searchProducts,
-    TResult Function(_ToggleSortBy value)? toggleSortBy,
     TResult Function(_ChangeFilter value)? changeFilter,
+    TResult Function(_ChangeProduct value)? changeProduct,
     required TResult orElse(),
   }) {
     if (refreshProducts != null) {
@@ -390,8 +390,8 @@ class _$_GetNextProducts implements _GetNextProducts {
     required TResult Function() refreshProducts,
     required TResult Function() getNextProducts,
     required TResult Function(String query) searchProducts,
-    required TResult Function() toggleSortBy,
     required TResult Function(ProductsFilter filter) changeFilter,
+    required TResult Function(Product? product) changeProduct,
   }) {
     return getNextProducts();
   }
@@ -403,8 +403,8 @@ class _$_GetNextProducts implements _GetNextProducts {
     TResult? Function()? refreshProducts,
     TResult? Function()? getNextProducts,
     TResult? Function(String query)? searchProducts,
-    TResult? Function()? toggleSortBy,
     TResult? Function(ProductsFilter filter)? changeFilter,
+    TResult? Function(Product? product)? changeProduct,
   }) {
     return getNextProducts?.call();
   }
@@ -416,8 +416,8 @@ class _$_GetNextProducts implements _GetNextProducts {
     TResult Function()? refreshProducts,
     TResult Function()? getNextProducts,
     TResult Function(String query)? searchProducts,
-    TResult Function()? toggleSortBy,
     TResult Function(ProductsFilter filter)? changeFilter,
+    TResult Function(Product? product)? changeProduct,
     required TResult orElse(),
   }) {
     if (getNextProducts != null) {
@@ -433,8 +433,8 @@ class _$_GetNextProducts implements _GetNextProducts {
     required TResult Function(_RefreshProducts value) refreshProducts,
     required TResult Function(_GetNextProducts value) getNextProducts,
     required TResult Function(_SearchProducts value) searchProducts,
-    required TResult Function(_ToggleSortBy value) toggleSortBy,
     required TResult Function(_ChangeFilter value) changeFilter,
+    required TResult Function(_ChangeProduct value) changeProduct,
   }) {
     return getNextProducts(this);
   }
@@ -446,8 +446,8 @@ class _$_GetNextProducts implements _GetNextProducts {
     TResult? Function(_RefreshProducts value)? refreshProducts,
     TResult? Function(_GetNextProducts value)? getNextProducts,
     TResult? Function(_SearchProducts value)? searchProducts,
-    TResult? Function(_ToggleSortBy value)? toggleSortBy,
     TResult? Function(_ChangeFilter value)? changeFilter,
+    TResult? Function(_ChangeProduct value)? changeProduct,
   }) {
     return getNextProducts?.call(this);
   }
@@ -459,8 +459,8 @@ class _$_GetNextProducts implements _GetNextProducts {
     TResult Function(_RefreshProducts value)? refreshProducts,
     TResult Function(_GetNextProducts value)? getNextProducts,
     TResult Function(_SearchProducts value)? searchProducts,
-    TResult Function(_ToggleSortBy value)? toggleSortBy,
     TResult Function(_ChangeFilter value)? changeFilter,
+    TResult Function(_ChangeProduct value)? changeProduct,
     required TResult orElse(),
   }) {
     if (getNextProducts != null) {
@@ -542,8 +542,8 @@ class _$_SearchProducts implements _SearchProducts {
     required TResult Function() refreshProducts,
     required TResult Function() getNextProducts,
     required TResult Function(String query) searchProducts,
-    required TResult Function() toggleSortBy,
     required TResult Function(ProductsFilter filter) changeFilter,
+    required TResult Function(Product? product) changeProduct,
   }) {
     return searchProducts(query);
   }
@@ -555,8 +555,8 @@ class _$_SearchProducts implements _SearchProducts {
     TResult? Function()? refreshProducts,
     TResult? Function()? getNextProducts,
     TResult? Function(String query)? searchProducts,
-    TResult? Function()? toggleSortBy,
     TResult? Function(ProductsFilter filter)? changeFilter,
+    TResult? Function(Product? product)? changeProduct,
   }) {
     return searchProducts?.call(query);
   }
@@ -568,8 +568,8 @@ class _$_SearchProducts implements _SearchProducts {
     TResult Function()? refreshProducts,
     TResult Function()? getNextProducts,
     TResult Function(String query)? searchProducts,
-    TResult Function()? toggleSortBy,
     TResult Function(ProductsFilter filter)? changeFilter,
+    TResult Function(Product? product)? changeProduct,
     required TResult orElse(),
   }) {
     if (searchProducts != null) {
@@ -585,8 +585,8 @@ class _$_SearchProducts implements _SearchProducts {
     required TResult Function(_RefreshProducts value) refreshProducts,
     required TResult Function(_GetNextProducts value) getNextProducts,
     required TResult Function(_SearchProducts value) searchProducts,
-    required TResult Function(_ToggleSortBy value) toggleSortBy,
     required TResult Function(_ChangeFilter value) changeFilter,
+    required TResult Function(_ChangeProduct value) changeProduct,
   }) {
     return searchProducts(this);
   }
@@ -598,8 +598,8 @@ class _$_SearchProducts implements _SearchProducts {
     TResult? Function(_RefreshProducts value)? refreshProducts,
     TResult? Function(_GetNextProducts value)? getNextProducts,
     TResult? Function(_SearchProducts value)? searchProducts,
-    TResult? Function(_ToggleSortBy value)? toggleSortBy,
     TResult? Function(_ChangeFilter value)? changeFilter,
+    TResult? Function(_ChangeProduct value)? changeProduct,
   }) {
     return searchProducts?.call(this);
   }
@@ -611,8 +611,8 @@ class _$_SearchProducts implements _SearchProducts {
     TResult Function(_RefreshProducts value)? refreshProducts,
     TResult Function(_GetNextProducts value)? getNextProducts,
     TResult Function(_SearchProducts value)? searchProducts,
-    TResult Function(_ToggleSortBy value)? toggleSortBy,
     TResult Function(_ChangeFilter value)? changeFilter,
+    TResult Function(_ChangeProduct value)? changeProduct,
     required TResult orElse(),
   }) {
     if (searchProducts != null) {
@@ -629,132 +629,6 @@ abstract class _SearchProducts implements ProductsEvent {
   @JsonKey(ignore: true)
   _$$_SearchProductsCopyWith<_$_SearchProducts> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$_ToggleSortByCopyWith<$Res> {
-  factory _$$_ToggleSortByCopyWith(
-          _$_ToggleSortBy value, $Res Function(_$_ToggleSortBy) then) =
-      __$$_ToggleSortByCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_ToggleSortByCopyWithImpl<$Res>
-    extends _$ProductsEventCopyWithImpl<$Res, _$_ToggleSortBy>
-    implements _$$_ToggleSortByCopyWith<$Res> {
-  __$$_ToggleSortByCopyWithImpl(
-      _$_ToggleSortBy _value, $Res Function(_$_ToggleSortBy) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$_ToggleSortBy implements _ToggleSortBy {
-  const _$_ToggleSortBy();
-
-  @override
-  String toString() {
-    return 'ProductsEvent.toggleSortBy()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_ToggleSortBy);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() start,
-    required TResult Function() refreshProducts,
-    required TResult Function() getNextProducts,
-    required TResult Function(String query) searchProducts,
-    required TResult Function() toggleSortBy,
-    required TResult Function(ProductsFilter filter) changeFilter,
-  }) {
-    return toggleSortBy();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? start,
-    TResult? Function()? refreshProducts,
-    TResult? Function()? getNextProducts,
-    TResult? Function(String query)? searchProducts,
-    TResult? Function()? toggleSortBy,
-    TResult? Function(ProductsFilter filter)? changeFilter,
-  }) {
-    return toggleSortBy?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? start,
-    TResult Function()? refreshProducts,
-    TResult Function()? getNextProducts,
-    TResult Function(String query)? searchProducts,
-    TResult Function()? toggleSortBy,
-    TResult Function(ProductsFilter filter)? changeFilter,
-    required TResult orElse(),
-  }) {
-    if (toggleSortBy != null) {
-      return toggleSortBy();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Start value) start,
-    required TResult Function(_RefreshProducts value) refreshProducts,
-    required TResult Function(_GetNextProducts value) getNextProducts,
-    required TResult Function(_SearchProducts value) searchProducts,
-    required TResult Function(_ToggleSortBy value) toggleSortBy,
-    required TResult Function(_ChangeFilter value) changeFilter,
-  }) {
-    return toggleSortBy(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Start value)? start,
-    TResult? Function(_RefreshProducts value)? refreshProducts,
-    TResult? Function(_GetNextProducts value)? getNextProducts,
-    TResult? Function(_SearchProducts value)? searchProducts,
-    TResult? Function(_ToggleSortBy value)? toggleSortBy,
-    TResult? Function(_ChangeFilter value)? changeFilter,
-  }) {
-    return toggleSortBy?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Start value)? start,
-    TResult Function(_RefreshProducts value)? refreshProducts,
-    TResult Function(_GetNextProducts value)? getNextProducts,
-    TResult Function(_SearchProducts value)? searchProducts,
-    TResult Function(_ToggleSortBy value)? toggleSortBy,
-    TResult Function(_ChangeFilter value)? changeFilter,
-    required TResult orElse(),
-  }) {
-    if (toggleSortBy != null) {
-      return toggleSortBy(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _ToggleSortBy implements ProductsEvent {
-  const factory _ToggleSortBy() = _$_ToggleSortBy;
 }
 
 /// @nodoc
@@ -825,8 +699,8 @@ class _$_ChangeFilter implements _ChangeFilter {
     required TResult Function() refreshProducts,
     required TResult Function() getNextProducts,
     required TResult Function(String query) searchProducts,
-    required TResult Function() toggleSortBy,
     required TResult Function(ProductsFilter filter) changeFilter,
+    required TResult Function(Product? product) changeProduct,
   }) {
     return changeFilter(filter);
   }
@@ -838,8 +712,8 @@ class _$_ChangeFilter implements _ChangeFilter {
     TResult? Function()? refreshProducts,
     TResult? Function()? getNextProducts,
     TResult? Function(String query)? searchProducts,
-    TResult? Function()? toggleSortBy,
     TResult? Function(ProductsFilter filter)? changeFilter,
+    TResult? Function(Product? product)? changeProduct,
   }) {
     return changeFilter?.call(filter);
   }
@@ -851,8 +725,8 @@ class _$_ChangeFilter implements _ChangeFilter {
     TResult Function()? refreshProducts,
     TResult Function()? getNextProducts,
     TResult Function(String query)? searchProducts,
-    TResult Function()? toggleSortBy,
     TResult Function(ProductsFilter filter)? changeFilter,
+    TResult Function(Product? product)? changeProduct,
     required TResult orElse(),
   }) {
     if (changeFilter != null) {
@@ -868,8 +742,8 @@ class _$_ChangeFilter implements _ChangeFilter {
     required TResult Function(_RefreshProducts value) refreshProducts,
     required TResult Function(_GetNextProducts value) getNextProducts,
     required TResult Function(_SearchProducts value) searchProducts,
-    required TResult Function(_ToggleSortBy value) toggleSortBy,
     required TResult Function(_ChangeFilter value) changeFilter,
+    required TResult Function(_ChangeProduct value) changeProduct,
   }) {
     return changeFilter(this);
   }
@@ -881,8 +755,8 @@ class _$_ChangeFilter implements _ChangeFilter {
     TResult? Function(_RefreshProducts value)? refreshProducts,
     TResult? Function(_GetNextProducts value)? getNextProducts,
     TResult? Function(_SearchProducts value)? searchProducts,
-    TResult? Function(_ToggleSortBy value)? toggleSortBy,
     TResult? Function(_ChangeFilter value)? changeFilter,
+    TResult? Function(_ChangeProduct value)? changeProduct,
   }) {
     return changeFilter?.call(this);
   }
@@ -894,8 +768,8 @@ class _$_ChangeFilter implements _ChangeFilter {
     TResult Function(_RefreshProducts value)? refreshProducts,
     TResult Function(_GetNextProducts value)? getNextProducts,
     TResult Function(_SearchProducts value)? searchProducts,
-    TResult Function(_ToggleSortBy value)? toggleSortBy,
     TResult Function(_ChangeFilter value)? changeFilter,
+    TResult Function(_ChangeProduct value)? changeProduct,
     required TResult orElse(),
   }) {
     if (changeFilter != null) {
@@ -911,6 +785,163 @@ abstract class _ChangeFilter implements ProductsEvent {
   ProductsFilter get filter;
   @JsonKey(ignore: true)
   _$$_ChangeFilterCopyWith<_$_ChangeFilter> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_ChangeProductCopyWith<$Res> {
+  factory _$$_ChangeProductCopyWith(
+          _$_ChangeProduct value, $Res Function(_$_ChangeProduct) then) =
+      __$$_ChangeProductCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Product? product});
+}
+
+/// @nodoc
+class __$$_ChangeProductCopyWithImpl<$Res>
+    extends _$ProductsEventCopyWithImpl<$Res, _$_ChangeProduct>
+    implements _$$_ChangeProductCopyWith<$Res> {
+  __$$_ChangeProductCopyWithImpl(
+      _$_ChangeProduct _value, $Res Function(_$_ChangeProduct) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? product = freezed,
+  }) {
+    return _then(_$_ChangeProduct(
+      freezed == product
+          ? _value.product
+          : product // ignore: cast_nullable_to_non_nullable
+              as Product?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ChangeProduct implements _ChangeProduct {
+  const _$_ChangeProduct(this.product);
+
+  @override
+  final Product? product;
+
+  @override
+  String toString() {
+    return 'ProductsEvent.changeProduct(product: $product)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeProduct &&
+            (identical(other.product, product) || other.product == product));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, product);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ChangeProductCopyWith<_$_ChangeProduct> get copyWith =>
+      __$$_ChangeProductCopyWithImpl<_$_ChangeProduct>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() start,
+    required TResult Function() refreshProducts,
+    required TResult Function() getNextProducts,
+    required TResult Function(String query) searchProducts,
+    required TResult Function(ProductsFilter filter) changeFilter,
+    required TResult Function(Product? product) changeProduct,
+  }) {
+    return changeProduct(product);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? start,
+    TResult? Function()? refreshProducts,
+    TResult? Function()? getNextProducts,
+    TResult? Function(String query)? searchProducts,
+    TResult? Function(ProductsFilter filter)? changeFilter,
+    TResult? Function(Product? product)? changeProduct,
+  }) {
+    return changeProduct?.call(product);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? start,
+    TResult Function()? refreshProducts,
+    TResult Function()? getNextProducts,
+    TResult Function(String query)? searchProducts,
+    TResult Function(ProductsFilter filter)? changeFilter,
+    TResult Function(Product? product)? changeProduct,
+    required TResult orElse(),
+  }) {
+    if (changeProduct != null) {
+      return changeProduct(product);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Start value) start,
+    required TResult Function(_RefreshProducts value) refreshProducts,
+    required TResult Function(_GetNextProducts value) getNextProducts,
+    required TResult Function(_SearchProducts value) searchProducts,
+    required TResult Function(_ChangeFilter value) changeFilter,
+    required TResult Function(_ChangeProduct value) changeProduct,
+  }) {
+    return changeProduct(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Start value)? start,
+    TResult? Function(_RefreshProducts value)? refreshProducts,
+    TResult? Function(_GetNextProducts value)? getNextProducts,
+    TResult? Function(_SearchProducts value)? searchProducts,
+    TResult? Function(_ChangeFilter value)? changeFilter,
+    TResult? Function(_ChangeProduct value)? changeProduct,
+  }) {
+    return changeProduct?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Start value)? start,
+    TResult Function(_RefreshProducts value)? refreshProducts,
+    TResult Function(_GetNextProducts value)? getNextProducts,
+    TResult Function(_SearchProducts value)? searchProducts,
+    TResult Function(_ChangeFilter value)? changeFilter,
+    TResult Function(_ChangeProduct value)? changeProduct,
+    required TResult orElse(),
+  }) {
+    if (changeProduct != null) {
+      return changeProduct(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangeProduct implements ProductsEvent {
+  const factory _ChangeProduct(final Product? product) = _$_ChangeProduct;
+
+  Product? get product;
+  @JsonKey(ignore: true)
+  _$$_ChangeProductCopyWith<_$_ChangeProduct> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

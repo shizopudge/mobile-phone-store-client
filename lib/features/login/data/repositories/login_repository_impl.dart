@@ -2,9 +2,9 @@ import 'package:dartz/dartz.dart';
 
 import '../../../../core/constants/enums.dart';
 import '../../../../core/constants/type_defs.dart';
-import '../../../../core/data/models/tokens/tokens_model.dart';
 import '../../../../core/domain/entities/current_user.dart';
 import '../../../../core/failure/failure.dart';
+import '../../../auth/data/models/tokens/tokens_model.dart';
 import '../../domain/repositories/login_repository.dart';
 import '../datasources/login_local_data_source.dart';
 import '../datasources/login_remote_data_source.dart';

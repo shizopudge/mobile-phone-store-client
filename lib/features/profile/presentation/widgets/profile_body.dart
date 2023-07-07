@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/domain/entities/current_user.dart';
-import '../../../../core/logic/auth/auth_bloc.dart';
 import '../../../../core/presentation/widgets/other/user_image.dart';
 import '../../../../core/styles/styles.dart';
 import '../../../../core/utils/size_config.dart';
-import '../../../profile_edit/presentation/profile_edit_page.dart';
+import '../../../auth/presentation/bloc/auth_bloc.dart';
+import '../../../profile_edit/presentation/pages/profile_edit_page.dart';
 import 'profile_list_tile.dart';
 
 class ProfileBody extends StatelessWidget {
@@ -31,7 +31,7 @@ class ProfileBody extends StatelessWidget {
                     tag: 'user_image',
                     child: UserImage(
                       image: currentUser?.image,
-                      radius: SizeConfig.radiusSmall,
+                      radius: SizeConfig.radiusMedium,
                     ),
                   ),
                 if (currentUser?.image != null)
@@ -47,7 +47,7 @@ class ProfileBody extends StatelessWidget {
                             'There should be your username',
                         overflow: TextOverflow.ellipsis,
                         style: kBold.copyWith(
-                          fontSize: SizeConfig.h1,
+                          fontSize: SizeConfig.h3,
                           color: kDarkBlue,
                         ),
                       ),
@@ -55,7 +55,7 @@ class ProfileBody extends StatelessWidget {
                         currentUser?.email ?? 'There should be your email',
                         overflow: TextOverflow.ellipsis,
                         style: kRegular.copyWith(
-                          fontSize: SizeConfig.h2,
+                          fontSize: SizeConfig.h3,
                           color: kGrey,
                           height: 1.5,
                         ),

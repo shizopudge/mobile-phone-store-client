@@ -41,7 +41,7 @@ class CasualAppBar extends StatelessWidget implements PreferredSizeWidget {
       title: Text(
         title,
         style: kBold.copyWith(
-          fontSize: SizeConfig.h1,
+          fontSize: SizeConfig.h3,
           color: kDarkBlue,
         ),
       ),

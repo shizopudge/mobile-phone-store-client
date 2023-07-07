@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../../../core/data/models/current_user/current_user_model.dart';
-import '../../../../../core/data/models/tokens/tokens_model.dart';
+import '../../../../auth/data/models/tokens/tokens_model.dart';
 
 part 'auth_response_model.freezed.dart';
 part 'auth_response_model.g.dart';

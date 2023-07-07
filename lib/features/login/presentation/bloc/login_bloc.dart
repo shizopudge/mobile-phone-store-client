@@ -9,7 +9,7 @@ import '../../../../core/constants/extensions.dart';
 import '../../../../core/constants/password_validation.dart';
 import '../../../../core/domain/usecases/usecase.dart';
 import '../../../../core/failure/failure.dart';
-import '../../../../core/logic/auth/auth_bloc.dart';
+import '../../../auth/presentation/bloc/auth_bloc.dart';
 import '../../domain/usecases/login.dart';
 import '../../domain/usecases/login_as_guest.dart';
 import '../../domain/usecases/register.dart';
