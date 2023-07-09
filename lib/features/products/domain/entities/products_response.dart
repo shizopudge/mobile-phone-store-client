@@ -1,9 +1,9 @@
 import 'package:equatable/equatable.dart';
 
+import '../../../../core/data/models/product/product_model.dart';
 import '../../../../core/domain/entities/info.dart';
-import '../../data/models/product/product_model.dart';
+import '../../../../core/domain/entities/product.dart';
 import '../../data/models/products_response/products_response_model.dart';
-import 'product.dart';
 
 class ProductsResponse extends Equatable {
   final Info info;

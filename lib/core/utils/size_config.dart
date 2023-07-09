@@ -30,8 +30,8 @@ class SizeConfig {
       (isMobile
           ? 8.5
           : isTablet
-              ? 6.5
-              : 5);
+              ? 4.5
+              : 3);
 
   static double get h2 =>
       blockSizeHorizontal! *
@@ -108,10 +108,10 @@ class SizeConfig {
   static double get radiusLarger =>
       blockSizeHorizontal! *
       (isMobile
-          ? 55
+          ? 50
           : isTablet
-              ? 45
-              : 30);
+              ? 32
+              : 21);
 
   static double get radiusLarge =>
       blockSizeHorizontal! *
@@ -132,18 +132,18 @@ class SizeConfig {
   static double get radiusSmall =>
       blockSizeHorizontal! *
       (isMobile
-          ? 2.5
+          ? 2
           : isTablet
               ? 1.75
-              : 1.25);
+              : 1);
 
   static double get radiusSmaller =>
       blockSizeHorizontal! *
       (isMobile
-          ? 1.75
+          ? 1.5
           : isTablet
               ? 1.25
-              : 1);
+              : .75);
 
   static double get borderRadiusDefault =>
       blockSizeHorizontal! *
@@ -158,14 +158,14 @@ class SizeConfig {
       (isMobile
           ? 5
           : isTablet
-              ? 4
-              : 2.5);
+              ? 3
+              : 2);
 
   static double setPadding(double padding) =>
       padding *
       (isMobile
           ? 1
           : isTablet
-              ? 1.5
-              : 1.75);
+              ? 1.75
+              : 2);
 }

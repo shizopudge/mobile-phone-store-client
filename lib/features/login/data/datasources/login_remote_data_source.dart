@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:dio/dio.dart';
 
 import '../../../../core/api/api_constants.dart';
@@ -17,7 +15,6 @@ abstract interface class LoginRemoteDataSource {
     required String username,
     required String password,
   });
-  Future<void> uploadImage(File image);
 }
 
 class LoginDataRemoteSourceImpl implements LoginRemoteDataSource {
@@ -39,9 +36,9 @@ class LoginDataRemoteSourceImpl implements LoginRemoteDataSource {
     } on DioException catch (e) {
       final res = e.response;
       if (res != null) throw ServerFailure.fromJson(res.data);
-      throw const UnknownFailure();
+      throw UnknownFailure(message: e.toString());
     } catch (e) {
-      throw const UnknownFailure();
+      throw UnknownFailure(message: e.toString());
     }
   }
 
@@ -64,29 +61,9 @@ class LoginDataRemoteSourceImpl implements LoginRemoteDataSource {
     } on DioException catch (e) {
       final res = e.response;
       if (res != null) throw ServerFailure.fromJson(res.data);
-      throw const UnknownFailure();
+      throw UnknownFailure(message: e.toString());
     } catch (e) {
-      throw const UnknownFailure();
-    }
-  }
-
-  @override
-  Future<void> uploadImage(File image) async {
-    try {
-      String fileName = image.path.split('/').last;
-      FormData formData = FormData.fromMap({
-        'image': await MultipartFile.fromFile(image.path, filename: fileName),
-      });
-      await dioClient.dio.patch(
-        '${ApiConstants.users}/users/current/user/image',
-        data: formData,
-      );
-    } on DioException catch (e) {
-      final res = e.response;
-      if (res != null) throw ServerFailure.fromJson(res.data);
-      throw const UnknownFailure();
-    } catch (e) {
-      throw const UnknownFailure();
+      throw UnknownFailure(message: e.toString());
     }
   }
 }

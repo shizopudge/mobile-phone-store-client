@@ -28,6 +28,14 @@ enum LoginType {
 enum OperatingSystem {
   IOS,
   ANDROID;
+
+  @override
+  String toString() {
+    if (this == IOS) {
+      return 'IOS';
+    }
+    return 'ANDROID';
+  }
 }
 
 enum DisplayType {
@@ -36,6 +44,24 @@ enum DisplayType {
   OLED,
   AMOLED,
   SuperAMOLED;
+
+  @override
+  String toString() {
+    switch (this) {
+      case DisplayType.TN:
+        return 'TN';
+      case DisplayType.IPS:
+        return 'IPS';
+      case DisplayType.OLED:
+        return 'OLED';
+      case DisplayType.AMOLED:
+        return 'AMOLED';
+      case DisplayType.SuperAMOLED:
+        return 'SuperAMOLED';
+      default:
+        return 'Display Type';
+    }
+  }
 }
 
 enum SortBy {
@@ -46,5 +72,10 @@ enum SortBy {
   String toString() {
     if (this == SortBy.asc) return 'asc';
     return 'desc';
+  }
+
+  static SortBy fromString(String string) {
+    if (string == 'asc') return SortBy.asc;
+    return SortBy.desc;
   }
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../products/presentation/pages/products_page.dart';
+import '../../products/presentation/pages/search_products_page.dart';
 import '../../profile/presentation/pages/profile_page.dart';
 import 'home_body.dart';
 
@@ -13,7 +13,7 @@ class AdminUI extends StatelessWidget {
   Widget build(BuildContext context) {
     return const HomeBody(
       pages: [
-        ProductsPage(),
+        SearchProductsPage(),
         Center(
           child: Text(
             'Add',

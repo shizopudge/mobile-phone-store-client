@@ -4,19 +4,17 @@ import '../../../styles/styles.dart';
 import '../../../utils/size_config.dart';
 
 class GoTopButton extends StatelessWidget {
+  final VoidCallback onTap;
   const GoTopButton({
     super.key,
-    required ScrollController scrollController,
-  }) : _scrollController = scrollController;
-
-  final ScrollController _scrollController;
+    required this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
       mini: true,
-      onPressed: () => _scrollController.animateTo(0,
-          duration: const Duration(milliseconds: 250), curve: Curves.easeOut),
+      onPressed: onTap,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(
           SizeConfig.borderRadiusDefault,

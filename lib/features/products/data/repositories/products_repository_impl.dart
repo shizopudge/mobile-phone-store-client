@@ -11,7 +11,7 @@ class ProductsRepositoryImpl implements ProductsRepository {
 
   ProductsRepositoryImpl({required this.remoteDataSource});
   @override
-  FutureEither<ProductsResponse> getProducts({
+  FutureEither<ProductsResponse> getManyProducts({
     required int page,
     required int limit,
     required String query,
@@ -22,7 +22,7 @@ class ProductsRepositoryImpl implements ProductsRepository {
     required bool newArrival,
   }) async {
     try {
-      final res = await remoteDataSource.getProducts(
+      final res = await remoteDataSource.getManyProducts(
         page: page,
         limit: limit,
         query: query,

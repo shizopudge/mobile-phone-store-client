@@ -21,8 +21,10 @@ class ProductsState with _$ProductsState {
     @Default(ProductsFilter()) ProductsFilter filter,
     @Default(ProductsStatus.loading) ProductsStatus status,
     @Default(UnknownFailure()) Failure failure,
-    Product? selectedProduct,
   }) = _ProductsState;
+
+  factory ProductsState.fromJson(Map<String, dynamic> json) =>
+      _$ProductsStateFromJson(json);
 
   bool get isLoading => status.isLoading && products.isEmpty;
   bool get isRefreshing => status.isRefreshing;
@@ -88,4 +90,35 @@ class ProductsFilter extends Equatable {
       withDiscount,
     ];
   }
+
+  Map<String, dynamic> toMap() {
+    return <String, dynamic>{
+      'page': page,
+      'limit': limit,
+      'query': query,
+      'sort': sort.toString(),
+      'minCost': minCost,
+      'maxCost': maxCost,
+      'newArrival': newArrival,
+      'withDiscount': withDiscount,
+    };
+  }
+
+  factory ProductsFilter.fromMap(Map<String, dynamic> map) {
+    return ProductsFilter(
+      page: map['page'] as int,
+      limit: map['limit'] as int,
+      query: map['query'] as String,
+      sort: SortBy.fromString(map['sort']),
+      minCost: map['minCost'] != null ? map['minCost'] as double : null,
+      maxCost: map['maxCost'] != null ? map['maxCost'] as double : null,
+      newArrival: map['newArrival'] as bool,
+      withDiscount: map['withDiscount'] as bool,
+    );
+  }
+
+  String toJson() => json.encode(toMap());
+
+  factory ProductsFilter.fromJson(String source) =>
+      ProductsFilter.fromMap(json.decode(source) as Map<String, dynamic>);
 }

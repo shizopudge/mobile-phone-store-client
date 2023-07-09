@@ -1,9 +1,9 @@
 import 'package:equatable/equatable.dart';
 
-import '../../../features/products/data/models/product/product_model.dart';
-import '../../../features/products/domain/entities/product.dart';
 import '../../constants/enums.dart';
 import '../../data/models/current_user/current_user_model.dart';
+import '../../data/models/product/product_model.dart';
+import 'product.dart';
 
 class CurrentUser extends Equatable {
   final String id;

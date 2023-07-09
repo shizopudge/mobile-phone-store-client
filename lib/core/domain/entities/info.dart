@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:equatable/equatable.dart';
 
 import '../../data/models/info/items_info_model.dart';
@@ -34,6 +36,24 @@ class Info extends Equatable {
     );
   }
 
+  Map<String, dynamic> toMap() {
+    return <String, dynamic>{
+      'currentPage': currentPage,
+      'countOnPage': countOnPage,
+      'pageCount': pageCount,
+      'itemCount': itemCount,
+    };
+  }
+
+  factory Info.fromMap(Map<String, dynamic> map) {
+    return Info(
+      currentPage: map['currentPage'] as int,
+      countOnPage: map['countOnPage'] as int,
+      pageCount: map['pageCount'] as int,
+      itemCount: map['itemCount'] as int,
+    );
+  }
+
   factory Info.fromModel(InfoModel model) => Info(
       currentPage: model.currentPage,
       countOnPage: model.countOnPage,
@@ -42,4 +62,9 @@ class Info extends Equatable {
 
   @override
   List<Object> get props => [currentPage, countOnPage, pageCount, itemCount];
+
+  String toJson() => json.encode(toMap());
+
+  factory Info.fromJson(String source) =>
+      Info.fromMap(json.decode(source) as Map<String, dynamic>);
 }

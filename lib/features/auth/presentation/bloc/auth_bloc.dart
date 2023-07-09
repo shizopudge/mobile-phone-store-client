@@ -6,10 +6,10 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../../../core/failure/failure.dart';
 import '../../../../core/domain/entities/current_user.dart';
+import '../../../../core/domain/usecases/usecase.dart';
 import '../../domain/usecases/get_current_user.dart';
 import '../../domain/usecases/get_login_type.dart';
 import '../../domain/usecases/logout.dart';
-import '../../../../core/domain/usecases/usecase.dart';
 
 part 'auth_bloc.freezed.dart';
 part 'auth_event.dart';

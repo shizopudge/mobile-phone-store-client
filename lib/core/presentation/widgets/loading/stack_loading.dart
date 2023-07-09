@@ -5,7 +5,9 @@ import 'overlapping_loader.dart';
 class StackLoading extends StatelessWidget {
   final bool isLoading;
   final Widget child;
-  const StackLoading({super.key, required this.isLoading, required this.child});
+  final Widget? loader;
+  const StackLoading(
+      {super.key, required this.isLoading, required this.child, this.loader});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +15,7 @@ class StackLoading extends StatelessWidget {
       alignment: Alignment.center,
       children: [
         child,
-        if (isLoading) const OverlappingLoader(),
+        if (isLoading) loader ?? const OverlappingLoader(),
       ],
     );
   }

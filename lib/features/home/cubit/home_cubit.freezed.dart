@@ -14,10 +14,15 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+HomeState _$HomeStateFromJson(Map<String, dynamic> json) {
+  return _HomeState.fromJson(json);
+}
+
 /// @nodoc
 mixin _$HomeState {
   int get page => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $HomeStateCopyWith<HomeState> get copyWith =>
       throw _privateConstructorUsedError;
@@ -88,9 +93,12 @@ class __$$_HomeStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_HomeState implements _HomeState {
   const _$_HomeState({this.page = 0});
+
+  factory _$_HomeState.fromJson(Map<String, dynamic> json) =>
+      _$$_HomeStateFromJson(json);
 
   @override
   @JsonKey()
@@ -109,6 +117,7 @@ class _$_HomeState implements _HomeState {
             (identical(other.page, page) || other.page == page));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, page);
 
@@ -117,10 +126,20 @@ class _$_HomeState implements _HomeState {
   @pragma('vm:prefer-inline')
   _$$_HomeStateCopyWith<_$_HomeState> get copyWith =>
       __$$_HomeStateCopyWithImpl<_$_HomeState>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_HomeStateToJson(
+      this,
+    );
+  }
 }
 
 abstract class _HomeState implements HomeState {
   const factory _HomeState({final int page}) = _$_HomeState;
+
+  factory _HomeState.fromJson(Map<String, dynamic> json) =
+      _$_HomeState.fromJson;
 
   @override
   int get page;

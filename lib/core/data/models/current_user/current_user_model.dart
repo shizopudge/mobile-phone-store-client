@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../../features/products/data/models/product/product_model.dart';
 import '../../../constants/enums.dart';
+import '../product/product_model.dart';
 
 part 'current_user_model.freezed.dart';
 part 'current_user_model.g.dart';

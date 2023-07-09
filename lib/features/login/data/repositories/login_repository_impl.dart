@@ -31,7 +31,7 @@ class LoginRepositoryImpl implements LoginRepository {
     } on Failure catch (e) {
       return Left(e);
     } catch (e) {
-      return const Left(UnknownFailure());
+      return Left(UnknownFailure(message: e.toString()));
     }
   }
 
@@ -43,7 +43,7 @@ class LoginRepositoryImpl implements LoginRepository {
     } on Failure catch (e) {
       return Left(e);
     } catch (e) {
-      return const Left(UnknownFailure());
+      return Left(UnknownFailure(message: e.toString()));
     }
   }
 
@@ -66,7 +66,7 @@ class LoginRepositoryImpl implements LoginRepository {
     } on Failure catch (e) {
       return Left(e);
     } catch (e) {
-      return const Left(UnknownFailure());
+      return Left(UnknownFailure(message: e.toString()));
     }
   }
 

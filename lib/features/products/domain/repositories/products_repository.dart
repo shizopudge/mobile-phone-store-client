@@ -2,7 +2,7 @@ import '../../../../core/constants/type_defs.dart';
 import '../entities/products_response.dart';
 
 abstract interface class ProductsRepository {
-  FutureEither<ProductsResponse> getProducts({
+  FutureEither<ProductsResponse> getManyProducts({
     required int page,
     required int limit,
     required String query,

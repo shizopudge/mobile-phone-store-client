@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../styles/styles.dart';
+import '../../../utils/size_config.dart';
 
 class CasualButton extends StatelessWidget {
   final VoidCallback onTap;
@@ -8,7 +9,7 @@ class CasualButton extends StatelessWidget {
   final bool isEnabled;
   final Color enabledBgColor;
   final Color disabledBgColor;
-  final double height;
+  final double? height;
   final double fontSize;
   final bool? expand;
   final double? borderRadius;
@@ -20,7 +21,7 @@ class CasualButton extends StatelessWidget {
     this.isEnabled = true,
     this.enabledBgColor = kBlack,
     this.disabledBgColor = kGrey,
-    this.height = 55,
+    this.height,
     this.expand = true,
     this.borderRadius,
   });
@@ -35,7 +36,7 @@ class CasualButton extends StatelessWidget {
               borderRadius: BorderRadius.circular(borderRadius!))
           : null,
       minWidth: expand == true ? double.infinity : null,
-      height: height,
+      height: height ?? SizeConfig.screenHeight! * .08,
       color: isEnabled ? enabledBgColor : disabledBgColor,
       elevation: 0,
       child: Text(

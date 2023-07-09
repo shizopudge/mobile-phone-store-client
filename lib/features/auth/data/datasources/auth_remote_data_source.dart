@@ -26,9 +26,9 @@ class AuthDataRemoteSourceImpl implements AuthRemoteDataSource {
     } on DioException catch (e) {
       final res = e.response;
       if (res != null) throw ServerFailure.fromJson(res.data);
-      throw const UnknownFailure();
+      throw UnknownFailure(message: e.toString());
     } catch (e) {
-      throw const UnknownFailure();
+      throw UnknownFailure(message: e.toString());
     }
   }
 
@@ -42,9 +42,9 @@ class AuthDataRemoteSourceImpl implements AuthRemoteDataSource {
     } on DioException catch (e) {
       final res = e.response;
       if (res != null) throw ServerFailure.fromJson(res.data);
-      throw const UnknownFailure();
+      throw UnknownFailure(message: e.toString());
     } catch (e) {
-      throw const UnknownFailure();
+      throw UnknownFailure(message: e.toString());
     }
   }
 
@@ -58,9 +58,9 @@ class AuthDataRemoteSourceImpl implements AuthRemoteDataSource {
     } on DioException catch (e) {
       final res = e.response;
       if (res != null) throw ServerFailure.fromJson(res.data);
-      throw const UnknownFailure();
+      throw UnknownFailure(message: e.toString());
     } catch (e) {
-      throw const UnknownFailure();
+      throw UnknownFailure(message: e.toString());
     }
   }
 }

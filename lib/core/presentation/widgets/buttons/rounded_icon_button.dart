@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../../utils/size_config.dart';
 
 import '../../../styles/colors.dart';
+import '../../../utils/size_config.dart';
 
 class RoundedIconButton extends StatelessWidget {
   final VoidCallback onTap;

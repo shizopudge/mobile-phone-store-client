@@ -22,21 +22,22 @@ class ProductMessage extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
       height: height,
       decoration: BoxDecoration(
-          color: backgroundColor,
-          borderRadius: BorderRadius.circular(
-            SizeConfig.borderRadiusDefault,
-          ),
-          boxShadow: [
-            BoxShadow(
-              blurRadius: 5,
-              spreadRadius: 1,
-              color: kDarkBlue.withOpacity(.35),
-              offset: const Offset(
-                0,
-                -.5,
-              ),
+        color: backgroundColor,
+        borderRadius: BorderRadius.circular(
+          SizeConfig.borderRadiusDefault,
+        ),
+        boxShadow: [
+          BoxShadow(
+            blurRadius: 5,
+            spreadRadius: 1,
+            color: kDarkBlue.withOpacity(.35),
+            offset: const Offset(
+              0,
+              -.5,
             ),
-          ]),
+          ),
+        ],
+      ),
       child: FittedBox(
         fit: BoxFit.contain,
         child: Text(

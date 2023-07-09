@@ -13,26 +13,16 @@ import '../../../../core/utils/size_config.dart';
 import '../bloc/login_bloc.dart';
 
 class SignInBody extends StatelessWidget {
-  final BuildContext loginPageContext;
   final VoidCallback switchPage;
   final TextEditingController _emailController;
   final TextEditingController _passwordController;
-  SignInBody({
+  const SignInBody({
     super.key,
+    required this.switchPage,
     required TextEditingController emailController,
     required TextEditingController passwordController,
-    required this.switchPage,
-    required BuildContext context,
   })  : _emailController = emailController,
-        _passwordController = passwordController,
-        loginPageContext = context {
-    _emailController.addListener(() => loginPageContext
-        .read<LoginBloc>()
-        .add(LoginEvent.changeEmail(_emailController.text.trim())));
-    _passwordController.addListener(() => loginPageContext
-        .read<LoginBloc>()
-        .add(LoginEvent.changePassword(_passwordController.text.trim())));
-  }
+        _passwordController = passwordController;
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +48,7 @@ class SignInBody extends StatelessWidget {
                         'Sign in',
                         textAlign: TextAlign.center,
                         style: kBold.copyWith(
-                          fontSize: SizeConfig.h3,
+                          fontSize: SizeConfig.h1,
                           color: kDarkBlue,
                         ),
                       ),
@@ -117,6 +107,7 @@ class SignInBody extends StatelessWidget {
                               .add(const LoginEvent.login());
                         },
                         text: 'Sign in',
+                        borderRadius: SizeConfig.borderRadiusSmall,
                         isEnabled: state.validation.isSignInFormValidated &&
                             state.password.isNotEmpty,
                         fontSize: SizeConfig.body1,

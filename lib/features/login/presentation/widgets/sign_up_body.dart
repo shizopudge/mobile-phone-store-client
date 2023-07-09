@@ -14,32 +14,19 @@ import '../bloc/login_bloc.dart';
 import 'sign_up_policy.dart';
 
 class SignUpBody extends StatelessWidget {
-  final BuildContext loginPageContext;
   final VoidCallback switchPage;
   final TextEditingController _emailController;
   final TextEditingController _usernameController;
   final TextEditingController _passwordController;
-  SignUpBody({
+  const SignUpBody({
     super.key,
+    required this.switchPage,
     required TextEditingController emailController,
     required TextEditingController usernameController,
     required TextEditingController passwordController,
-    required BuildContext context,
-    required this.switchPage,
   })  : _emailController = emailController,
         _usernameController = usernameController,
-        _passwordController = passwordController,
-        loginPageContext = context {
-    _emailController.addListener(() => loginPageContext
-        .read<LoginBloc>()
-        .add(LoginEvent.changeEmail(_emailController.text.trim())));
-    _usernameController.addListener(() => context
-        .read<LoginBloc>()
-        .add(LoginEvent.changeUsername(_usernameController.text.trim())));
-    _passwordController.addListener(() => loginPageContext
-        .read<LoginBloc>()
-        .add(LoginEvent.changePassword(_passwordController.text.trim())));
-  }
+        _passwordController = passwordController;
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +52,7 @@ class SignUpBody extends StatelessWidget {
                         'Sign up',
                         textAlign: TextAlign.center,
                         style: kBold.copyWith(
-                          fontSize: SizeConfig.h3,
+                          fontSize: SizeConfig.h1,
                           color: kDarkBlue,
                         ),
                       ),
@@ -177,6 +164,7 @@ class SignUpBody extends StatelessWidget {
                               .add(const LoginEvent.register());
                         },
                         text: 'Next',
+                        borderRadius: SizeConfig.borderRadiusSmall,
                         isEnabled: state.validation.isSignUpFormValidated,
                         fontSize: SizeConfig.body1,
                       ),

@@ -6,7 +6,7 @@ import '../../../../core/failure/failure.dart';
 import '../models/products_response/products_response_model.dart';
 
 abstract interface class ProductsRemoteDataSource {
-  Future<ProductsResponseModel> getProducts({
+  Future<ProductsResponseModel> getManyProducts({
     required int page,
     required int limit,
     required String query,
@@ -23,7 +23,7 @@ class ProductsRemoteDataSourceImpl implements ProductsRemoteDataSource {
 
   ProductsRemoteDataSourceImpl(this.dioClient);
   @override
-  Future<ProductsResponseModel> getProducts({
+  Future<ProductsResponseModel> getManyProducts({
     required int page,
     required int limit,
     required String query,

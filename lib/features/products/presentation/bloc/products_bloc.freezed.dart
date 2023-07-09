@@ -18,63 +18,63 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ProductsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() start,
+    required TResult Function() initial,
     required TResult Function() refreshProducts,
     required TResult Function() getNextProducts,
     required TResult Function(String query) searchProducts,
+    required TResult Function(Product product) updateProductInList,
     required TResult Function(ProductsFilter filter) changeFilter,
-    required TResult Function(Product? product) changeProduct,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? start,
+    TResult? Function()? initial,
     TResult? Function()? refreshProducts,
     TResult? Function()? getNextProducts,
     TResult? Function(String query)? searchProducts,
+    TResult? Function(Product product)? updateProductInList,
     TResult? Function(ProductsFilter filter)? changeFilter,
-    TResult? Function(Product? product)? changeProduct,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? start,
+    TResult Function()? initial,
     TResult Function()? refreshProducts,
     TResult Function()? getNextProducts,
     TResult Function(String query)? searchProducts,
+    TResult Function(Product product)? updateProductInList,
     TResult Function(ProductsFilter filter)? changeFilter,
-    TResult Function(Product? product)? changeProduct,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Start value) start,
+    required TResult Function(_Initial value) initial,
     required TResult Function(_RefreshProducts value) refreshProducts,
     required TResult Function(_GetNextProducts value) getNextProducts,
     required TResult Function(_SearchProducts value) searchProducts,
+    required TResult Function(_UpdateProductInList value) updateProductInList,
     required TResult Function(_ChangeFilter value) changeFilter,
-    required TResult Function(_ChangeProduct value) changeProduct,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Start value)? start,
+    TResult? Function(_Initial value)? initial,
     TResult? Function(_RefreshProducts value)? refreshProducts,
     TResult? Function(_GetNextProducts value)? getNextProducts,
     TResult? Function(_SearchProducts value)? searchProducts,
+    TResult? Function(_UpdateProductInList value)? updateProductInList,
     TResult? Function(_ChangeFilter value)? changeFilter,
-    TResult? Function(_ChangeProduct value)? changeProduct,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Start value)? start,
+    TResult Function(_Initial value)? initial,
     TResult Function(_RefreshProducts value)? refreshProducts,
     TResult Function(_GetNextProducts value)? getNextProducts,
     TResult Function(_SearchProducts value)? searchProducts,
+    TResult Function(_UpdateProductInList value)? updateProductInList,
     TResult Function(_ChangeFilter value)? changeFilter,
-    TResult Function(_ChangeProduct value)? changeProduct,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -99,33 +99,34 @@ class _$ProductsEventCopyWithImpl<$Res, $Val extends ProductsEvent>
 }
 
 /// @nodoc
-abstract class _$$_StartCopyWith<$Res> {
-  factory _$$_StartCopyWith(_$_Start value, $Res Function(_$_Start) then) =
-      __$$_StartCopyWithImpl<$Res>;
+abstract class _$$_InitialCopyWith<$Res> {
+  factory _$$_InitialCopyWith(
+          _$_Initial value, $Res Function(_$_Initial) then) =
+      __$$_InitialCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_StartCopyWithImpl<$Res>
-    extends _$ProductsEventCopyWithImpl<$Res, _$_Start>
-    implements _$$_StartCopyWith<$Res> {
-  __$$_StartCopyWithImpl(_$_Start _value, $Res Function(_$_Start) _then)
+class __$$_InitialCopyWithImpl<$Res>
+    extends _$ProductsEventCopyWithImpl<$Res, _$_Initial>
+    implements _$$_InitialCopyWith<$Res> {
+  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Start implements _Start {
-  const _$_Start();
+class _$_Initial implements _Initial {
+  const _$_Initial();
 
   @override
   String toString() {
-    return 'ProductsEvent.start()';
+    return 'ProductsEvent.initial()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Start);
+        (other.runtimeType == runtimeType && other is _$_Initial);
   }
 
   @override
@@ -134,42 +135,42 @@ class _$_Start implements _Start {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() start,
+    required TResult Function() initial,
     required TResult Function() refreshProducts,
     required TResult Function() getNextProducts,
     required TResult Function(String query) searchProducts,
+    required TResult Function(Product product) updateProductInList,
     required TResult Function(ProductsFilter filter) changeFilter,
-    required TResult Function(Product? product) changeProduct,
   }) {
-    return start();
+    return initial();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? start,
+    TResult? Function()? initial,
     TResult? Function()? refreshProducts,
     TResult? Function()? getNextProducts,
     TResult? Function(String query)? searchProducts,
+    TResult? Function(Product product)? updateProductInList,
     TResult? Function(ProductsFilter filter)? changeFilter,
-    TResult? Function(Product? product)? changeProduct,
   }) {
-    return start?.call();
+    return initial?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? start,
+    TResult Function()? initial,
     TResult Function()? refreshProducts,
     TResult Function()? getNextProducts,
     TResult Function(String query)? searchProducts,
+    TResult Function(Product product)? updateProductInList,
     TResult Function(ProductsFilter filter)? changeFilter,
-    TResult Function(Product? product)? changeProduct,
     required TResult orElse(),
   }) {
-    if (start != null) {
-      return start();
+    if (initial != null) {
+      return initial();
     }
     return orElse();
   }
@@ -177,49 +178,49 @@ class _$_Start implements _Start {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Start value) start,
+    required TResult Function(_Initial value) initial,
     required TResult Function(_RefreshProducts value) refreshProducts,
     required TResult Function(_GetNextProducts value) getNextProducts,
     required TResult Function(_SearchProducts value) searchProducts,
+    required TResult Function(_UpdateProductInList value) updateProductInList,
     required TResult Function(_ChangeFilter value) changeFilter,
-    required TResult Function(_ChangeProduct value) changeProduct,
   }) {
-    return start(this);
+    return initial(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Start value)? start,
+    TResult? Function(_Initial value)? initial,
     TResult? Function(_RefreshProducts value)? refreshProducts,
     TResult? Function(_GetNextProducts value)? getNextProducts,
     TResult? Function(_SearchProducts value)? searchProducts,
+    TResult? Function(_UpdateProductInList value)? updateProductInList,
     TResult? Function(_ChangeFilter value)? changeFilter,
-    TResult? Function(_ChangeProduct value)? changeProduct,
   }) {
-    return start?.call(this);
+    return initial?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Start value)? start,
+    TResult Function(_Initial value)? initial,
     TResult Function(_RefreshProducts value)? refreshProducts,
     TResult Function(_GetNextProducts value)? getNextProducts,
     TResult Function(_SearchProducts value)? searchProducts,
+    TResult Function(_UpdateProductInList value)? updateProductInList,
     TResult Function(_ChangeFilter value)? changeFilter,
-    TResult Function(_ChangeProduct value)? changeProduct,
     required TResult orElse(),
   }) {
-    if (start != null) {
-      return start(this);
+    if (initial != null) {
+      return initial(this);
     }
     return orElse();
   }
 }
 
-abstract class _Start implements ProductsEvent {
-  const factory _Start() = _$_Start;
+abstract class _Initial implements ProductsEvent {
+  const factory _Initial() = _$_Initial;
 }
 
 /// @nodoc
@@ -260,12 +261,12 @@ class _$_RefreshProducts implements _RefreshProducts {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() start,
+    required TResult Function() initial,
     required TResult Function() refreshProducts,
     required TResult Function() getNextProducts,
     required TResult Function(String query) searchProducts,
+    required TResult Function(Product product) updateProductInList,
     required TResult Function(ProductsFilter filter) changeFilter,
-    required TResult Function(Product? product) changeProduct,
   }) {
     return refreshProducts();
   }
@@ -273,12 +274,12 @@ class _$_RefreshProducts implements _RefreshProducts {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? start,
+    TResult? Function()? initial,
     TResult? Function()? refreshProducts,
     TResult? Function()? getNextProducts,
     TResult? Function(String query)? searchProducts,
+    TResult? Function(Product product)? updateProductInList,
     TResult? Function(ProductsFilter filter)? changeFilter,
-    TResult? Function(Product? product)? changeProduct,
   }) {
     return refreshProducts?.call();
   }
@@ -286,12 +287,12 @@ class _$_RefreshProducts implements _RefreshProducts {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? start,
+    TResult Function()? initial,
     TResult Function()? refreshProducts,
     TResult Function()? getNextProducts,
     TResult Function(String query)? searchProducts,
+    TResult Function(Product product)? updateProductInList,
     TResult Function(ProductsFilter filter)? changeFilter,
-    TResult Function(Product? product)? changeProduct,
     required TResult orElse(),
   }) {
     if (refreshProducts != null) {
@@ -303,12 +304,12 @@ class _$_RefreshProducts implements _RefreshProducts {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Start value) start,
+    required TResult Function(_Initial value) initial,
     required TResult Function(_RefreshProducts value) refreshProducts,
     required TResult Function(_GetNextProducts value) getNextProducts,
     required TResult Function(_SearchProducts value) searchProducts,
+    required TResult Function(_UpdateProductInList value) updateProductInList,
     required TResult Function(_ChangeFilter value) changeFilter,
-    required TResult Function(_ChangeProduct value) changeProduct,
   }) {
     return refreshProducts(this);
   }
@@ -316,12 +317,12 @@ class _$_RefreshProducts implements _RefreshProducts {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Start value)? start,
+    TResult? Function(_Initial value)? initial,
     TResult? Function(_RefreshProducts value)? refreshProducts,
     TResult? Function(_GetNextProducts value)? getNextProducts,
     TResult? Function(_SearchProducts value)? searchProducts,
+    TResult? Function(_UpdateProductInList value)? updateProductInList,
     TResult? Function(_ChangeFilter value)? changeFilter,
-    TResult? Function(_ChangeProduct value)? changeProduct,
   }) {
     return refreshProducts?.call(this);
   }
@@ -329,12 +330,12 @@ class _$_RefreshProducts implements _RefreshProducts {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Start value)? start,
+    TResult Function(_Initial value)? initial,
     TResult Function(_RefreshProducts value)? refreshProducts,
     TResult Function(_GetNextProducts value)? getNextProducts,
     TResult Function(_SearchProducts value)? searchProducts,
+    TResult Function(_UpdateProductInList value)? updateProductInList,
     TResult Function(_ChangeFilter value)? changeFilter,
-    TResult Function(_ChangeProduct value)? changeProduct,
     required TResult orElse(),
   }) {
     if (refreshProducts != null) {
@@ -386,12 +387,12 @@ class _$_GetNextProducts implements _GetNextProducts {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() start,
+    required TResult Function() initial,
     required TResult Function() refreshProducts,
     required TResult Function() getNextProducts,
     required TResult Function(String query) searchProducts,
+    required TResult Function(Product product) updateProductInList,
     required TResult Function(ProductsFilter filter) changeFilter,
-    required TResult Function(Product? product) changeProduct,
   }) {
     return getNextProducts();
   }
@@ -399,12 +400,12 @@ class _$_GetNextProducts implements _GetNextProducts {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? start,
+    TResult? Function()? initial,
     TResult? Function()? refreshProducts,
     TResult? Function()? getNextProducts,
     TResult? Function(String query)? searchProducts,
+    TResult? Function(Product product)? updateProductInList,
     TResult? Function(ProductsFilter filter)? changeFilter,
-    TResult? Function(Product? product)? changeProduct,
   }) {
     return getNextProducts?.call();
   }
@@ -412,12 +413,12 @@ class _$_GetNextProducts implements _GetNextProducts {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? start,
+    TResult Function()? initial,
     TResult Function()? refreshProducts,
     TResult Function()? getNextProducts,
     TResult Function(String query)? searchProducts,
+    TResult Function(Product product)? updateProductInList,
     TResult Function(ProductsFilter filter)? changeFilter,
-    TResult Function(Product? product)? changeProduct,
     required TResult orElse(),
   }) {
     if (getNextProducts != null) {
@@ -429,12 +430,12 @@ class _$_GetNextProducts implements _GetNextProducts {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Start value) start,
+    required TResult Function(_Initial value) initial,
     required TResult Function(_RefreshProducts value) refreshProducts,
     required TResult Function(_GetNextProducts value) getNextProducts,
     required TResult Function(_SearchProducts value) searchProducts,
+    required TResult Function(_UpdateProductInList value) updateProductInList,
     required TResult Function(_ChangeFilter value) changeFilter,
-    required TResult Function(_ChangeProduct value) changeProduct,
   }) {
     return getNextProducts(this);
   }
@@ -442,12 +443,12 @@ class _$_GetNextProducts implements _GetNextProducts {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Start value)? start,
+    TResult? Function(_Initial value)? initial,
     TResult? Function(_RefreshProducts value)? refreshProducts,
     TResult? Function(_GetNextProducts value)? getNextProducts,
     TResult? Function(_SearchProducts value)? searchProducts,
+    TResult? Function(_UpdateProductInList value)? updateProductInList,
     TResult? Function(_ChangeFilter value)? changeFilter,
-    TResult? Function(_ChangeProduct value)? changeProduct,
   }) {
     return getNextProducts?.call(this);
   }
@@ -455,12 +456,12 @@ class _$_GetNextProducts implements _GetNextProducts {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Start value)? start,
+    TResult Function(_Initial value)? initial,
     TResult Function(_RefreshProducts value)? refreshProducts,
     TResult Function(_GetNextProducts value)? getNextProducts,
     TResult Function(_SearchProducts value)? searchProducts,
+    TResult Function(_UpdateProductInList value)? updateProductInList,
     TResult Function(_ChangeFilter value)? changeFilter,
-    TResult Function(_ChangeProduct value)? changeProduct,
     required TResult orElse(),
   }) {
     if (getNextProducts != null) {
@@ -538,12 +539,12 @@ class _$_SearchProducts implements _SearchProducts {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() start,
+    required TResult Function() initial,
     required TResult Function() refreshProducts,
     required TResult Function() getNextProducts,
     required TResult Function(String query) searchProducts,
+    required TResult Function(Product product) updateProductInList,
     required TResult Function(ProductsFilter filter) changeFilter,
-    required TResult Function(Product? product) changeProduct,
   }) {
     return searchProducts(query);
   }
@@ -551,12 +552,12 @@ class _$_SearchProducts implements _SearchProducts {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? start,
+    TResult? Function()? initial,
     TResult? Function()? refreshProducts,
     TResult? Function()? getNextProducts,
     TResult? Function(String query)? searchProducts,
+    TResult? Function(Product product)? updateProductInList,
     TResult? Function(ProductsFilter filter)? changeFilter,
-    TResult? Function(Product? product)? changeProduct,
   }) {
     return searchProducts?.call(query);
   }
@@ -564,12 +565,12 @@ class _$_SearchProducts implements _SearchProducts {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? start,
+    TResult Function()? initial,
     TResult Function()? refreshProducts,
     TResult Function()? getNextProducts,
     TResult Function(String query)? searchProducts,
+    TResult Function(Product product)? updateProductInList,
     TResult Function(ProductsFilter filter)? changeFilter,
-    TResult Function(Product? product)? changeProduct,
     required TResult orElse(),
   }) {
     if (searchProducts != null) {
@@ -581,12 +582,12 @@ class _$_SearchProducts implements _SearchProducts {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Start value) start,
+    required TResult Function(_Initial value) initial,
     required TResult Function(_RefreshProducts value) refreshProducts,
     required TResult Function(_GetNextProducts value) getNextProducts,
     required TResult Function(_SearchProducts value) searchProducts,
+    required TResult Function(_UpdateProductInList value) updateProductInList,
     required TResult Function(_ChangeFilter value) changeFilter,
-    required TResult Function(_ChangeProduct value) changeProduct,
   }) {
     return searchProducts(this);
   }
@@ -594,12 +595,12 @@ class _$_SearchProducts implements _SearchProducts {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Start value)? start,
+    TResult? Function(_Initial value)? initial,
     TResult? Function(_RefreshProducts value)? refreshProducts,
     TResult? Function(_GetNextProducts value)? getNextProducts,
     TResult? Function(_SearchProducts value)? searchProducts,
+    TResult? Function(_UpdateProductInList value)? updateProductInList,
     TResult? Function(_ChangeFilter value)? changeFilter,
-    TResult? Function(_ChangeProduct value)? changeProduct,
   }) {
     return searchProducts?.call(this);
   }
@@ -607,12 +608,12 @@ class _$_SearchProducts implements _SearchProducts {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Start value)? start,
+    TResult Function(_Initial value)? initial,
     TResult Function(_RefreshProducts value)? refreshProducts,
     TResult Function(_GetNextProducts value)? getNextProducts,
     TResult Function(_SearchProducts value)? searchProducts,
+    TResult Function(_UpdateProductInList value)? updateProductInList,
     TResult Function(_ChangeFilter value)? changeFilter,
-    TResult Function(_ChangeProduct value)? changeProduct,
     required TResult orElse(),
   }) {
     if (searchProducts != null) {
@@ -628,6 +629,165 @@ abstract class _SearchProducts implements ProductsEvent {
   String get query;
   @JsonKey(ignore: true)
   _$$_SearchProductsCopyWith<_$_SearchProducts> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_UpdateProductInListCopyWith<$Res> {
+  factory _$$_UpdateProductInListCopyWith(_$_UpdateProductInList value,
+          $Res Function(_$_UpdateProductInList) then) =
+      __$$_UpdateProductInListCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Product product});
+}
+
+/// @nodoc
+class __$$_UpdateProductInListCopyWithImpl<$Res>
+    extends _$ProductsEventCopyWithImpl<$Res, _$_UpdateProductInList>
+    implements _$$_UpdateProductInListCopyWith<$Res> {
+  __$$_UpdateProductInListCopyWithImpl(_$_UpdateProductInList _value,
+      $Res Function(_$_UpdateProductInList) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? product = null,
+  }) {
+    return _then(_$_UpdateProductInList(
+      null == product
+          ? _value.product
+          : product // ignore: cast_nullable_to_non_nullable
+              as Product,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_UpdateProductInList implements _UpdateProductInList {
+  const _$_UpdateProductInList(this.product);
+
+  @override
+  final Product product;
+
+  @override
+  String toString() {
+    return 'ProductsEvent.updateProductInList(product: $product)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_UpdateProductInList &&
+            (identical(other.product, product) || other.product == product));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, product);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_UpdateProductInListCopyWith<_$_UpdateProductInList> get copyWith =>
+      __$$_UpdateProductInListCopyWithImpl<_$_UpdateProductInList>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() refreshProducts,
+    required TResult Function() getNextProducts,
+    required TResult Function(String query) searchProducts,
+    required TResult Function(Product product) updateProductInList,
+    required TResult Function(ProductsFilter filter) changeFilter,
+  }) {
+    return updateProductInList(product);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? refreshProducts,
+    TResult? Function()? getNextProducts,
+    TResult? Function(String query)? searchProducts,
+    TResult? Function(Product product)? updateProductInList,
+    TResult? Function(ProductsFilter filter)? changeFilter,
+  }) {
+    return updateProductInList?.call(product);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? refreshProducts,
+    TResult Function()? getNextProducts,
+    TResult Function(String query)? searchProducts,
+    TResult Function(Product product)? updateProductInList,
+    TResult Function(ProductsFilter filter)? changeFilter,
+    required TResult orElse(),
+  }) {
+    if (updateProductInList != null) {
+      return updateProductInList(product);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_RefreshProducts value) refreshProducts,
+    required TResult Function(_GetNextProducts value) getNextProducts,
+    required TResult Function(_SearchProducts value) searchProducts,
+    required TResult Function(_UpdateProductInList value) updateProductInList,
+    required TResult Function(_ChangeFilter value) changeFilter,
+  }) {
+    return updateProductInList(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_RefreshProducts value)? refreshProducts,
+    TResult? Function(_GetNextProducts value)? getNextProducts,
+    TResult? Function(_SearchProducts value)? searchProducts,
+    TResult? Function(_UpdateProductInList value)? updateProductInList,
+    TResult? Function(_ChangeFilter value)? changeFilter,
+  }) {
+    return updateProductInList?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_RefreshProducts value)? refreshProducts,
+    TResult Function(_GetNextProducts value)? getNextProducts,
+    TResult Function(_SearchProducts value)? searchProducts,
+    TResult Function(_UpdateProductInList value)? updateProductInList,
+    TResult Function(_ChangeFilter value)? changeFilter,
+    required TResult orElse(),
+  }) {
+    if (updateProductInList != null) {
+      return updateProductInList(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateProductInList implements ProductsEvent {
+  const factory _UpdateProductInList(final Product product) =
+      _$_UpdateProductInList;
+
+  Product get product;
+  @JsonKey(ignore: true)
+  _$$_UpdateProductInListCopyWith<_$_UpdateProductInList> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -695,12 +855,12 @@ class _$_ChangeFilter implements _ChangeFilter {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() start,
+    required TResult Function() initial,
     required TResult Function() refreshProducts,
     required TResult Function() getNextProducts,
     required TResult Function(String query) searchProducts,
+    required TResult Function(Product product) updateProductInList,
     required TResult Function(ProductsFilter filter) changeFilter,
-    required TResult Function(Product? product) changeProduct,
   }) {
     return changeFilter(filter);
   }
@@ -708,12 +868,12 @@ class _$_ChangeFilter implements _ChangeFilter {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? start,
+    TResult? Function()? initial,
     TResult? Function()? refreshProducts,
     TResult? Function()? getNextProducts,
     TResult? Function(String query)? searchProducts,
+    TResult? Function(Product product)? updateProductInList,
     TResult? Function(ProductsFilter filter)? changeFilter,
-    TResult? Function(Product? product)? changeProduct,
   }) {
     return changeFilter?.call(filter);
   }
@@ -721,12 +881,12 @@ class _$_ChangeFilter implements _ChangeFilter {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? start,
+    TResult Function()? initial,
     TResult Function()? refreshProducts,
     TResult Function()? getNextProducts,
     TResult Function(String query)? searchProducts,
+    TResult Function(Product product)? updateProductInList,
     TResult Function(ProductsFilter filter)? changeFilter,
-    TResult Function(Product? product)? changeProduct,
     required TResult orElse(),
   }) {
     if (changeFilter != null) {
@@ -738,12 +898,12 @@ class _$_ChangeFilter implements _ChangeFilter {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Start value) start,
+    required TResult Function(_Initial value) initial,
     required TResult Function(_RefreshProducts value) refreshProducts,
     required TResult Function(_GetNextProducts value) getNextProducts,
     required TResult Function(_SearchProducts value) searchProducts,
+    required TResult Function(_UpdateProductInList value) updateProductInList,
     required TResult Function(_ChangeFilter value) changeFilter,
-    required TResult Function(_ChangeProduct value) changeProduct,
   }) {
     return changeFilter(this);
   }
@@ -751,12 +911,12 @@ class _$_ChangeFilter implements _ChangeFilter {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Start value)? start,
+    TResult? Function(_Initial value)? initial,
     TResult? Function(_RefreshProducts value)? refreshProducts,
     TResult? Function(_GetNextProducts value)? getNextProducts,
     TResult? Function(_SearchProducts value)? searchProducts,
+    TResult? Function(_UpdateProductInList value)? updateProductInList,
     TResult? Function(_ChangeFilter value)? changeFilter,
-    TResult? Function(_ChangeProduct value)? changeProduct,
   }) {
     return changeFilter?.call(this);
   }
@@ -764,12 +924,12 @@ class _$_ChangeFilter implements _ChangeFilter {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Start value)? start,
+    TResult Function(_Initial value)? initial,
     TResult Function(_RefreshProducts value)? refreshProducts,
     TResult Function(_GetNextProducts value)? getNextProducts,
     TResult Function(_SearchProducts value)? searchProducts,
+    TResult Function(_UpdateProductInList value)? updateProductInList,
     TResult Function(_ChangeFilter value)? changeFilter,
-    TResult Function(_ChangeProduct value)? changeProduct,
     required TResult orElse(),
   }) {
     if (changeFilter != null) {
@@ -788,161 +948,8 @@ abstract class _ChangeFilter implements ProductsEvent {
       throw _privateConstructorUsedError;
 }
 
-/// @nodoc
-abstract class _$$_ChangeProductCopyWith<$Res> {
-  factory _$$_ChangeProductCopyWith(
-          _$_ChangeProduct value, $Res Function(_$_ChangeProduct) then) =
-      __$$_ChangeProductCopyWithImpl<$Res>;
-  @useResult
-  $Res call({Product? product});
-}
-
-/// @nodoc
-class __$$_ChangeProductCopyWithImpl<$Res>
-    extends _$ProductsEventCopyWithImpl<$Res, _$_ChangeProduct>
-    implements _$$_ChangeProductCopyWith<$Res> {
-  __$$_ChangeProductCopyWithImpl(
-      _$_ChangeProduct _value, $Res Function(_$_ChangeProduct) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? product = freezed,
-  }) {
-    return _then(_$_ChangeProduct(
-      freezed == product
-          ? _value.product
-          : product // ignore: cast_nullable_to_non_nullable
-              as Product?,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_ChangeProduct implements _ChangeProduct {
-  const _$_ChangeProduct(this.product);
-
-  @override
-  final Product? product;
-
-  @override
-  String toString() {
-    return 'ProductsEvent.changeProduct(product: $product)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_ChangeProduct &&
-            (identical(other.product, product) || other.product == product));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, product);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_ChangeProductCopyWith<_$_ChangeProduct> get copyWith =>
-      __$$_ChangeProductCopyWithImpl<_$_ChangeProduct>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() start,
-    required TResult Function() refreshProducts,
-    required TResult Function() getNextProducts,
-    required TResult Function(String query) searchProducts,
-    required TResult Function(ProductsFilter filter) changeFilter,
-    required TResult Function(Product? product) changeProduct,
-  }) {
-    return changeProduct(product);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? start,
-    TResult? Function()? refreshProducts,
-    TResult? Function()? getNextProducts,
-    TResult? Function(String query)? searchProducts,
-    TResult? Function(ProductsFilter filter)? changeFilter,
-    TResult? Function(Product? product)? changeProduct,
-  }) {
-    return changeProduct?.call(product);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? start,
-    TResult Function()? refreshProducts,
-    TResult Function()? getNextProducts,
-    TResult Function(String query)? searchProducts,
-    TResult Function(ProductsFilter filter)? changeFilter,
-    TResult Function(Product? product)? changeProduct,
-    required TResult orElse(),
-  }) {
-    if (changeProduct != null) {
-      return changeProduct(product);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Start value) start,
-    required TResult Function(_RefreshProducts value) refreshProducts,
-    required TResult Function(_GetNextProducts value) getNextProducts,
-    required TResult Function(_SearchProducts value) searchProducts,
-    required TResult Function(_ChangeFilter value) changeFilter,
-    required TResult Function(_ChangeProduct value) changeProduct,
-  }) {
-    return changeProduct(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Start value)? start,
-    TResult? Function(_RefreshProducts value)? refreshProducts,
-    TResult? Function(_GetNextProducts value)? getNextProducts,
-    TResult? Function(_SearchProducts value)? searchProducts,
-    TResult? Function(_ChangeFilter value)? changeFilter,
-    TResult? Function(_ChangeProduct value)? changeProduct,
-  }) {
-    return changeProduct?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Start value)? start,
-    TResult Function(_RefreshProducts value)? refreshProducts,
-    TResult Function(_GetNextProducts value)? getNextProducts,
-    TResult Function(_SearchProducts value)? searchProducts,
-    TResult Function(_ChangeFilter value)? changeFilter,
-    TResult Function(_ChangeProduct value)? changeProduct,
-    required TResult orElse(),
-  }) {
-    if (changeProduct != null) {
-      return changeProduct(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _ChangeProduct implements ProductsEvent {
-  const factory _ChangeProduct(final Product? product) = _$_ChangeProduct;
-
-  Product? get product;
-  @JsonKey(ignore: true)
-  _$$_ChangeProductCopyWith<_$_ChangeProduct> get copyWith =>
-      throw _privateConstructorUsedError;
+ProductsState _$ProductsStateFromJson(Map<String, dynamic> json) {
+  return _ProductsState.fromJson(json);
 }
 
 /// @nodoc
@@ -952,8 +959,8 @@ mixin _$ProductsState {
   ProductsFilter get filter => throw _privateConstructorUsedError;
   ProductsStatus get status => throw _privateConstructorUsedError;
   Failure get failure => throw _privateConstructorUsedError;
-  Product? get selectedProduct => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ProductsStateCopyWith<ProductsState> get copyWith =>
       throw _privateConstructorUsedError;
@@ -970,8 +977,7 @@ abstract class $ProductsStateCopyWith<$Res> {
       List<Product> products,
       ProductsFilter filter,
       ProductsStatus status,
-      Failure failure,
-      Product? selectedProduct});
+      Failure failure});
 
   $FailureCopyWith<$Res> get failure;
 }
@@ -994,7 +1000,6 @@ class _$ProductsStateCopyWithImpl<$Res, $Val extends ProductsState>
     Object? filter = null,
     Object? status = null,
     Object? failure = null,
-    Object? selectedProduct = freezed,
   }) {
     return _then(_value.copyWith(
       info: null == info
@@ -1017,10 +1022,6 @@ class _$ProductsStateCopyWithImpl<$Res, $Val extends ProductsState>
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
               as Failure,
-      selectedProduct: freezed == selectedProduct
-          ? _value.selectedProduct
-          : selectedProduct // ignore: cast_nullable_to_non_nullable
-              as Product?,
     ) as $Val);
   }
 
@@ -1046,8 +1047,7 @@ abstract class _$$_ProductsStateCopyWith<$Res>
       List<Product> products,
       ProductsFilter filter,
       ProductsStatus status,
-      Failure failure,
-      Product? selectedProduct});
+      Failure failure});
 
   @override
   $FailureCopyWith<$Res> get failure;
@@ -1069,7 +1069,6 @@ class __$$_ProductsStateCopyWithImpl<$Res>
     Object? filter = null,
     Object? status = null,
     Object? failure = null,
-    Object? selectedProduct = freezed,
   }) {
     return _then(_$_ProductsState(
       info: null == info
@@ -1092,26 +1091,24 @@ class __$$_ProductsStateCopyWithImpl<$Res>
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
               as Failure,
-      selectedProduct: freezed == selectedProduct
-          ? _value.selectedProduct
-          : selectedProduct // ignore: cast_nullable_to_non_nullable
-              as Product?,
     ));
   }
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_ProductsState extends _ProductsState {
   const _$_ProductsState(
       {this.info = const Info.initial(),
       final List<Product> products = const [],
       this.filter = const ProductsFilter(),
       this.status = ProductsStatus.loading,
-      this.failure = const UnknownFailure(),
-      this.selectedProduct})
+      this.failure = const UnknownFailure()})
       : _products = products,
         super._();
+
+  factory _$_ProductsState.fromJson(Map<String, dynamic> json) =>
+      _$$_ProductsStateFromJson(json);
 
   @override
   @JsonKey()
@@ -1134,12 +1131,10 @@ class _$_ProductsState extends _ProductsState {
   @override
   @JsonKey()
   final Failure failure;
-  @override
-  final Product? selectedProduct;
 
   @override
   String toString() {
-    return 'ProductsState(info: $info, products: $products, filter: $filter, status: $status, failure: $failure, selectedProduct: $selectedProduct)';
+    return 'ProductsState(info: $info, products: $products, filter: $filter, status: $status, failure: $failure)';
   }
 
   @override
@@ -1151,26 +1146,26 @@ class _$_ProductsState extends _ProductsState {
             const DeepCollectionEquality().equals(other._products, _products) &&
             (identical(other.filter, filter) || other.filter == filter) &&
             (identical(other.status, status) || other.status == status) &&
-            (identical(other.failure, failure) || other.failure == failure) &&
-            (identical(other.selectedProduct, selectedProduct) ||
-                other.selectedProduct == selectedProduct));
+            (identical(other.failure, failure) || other.failure == failure));
   }
 
+  @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      info,
-      const DeepCollectionEquality().hash(_products),
-      filter,
-      status,
-      failure,
-      selectedProduct);
+  int get hashCode => Object.hash(runtimeType, info,
+      const DeepCollectionEquality().hash(_products), filter, status, failure);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$_ProductsStateCopyWith<_$_ProductsState> get copyWith =>
       __$$_ProductsStateCopyWithImpl<_$_ProductsState>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_ProductsStateToJson(
+      this,
+    );
+  }
 }
 
 abstract class _ProductsState extends ProductsState {
@@ -1179,9 +1174,11 @@ abstract class _ProductsState extends ProductsState {
       final List<Product> products,
       final ProductsFilter filter,
       final ProductsStatus status,
-      final Failure failure,
-      final Product? selectedProduct}) = _$_ProductsState;
+      final Failure failure}) = _$_ProductsState;
   const _ProductsState._() : super._();
+
+  factory _ProductsState.fromJson(Map<String, dynamic> json) =
+      _$_ProductsState.fromJson;
 
   @override
   Info get info;
@@ -1193,8 +1190,6 @@ abstract class _ProductsState extends ProductsState {
   ProductsStatus get status;
   @override
   Failure get failure;
-  @override
-  Product? get selectedProduct;
   @override
   @JsonKey(ignore: true)
   _$$_ProductsStateCopyWith<_$_ProductsState> get copyWith =>

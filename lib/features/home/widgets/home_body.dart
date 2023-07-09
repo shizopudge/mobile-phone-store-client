@@ -23,10 +23,12 @@ class HomeBody extends StatefulWidget {
 }
 
 class _HomeBodyState extends State<HomeBody> with TickerProviderStateMixin {
-  late final TabController _tabController =
-      TabController(length: widget.pages.length, vsync: this)
-        ..addListener(
-            () => context.read<HomeCubit>().changePage(_tabController.index));
+  late final TabController _tabController = TabController(
+      length: widget.pages.length,
+      vsync: this,
+      initialIndex: context.read<HomeCubit>().state.page)
+    ..addListener(
+        () => context.read<HomeCubit>().changePage(_tabController.index));
 
   @override
   void deactivate() {
@@ -39,60 +41,53 @@ class _HomeBodyState extends State<HomeBody> with TickerProviderStateMixin {
     SizeConfig.init(context);
     final bool isMobile = SizeConfig.isMobile;
     final bool isTablet = SizeConfig.isTablet;
+    final bool isDesktop = SizeConfig.isDesktop;
     return BlocBuilder<HomeCubit, HomeState>(
       builder: (context, state) {
         return Scaffold(
           backgroundColor: kWhite,
-          body: isMobile
-              ? IndexedStack(
-                  index: state.page,
-                  children: widget.pages,
-                )
-              : isTablet
-                  ? Row(
-                      children: [
-                        NavigationRail(
-                          selectedIndex: state.page,
-                          onDestinationSelected: (page) =>
-                              context.read<HomeCubit>().changePage(page),
-                          labelType: NavigationRailLabelType.all,
-                          groupAlignment: 0,
-                          selectedLabelTextStyle: kMedium.copyWith(
-                              fontSize: SizeConfig.body3, color: kLightBlue),
-                          unselectedLabelTextStyle: kMedium.copyWith(
-                              fontSize: SizeConfig.body3, color: kGrey),
-                          selectedIconTheme: IconThemeData(
-                              size: SizeConfig.iconSmall, color: kLightBlue),
-                          unselectedIconTheme: IconThemeData(
-                              size: SizeConfig.iconSmall, color: kGrey),
-                          destinations: widget.navRailItems,
-                        ),
-                        const VerticalDivider(thickness: 1, width: 1),
-                        Expanded(
-                          child: IndexedStack(
-                            index: state.page,
-                            children: widget.pages,
-                          ),
-                        )
-                      ],
-                    )
-                  : Column(
-                      children: [
-                        TabBar(
-                          controller: _tabController,
-                          onTap: (page) => _tabController.index = page,
-                          tabs: widget.navTopBarItems,
-                          labelStyle: kMedium.copyWith(color: kLightBlue),
-                          unselectedLabelStyle: kMedium.copyWith(color: kGrey),
-                        ),
-                        Expanded(
-                          child: IndexedStack(
-                            index: state.page,
-                            children: widget.pages,
-                          ),
-                        ),
-                      ],
+          body: Column(
+            children: [
+              if (isDesktop)
+                TabBar(
+                  controller: _tabController,
+                  onTap: (page) => _tabController.index = page,
+                  tabs: widget.navTopBarItems,
+                  labelStyle: kMedium.copyWith(color: kLightBlue),
+                  unselectedLabelStyle: kMedium.copyWith(color: kGrey),
+                ),
+              Expanded(
+                child: Row(
+                  children: [
+                    if (isTablet)
+                      NavigationRail(
+                        selectedIndex: state.page,
+                        onDestinationSelected: (page) =>
+                            context.read<HomeCubit>().changePage(page),
+                        labelType: NavigationRailLabelType.all,
+                        groupAlignment: 0,
+                        selectedLabelTextStyle: kMedium.copyWith(
+                            fontSize: SizeConfig.body3, color: kLightBlue),
+                        unselectedLabelTextStyle: kMedium.copyWith(
+                            fontSize: SizeConfig.body3, color: kGrey),
+                        selectedIconTheme: IconThemeData(
+                            size: SizeConfig.iconSmall, color: kLightBlue),
+                        unselectedIconTheme: IconThemeData(
+                            size: SizeConfig.iconSmall, color: kGrey),
+                        destinations: widget.navRailItems,
+                      ),
+                    if (isTablet) const VerticalDivider(thickness: 1, width: 1),
+                    Expanded(
+                      child: IndexedStack(
+                        index: state.page,
+                        children: widget.pages,
+                      ),
                     ),
+                  ],
+                ),
+              ),
+            ],
+          ),
           bottomNavigationBar: isMobile
               ? BottomNavigationBar(
                   onTap: (page) => context.read<HomeCubit>().changePage(page),

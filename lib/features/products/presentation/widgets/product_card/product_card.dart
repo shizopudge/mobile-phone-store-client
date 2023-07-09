@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
 import '../../../../../core/api/api_constants.dart';
+import '../../../../../core/domain/entities/product.dart';
 import '../../../../../core/styles/styles.dart';
 import '../../../../../core/utils/size_config.dart';
-import '../../../domain/entities/product.dart';
-import 'widgets/discount.dart';
+import 'widgets/product_discount.dart';
 import 'widgets/product_message.dart';
 
 class ProductCard extends StatelessWidget {
@@ -60,12 +60,12 @@ class ProductCard extends StatelessWidget {
                             imageUrl:
                                 '${ApiConstants.imagesUrl}/${product.images[0]}',
                             imageBuilder: (context, imageProvider) => Hero(
-                              tag: product.id,
+                              tag: product.images[0],
                               child: Container(
                                 padding: const EdgeInsets.all(5),
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(
-                                      SizeConfig.borderRadiusDefault),
+                                      SizeConfig.borderRadiusSmall),
                                 ),
                                 child: Image(
                                   image: imageProvider,
@@ -81,7 +81,7 @@ class ProductCard extends StatelessWidget {
                                 decoration: BoxDecoration(
                                   color: kGrey,
                                   borderRadius: BorderRadius.circular(
-                                      SizeConfig.borderRadiusDefault),
+                                      SizeConfig.borderRadiusSmall),
                                 ),
                               ),
                             ),
@@ -94,7 +94,7 @@ class ProductCard extends StatelessWidget {
                                 decoration: BoxDecoration(
                                   color: kGrey,
                                   borderRadius: BorderRadius.circular(
-                                      SizeConfig.borderRadiusDefault),
+                                      SizeConfig.borderRadiusSmall),
                                 ),
                               ),
                             ),
@@ -134,7 +134,7 @@ class ProductCard extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            if (product.hasDiscount)
+                            if (product.isDiscounted)
                               Flexible(
                                 child: AutoSizeText(
                                   '\$${product.discountCost}',
@@ -187,11 +187,11 @@ class ProductCard extends StatelessWidget {
                     ),
                 ],
               ),
-              if (product.hasDiscount)
+              if (product.isDiscounted)
                 Positioned(
                   top: -constraints.maxWidth * .03,
                   right: -constraints.maxWidth * .05,
-                  child: Discount(
+                  child: ProductDiscount(
                     discount: product.discount,
                     fontSize: constraints.maxWidth * .1,
                     padding: constraints.maxWidth * .03,

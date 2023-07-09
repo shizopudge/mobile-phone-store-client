@@ -12,11 +12,15 @@ import '../../features/auth/domain/usecases/get_login_type.dart';
 import '../../features/auth/domain/usecases/logout.dart';
 import '../../features/auth/domain/usecases/refresh_tokens.dart';
 import '../../features/auth/presentation/bloc/auth_bloc.dart';
+import '../../features/detailed_product/data/datasources/detailed_product_remote_data_source.dart';
+import '../../features/detailed_product/data/repositories/detailed_product_repository_impl.dart';
 import '../../features/login/data/datasources/login_local_data_source.dart';
 import '../../features/login/data/datasources/login_remote_data_source.dart';
 import '../../features/login/data/repositories/login_repository_impl.dart';
-import '../../features/profile_edit/data/datasources/profile_edit_remote_data_source.dart';
-import '../../features/profile_edit/data/repositories/profile_edit_repository_impl.dart';
+import '../../features/products/data/datasources/products_remote_data_source.dart';
+import '../../features/products/data/repositories/products_repository_impl.dart';
+import '../../features/profile/data/datasources/profile_remote_data_source.dart';
+import '../../features/profile/data/repositories/profile_repository_impl.dart';
 import '../api/dio_client.dart';
 import '../api/interceptors.dart';
 import '../data/datasources/image/image_local_data_source.dart';
@@ -44,12 +48,14 @@ Future<void> appSetup() async {
       localDataSource: LoginLocalDataSourceImpl(
           storage: getIt<FlutterSecureStorage>(),
           prefs: getIt<SharedPreferences>())));
-  getIt.registerSingleton(ProfileEditRepositoryImpl(
-      ProfileEditRemoteDataSourceImpl(getIt<DioClient>())));
+  getIt.registerSingleton(
+      ProfileRepositoryImpl(ProfileRemoteDataSourceImpl(getIt<DioClient>())));
   getIt.registerSingleton(ImageRepositoryImpl(ImageLocalDataSourceImpl()));
-
-  // Router
-  getIt.registerSingleton(AppRouter());
+  getIt.registerSingleton(ProductsRepositoryImpl(
+      remoteDataSource: ProductsRemoteDataSourceImpl(getIt<DioClient>())));
+  getIt.registerSingleton(DetailedProductRepositoryImpl(
+      remoteDataSource:
+          DetailedProductRemoteDataSourceImpl(getIt<DioClient>())));
 
   // Interceptors initialization
   getIt<DioClient>().dio.interceptors.addAll({
@@ -67,4 +73,7 @@ Future<void> appSetup() async {
       getCurrentUserUsecase: GetCurrentUser(getIt<AuthRepositoryImpl>()),
       getLoginTypeUsecase: GetLoginType(getIt<AuthRepositoryImpl>()),
       logoutUsecase: Logout(getIt<AuthRepositoryImpl>())));
+
+  // Router
+  getIt.registerSingleton(AppRouter());
 }
