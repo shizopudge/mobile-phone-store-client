@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/styles/styles.dart';
+import '../../cart/presentation/pages/cart_page.dart';
 import '../../products/presentation/pages/search_products_page.dart';
 import '../../profile/presentation/pages/profile_page.dart';
+import '../../wishlist/presentation/pages/wishlist_page.dart';
 import 'home_body.dart';
 
 class UserUI extends StatelessWidget {
@@ -15,8 +16,8 @@ class UserUI extends StatelessWidget {
     return const HomeBody(
       pages: [
         SearchProductsPage(),
-        ColoredBox(color: kBlack),
-        ColoredBox(color: kDarkBlue),
+        WishlistPage(),
+        CartPage(),
         ProfilePage(),
       ],
       navBottomBarItems: [

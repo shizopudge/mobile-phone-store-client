@@ -12,32 +12,38 @@ import '../../features/auth/domain/usecases/get_login_type.dart';
 import '../../features/auth/domain/usecases/logout.dart';
 import '../../features/auth/domain/usecases/refresh_tokens.dart';
 import '../../features/auth/presentation/bloc/auth_bloc.dart';
+import '../../features/cart/data/datasources/cart_remote_data_source.dart';
+import '../../features/cart/data/repositories/cart_repository_impl.dart';
 import '../../features/detailed_product/data/datasources/detailed_product_remote_data_source.dart';
 import '../../features/detailed_product/data/repositories/detailed_product_repository_impl.dart';
 import '../../features/login/data/datasources/login_local_data_source.dart';
 import '../../features/login/data/datasources/login_remote_data_source.dart';
 import '../../features/login/data/repositories/login_repository_impl.dart';
-import '../../features/products/data/datasources/products_remote_data_source.dart';
-import '../../features/products/data/repositories/products_repository_impl.dart';
+import '../../features/products/data/datasources/search_products_remote_data_source.dart';
+import '../../features/products/data/repositories/search_products_repository_impl.dart';
 import '../../features/profile/data/datasources/profile_remote_data_source.dart';
 import '../../features/profile/data/repositories/profile_repository_impl.dart';
+import '../../features/wishlist/data/datasources/wishlist_remote_data_source.dart';
+import '../../features/wishlist/data/repositories/wishlist_repository_impl.dart';
 import '../api/dio_client.dart';
 import '../api/interceptors.dart';
 import '../data/datasources/image/image_local_data_source.dart';
+import '../data/datasources/products/products_remote_data_source.dart';
 import '../data/repositories/image/image_repository_impl.dart';
+import '../data/repositories/products/products_repository_impl.dart';
 import '../utils/app_router.dart';
 
 final getIt = GetIt.instance;
 
 Future<void> appSetup() async {
-  // Other
+  /// Other
   getIt.registerSingleton(Dio());
   getIt.registerSingleton(DioClient(getIt<Dio>()));
   getIt.registerSingleton(Connectivity());
   getIt.registerSingleton(const FlutterSecureStorage());
   getIt.registerSingleton(await SharedPreferences.getInstance());
 
-  // Repositories
+  /// Repositories
   getIt.registerSingleton(AuthRepositoryImpl(
       remoteDataSource: AuthDataRemoteSourceImpl(getIt<DioClient>()),
       localDataSource: AuthLocalDataSourceImpl(
@@ -48,16 +54,24 @@ Future<void> appSetup() async {
       localDataSource: LoginLocalDataSourceImpl(
           storage: getIt<FlutterSecureStorage>(),
           prefs: getIt<SharedPreferences>())));
+  getIt.registerSingleton(ProfileRepositoryImpl(
+      remoteDataSource: ProfileRemoteDataSourceImpl(getIt<DioClient>())));
   getIt.registerSingleton(
-      ProfileRepositoryImpl(ProfileRemoteDataSourceImpl(getIt<DioClient>())));
-  getIt.registerSingleton(ImageRepositoryImpl(ImageLocalDataSourceImpl()));
-  getIt.registerSingleton(ProductsRepositoryImpl(
-      remoteDataSource: ProductsRemoteDataSourceImpl(getIt<DioClient>())));
+      ImageRepositoryImpl(localDataSource: ImageLocalDataSourceImpl()));
+  getIt.registerSingleton(SearchProductsRepositoryImpl(
+      remoteDataSource:
+          SearchProductsRemoteDataSourceImpl(getIt<DioClient>())));
   getIt.registerSingleton(DetailedProductRepositoryImpl(
       remoteDataSource:
           DetailedProductRemoteDataSourceImpl(getIt<DioClient>())));
+  getIt.registerSingleton(ProductsRepositoryImpl(
+      remoteDataSource: ProductsRemoteDataSourceImpl(getIt<DioClient>())));
+  getIt.registerSingleton(WishlistRepositoryImpl(
+      remoteDataSource: WishlistRemoteDataSourceImpl(getIt<DioClient>())));
+  getIt.registerSingleton(CartRepositoryImpl(
+      remoteDataSource: CartRemoteDataSourceImpl(getIt<DioClient>())));
 
-  // Interceptors initialization
+  /// Interceptors initialization
   getIt<DioClient>().dio.interceptors.addAll({
     AccessInterceptor(
         dio: getIt<DioClient>().dio,
@@ -68,12 +82,12 @@ Future<void> appSetup() async {
     const AwaitInterceptor()
   });
 
-  // Global blocs
+  /// Global blocs
   getIt.registerSingleton(AuthBloc(
       getCurrentUserUsecase: GetCurrentUser(getIt<AuthRepositoryImpl>()),
       getLoginTypeUsecase: GetLoginType(getIt<AuthRepositoryImpl>()),
       logoutUsecase: Logout(getIt<AuthRepositoryImpl>())));
 
-  // Router
+  /// Router
   getIt.registerSingleton(AppRouter());
 }

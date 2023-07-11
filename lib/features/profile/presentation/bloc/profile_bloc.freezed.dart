@@ -1743,7 +1743,7 @@ class _$_ProfileEditState extends _ProfileEditState {
       this.password = '',
       this.validation = const ProfileEditValidation(),
       this.status = ProfileStatus.initial,
-      this.failure = const UnknownFailure(),
+      this.failure = const CasualFailure(),
       this.image,
       this.currentUser,
       this.newPassword})

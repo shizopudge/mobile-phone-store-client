@@ -39,7 +39,7 @@ class AuthState with _$AuthState {
   const factory AuthState({
     CurrentUser? user,
     @Default(AuthStatus.unauthorized) AuthStatus status,
-    @Default(UnknownFailure(message: 'Unauthorized')) Failure failure,
+    @Default(CasualFailure(message: 'Unauthorized')) Failure failure,
   }) = _AuthState;
 
   void callWhen({

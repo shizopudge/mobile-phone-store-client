@@ -16,7 +16,7 @@ _$_DetailedProductState _$$_DetailedProductStateFromJson(
           $enumDecodeNullable(_$DetailedProductStatusEnumMap, json['status']) ??
               DetailedProductStatus.initial,
       failure: json['failure'] == null
-          ? const UnknownFailure()
+          ? const CasualFailure()
           : Failure.fromJson(json['failure'] as Map<String, dynamic>),
     );
 

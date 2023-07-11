@@ -62,7 +62,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       ));
     } else {
       emit(const ProfileState(
-          status: ProfileStatus.failure, failure: UnknownFailure()));
+          status: ProfileStatus.failure, failure: CasualFailure()));
     }
   }
 
@@ -118,13 +118,13 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
         password: state.password,
         newPassword: state.newPassword));
     await res.fold((failure) {
-      _emitFailure(emit, failure);
+      _throwFailure(emit, failure);
     }, (editedUser) async {
       if (state.image != null) {
         final res = await _uploadUserImageUsecase
             .call(UploadImageParams(image: state.image!));
         res.fold((failure) {
-          _emitFailure(emit, failure);
+          _throwFailure(emit, failure);
         }, (uploadedImage) {
           _authBloc.add(
               AuthEvent.setUser(editedUser.copyWith(image: uploadedImage)));
@@ -140,7 +140,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     });
   }
 
-  void _emitFailure(Emitter<ProfileState> emit, Failure failure) {
+  void _throwFailure(Emitter<ProfileState> emit, Failure failure) {
     emit(state.copyWith(status: ProfileStatus.failure, failure: failure));
     emit(state.copyWith(status: ProfileStatus.initial));
   }
@@ -150,7 +150,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     emit(state.copyWith(status: ProfileStatus.loading));
     final res = await _pickImageUsecase.call(NoParams());
     res.fold((failure) {
-      _emitFailure(emit, failure);
+      _throwFailure(emit, failure);
     },
         (pickedImage) => emit(
             state.copyWith(image: pickedImage, status: ProfileStatus.initial)));
@@ -161,7 +161,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     emit(state.copyWith(status: ProfileStatus.loading));
     final res = await _deleteUserImageUsecase.call(NoParams());
     res.fold((failure) {
-      _emitFailure(emit, failure);
+      _throwFailure(emit, failure);
     }, (r) {
       _authBloc.add(
           AuthEvent.setUser(state.currentUser?.copyWithNewImage(image: null)));

@@ -98,6 +98,7 @@ class SignUpBody extends StatelessWidget {
                         controller: _usernameController,
                         hintText: 'Username',
                         isValidated: state.validation.isUsernameValidated,
+                        isAvailable: state.validation.isEmailValidated,
                         inputFormatters: [
                           FilteringTextInputFormatter.deny(
                             RegExp('[ ]'),
@@ -114,7 +115,8 @@ class SignUpBody extends StatelessWidget {
                       delay: .25,
                       child: PasswordTextField(
                         passwordController: _passwordController,
-                        isAvailable: state.validation.isUsernameValidated,
+                        isAvailable: state.validation.isUsernameValidated &&
+                            state.validation.isEmailValidated,
                       ),
                     ),
                     SizedBox(

@@ -10,14 +10,14 @@ import '../../datasources/image/image_local_data_source.dart';
 class ImageRepositoryImpl implements ImageRepository {
   final ImageLocalDataSource localDataSource;
 
-  const ImageRepositoryImpl(this.localDataSource);
+  const ImageRepositoryImpl({required this.localDataSource});
   @override
   FutureEither<File?> pickImage() async {
     try {
       final res = await localDataSource.pickImage();
       return Right(res);
     } on Exception catch (e) {
-      return Left(UnknownFailure(message: e.toString()));
+      return Left(CasualFailure(message: e.toString()));
     }
   }
 }

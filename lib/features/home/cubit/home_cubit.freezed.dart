@@ -94,7 +94,7 @@ class __$$_HomeStateCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_HomeState implements _HomeState {
+class _$_HomeState with DiagnosticableTreeMixin implements _HomeState {
   const _$_HomeState({this.page = 0});
 
   factory _$_HomeState.fromJson(Map<String, dynamic> json) =>
@@ -105,8 +105,16 @@ class _$_HomeState implements _HomeState {
   final int page;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'HomeState(page: $page)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'HomeState'))
+      ..add(DiagnosticsProperty('page', page));
   }
 
   @override

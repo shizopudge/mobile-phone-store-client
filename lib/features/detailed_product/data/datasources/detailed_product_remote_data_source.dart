@@ -25,9 +25,9 @@ class DetailedProductRemoteDataSourceImpl
     } on DioException catch (e) {
       final res = e.response;
       if (res != null) throw ServerFailure.fromJson(res.data);
-      throw UnknownFailure(message: e.toString());
+      throw CasualFailure(message: e.toString());
     } catch (e) {
-      throw UnknownFailure(message: e.toString());
+      throw CasualFailure(message: e.toString());
     }
   }
 }

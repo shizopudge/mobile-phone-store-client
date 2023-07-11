@@ -14,12 +14,46 @@ class DetailedProductRepositoryImpl implements DetailedProductRepository {
   FutureEither<Product> getOneProduct(String id) async {
     try {
       final res = await remoteDataSource.getOneProduct(id);
-      final product = Product.fromModel(res);
-      return Right(product);
+      return Right(Product.fromModel(res));
     } on Failure catch (e) {
       return Left(e);
     } catch (e) {
-      return Left(UnknownFailure(message: e.toString()));
+      return Left(CasualFailure(message: e.toString()));
+    }
+  }
+
+  @override
+  Either<Failure, Product> changeColor(
+      {required Product product, required String newColorCode}) {
+    try {
+      final res = product.products.firstWhere(
+        (a) => a.colorCode == newColorCode && product.storage == a.storage,
+        orElse: () => product.products.firstWhere(
+            (a) => a.colorCode == newColorCode,
+            orElse: () => product),
+      );
+      return Right(res);
+    } on Failure catch (e) {
+      return Left(CasualFailure(message: e.toString()));
+    } catch (e) {
+      return Left(CasualFailure(message: e.toString()));
+    }
+  }
+
+  @override
+  Either<Failure, Product> changeStorage(
+      {required Product product, required int newStorage}) {
+    try {
+      final res = product.products.firstWhere(
+        (a) => a.storage == newStorage && product.colorCode == a.colorCode,
+        orElse: () => product.products
+            .firstWhere((a) => a.storage == newStorage, orElse: () => product),
+      );
+      return Right(res);
+    } on Failure catch (e) {
+      return Left(CasualFailure(message: e.toString()));
+    } catch (e) {
+      return Left(CasualFailure(message: e.toString()));
     }
   }
 }

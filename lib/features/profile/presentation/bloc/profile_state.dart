@@ -33,7 +33,7 @@ class ProfileState with _$ProfileState {
     @Default('') String password,
     @Default(ProfileEditValidation()) ProfileEditValidation validation,
     @Default(ProfileStatus.initial) ProfileStatus status,
-    @Default(UnknownFailure()) Failure failure,
+    @Default(CasualFailure()) Failure failure,
     File? image,
     CurrentUser? currentUser,
     String? newPassword,

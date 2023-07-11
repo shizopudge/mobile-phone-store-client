@@ -27,7 +27,7 @@ class AuthRepositoryImpl implements AuthRepository {
     } on Failure catch (e) {
       return Left(e);
     } catch (e) {
-      return Left(UnknownFailure(message: e.toString()));
+      return Left(CasualFailure(message: e.toString()));
     }
   }
 
@@ -42,7 +42,7 @@ class AuthRepositoryImpl implements AuthRepository {
       return Left(e);
     } catch (e) {
       await _removeTokens();
-      return Left(UnknownFailure(message: e.toString()));
+      return Left(CasualFailure(message: e.toString()));
     }
   }
 
@@ -55,7 +55,7 @@ class AuthRepositoryImpl implements AuthRepository {
     } on Failure catch (e) {
       return Left(e);
     } catch (e) {
-      return Left(UnknownFailure(message: e.toString()));
+      return Left(CasualFailure(message: e.toString()));
     }
   }
 
@@ -67,7 +67,7 @@ class AuthRepositoryImpl implements AuthRepository {
     } on Failure catch (e) {
       return Left(e);
     } catch (e) {
-      return Left(UnknownFailure(message: e.toString()));
+      return Left(CasualFailure(message: e.toString()));
     }
   }
 

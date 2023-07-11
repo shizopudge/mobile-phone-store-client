@@ -1,11 +1,11 @@
 part of 'login_bloc.dart';
 
 enum LoginStatus {
-  casual,
+  initial,
   loading,
   failure;
 
-  bool get isCasual => this == LoginStatus.casual;
+  bool get isInitial => this == LoginStatus.initial;
   bool get isLoading => this == LoginStatus.loading;
   bool get isFailure => this == LoginStatus.failure;
 }
@@ -17,8 +17,8 @@ class LoginState with _$LoginState {
     @Default('') String username,
     @Default('') String password,
     @Default(LoginValidation()) LoginValidation validation,
-    @Default(LoginStatus.casual) LoginStatus status,
-    @Default(UnknownFailure()) Failure failure,
+    @Default(LoginStatus.initial) LoginStatus status,
+    @Default(CasualFailure()) Failure failure,
   }) = _AuthPageState;
 }
 

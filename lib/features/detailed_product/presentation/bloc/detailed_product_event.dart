@@ -10,4 +10,7 @@ class DetailedProductEvent with _$DetailedProductEvent {
       _ChangeColor;
   const factory DetailedProductEvent.changeStorage(int? newStorage) =
       _ChangeStorage;
+  const factory DetailedProductEvent.toggleCart(Product product) = _ToggleCart;
+  const factory DetailedProductEvent.toggleWishlist(Product product) =
+      _ToggleWishlist;
 }

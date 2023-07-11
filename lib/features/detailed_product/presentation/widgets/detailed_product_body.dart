@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/domain/entities/product.dart';
+import '../../../../core/presentation/animations/fade_animation_y_down.dart';
 import '../../../../core/styles/colors.dart';
 import '../../../../core/styles/fonts.dart';
 import '../../../../core/utils/size_config.dart';
@@ -10,6 +11,7 @@ import 'detailed_product_image.dart';
 import 'detailed_product_info.dart';
 import 'detailed_product_item.dart';
 import 'detailed_product_storage_menu.dart';
+import 'detailed_product_tags.dart';
 
 class DetailedProductBody extends StatelessWidget {
   final Product product;
@@ -52,30 +54,36 @@ class DetailedProductBody extends StatelessWidget {
                   horizontal: SizeConfig.setPadding(20),
                 ),
                 child: SizedBox(
-                  width: SizeConfig.screenWidth! * .5,
+                  width: SizeConfig.screenWidth! * .48,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        product.title,
-                        style: kBold.copyWith(
-                          fontSize: SizeConfig.h1,
-                          color: kDarkBlue,
+                      FadeAnimationYDown(
+                        delay: .1,
+                        child: Text(
+                          product.title,
+                          style: kBold.copyWith(
+                            fontSize: SizeConfig.h1,
+                            color: kDarkBlue,
+                          ),
                         ),
                       ),
                       SizedBox(
                         height: SizeConfig.setPadding(20),
                       ),
-                      DetailedProductItem(
-                        title: product.color,
-                        child: SizedBox(
-                          height: SizeConfig.isMobile
-                              ? SizeConfig.screenWidth! * .1
-                              : SizeConfig.isTablet
-                                  ? SizeConfig.screenWidth! * .075
-                                  : SizeConfig.screenWidth! * .04,
-                          child: DetailedProductColors(
-                            product: product,
+                      FadeAnimationYDown(
+                        delay: .2,
+                        child: DetailedProductItem(
+                          title: product.color,
+                          child: SizedBox(
+                            height: SizeConfig.isMobile
+                                ? SizeConfig.screenWidth! * .1
+                                : SizeConfig.isTablet
+                                    ? SizeConfig.screenWidth! * .075
+                                    : SizeConfig.screenWidth! * .04,
+                            child: DetailedProductColors(
+                              product: product,
+                            ),
                           ),
                         ),
                       ),
@@ -84,26 +92,54 @@ class DetailedProductBody extends StatelessWidget {
                           height: SizeConfig.setPadding(20),
                         ),
                       if (product.images.isNotEmpty)
-                        DetailedProductItem(
-                          title: 'Gallery',
-                          child: SizedBox(
-                            height: SizeConfig.isMobile
-                                ? SizeConfig.screenWidth! * .15
-                                : SizeConfig.isTablet
-                                    ? SizeConfig.screenWidth! * .12
-                                    : SizeConfig.screenWidth! * .08,
-                            child: DetailedProductGallery(
-                              images: product.images,
+                        FadeAnimationYDown(
+                          delay: .3,
+                          child: DetailedProductItem(
+                            title: 'Gallery',
+                            child: SizedBox(
+                              height: SizeConfig.isMobile
+                                  ? SizeConfig.screenWidth! * .15
+                                  : SizeConfig.isTablet
+                                      ? SizeConfig.screenWidth! * .12
+                                      : SizeConfig.screenWidth! * .08,
+                              child: DetailedProductGallery(
+                                images: product.images,
+                              ),
                             ),
                           ),
                         ),
                       SizedBox(
                         height: SizeConfig.setPadding(20),
                       ),
-                      DetailedProductItem(
-                        title: 'Storage',
-                        child: DetailedProductStorageMenu(
-                          product: product,
+                      if (product.isOutOfStock ||
+                          product.isDiscounted ||
+                          product.isNew)
+                        FadeAnimationYDown(
+                          delay: .4,
+                          child: DetailedProductItem(
+                            title: 'Tags',
+                            child: SizedBox(
+                              height: SizeConfig.isMobile
+                                  ? SizeConfig.screenWidth! * .08
+                                  : SizeConfig.isTablet
+                                      ? SizeConfig.screenWidth! * .06
+                                      : SizeConfig.screenWidth! * .04,
+                              child: DetailedProductTags(
+                                product: product,
+                              ),
+                            ),
+                          ),
+                        ),
+                      SizedBox(
+                        height: SizeConfig.setPadding(20),
+                      ),
+                      FadeAnimationYDown(
+                        delay: .5,
+                        child: DetailedProductItem(
+                          title: 'Storage',
+                          child: DetailedProductStorageMenu(
+                            product: product,
+                          ),
                         ),
                       ),
                     ],

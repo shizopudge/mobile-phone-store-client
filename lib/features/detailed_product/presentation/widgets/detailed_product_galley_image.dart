@@ -19,57 +19,49 @@ class DetailedProductGalleryImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(right: SizeConfig.setPadding(12)),
-      child: AspectRatio(
-        aspectRatio: 1 / 1.1,
-        child: GestureDetector(
-          onTap: onTap,
-          child: Container(
-            decoration: BoxDecoration(
-              color: kLightWhite,
-              borderRadius: BorderRadius.circular(SizeConfig.borderRadiusSmall),
-              boxShadow: [
-                BoxShadow(
-                  blurRadius: 8,
-                  spreadRadius: 2,
-                  offset: const Offset(
-                    .25,
-                    1.5,
-                  ),
-                  color: kGrey.withOpacity(
-                    .5,
-                  ),
-                ),
-              ],
-            ),
-            child: CachedNetworkImage(
-              imageUrl: '${ApiConstants.imagesUrl}/$image',
-              fit: BoxFit.contain,
-              imageBuilder: (context, imageProvider) => Container(
-                padding: EdgeInsets.all(SizeConfig.setPadding(6)),
-                decoration: BoxDecoration(
-                  borderRadius:
-                      BorderRadius.circular(SizeConfig.borderRadiusSmall),
-                ),
-                child: Image(
-                  image: imageProvider,
-                  fit: BoxFit.contain,
-                ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(SizeConfig.borderRadiusSmall),
+        child: AspectRatio(
+          aspectRatio: 1 / 1.1,
+          child: GestureDetector(
+            onTap: onTap,
+            child: Container(
+              decoration: BoxDecoration(
+                color: kWhite.withOpacity(.5),
+                borderRadius:
+                    BorderRadius.circular(SizeConfig.borderRadiusSmall),
+                border: Border.all(color: kDarkBlue.withOpacity(.2), width: .3),
               ),
-              placeholder: (context, url) => Shimmer.fromColors(
-                baseColor: kWhite,
-                highlightColor: kLightWhite,
-                child: Container(
+              child: CachedNetworkImage(
+                imageUrl: '${ApiConstants.imagesUrl}/$image',
+                fit: BoxFit.contain,
+                imageBuilder: (context, imageProvider) => Container(
+                  padding: EdgeInsets.all(SizeConfig.setPadding(6)),
                   decoration: BoxDecoration(
                     borderRadius:
                         BorderRadius.circular(SizeConfig.borderRadiusSmall),
-                    color: kGrey,
+                  ),
+                  child: Image(
+                    image: imageProvider,
+                    fit: BoxFit.contain,
                   ),
                 ),
-              ),
-              errorWidget: (context, url, error) => Icon(
-                Icons.image,
-                color: kDarkBlue,
-                size: SizeConfig.iconMedium,
+                placeholder: (context, url) => Shimmer.fromColors(
+                  baseColor: kWhite,
+                  highlightColor: kLightWhite,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius:
+                          BorderRadius.circular(SizeConfig.borderRadiusSmall),
+                      color: kGrey,
+                    ),
+                  ),
+                ),
+                errorWidget: (context, url, error) => Icon(
+                  Icons.image,
+                  color: kDarkBlue,
+                  size: SizeConfig.iconMedium,
+                ),
               ),
             ),
           ),

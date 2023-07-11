@@ -6,13 +6,13 @@ part of 'failure.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$UnknownFailure _$$UnknownFailureFromJson(Map<String, dynamic> json) =>
-    _$UnknownFailure(
+_$CasualFailure _$$CasualFailureFromJson(Map<String, dynamic> json) =>
+    _$CasualFailure(
       message: json['message'] as String? ?? 'Something went wrong...',
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$UnknownFailureToJson(_$UnknownFailure instance) =>
+Map<String, dynamic> _$$CasualFailureToJson(_$CasualFailure instance) =>
     <String, dynamic>{
       'message': instance.message,
       'runtimeType': instance.$type,

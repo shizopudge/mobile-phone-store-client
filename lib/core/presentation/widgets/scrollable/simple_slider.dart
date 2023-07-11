@@ -106,36 +106,39 @@ class _SimpleSliderState extends State<SimpleSlider> {
               ),
             ),
           ),
-          SizedBox(
-            height: SizeConfig.setPadding(15),
-          ),
-          SizedBox(
-            height: SizeConfig.radiusSmall * 2,
-            child: Center(
-              child: ListView.builder(
-                shrinkWrap: true,
-                scrollDirection: Axis.horizontal,
-                itemCount: widget.itemCount,
-                itemBuilder: (context, index) => Padding(
-                  padding: EdgeInsets.only(right: SizeConfig.setPadding(8)),
-                  child: GestureDetector(
-                    onTap: () => _changePage(index),
-                    child: CircleAvatar(
-                      backgroundColor: index == page
-                          ? widget.bottomActiveButtonColor
-                          : widget.bottomInactiveButtonColor,
-                      radius: index == page
-                          ? SizeConfig.radiusSmall
-                          : SizeConfig.radiusSmaller,
+          if (widget.showBottomButtons)
+            SizedBox(
+              height: SizeConfig.setPadding(15),
+            ),
+          if (widget.showBottomButtons)
+            SizedBox(
+              height: SizeConfig.radiusSmall * 2,
+              child: Center(
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  scrollDirection: Axis.horizontal,
+                  itemCount: widget.itemCount,
+                  itemBuilder: (context, index) => Padding(
+                    padding: EdgeInsets.only(right: SizeConfig.setPadding(8)),
+                    child: GestureDetector(
+                      onTap: () => _changePage(index),
+                      child: CircleAvatar(
+                        backgroundColor: index == page
+                            ? widget.bottomActiveButtonColor
+                            : widget.bottomInactiveButtonColor,
+                        radius: index == page
+                            ? SizeConfig.radiusSmall
+                            : SizeConfig.radiusSmaller,
+                      ),
                     ),
                   ),
                 ),
               ),
             ),
-          ),
-          SizedBox(
-            height: SizeConfig.setPadding(15),
-          ),
+          if (widget.showBottomButtons)
+            SizedBox(
+              height: SizeConfig.setPadding(15),
+            ),
         ],
       ),
     );

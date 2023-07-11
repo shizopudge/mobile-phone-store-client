@@ -18,7 +18,7 @@ class DetailedProductState with _$DetailedProductState {
   const factory DetailedProductState({
     Product? product,
     @Default(DetailedProductStatus.initial) DetailedProductStatus status,
-    @Default(UnknownFailure()) Failure failure,
+    @Default(CasualFailure()) Failure failure,
   }) = _DetailedProductState;
 
   factory DetailedProductState.fromJson(Map<String, dynamic> json) =>

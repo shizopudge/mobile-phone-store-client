@@ -11,9 +11,9 @@ import '../datasources/profile_remote_data_source.dart';
 class ProfileRepositoryImpl implements ProfileRepository {
   final ProfileRemoteDataSource remoteDataSource;
 
-  ProfileRepositoryImpl(
-    this.remoteDataSource,
-  );
+  const ProfileRepositoryImpl({
+    required this.remoteDataSource,
+  });
   @override
   FutureEither<CurrentUser> editProfile({
     required String email,
@@ -32,7 +32,7 @@ class ProfileRepositoryImpl implements ProfileRepository {
     } on Failure catch (e) {
       return Left(e);
     } catch (e) {
-      return Left(UnknownFailure(message: e.toString()));
+      return Left(CasualFailure(message: e.toString()));
     }
   }
 
@@ -44,7 +44,7 @@ class ProfileRepositoryImpl implements ProfileRepository {
     } on Failure catch (e) {
       return Left(e);
     } catch (e) {
-      return Left(UnknownFailure(message: e.toString()));
+      return Left(CasualFailure(message: e.toString()));
     }
   }
 
@@ -56,7 +56,7 @@ class ProfileRepositoryImpl implements ProfileRepository {
     } on Failure catch (e) {
       return Left(e);
     } catch (e) {
-      return Left(UnknownFailure(message: e.toString()));
+      return Left(CasualFailure(message: e.toString()));
     }
   }
 }

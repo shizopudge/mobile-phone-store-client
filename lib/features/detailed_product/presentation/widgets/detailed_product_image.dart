@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/api/api_constants.dart';
+import '../../../../core/presentation/animations/fade_animation_x.dart';
 import '../../../../core/presentation/widgets/loading/casual_loader.dart';
 import '../../../../core/styles/styles.dart';
 import '../../../../core/utils/size_config.dart';
@@ -18,9 +19,12 @@ class DetailedProductImage extends StatelessWidget {
     return Stack(
       alignment: Alignment.center,
       children: [
-        CircleAvatar(
-          backgroundColor: kGrey.withOpacity(.2),
-          radius: SizeConfig.radiusLarger,
+        FadeAnimationX(
+          delay: .1,
+          child: CircleAvatar(
+            backgroundColor: kGrey.withOpacity(.2),
+            radius: SizeConfig.radiusLarger,
+          ),
         ),
         if (image != null)
           CachedNetworkImage(

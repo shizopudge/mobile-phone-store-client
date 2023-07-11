@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/domain/entities/product.dart';
+import '../../../../core/domain/entities/products_filter.dart';
 import '../../../../core/presentation/animations/fade_animation_x.dart';
 import '../../../../core/presentation/animations/fade_animation_y_down.dart';
+import '../../../../core/presentation/widgets/bottom_sheets/products_filter/products_filter_bottom_sheet.dart';
 import '../../../../core/presentation/widgets/buttons/go_top_button.dart';
+import '../../../../core/presentation/widgets/cards/product_card.dart';
 import '../../../../core/presentation/widgets/loading/casual_loader.dart';
 import '../../../../core/presentation/widgets/scrollable/sliver_grid_view.dart';
 import '../../../../core/presentation/widgets/text_fields/search_field.dart';
@@ -14,9 +17,8 @@ import '../../../../core/utils/popup_utils.dart';
 import '../../../../core/utils/size_config.dart';
 import '../../../detailed_product/presentation/bloc/detailed_product_bloc.dart';
 import '../../../detailed_product/presentation/pages/detailed_product_page.dart';
-import '../bloc/products_bloc.dart';
-import '../widgets/product_card/product_card.dart';
-import 'products_filter_page.dart';
+import '../bloc/search_products_bloc.dart';
+import '../widgets/search_produtcs_not_found.dart';
 
 class SearchProductsPage extends StatefulWidget {
   const SearchProductsPage({super.key});
@@ -32,20 +34,21 @@ class _SearchProductsPageState extends State<SearchProductsPage> {
     ..addListener(_scrollListener);
   final ValueNotifier<bool> _isScrolled = ValueNotifier<bool>(false);
 
-  final Debouncer _debouncer = Debouncer(milliseconds: 1000);
+  final Debouncer _debouncer = Debouncer(milliseconds: 500);
 
   void _searchListener() {
     if (_searchController.text.isNotEmpty) {
-      _debouncer.call(() => context
-          .read<ProductsBloc>()
-          .add(ProductsEvent.searchProducts(_searchController.text.trim())));
+      _debouncer.call(() => context.read<SearchProductsBloc>().add(
+          SearchProductsEvent.searchProducts(_searchController.text.trim())));
     }
   }
 
   void _scrollListener() {
     if (_scrollController.position.atEdge) {
       if (_scrollController.position.pixels != 0) {
-        context.read<ProductsBloc>().add(const ProductsEvent.getNextProducts());
+        context
+            .read<SearchProductsBloc>()
+            .add(const SearchProductsEvent.getNextProducts());
       }
     }
     if (_scrollController.position.pixels > (SizeConfig.isMobile ? 50 : 150)) {
@@ -57,7 +60,9 @@ class _SearchProductsPageState extends State<SearchProductsPage> {
 
   void onClearTap(BuildContext context) {
     _searchController.clear();
-    context.read<ProductsBloc>().add(const ProductsEvent.searchProducts(''));
+    context
+        .read<SearchProductsBloc>()
+        .add(const SearchProductsEvent.searchProducts(''));
   }
 
   void onFilterTap(
@@ -90,7 +95,7 @@ class _SearchProductsPageState extends State<SearchProductsPage> {
     SizeConfig.init(context);
     return MultiBlocListener(
       listeners: [
-        BlocListener<ProductsBloc, ProductsState>(
+        BlocListener<SearchProductsBloc, SearchProductsState>(
           listenWhen: (previous, current) => current.isFailure,
           listener: (context, state) {
             if (state.isFailure) {
@@ -124,15 +129,16 @@ class _SearchProductsPageState extends State<SearchProductsPage> {
                   ),
                 )
               : null,
-          body: BlocBuilder<ProductsBloc, ProductsState>(
+          body: BlocBuilder<SearchProductsBloc, SearchProductsState>(
             builder: (context, state) {
               return SafeArea(
                 child: RefreshIndicator(
+                  color: kDarkBlue,
                   onRefresh: () async {
                     if (!state.isRefreshing) {
                       context
-                          .read<ProductsBloc>()
-                          .add(const ProductsEvent.refreshProducts());
+                          .read<SearchProductsBloc>()
+                          .add(const SearchProductsEvent.refreshProducts());
                     }
                   },
                   child: Padding(
@@ -172,27 +178,14 @@ class _SearchProductsPageState extends State<SearchProductsPage> {
                               ),
                             ),
                           ),
-                        if (state.products.isEmpty && !state.isLoading)
-                          SliverToBoxAdapter(
+                        if (state.products.isEmpty &&
+                            !state.isLoading &&
+                            !state.isRefreshing)
+                          const SliverToBoxAdapter(
                             child: Center(
                               child: FadeAnimationYDown(
                                 delay: .1,
-                                child: Column(
-                                  children: [
-                                    Icon(
-                                      Icons.search_off_rounded,
-                                      size: SizeConfig.iconLarger,
-                                      color: kDarkBlue,
-                                    ),
-                                    Text(
-                                      'Nothing was found',
-                                      textAlign: TextAlign.center,
-                                      style: kBold.copyWith(
-                                          color: kDarkBlue,
-                                          fontSize: SizeConfig.body1),
-                                    ),
-                                  ],
-                                ),
+                                child: SearchProductsNotFound(),
                               ),
                             ),
                           ),

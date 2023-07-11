@@ -1110,8 +1110,8 @@ class _$_AuthPageState implements _AuthPageState {
       this.username = '',
       this.password = '',
       this.validation = const LoginValidation(),
-      this.status = LoginStatus.casual,
-      this.failure = const UnknownFailure()});
+      this.status = LoginStatus.initial,
+      this.failure = const CasualFailure()});
 
   @override
   @JsonKey()

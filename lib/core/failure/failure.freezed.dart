@@ -16,8 +16,8 @@ final _privateConstructorUsedError = UnsupportedError(
 
 Failure _$FailureFromJson(Map<String, dynamic> json) {
   switch (json['runtimeType']) {
-    case 'unknownFailure':
-      return UnknownFailure.fromJson(json);
+    case 'casualFailure':
+      return CasualFailure.fromJson(json);
     case 'serverFailure':
       return ServerFailure.fromJson(json);
     case 'cacheFailure':
@@ -34,7 +34,7 @@ mixin _$Failure {
   dynamic get message => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String message) unknownFailure,
+    required TResult Function(String message) casualFailure,
     required TResult Function(dynamic message, String? error, int statusCode)
         serverFailure,
     required TResult Function(String message) cacheFailure,
@@ -42,7 +42,7 @@ mixin _$Failure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String message)? unknownFailure,
+    TResult? Function(String message)? casualFailure,
     TResult? Function(dynamic message, String? error, int statusCode)?
         serverFailure,
     TResult? Function(String message)? cacheFailure,
@@ -50,7 +50,7 @@ mixin _$Failure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String message)? unknownFailure,
+    TResult Function(String message)? casualFailure,
     TResult Function(dynamic message, String? error, int statusCode)?
         serverFailure,
     TResult Function(String message)? cacheFailure,
@@ -59,21 +59,21 @@ mixin _$Failure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UnknownFailure value) unknownFailure,
+    required TResult Function(CasualFailure value) casualFailure,
     required TResult Function(ServerFailure value) serverFailure,
     required TResult Function(CacheFailure value) cacheFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UnknownFailure value)? unknownFailure,
+    TResult? Function(CasualFailure value)? casualFailure,
     TResult? Function(ServerFailure value)? serverFailure,
     TResult? Function(CacheFailure value)? cacheFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UnknownFailure value)? unknownFailure,
+    TResult Function(CasualFailure value)? casualFailure,
     TResult Function(ServerFailure value)? serverFailure,
     TResult Function(CacheFailure value)? cacheFailure,
     required TResult orElse(),
@@ -100,20 +100,20 @@ class _$FailureCopyWithImpl<$Res, $Val extends Failure>
 }
 
 /// @nodoc
-abstract class _$$UnknownFailureCopyWith<$Res> {
-  factory _$$UnknownFailureCopyWith(
-          _$UnknownFailure value, $Res Function(_$UnknownFailure) then) =
-      __$$UnknownFailureCopyWithImpl<$Res>;
+abstract class _$$CasualFailureCopyWith<$Res> {
+  factory _$$CasualFailureCopyWith(
+          _$CasualFailure value, $Res Function(_$CasualFailure) then) =
+      __$$CasualFailureCopyWithImpl<$Res>;
   @useResult
   $Res call({String message});
 }
 
 /// @nodoc
-class __$$UnknownFailureCopyWithImpl<$Res>
-    extends _$FailureCopyWithImpl<$Res, _$UnknownFailure>
-    implements _$$UnknownFailureCopyWith<$Res> {
-  __$$UnknownFailureCopyWithImpl(
-      _$UnknownFailure _value, $Res Function(_$UnknownFailure) _then)
+class __$$CasualFailureCopyWithImpl<$Res>
+    extends _$FailureCopyWithImpl<$Res, _$CasualFailure>
+    implements _$$CasualFailureCopyWith<$Res> {
+  __$$CasualFailureCopyWithImpl(
+      _$CasualFailure _value, $Res Function(_$CasualFailure) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -121,7 +121,7 @@ class __$$UnknownFailureCopyWithImpl<$Res>
   $Res call({
     Object? message = null,
   }) {
-    return _then(_$UnknownFailure(
+    return _then(_$CasualFailure(
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -132,14 +132,14 @@ class __$$UnknownFailureCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$UnknownFailure extends UnknownFailure {
-  const _$UnknownFailure(
+class _$CasualFailure extends CasualFailure {
+  const _$CasualFailure(
       {this.message = 'Something went wrong...', final String? $type})
-      : $type = $type ?? 'unknownFailure',
+      : $type = $type ?? 'casualFailure',
         super._();
 
-  factory _$UnknownFailure.fromJson(Map<String, dynamic> json) =>
-      _$$UnknownFailureFromJson(json);
+  factory _$CasualFailure.fromJson(Map<String, dynamic> json) =>
+      _$$CasualFailureFromJson(json);
 
   @override
   @JsonKey()
@@ -150,14 +150,14 @@ class _$UnknownFailure extends UnknownFailure {
 
   @override
   String toString() {
-    return 'Failure.unknownFailure(message: $message)';
+    return 'Failure.casualFailure(message: $message)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UnknownFailure &&
+            other is _$CasualFailure &&
             (identical(other.message, message) || other.message == message));
   }
 
@@ -168,42 +168,42 @@ class _$UnknownFailure extends UnknownFailure {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UnknownFailureCopyWith<_$UnknownFailure> get copyWith =>
-      __$$UnknownFailureCopyWithImpl<_$UnknownFailure>(this, _$identity);
+  _$$CasualFailureCopyWith<_$CasualFailure> get copyWith =>
+      __$$CasualFailureCopyWithImpl<_$CasualFailure>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String message) unknownFailure,
+    required TResult Function(String message) casualFailure,
     required TResult Function(dynamic message, String? error, int statusCode)
         serverFailure,
     required TResult Function(String message) cacheFailure,
   }) {
-    return unknownFailure(message);
+    return casualFailure(message);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String message)? unknownFailure,
+    TResult? Function(String message)? casualFailure,
     TResult? Function(dynamic message, String? error, int statusCode)?
         serverFailure,
     TResult? Function(String message)? cacheFailure,
   }) {
-    return unknownFailure?.call(message);
+    return casualFailure?.call(message);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String message)? unknownFailure,
+    TResult Function(String message)? casualFailure,
     TResult Function(dynamic message, String? error, int statusCode)?
         serverFailure,
     TResult Function(String message)? cacheFailure,
     required TResult orElse(),
   }) {
-    if (unknownFailure != null) {
-      return unknownFailure(message);
+    if (casualFailure != null) {
+      return casualFailure(message);
     }
     return orElse();
   }
@@ -211,56 +211,56 @@ class _$UnknownFailure extends UnknownFailure {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UnknownFailure value) unknownFailure,
+    required TResult Function(CasualFailure value) casualFailure,
     required TResult Function(ServerFailure value) serverFailure,
     required TResult Function(CacheFailure value) cacheFailure,
   }) {
-    return unknownFailure(this);
+    return casualFailure(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UnknownFailure value)? unknownFailure,
+    TResult? Function(CasualFailure value)? casualFailure,
     TResult? Function(ServerFailure value)? serverFailure,
     TResult? Function(CacheFailure value)? cacheFailure,
   }) {
-    return unknownFailure?.call(this);
+    return casualFailure?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UnknownFailure value)? unknownFailure,
+    TResult Function(CasualFailure value)? casualFailure,
     TResult Function(ServerFailure value)? serverFailure,
     TResult Function(CacheFailure value)? cacheFailure,
     required TResult orElse(),
   }) {
-    if (unknownFailure != null) {
-      return unknownFailure(this);
+    if (casualFailure != null) {
+      return casualFailure(this);
     }
     return orElse();
   }
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$UnknownFailureToJson(
+    return _$$CasualFailureToJson(
       this,
     );
   }
 }
 
-abstract class UnknownFailure extends Failure {
-  const factory UnknownFailure({final String message}) = _$UnknownFailure;
-  const UnknownFailure._() : super._();
+abstract class CasualFailure extends Failure {
+  const factory CasualFailure({final String message}) = _$CasualFailure;
+  const CasualFailure._() : super._();
 
-  factory UnknownFailure.fromJson(Map<String, dynamic> json) =
-      _$UnknownFailure.fromJson;
+  factory CasualFailure.fromJson(Map<String, dynamic> json) =
+      _$CasualFailure.fromJson;
 
   @override
   String get message;
   @JsonKey(ignore: true)
-  _$$UnknownFailureCopyWith<_$UnknownFailure> get copyWith =>
+  _$$CasualFailureCopyWith<_$CasualFailure> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -359,7 +359,7 @@ class _$ServerFailure extends ServerFailure {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String message) unknownFailure,
+    required TResult Function(String message) casualFailure,
     required TResult Function(dynamic message, String? error, int statusCode)
         serverFailure,
     required TResult Function(String message) cacheFailure,
@@ -370,7 +370,7 @@ class _$ServerFailure extends ServerFailure {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String message)? unknownFailure,
+    TResult? Function(String message)? casualFailure,
     TResult? Function(dynamic message, String? error, int statusCode)?
         serverFailure,
     TResult? Function(String message)? cacheFailure,
@@ -381,7 +381,7 @@ class _$ServerFailure extends ServerFailure {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String message)? unknownFailure,
+    TResult Function(String message)? casualFailure,
     TResult Function(dynamic message, String? error, int statusCode)?
         serverFailure,
     TResult Function(String message)? cacheFailure,
@@ -396,7 +396,7 @@ class _$ServerFailure extends ServerFailure {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UnknownFailure value) unknownFailure,
+    required TResult Function(CasualFailure value) casualFailure,
     required TResult Function(ServerFailure value) serverFailure,
     required TResult Function(CacheFailure value) cacheFailure,
   }) {
@@ -406,7 +406,7 @@ class _$ServerFailure extends ServerFailure {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UnknownFailure value)? unknownFailure,
+    TResult? Function(CasualFailure value)? casualFailure,
     TResult? Function(ServerFailure value)? serverFailure,
     TResult? Function(CacheFailure value)? cacheFailure,
   }) {
@@ -416,7 +416,7 @@ class _$ServerFailure extends ServerFailure {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UnknownFailure value)? unknownFailure,
+    TResult Function(CasualFailure value)? casualFailure,
     TResult Function(ServerFailure value)? serverFailure,
     TResult Function(CacheFailure value)? cacheFailure,
     required TResult orElse(),
@@ -527,7 +527,7 @@ class _$CacheFailure extends CacheFailure {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String message) unknownFailure,
+    required TResult Function(String message) casualFailure,
     required TResult Function(dynamic message, String? error, int statusCode)
         serverFailure,
     required TResult Function(String message) cacheFailure,
@@ -538,7 +538,7 @@ class _$CacheFailure extends CacheFailure {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String message)? unknownFailure,
+    TResult? Function(String message)? casualFailure,
     TResult? Function(dynamic message, String? error, int statusCode)?
         serverFailure,
     TResult? Function(String message)? cacheFailure,
@@ -549,7 +549,7 @@ class _$CacheFailure extends CacheFailure {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String message)? unknownFailure,
+    TResult Function(String message)? casualFailure,
     TResult Function(dynamic message, String? error, int statusCode)?
         serverFailure,
     TResult Function(String message)? cacheFailure,
@@ -564,7 +564,7 @@ class _$CacheFailure extends CacheFailure {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UnknownFailure value) unknownFailure,
+    required TResult Function(CasualFailure value) casualFailure,
     required TResult Function(ServerFailure value) serverFailure,
     required TResult Function(CacheFailure value) cacheFailure,
   }) {
@@ -574,7 +574,7 @@ class _$CacheFailure extends CacheFailure {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UnknownFailure value)? unknownFailure,
+    TResult? Function(CasualFailure value)? casualFailure,
     TResult? Function(ServerFailure value)? serverFailure,
     TResult? Function(CacheFailure value)? cacheFailure,
   }) {
@@ -584,7 +584,7 @@ class _$CacheFailure extends CacheFailure {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UnknownFailure value)? unknownFailure,
+    TResult Function(CasualFailure value)? casualFailure,
     TResult Function(ServerFailure value)? serverFailure,
     TResult Function(CacheFailure value)? cacheFailure,
     required TResult orElse(),

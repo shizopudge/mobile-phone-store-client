@@ -132,18 +132,18 @@ class SizeConfig {
   static double get radiusSmall =>
       blockSizeHorizontal! *
       (isMobile
-          ? 2
+          ? 2.5
           : isTablet
-              ? 1.75
-              : 1);
+              ? 2
+              : 1.5);
 
   static double get radiusSmaller =>
       blockSizeHorizontal! *
       (isMobile
-          ? 1.5
+          ? 2
           : isTablet
-              ? 1.25
-              : .75);
+              ? 1.5
+              : 1);
 
   static double get borderRadiusDefault =>
       blockSizeHorizontal! *

@@ -17,9 +17,6 @@ class ManufacturerModel with _$ManufacturerModel {
   factory ManufacturerModel.fromJson(Map<String, dynamic> json) =>
       _$ManufacturerModelFromJson(json);
 
-  factory ManufacturerModel.fromEntity(Manufacturer manufacturer) =>
-      ManufacturerModel(
-          id: manufacturer.id,
-          name: manufacturer.name,
-          image: manufacturer.image);
+  factory ManufacturerModel.fromEntity(Manufacturer entity) =>
+      ManufacturerModel(id: entity.id, name: entity.name, image: entity.image);
 }

@@ -14,15 +14,6 @@ _$_CurrentUserModel _$$_CurrentUserModelFromJson(Map<String, dynamic> json) =>
       image: json['image'] as String?,
       role: $enumDecode(_$UserRoleEnumMap, json['role']),
       phone: json['phone'] as String?,
-      cart: (json['cart'] as List<dynamic>)
-          .map((e) => ProductModel.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      wishlist: (json['wishlist'] as List<dynamic>)
-          .map((e) => ProductModel.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      purchases: (json['purchases'] as List<dynamic>)
-          .map((e) => ProductModel.fromJson(e as Map<String, dynamic>))
-          .toList(),
     );
 
 Map<String, dynamic> _$$_CurrentUserModelToJson(_$_CurrentUserModel instance) =>
@@ -33,9 +24,6 @@ Map<String, dynamic> _$$_CurrentUserModelToJson(_$_CurrentUserModel instance) =>
       'image': instance.image,
       'role': _$UserRoleEnumMap[instance.role]!,
       'phone': instance.phone,
-      'cart': instance.cart,
-      'wishlist': instance.wishlist,
-      'purchases': instance.purchases,
     };
 
 const _$UserRoleEnumMap = {

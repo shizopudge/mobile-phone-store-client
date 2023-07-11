@@ -17,6 +17,7 @@ class CasualTextField extends StatelessWidget {
   final int? maxLength;
   final String? counterText;
   final TextStyle? counterStyle;
+  final bool? isAvailable;
   const CasualTextField({
     super.key,
     required this.controller,
@@ -31,6 +32,7 @@ class CasualTextField extends StatelessWidget {
     this.maxLength,
     this.counterText,
     this.counterStyle,
+    this.isAvailable,
   });
 
   @override
@@ -44,6 +46,7 @@ class CasualTextField extends StatelessWidget {
       cursorColor: kDarkBlue,
       onChanged: onChange,
       maxLength: maxLength,
+      enabled: isAvailable,
       decoration: InputDecoration(
         counterText: counterText,
         counterStyle: counterStyle,

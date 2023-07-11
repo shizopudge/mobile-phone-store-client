@@ -26,9 +26,6 @@ mixin _$CurrentUserModel {
   String? get image => throw _privateConstructorUsedError;
   UserRole get role => throw _privateConstructorUsedError;
   String? get phone => throw _privateConstructorUsedError;
-  List<ProductModel> get cart => throw _privateConstructorUsedError;
-  List<ProductModel> get wishlist => throw _privateConstructorUsedError;
-  List<ProductModel> get purchases => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -48,10 +45,7 @@ abstract class $CurrentUserModelCopyWith<$Res> {
       String username,
       String? image,
       UserRole role,
-      String? phone,
-      List<ProductModel> cart,
-      List<ProductModel> wishlist,
-      List<ProductModel> purchases});
+      String? phone});
 }
 
 /// @nodoc
@@ -73,9 +67,6 @@ class _$CurrentUserModelCopyWithImpl<$Res, $Val extends CurrentUserModel>
     Object? image = freezed,
     Object? role = null,
     Object? phone = freezed,
-    Object? cart = null,
-    Object? wishlist = null,
-    Object? purchases = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -102,18 +93,6 @@ class _$CurrentUserModelCopyWithImpl<$Res, $Val extends CurrentUserModel>
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as String?,
-      cart: null == cart
-          ? _value.cart
-          : cart // ignore: cast_nullable_to_non_nullable
-              as List<ProductModel>,
-      wishlist: null == wishlist
-          ? _value.wishlist
-          : wishlist // ignore: cast_nullable_to_non_nullable
-              as List<ProductModel>,
-      purchases: null == purchases
-          ? _value.purchases
-          : purchases // ignore: cast_nullable_to_non_nullable
-              as List<ProductModel>,
     ) as $Val);
   }
 }
@@ -132,10 +111,7 @@ abstract class _$$_CurrentUserModelCopyWith<$Res>
       String username,
       String? image,
       UserRole role,
-      String? phone,
-      List<ProductModel> cart,
-      List<ProductModel> wishlist,
-      List<ProductModel> purchases});
+      String? phone});
 }
 
 /// @nodoc
@@ -155,9 +131,6 @@ class __$$_CurrentUserModelCopyWithImpl<$Res>
     Object? image = freezed,
     Object? role = null,
     Object? phone = freezed,
-    Object? cart = null,
-    Object? wishlist = null,
-    Object? purchases = null,
   }) {
     return _then(_$_CurrentUserModel(
       id: null == id
@@ -184,18 +157,6 @@ class __$$_CurrentUserModelCopyWithImpl<$Res>
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as String?,
-      cart: null == cart
-          ? _value._cart
-          : cart // ignore: cast_nullable_to_non_nullable
-              as List<ProductModel>,
-      wishlist: null == wishlist
-          ? _value._wishlist
-          : wishlist // ignore: cast_nullable_to_non_nullable
-              as List<ProductModel>,
-      purchases: null == purchases
-          ? _value._purchases
-          : purchases // ignore: cast_nullable_to_non_nullable
-              as List<ProductModel>,
     ));
   }
 }
@@ -209,13 +170,7 @@ class _$_CurrentUserModel implements _CurrentUserModel {
       required this.username,
       required this.image,
       required this.role,
-      required this.phone,
-      required final List<ProductModel> cart,
-      required final List<ProductModel> wishlist,
-      required final List<ProductModel> purchases})
-      : _cart = cart,
-        _wishlist = wishlist,
-        _purchases = purchases;
+      required this.phone});
 
   factory _$_CurrentUserModel.fromJson(Map<String, dynamic> json) =>
       _$$_CurrentUserModelFromJson(json);
@@ -232,33 +187,10 @@ class _$_CurrentUserModel implements _CurrentUserModel {
   final UserRole role;
   @override
   final String? phone;
-  final List<ProductModel> _cart;
-  @override
-  List<ProductModel> get cart {
-    if (_cart is EqualUnmodifiableListView) return _cart;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_cart);
-  }
-
-  final List<ProductModel> _wishlist;
-  @override
-  List<ProductModel> get wishlist {
-    if (_wishlist is EqualUnmodifiableListView) return _wishlist;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_wishlist);
-  }
-
-  final List<ProductModel> _purchases;
-  @override
-  List<ProductModel> get purchases {
-    if (_purchases is EqualUnmodifiableListView) return _purchases;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_purchases);
-  }
 
   @override
   String toString() {
-    return 'CurrentUserModel(id: $id, email: $email, username: $username, image: $image, role: $role, phone: $phone, cart: $cart, wishlist: $wishlist, purchases: $purchases)';
+    return 'CurrentUserModel(id: $id, email: $email, username: $username, image: $image, role: $role, phone: $phone)';
   }
 
   @override
@@ -272,26 +204,13 @@ class _$_CurrentUserModel implements _CurrentUserModel {
                 other.username == username) &&
             (identical(other.image, image) || other.image == image) &&
             (identical(other.role, role) || other.role == role) &&
-            (identical(other.phone, phone) || other.phone == phone) &&
-            const DeepCollectionEquality().equals(other._cart, _cart) &&
-            const DeepCollectionEquality().equals(other._wishlist, _wishlist) &&
-            const DeepCollectionEquality()
-                .equals(other._purchases, _purchases));
+            (identical(other.phone, phone) || other.phone == phone));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      id,
-      email,
-      username,
-      image,
-      role,
-      phone,
-      const DeepCollectionEquality().hash(_cart),
-      const DeepCollectionEquality().hash(_wishlist),
-      const DeepCollectionEquality().hash(_purchases));
+  int get hashCode =>
+      Object.hash(runtimeType, id, email, username, image, role, phone);
 
   @JsonKey(ignore: true)
   @override
@@ -314,10 +233,7 @@ abstract class _CurrentUserModel implements CurrentUserModel {
       required final String username,
       required final String? image,
       required final UserRole role,
-      required final String? phone,
-      required final List<ProductModel> cart,
-      required final List<ProductModel> wishlist,
-      required final List<ProductModel> purchases}) = _$_CurrentUserModel;
+      required final String? phone}) = _$_CurrentUserModel;
 
   factory _CurrentUserModel.fromJson(Map<String, dynamic> json) =
       _$_CurrentUserModel.fromJson;
@@ -334,12 +250,6 @@ abstract class _CurrentUserModel implements CurrentUserModel {
   UserRole get role;
   @override
   String? get phone;
-  @override
-  List<ProductModel> get cart;
-  @override
-  List<ProductModel> get wishlist;
-  @override
-  List<ProductModel> get purchases;
   @override
   @JsonKey(ignore: true)
   _$$_CurrentUserModelCopyWith<_$_CurrentUserModel> get copyWith =>

@@ -4,6 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:equatable/equatable.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import '../../../home/cubit/home_cubit.dart';
 
 import '../../../../core/constants/extensions.dart';
 import '../../../../core/constants/password_validation.dart';
@@ -24,10 +25,12 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     required LoginAsGuest loginAsGuestUsecase,
     required Register registerUsecase,
     required AuthBloc authBloc,
+    required HomeCubit homeCubit,
   })  : _loginUsecase = loginUsecase,
         _loginAsGuestUsecase = loginAsGuestUsecase,
         _registerUsecase = registerUsecase,
         _authBloc = authBloc,
+        _homeCubit = homeCubit,
         super(const _AuthPageState()) {
     on<_ChangeEmail>(_changeEmail);
     on<_ChangeUsername>(_changeUsername);
@@ -41,6 +44,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   final LoginAsGuest _loginAsGuestUsecase;
   final Register _registerUsecase;
   final AuthBloc _authBloc;
+  final HomeCubit _homeCubit;
 
   FutureOr<void> _changeEmail(_ChangeEmail event, Emitter<LoginState> emit) {
     final bool isEmailValidated = EmailValidator.validate(event.email);
@@ -79,8 +83,11 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         .call(LoginParams(email: state.email, password: state.password));
     res.fold(
       (failure) => _throwFailure(emit, failure),
-      (currentUser) => _authBloc.add(AuthEvent.setState(
-          AuthState(status: AuthStatus.authorized, user: currentUser))),
+      (currentUser) {
+        _authBloc.add(AuthEvent.setState(
+            AuthState(status: AuthStatus.authorized, user: currentUser)));
+        _homeCubit.changePage(0);
+      },
     );
   }
 
@@ -92,8 +99,11 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         password: state.password));
     res.fold(
       (failure) => _throwFailure(emit, failure),
-      (currentUser) => _authBloc.add(AuthEvent.setState(
-          AuthState(status: AuthStatus.authorized, user: currentUser))),
+      (currentUser) {
+        _authBloc.add(AuthEvent.setState(
+            AuthState(status: AuthStatus.authorized, user: currentUser)));
+        _homeCubit.changePage(0);
+      },
     );
   }
 
@@ -102,14 +112,17 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     final res = await _loginAsGuestUsecase.call(NoParams());
     res.fold(
       (failure) => _throwFailure(emit, failure),
-      (r) => _authBloc
-          .add(const AuthEvent.setState(AuthState(status: AuthStatus.guest))),
+      (r) {
+        _authBloc
+            .add(const AuthEvent.setState(AuthState(status: AuthStatus.guest)));
+        _homeCubit.changePage(0);
+      },
     );
   }
 
   void _throwFailure(Emitter<LoginState> emit, Failure failure) {
     emit(state.copyWith(status: LoginStatus.failure, failure: failure));
     emit(state.copyWith(
-        status: LoginStatus.casual, failure: const UnknownFailure()));
+        status: LoginStatus.initial, failure: const CasualFailure()));
   }
 }

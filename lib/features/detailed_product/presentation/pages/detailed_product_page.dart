@@ -69,7 +69,7 @@ class _DetailedProductPageState extends State<DetailedProductPage> {
             return FadeAnimationYDown(
               delay: .5,
               child: ErrorPage(
-                failure: const UnknownFailure(
+                failure: const CasualFailure(
                   message: 'Product not found',
                 ),
                 action: CasualTextButton(
@@ -110,6 +110,7 @@ class _DetailedProductPageState extends State<DetailedProductPage> {
                             valueListenable: _showInfo,
                             builder: (context, showInfo, child) =>
                                 RefreshIndicator(
+                              color: kDarkBlue,
                               onRefresh: () async => context
                                   .read<DetailedProductBloc>()
                                   .add(DetailedProductEvent.getOneProduct(

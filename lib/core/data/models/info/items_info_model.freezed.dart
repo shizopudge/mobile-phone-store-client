@@ -127,12 +127,13 @@ class __$$_InfoModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_InfoModel implements _InfoModel {
+class _$_InfoModel extends _InfoModel {
   const _$_InfoModel(
       {required this.currentPage,
       required this.countOnPage,
       required this.pageCount,
-      required this.itemCount});
+      required this.itemCount})
+      : super._();
 
   factory _$_InfoModel.fromJson(Map<String, dynamic> json) =>
       _$$_InfoModelFromJson(json);
@@ -185,12 +186,13 @@ class _$_InfoModel implements _InfoModel {
   }
 }
 
-abstract class _InfoModel implements InfoModel {
+abstract class _InfoModel extends InfoModel {
   const factory _InfoModel(
       {required final int currentPage,
       required final int countOnPage,
       required final int pageCount,
       required final int itemCount}) = _$_InfoModel;
+  const _InfoModel._() : super._();
 
   factory _InfoModel.fromJson(Map<String, dynamic> json) =
       _$_InfoModel.fromJson;

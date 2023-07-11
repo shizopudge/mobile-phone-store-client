@@ -28,19 +28,19 @@ class ProductModel with _$ProductModel {
   factory ProductModel.fromJson(Map<String, dynamic> json) =>
       _$ProductModelFromJson(json);
 
-  factory ProductModel.fromEntity(Product product) => ProductModel(
-      id: product.id,
-      createdAt: product.createdAt,
-      updatedAt: product.updatedAt,
-      title: product.title,
-      images: product.images,
-      inStockCount: product.inStockCount,
-      cost: product.cost,
-      slug: product.slug,
-      color: product.color,
-      colorCode: product.colorCode,
-      storage: product.storage,
-      discount: product.discount,
+  factory ProductModel.fromEntity(Product entity) => ProductModel(
+      id: entity.id,
+      createdAt: entity.createdAt,
+      updatedAt: entity.updatedAt,
+      title: entity.title,
+      images: entity.images,
+      inStockCount: entity.inStockCount,
+      cost: entity.cost,
+      slug: entity.slug,
+      color: entity.color,
+      colorCode: entity.colorCode,
+      storage: entity.storage,
+      discount: entity.discount,
       model:
-          product.model != null ? ModelModel.fromEntity(product.model!) : null);
+          entity.model != null ? ModelModel.fromEntity(entity.model!) : null);
 }

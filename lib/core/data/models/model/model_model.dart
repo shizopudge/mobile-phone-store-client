@@ -30,23 +30,23 @@ class ModelModel with _$ModelModel {
   factory ModelModel.fromJson(Map<String, dynamic> json) =>
       _$ModelModelFromJson(json);
 
-  factory ModelModel.fromEntity(Model model) {
+  factory ModelModel.fromEntity(Model entity) {
     final List<ProductModel> productModels = [];
-    for (Product product in model.products) {
+    for (Product product in entity.products) {
       productModels.add(ProductModel.fromEntity(product));
     }
     return ModelModel(
-      id: model.id,
-      name: model.name,
-      description: model.description,
-      pixelDensity: model.pixelDensity,
-      screenRefreshRate: model.screenRefreshRate,
-      screenDiagonal: model.screenDiagonal,
-      weight: model.weight,
-      screenResolution: model.screenResolution,
-      operatingSystem: model.operatingSystem,
-      displayType: model.displayType,
-      manufacturer: ManufacturerModel.fromEntity(model.manufacturer),
+      id: entity.id,
+      name: entity.name,
+      description: entity.description,
+      pixelDensity: entity.pixelDensity,
+      screenRefreshRate: entity.screenRefreshRate,
+      screenDiagonal: entity.screenDiagonal,
+      weight: entity.weight,
+      screenResolution: entity.screenResolution,
+      operatingSystem: entity.operatingSystem,
+      displayType: entity.displayType,
+      manufacturer: ManufacturerModel.fromEntity(entity.manufacturer),
       products: productModels,
     );
   }

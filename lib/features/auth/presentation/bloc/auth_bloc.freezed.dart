@@ -872,7 +872,7 @@ class _$_AuthState extends _AuthState {
   const _$_AuthState(
       {this.user,
       this.status = AuthStatus.unauthorized,
-      this.failure = const UnknownFailure(message: 'Unauthorized')})
+      this.failure = const CasualFailure(message: 'Unauthorized')})
       : super._();
 
   @override

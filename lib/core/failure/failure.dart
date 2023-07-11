@@ -12,9 +12,9 @@ part 'failure.g.dart';
 @freezed
 class Failure with _$Failure {
   const Failure._();
-  const factory Failure.unknownFailure({
+  const factory Failure.casualFailure({
     @Default('Something went wrong...') String message,
-  }) = UnknownFailure;
+  }) = CasualFailure;
 
   const factory Failure.serverFailure({
     required dynamic message,
