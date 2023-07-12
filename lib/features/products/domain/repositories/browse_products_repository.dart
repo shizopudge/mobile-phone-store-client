@@ -1,8 +1,8 @@
 import '../../../../core/constants/type_defs.dart';
-import '../entities/search_products_response.dart';
+import '../entities/browse_products_response.dart';
 
-abstract interface class SearchProductsRepository {
-  FutureEither<SearchProductsResponse> getManyProducts({
+abstract interface class BrowseProductsRepository {
+  FutureEither<BrowseProductsResponse> getManyProducts({
     required int page,
     required int limit,
     required String query,

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/styles/styles.dart';
-import '../../../../core/utils/size_config.dart';
+import '../../../styles/styles.dart';
+import '../../../utils/size_config.dart';
 
-class SearchProductsNotFound extends StatelessWidget {
-  const SearchProductsNotFound({
+class ProductsNotFound extends StatelessWidget {
+  const ProductsNotFound({
     super.key,
   });
 

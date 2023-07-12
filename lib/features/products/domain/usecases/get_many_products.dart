@@ -2,16 +2,16 @@ import 'package:equatable/equatable.dart';
 
 import '../../../../core/constants/type_defs.dart';
 import '../../../../core/domain/usecases/usecase.dart';
-import '../entities/search_products_response.dart';
-import '../repositories/search_products_repository.dart';
+import '../entities/browse_products_response.dart';
+import '../repositories/browse_products_repository.dart';
 
 class GetManyProduct
-    implements UseCase<SearchProductsResponse, GetProductsParams> {
-  final SearchProductsRepository repository;
+    implements UseCase<BrowseProductsResponse, GetProductsParams> {
+  final BrowseProductsRepository repository;
 
   GetManyProduct(this.repository);
   @override
-  FutureEither<SearchProductsResponse> call(params) async =>
+  FutureEither<BrowseProductsResponse> call(params) async =>
       await repository.getManyProducts(
         page: params.page,
         limit: params.limit,

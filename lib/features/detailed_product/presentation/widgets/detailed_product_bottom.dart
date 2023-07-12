@@ -11,7 +11,6 @@ import '../../../../core/styles/styles.dart';
 import '../../../../core/utils/size_config.dart';
 import '../../../auth/presentation/bloc/auth_bloc.dart';
 import '../../../cart/presentation/bloc/cart_bloc.dart';
-import '../bloc/detailed_product_bloc.dart';
 
 class DetailedProductBottom extends StatelessWidget {
   final Product product;
@@ -27,7 +26,7 @@ class DetailedProductBottom extends StatelessWidget {
     final CurrentUser? user =
         context.select<AuthBloc, CurrentUser?>((bloc) => bloc.state.user);
     final List<Product> cart =
-        context.select<CartBloc, List<Product>>((bloc) => bloc.state.cart);
+        context.select<CartBloc, List<Product>>((bloc) => bloc.state.products);
     return Column(
       children: [
         FadeAnimationYDown(
@@ -35,6 +34,7 @@ class DetailedProductBottom extends StatelessWidget {
           child: AnimatedContainer(
             height: showInfo ? 0 : SizeConfig.h2 * 1.25,
             duration: const Duration(milliseconds: 550),
+            color: Colors.transparent,
             child: AnimatedOpacity(
               opacity: showInfo ? 0 : 1,
               duration: const Duration(milliseconds: 350),
@@ -76,8 +76,8 @@ class DetailedProductBottom extends StatelessWidget {
                 children: [
                   RoundedIconButton(
                     onTap: () => context
-                        .read<DetailedProductBloc>()
-                        .add(DetailedProductEvent.toggleCart(product)),
+                        .read<CartBloc>()
+                        .add(CartEvent.toggleCart(product)),
                     innerPadding: 12,
                     child: Icon(
                       product.isInCart(cart)

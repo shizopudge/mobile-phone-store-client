@@ -3,10 +3,10 @@ import 'package:dio/dio.dart';
 import '../../../../core/api/api_constants.dart';
 import '../../../../core/api/dio_client.dart';
 import '../../../../core/failure/failure.dart';
-import '../models/search_products_response/search_products_response_model.dart';
+import '../models/search_products_response/browse_products_response_model.dart';
 
-abstract interface class SearchProductsRemoteDataSource {
-  Future<SearchProductsResponseModel> getManyProducts({
+abstract interface class BrowseProductsRemoteDataSource {
+  Future<BrowseProductsResponseModel> getManyProducts({
     required int page,
     required int limit,
     required String query,
@@ -18,13 +18,13 @@ abstract interface class SearchProductsRemoteDataSource {
   });
 }
 
-class SearchProductsRemoteDataSourceImpl
-    implements SearchProductsRemoteDataSource {
+class BrowseProductsRemoteDataSourceImpl
+    implements BrowseProductsRemoteDataSource {
   final DioClient dioClient;
 
-  SearchProductsRemoteDataSourceImpl(this.dioClient);
+  BrowseProductsRemoteDataSourceImpl(this.dioClient);
   @override
-  Future<SearchProductsResponseModel> getManyProducts({
+  Future<BrowseProductsResponseModel> getManyProducts({
     required int page,
     required int limit,
     required String query,
@@ -49,7 +49,7 @@ class SearchProductsRemoteDataSourceImpl
         ApiConstants.products,
         queryParameters: queryParameters,
       );
-      return SearchProductsResponseModel.fromJson(res.data);
+      return BrowseProductsResponseModel.fromJson(res.data);
     } on DioException catch (e) {
       final res = e.response;
       if (res != null) throw ServerFailure.fromJson(res.data);

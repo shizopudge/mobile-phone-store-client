@@ -47,9 +47,7 @@ class PasswordTextField extends StatelessWidget {
             hintText: hint,
             hintStyle:
                 kSemiBold.copyWith(color: kGrey, fontSize: SizeConfig.body1),
-            contentPadding: EdgeInsets.symmetric(
-                horizontal: SizeConfig.setPadding(12),
-                vertical: SizeConfig.setPadding(8)),
+            contentPadding: EdgeInsets.all(SizeConfig.setPadding(12)),
             suffixIcon: isAvailable
                 ? state
                     ? IconButton(

@@ -11,9 +11,26 @@ class WishlistRepositoryImpl implements WishlistRepository {
 
   const WishlistRepositoryImpl({required this.remoteDataSource});
   @override
-  FutureEither<CartWishlistResponse> getWishlist() async {
+  FutureEither<CartWishlistResponse> getWishlist({
+    required int page,
+    required int limit,
+    required String query,
+    required String sort,
+    required double? minCost,
+    required double? maxCost,
+    required bool withDiscount,
+    required bool newArrival,
+  }) async {
     try {
-      final res = await remoteDataSource.getWishlist();
+      final res = await remoteDataSource.getWishlist(
+          page: page,
+          limit: limit,
+          query: query,
+          sort: sort,
+          minCost: minCost,
+          maxCost: maxCost,
+          withDiscount: withDiscount,
+          newArrival: newArrival);
       return Right(CartWishlistResponse.fromModel(res));
     } on Failure catch (e) {
       return Left(e);

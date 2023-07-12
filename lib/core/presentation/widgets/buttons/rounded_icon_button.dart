@@ -7,11 +7,13 @@ class RoundedIconButton extends StatelessWidget {
   final VoidCallback onTap;
   final Widget child;
   final double? innerPadding;
+  final Color? backgroundColor;
   const RoundedIconButton({
     super.key,
     required this.onTap,
     required this.child,
     this.innerPadding,
+    this.backgroundColor,
   });
 
   @override
@@ -22,6 +24,7 @@ class RoundedIconButton extends StatelessWidget {
         padding: EdgeInsets.all(innerPadding ?? SizeConfig.setPadding(8)),
         decoration: BoxDecoration(
           shape: BoxShape.circle,
+          color: backgroundColor,
           border: Border.all(
             color: kGrey.withOpacity(.75),
           ),

@@ -2,8 +2,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../domain/entities/info.dart';
 
-part 'items_info_model.freezed.dart';
-part 'items_info_model.g.dart';
+part 'info_model.freezed.dart';
+part 'info_model.g.dart';
 
 @freezed
 class InfoModel with _$InfoModel {

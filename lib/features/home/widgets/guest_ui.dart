@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../core/presentation/widgets/pages/unauthorized_page.dart';
-import '../../products/presentation/pages/search_products_page.dart';
+import '../../products/presentation/pages/browse_products_page.dart';
 import 'home_body.dart';
 
 class GuestUI extends StatelessWidget {
@@ -13,7 +13,7 @@ class GuestUI extends StatelessWidget {
   Widget build(BuildContext context) {
     return const HomeBody(
       pages: [
-        SearchProductsPage(),
+        BrowseProductsPage(),
         UnauthorizedPage(
           text:
               'To access the full functionality, you need to log in or register an account',
@@ -24,7 +24,7 @@ class GuestUI extends StatelessWidget {
             icon: Icon(
               Icons.search_rounded,
             ),
-            label: 'Search'),
+            label: 'Browse'),
         BottomNavigationBarItem(
             icon: Icon(
               Icons.login_rounded,
@@ -36,12 +36,7 @@ class GuestUI extends StatelessWidget {
             icon: Icon(
               Icons.search_rounded,
             ),
-            label: Text('Search')),
-        NavigationRailDestination(
-            icon: Icon(
-              Icons.shopping_bag_rounded,
-            ),
-            label: Text('Cart')),
+            label: Text('Browse')),
         NavigationRailDestination(
             icon: Icon(
               Icons.login_rounded,
@@ -53,13 +48,8 @@ class GuestUI extends StatelessWidget {
           icon: Icon(
             Icons.search_rounded,
           ),
-          text: 'Search',
+          text: 'Browse',
         ),
-        Tab(
-            icon: Icon(
-              Icons.shopping_bag_rounded,
-            ),
-            text: 'Cart'),
         Tab(
             icon: Icon(
               Icons.login_rounded,

@@ -4,13 +4,13 @@ import 'package:bloc/bloc.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:equatable/equatable.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import '../../../home/cubit/home_cubit.dart';
 
 import '../../../../core/constants/extensions.dart';
 import '../../../../core/constants/password_validation.dart';
 import '../../../../core/domain/usecases/usecase.dart';
 import '../../../../core/failure/failure.dart';
 import '../../../auth/presentation/bloc/auth_bloc.dart';
+import '../../../home/cubit/home_cubit.dart';
 import '../../domain/usecases/login.dart';
 import '../../domain/usecases/login_as_guest.dart';
 import '../../domain/usecases/register.dart';

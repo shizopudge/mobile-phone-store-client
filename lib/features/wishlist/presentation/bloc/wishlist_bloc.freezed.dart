@@ -18,51 +18,76 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$WishlistEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getWishlist,
-    required TResult Function() refreshWishlist,
+    required TResult Function() initial,
     required TResult Function(Product product) toggleWishlist,
-    required TResult Function(List<Product> wishlist) changeWishlist,
+    required TResult Function(Product product, int? productIndex)
+        toggleRemoteWishlist,
+    required TResult Function() refreshProducts,
+    required TResult Function(Product product) updateProductInList,
+    required TResult Function() getNextProducts,
+    required TResult Function(String query) searchProducts,
+    required TResult Function(ProductsFilter filter) changeFilter,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? getWishlist,
-    TResult? Function()? refreshWishlist,
+    TResult? Function()? initial,
     TResult? Function(Product product)? toggleWishlist,
-    TResult? Function(List<Product> wishlist)? changeWishlist,
+    TResult? Function(Product product, int? productIndex)? toggleRemoteWishlist,
+    TResult? Function()? refreshProducts,
+    TResult? Function(Product product)? updateProductInList,
+    TResult? Function()? getNextProducts,
+    TResult? Function(String query)? searchProducts,
+    TResult? Function(ProductsFilter filter)? changeFilter,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getWishlist,
-    TResult Function()? refreshWishlist,
+    TResult Function()? initial,
     TResult Function(Product product)? toggleWishlist,
-    TResult Function(List<Product> wishlist)? changeWishlist,
+    TResult Function(Product product, int? productIndex)? toggleRemoteWishlist,
+    TResult Function()? refreshProducts,
+    TResult Function(Product product)? updateProductInList,
+    TResult Function()? getNextProducts,
+    TResult Function(String query)? searchProducts,
+    TResult Function(ProductsFilter filter)? changeFilter,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_GetWishlist value) getWishlist,
-    required TResult Function(_RefreshWishlist value) refreshWishlist,
+    required TResult Function(_Initial value) initial,
     required TResult Function(_ToggleWishlist value) toggleWishlist,
-    required TResult Function(_ChangeWishlist value) changeWishlist,
+    required TResult Function(_ToggleRemoteWishlist value) toggleRemoteWishlist,
+    required TResult Function(_RefreshProducts value) refreshProducts,
+    required TResult Function(_UpdateProductInList value) updateProductInList,
+    required TResult Function(_GetNextProducts value) getNextProducts,
+    required TResult Function(_SearchProducts value) searchProducts,
+    required TResult Function(_ChangeFilter value) changeFilter,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_GetWishlist value)? getWishlist,
-    TResult? Function(_RefreshWishlist value)? refreshWishlist,
+    TResult? Function(_Initial value)? initial,
     TResult? Function(_ToggleWishlist value)? toggleWishlist,
-    TResult? Function(_ChangeWishlist value)? changeWishlist,
+    TResult? Function(_ToggleRemoteWishlist value)? toggleRemoteWishlist,
+    TResult? Function(_RefreshProducts value)? refreshProducts,
+    TResult? Function(_UpdateProductInList value)? updateProductInList,
+    TResult? Function(_GetNextProducts value)? getNextProducts,
+    TResult? Function(_SearchProducts value)? searchProducts,
+    TResult? Function(_ChangeFilter value)? changeFilter,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetWishlist value)? getWishlist,
-    TResult Function(_RefreshWishlist value)? refreshWishlist,
+    TResult Function(_Initial value)? initial,
     TResult Function(_ToggleWishlist value)? toggleWishlist,
-    TResult Function(_ChangeWishlist value)? changeWishlist,
+    TResult Function(_ToggleRemoteWishlist value)? toggleRemoteWishlist,
+    TResult Function(_RefreshProducts value)? refreshProducts,
+    TResult Function(_UpdateProductInList value)? updateProductInList,
+    TResult Function(_GetNextProducts value)? getNextProducts,
+    TResult Function(_SearchProducts value)? searchProducts,
+    TResult Function(_ChangeFilter value)? changeFilter,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -87,35 +112,34 @@ class _$WishlistEventCopyWithImpl<$Res, $Val extends WishlistEvent>
 }
 
 /// @nodoc
-abstract class _$$_GetWishlistCopyWith<$Res> {
-  factory _$$_GetWishlistCopyWith(
-          _$_GetWishlist value, $Res Function(_$_GetWishlist) then) =
-      __$$_GetWishlistCopyWithImpl<$Res>;
+abstract class _$$_InitialCopyWith<$Res> {
+  factory _$$_InitialCopyWith(
+          _$_Initial value, $Res Function(_$_Initial) then) =
+      __$$_InitialCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_GetWishlistCopyWithImpl<$Res>
-    extends _$WishlistEventCopyWithImpl<$Res, _$_GetWishlist>
-    implements _$$_GetWishlistCopyWith<$Res> {
-  __$$_GetWishlistCopyWithImpl(
-      _$_GetWishlist _value, $Res Function(_$_GetWishlist) _then)
+class __$$_InitialCopyWithImpl<$Res>
+    extends _$WishlistEventCopyWithImpl<$Res, _$_Initial>
+    implements _$$_InitialCopyWith<$Res> {
+  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_GetWishlist implements _GetWishlist {
-  const _$_GetWishlist();
+class _$_Initial implements _Initial {
+  const _$_Initial();
 
   @override
   String toString() {
-    return 'WishlistEvent.getWishlist()';
+    return 'WishlistEvent.initial()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_GetWishlist);
+        (other.runtimeType == runtimeType && other is _$_Initial);
   }
 
   @override
@@ -124,36 +148,49 @@ class _$_GetWishlist implements _GetWishlist {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getWishlist,
-    required TResult Function() refreshWishlist,
+    required TResult Function() initial,
     required TResult Function(Product product) toggleWishlist,
-    required TResult Function(List<Product> wishlist) changeWishlist,
+    required TResult Function(Product product, int? productIndex)
+        toggleRemoteWishlist,
+    required TResult Function() refreshProducts,
+    required TResult Function(Product product) updateProductInList,
+    required TResult Function() getNextProducts,
+    required TResult Function(String query) searchProducts,
+    required TResult Function(ProductsFilter filter) changeFilter,
   }) {
-    return getWishlist();
+    return initial();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? getWishlist,
-    TResult? Function()? refreshWishlist,
+    TResult? Function()? initial,
     TResult? Function(Product product)? toggleWishlist,
-    TResult? Function(List<Product> wishlist)? changeWishlist,
+    TResult? Function(Product product, int? productIndex)? toggleRemoteWishlist,
+    TResult? Function()? refreshProducts,
+    TResult? Function(Product product)? updateProductInList,
+    TResult? Function()? getNextProducts,
+    TResult? Function(String query)? searchProducts,
+    TResult? Function(ProductsFilter filter)? changeFilter,
   }) {
-    return getWishlist?.call();
+    return initial?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getWishlist,
-    TResult Function()? refreshWishlist,
+    TResult Function()? initial,
     TResult Function(Product product)? toggleWishlist,
-    TResult Function(List<Product> wishlist)? changeWishlist,
+    TResult Function(Product product, int? productIndex)? toggleRemoteWishlist,
+    TResult Function()? refreshProducts,
+    TResult Function(Product product)? updateProductInList,
+    TResult Function()? getNextProducts,
+    TResult Function(String query)? searchProducts,
+    TResult Function(ProductsFilter filter)? changeFilter,
     required TResult orElse(),
   }) {
-    if (getWishlist != null) {
-      return getWishlist();
+    if (initial != null) {
+      return initial();
     }
     return orElse();
   }
@@ -161,157 +198,55 @@ class _$_GetWishlist implements _GetWishlist {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_GetWishlist value) getWishlist,
-    required TResult Function(_RefreshWishlist value) refreshWishlist,
+    required TResult Function(_Initial value) initial,
     required TResult Function(_ToggleWishlist value) toggleWishlist,
-    required TResult Function(_ChangeWishlist value) changeWishlist,
+    required TResult Function(_ToggleRemoteWishlist value) toggleRemoteWishlist,
+    required TResult Function(_RefreshProducts value) refreshProducts,
+    required TResult Function(_UpdateProductInList value) updateProductInList,
+    required TResult Function(_GetNextProducts value) getNextProducts,
+    required TResult Function(_SearchProducts value) searchProducts,
+    required TResult Function(_ChangeFilter value) changeFilter,
   }) {
-    return getWishlist(this);
+    return initial(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_GetWishlist value)? getWishlist,
-    TResult? Function(_RefreshWishlist value)? refreshWishlist,
+    TResult? Function(_Initial value)? initial,
     TResult? Function(_ToggleWishlist value)? toggleWishlist,
-    TResult? Function(_ChangeWishlist value)? changeWishlist,
+    TResult? Function(_ToggleRemoteWishlist value)? toggleRemoteWishlist,
+    TResult? Function(_RefreshProducts value)? refreshProducts,
+    TResult? Function(_UpdateProductInList value)? updateProductInList,
+    TResult? Function(_GetNextProducts value)? getNextProducts,
+    TResult? Function(_SearchProducts value)? searchProducts,
+    TResult? Function(_ChangeFilter value)? changeFilter,
   }) {
-    return getWishlist?.call(this);
+    return initial?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetWishlist value)? getWishlist,
-    TResult Function(_RefreshWishlist value)? refreshWishlist,
+    TResult Function(_Initial value)? initial,
     TResult Function(_ToggleWishlist value)? toggleWishlist,
-    TResult Function(_ChangeWishlist value)? changeWishlist,
+    TResult Function(_ToggleRemoteWishlist value)? toggleRemoteWishlist,
+    TResult Function(_RefreshProducts value)? refreshProducts,
+    TResult Function(_UpdateProductInList value)? updateProductInList,
+    TResult Function(_GetNextProducts value)? getNextProducts,
+    TResult Function(_SearchProducts value)? searchProducts,
+    TResult Function(_ChangeFilter value)? changeFilter,
     required TResult orElse(),
   }) {
-    if (getWishlist != null) {
-      return getWishlist(this);
+    if (initial != null) {
+      return initial(this);
     }
     return orElse();
   }
 }
 
-abstract class _GetWishlist implements WishlistEvent {
-  const factory _GetWishlist() = _$_GetWishlist;
-}
-
-/// @nodoc
-abstract class _$$_RefreshWishlistCopyWith<$Res> {
-  factory _$$_RefreshWishlistCopyWith(
-          _$_RefreshWishlist value, $Res Function(_$_RefreshWishlist) then) =
-      __$$_RefreshWishlistCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_RefreshWishlistCopyWithImpl<$Res>
-    extends _$WishlistEventCopyWithImpl<$Res, _$_RefreshWishlist>
-    implements _$$_RefreshWishlistCopyWith<$Res> {
-  __$$_RefreshWishlistCopyWithImpl(
-      _$_RefreshWishlist _value, $Res Function(_$_RefreshWishlist) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$_RefreshWishlist implements _RefreshWishlist {
-  const _$_RefreshWishlist();
-
-  @override
-  String toString() {
-    return 'WishlistEvent.refreshWishlist()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_RefreshWishlist);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() getWishlist,
-    required TResult Function() refreshWishlist,
-    required TResult Function(Product product) toggleWishlist,
-    required TResult Function(List<Product> wishlist) changeWishlist,
-  }) {
-    return refreshWishlist();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? getWishlist,
-    TResult? Function()? refreshWishlist,
-    TResult? Function(Product product)? toggleWishlist,
-    TResult? Function(List<Product> wishlist)? changeWishlist,
-  }) {
-    return refreshWishlist?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getWishlist,
-    TResult Function()? refreshWishlist,
-    TResult Function(Product product)? toggleWishlist,
-    TResult Function(List<Product> wishlist)? changeWishlist,
-    required TResult orElse(),
-  }) {
-    if (refreshWishlist != null) {
-      return refreshWishlist();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_GetWishlist value) getWishlist,
-    required TResult Function(_RefreshWishlist value) refreshWishlist,
-    required TResult Function(_ToggleWishlist value) toggleWishlist,
-    required TResult Function(_ChangeWishlist value) changeWishlist,
-  }) {
-    return refreshWishlist(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_GetWishlist value)? getWishlist,
-    TResult? Function(_RefreshWishlist value)? refreshWishlist,
-    TResult? Function(_ToggleWishlist value)? toggleWishlist,
-    TResult? Function(_ChangeWishlist value)? changeWishlist,
-  }) {
-    return refreshWishlist?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetWishlist value)? getWishlist,
-    TResult Function(_RefreshWishlist value)? refreshWishlist,
-    TResult Function(_ToggleWishlist value)? toggleWishlist,
-    TResult Function(_ChangeWishlist value)? changeWishlist,
-    required TResult orElse(),
-  }) {
-    if (refreshWishlist != null) {
-      return refreshWishlist(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _RefreshWishlist implements WishlistEvent {
-  const factory _RefreshWishlist() = _$_RefreshWishlist;
+abstract class _Initial implements WishlistEvent {
+  const factory _Initial() = _$_Initial;
 }
 
 /// @nodoc
@@ -378,10 +313,15 @@ class _$_ToggleWishlist implements _ToggleWishlist {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getWishlist,
-    required TResult Function() refreshWishlist,
+    required TResult Function() initial,
     required TResult Function(Product product) toggleWishlist,
-    required TResult Function(List<Product> wishlist) changeWishlist,
+    required TResult Function(Product product, int? productIndex)
+        toggleRemoteWishlist,
+    required TResult Function() refreshProducts,
+    required TResult Function(Product product) updateProductInList,
+    required TResult Function() getNextProducts,
+    required TResult Function(String query) searchProducts,
+    required TResult Function(ProductsFilter filter) changeFilter,
   }) {
     return toggleWishlist(product);
   }
@@ -389,10 +329,14 @@ class _$_ToggleWishlist implements _ToggleWishlist {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? getWishlist,
-    TResult? Function()? refreshWishlist,
+    TResult? Function()? initial,
     TResult? Function(Product product)? toggleWishlist,
-    TResult? Function(List<Product> wishlist)? changeWishlist,
+    TResult? Function(Product product, int? productIndex)? toggleRemoteWishlist,
+    TResult? Function()? refreshProducts,
+    TResult? Function(Product product)? updateProductInList,
+    TResult? Function()? getNextProducts,
+    TResult? Function(String query)? searchProducts,
+    TResult? Function(ProductsFilter filter)? changeFilter,
   }) {
     return toggleWishlist?.call(product);
   }
@@ -400,10 +344,14 @@ class _$_ToggleWishlist implements _ToggleWishlist {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getWishlist,
-    TResult Function()? refreshWishlist,
+    TResult Function()? initial,
     TResult Function(Product product)? toggleWishlist,
-    TResult Function(List<Product> wishlist)? changeWishlist,
+    TResult Function(Product product, int? productIndex)? toggleRemoteWishlist,
+    TResult Function()? refreshProducts,
+    TResult Function(Product product)? updateProductInList,
+    TResult Function()? getNextProducts,
+    TResult Function(String query)? searchProducts,
+    TResult Function(ProductsFilter filter)? changeFilter,
     required TResult orElse(),
   }) {
     if (toggleWishlist != null) {
@@ -415,10 +363,14 @@ class _$_ToggleWishlist implements _ToggleWishlist {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_GetWishlist value) getWishlist,
-    required TResult Function(_RefreshWishlist value) refreshWishlist,
+    required TResult Function(_Initial value) initial,
     required TResult Function(_ToggleWishlist value) toggleWishlist,
-    required TResult Function(_ChangeWishlist value) changeWishlist,
+    required TResult Function(_ToggleRemoteWishlist value) toggleRemoteWishlist,
+    required TResult Function(_RefreshProducts value) refreshProducts,
+    required TResult Function(_UpdateProductInList value) updateProductInList,
+    required TResult Function(_GetNextProducts value) getNextProducts,
+    required TResult Function(_SearchProducts value) searchProducts,
+    required TResult Function(_ChangeFilter value) changeFilter,
   }) {
     return toggleWishlist(this);
   }
@@ -426,10 +378,14 @@ class _$_ToggleWishlist implements _ToggleWishlist {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_GetWishlist value)? getWishlist,
-    TResult? Function(_RefreshWishlist value)? refreshWishlist,
+    TResult? Function(_Initial value)? initial,
     TResult? Function(_ToggleWishlist value)? toggleWishlist,
-    TResult? Function(_ChangeWishlist value)? changeWishlist,
+    TResult? Function(_ToggleRemoteWishlist value)? toggleRemoteWishlist,
+    TResult? Function(_RefreshProducts value)? refreshProducts,
+    TResult? Function(_UpdateProductInList value)? updateProductInList,
+    TResult? Function(_GetNextProducts value)? getNextProducts,
+    TResult? Function(_SearchProducts value)? searchProducts,
+    TResult? Function(_ChangeFilter value)? changeFilter,
   }) {
     return toggleWishlist?.call(this);
   }
@@ -437,10 +393,14 @@ class _$_ToggleWishlist implements _ToggleWishlist {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetWishlist value)? getWishlist,
-    TResult Function(_RefreshWishlist value)? refreshWishlist,
+    TResult Function(_Initial value)? initial,
     TResult Function(_ToggleWishlist value)? toggleWishlist,
-    TResult Function(_ChangeWishlist value)? changeWishlist,
+    TResult Function(_ToggleRemoteWishlist value)? toggleRemoteWishlist,
+    TResult Function(_RefreshProducts value)? refreshProducts,
+    TResult Function(_UpdateProductInList value)? updateProductInList,
+    TResult Function(_GetNextProducts value)? getNextProducts,
+    TResult Function(_SearchProducts value)? searchProducts,
+    TResult Function(_ChangeFilter value)? changeFilter,
     required TResult orElse(),
   }) {
     if (toggleWishlist != null) {
@@ -460,105 +420,123 @@ abstract class _ToggleWishlist implements WishlistEvent {
 }
 
 /// @nodoc
-abstract class _$$_ChangeWishlistCopyWith<$Res> {
-  factory _$$_ChangeWishlistCopyWith(
-          _$_ChangeWishlist value, $Res Function(_$_ChangeWishlist) then) =
-      __$$_ChangeWishlistCopyWithImpl<$Res>;
+abstract class _$$_ToggleRemoteWishlistCopyWith<$Res> {
+  factory _$$_ToggleRemoteWishlistCopyWith(_$_ToggleRemoteWishlist value,
+          $Res Function(_$_ToggleRemoteWishlist) then) =
+      __$$_ToggleRemoteWishlistCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<Product> wishlist});
+  $Res call({Product product, int? productIndex});
 }
 
 /// @nodoc
-class __$$_ChangeWishlistCopyWithImpl<$Res>
-    extends _$WishlistEventCopyWithImpl<$Res, _$_ChangeWishlist>
-    implements _$$_ChangeWishlistCopyWith<$Res> {
-  __$$_ChangeWishlistCopyWithImpl(
-      _$_ChangeWishlist _value, $Res Function(_$_ChangeWishlist) _then)
+class __$$_ToggleRemoteWishlistCopyWithImpl<$Res>
+    extends _$WishlistEventCopyWithImpl<$Res, _$_ToggleRemoteWishlist>
+    implements _$$_ToggleRemoteWishlistCopyWith<$Res> {
+  __$$_ToggleRemoteWishlistCopyWithImpl(_$_ToggleRemoteWishlist _value,
+      $Res Function(_$_ToggleRemoteWishlist) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? wishlist = null,
+    Object? product = null,
+    Object? productIndex = freezed,
   }) {
-    return _then(_$_ChangeWishlist(
-      null == wishlist
-          ? _value._wishlist
-          : wishlist // ignore: cast_nullable_to_non_nullable
-              as List<Product>,
+    return _then(_$_ToggleRemoteWishlist(
+      product: null == product
+          ? _value.product
+          : product // ignore: cast_nullable_to_non_nullable
+              as Product,
+      productIndex: freezed == productIndex
+          ? _value.productIndex
+          : productIndex // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_ChangeWishlist implements _ChangeWishlist {
-  const _$_ChangeWishlist(final List<Product> wishlist) : _wishlist = wishlist;
+class _$_ToggleRemoteWishlist implements _ToggleRemoteWishlist {
+  const _$_ToggleRemoteWishlist(
+      {required this.product, required this.productIndex});
 
-  final List<Product> _wishlist;
   @override
-  List<Product> get wishlist {
-    if (_wishlist is EqualUnmodifiableListView) return _wishlist;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_wishlist);
-  }
+  final Product product;
+  @override
+  final int? productIndex;
 
   @override
   String toString() {
-    return 'WishlistEvent.changeWishlist(wishlist: $wishlist)';
+    return 'WishlistEvent.toggleRemoteWishlist(product: $product, productIndex: $productIndex)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ChangeWishlist &&
-            const DeepCollectionEquality().equals(other._wishlist, _wishlist));
+            other is _$_ToggleRemoteWishlist &&
+            (identical(other.product, product) || other.product == product) &&
+            (identical(other.productIndex, productIndex) ||
+                other.productIndex == productIndex));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_wishlist));
+  int get hashCode => Object.hash(runtimeType, product, productIndex);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ChangeWishlistCopyWith<_$_ChangeWishlist> get copyWith =>
-      __$$_ChangeWishlistCopyWithImpl<_$_ChangeWishlist>(this, _$identity);
+  _$$_ToggleRemoteWishlistCopyWith<_$_ToggleRemoteWishlist> get copyWith =>
+      __$$_ToggleRemoteWishlistCopyWithImpl<_$_ToggleRemoteWishlist>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getWishlist,
-    required TResult Function() refreshWishlist,
+    required TResult Function() initial,
     required TResult Function(Product product) toggleWishlist,
-    required TResult Function(List<Product> wishlist) changeWishlist,
+    required TResult Function(Product product, int? productIndex)
+        toggleRemoteWishlist,
+    required TResult Function() refreshProducts,
+    required TResult Function(Product product) updateProductInList,
+    required TResult Function() getNextProducts,
+    required TResult Function(String query) searchProducts,
+    required TResult Function(ProductsFilter filter) changeFilter,
   }) {
-    return changeWishlist(wishlist);
+    return toggleRemoteWishlist(product, productIndex);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? getWishlist,
-    TResult? Function()? refreshWishlist,
+    TResult? Function()? initial,
     TResult? Function(Product product)? toggleWishlist,
-    TResult? Function(List<Product> wishlist)? changeWishlist,
+    TResult? Function(Product product, int? productIndex)? toggleRemoteWishlist,
+    TResult? Function()? refreshProducts,
+    TResult? Function(Product product)? updateProductInList,
+    TResult? Function()? getNextProducts,
+    TResult? Function(String query)? searchProducts,
+    TResult? Function(ProductsFilter filter)? changeFilter,
   }) {
-    return changeWishlist?.call(wishlist);
+    return toggleRemoteWishlist?.call(product, productIndex);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getWishlist,
-    TResult Function()? refreshWishlist,
+    TResult Function()? initial,
     TResult Function(Product product)? toggleWishlist,
-    TResult Function(List<Product> wishlist)? changeWishlist,
+    TResult Function(Product product, int? productIndex)? toggleRemoteWishlist,
+    TResult Function()? refreshProducts,
+    TResult Function(Product product)? updateProductInList,
+    TResult Function()? getNextProducts,
+    TResult Function(String query)? searchProducts,
+    TResult Function(ProductsFilter filter)? changeFilter,
     required TResult orElse(),
   }) {
-    if (changeWishlist != null) {
-      return changeWishlist(wishlist);
+    if (toggleRemoteWishlist != null) {
+      return toggleRemoteWishlist(product, productIndex);
     }
     return orElse();
   }
@@ -566,59 +544,868 @@ class _$_ChangeWishlist implements _ChangeWishlist {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_GetWishlist value) getWishlist,
-    required TResult Function(_RefreshWishlist value) refreshWishlist,
+    required TResult Function(_Initial value) initial,
     required TResult Function(_ToggleWishlist value) toggleWishlist,
-    required TResult Function(_ChangeWishlist value) changeWishlist,
+    required TResult Function(_ToggleRemoteWishlist value) toggleRemoteWishlist,
+    required TResult Function(_RefreshProducts value) refreshProducts,
+    required TResult Function(_UpdateProductInList value) updateProductInList,
+    required TResult Function(_GetNextProducts value) getNextProducts,
+    required TResult Function(_SearchProducts value) searchProducts,
+    required TResult Function(_ChangeFilter value) changeFilter,
   }) {
-    return changeWishlist(this);
+    return toggleRemoteWishlist(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_GetWishlist value)? getWishlist,
-    TResult? Function(_RefreshWishlist value)? refreshWishlist,
+    TResult? Function(_Initial value)? initial,
     TResult? Function(_ToggleWishlist value)? toggleWishlist,
-    TResult? Function(_ChangeWishlist value)? changeWishlist,
+    TResult? Function(_ToggleRemoteWishlist value)? toggleRemoteWishlist,
+    TResult? Function(_RefreshProducts value)? refreshProducts,
+    TResult? Function(_UpdateProductInList value)? updateProductInList,
+    TResult? Function(_GetNextProducts value)? getNextProducts,
+    TResult? Function(_SearchProducts value)? searchProducts,
+    TResult? Function(_ChangeFilter value)? changeFilter,
   }) {
-    return changeWishlist?.call(this);
+    return toggleRemoteWishlist?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetWishlist value)? getWishlist,
-    TResult Function(_RefreshWishlist value)? refreshWishlist,
+    TResult Function(_Initial value)? initial,
     TResult Function(_ToggleWishlist value)? toggleWishlist,
-    TResult Function(_ChangeWishlist value)? changeWishlist,
+    TResult Function(_ToggleRemoteWishlist value)? toggleRemoteWishlist,
+    TResult Function(_RefreshProducts value)? refreshProducts,
+    TResult Function(_UpdateProductInList value)? updateProductInList,
+    TResult Function(_GetNextProducts value)? getNextProducts,
+    TResult Function(_SearchProducts value)? searchProducts,
+    TResult Function(_ChangeFilter value)? changeFilter,
     required TResult orElse(),
   }) {
-    if (changeWishlist != null) {
-      return changeWishlist(this);
+    if (toggleRemoteWishlist != null) {
+      return toggleRemoteWishlist(this);
     }
     return orElse();
   }
 }
 
-abstract class _ChangeWishlist implements WishlistEvent {
-  const factory _ChangeWishlist(final List<Product> wishlist) =
-      _$_ChangeWishlist;
+abstract class _ToggleRemoteWishlist implements WishlistEvent {
+  const factory _ToggleRemoteWishlist(
+      {required final Product product,
+      required final int? productIndex}) = _$_ToggleRemoteWishlist;
 
-  List<Product> get wishlist;
+  Product get product;
+  int? get productIndex;
   @JsonKey(ignore: true)
-  _$$_ChangeWishlistCopyWith<_$_ChangeWishlist> get copyWith =>
+  _$$_ToggleRemoteWishlistCopyWith<_$_ToggleRemoteWishlist> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_RefreshProductsCopyWith<$Res> {
+  factory _$$_RefreshProductsCopyWith(
+          _$_RefreshProducts value, $Res Function(_$_RefreshProducts) then) =
+      __$$_RefreshProductsCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_RefreshProductsCopyWithImpl<$Res>
+    extends _$WishlistEventCopyWithImpl<$Res, _$_RefreshProducts>
+    implements _$$_RefreshProductsCopyWith<$Res> {
+  __$$_RefreshProductsCopyWithImpl(
+      _$_RefreshProducts _value, $Res Function(_$_RefreshProducts) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_RefreshProducts implements _RefreshProducts {
+  const _$_RefreshProducts();
+
+  @override
+  String toString() {
+    return 'WishlistEvent.refreshProducts()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_RefreshProducts);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(Product product) toggleWishlist,
+    required TResult Function(Product product, int? productIndex)
+        toggleRemoteWishlist,
+    required TResult Function() refreshProducts,
+    required TResult Function(Product product) updateProductInList,
+    required TResult Function() getNextProducts,
+    required TResult Function(String query) searchProducts,
+    required TResult Function(ProductsFilter filter) changeFilter,
+  }) {
+    return refreshProducts();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(Product product)? toggleWishlist,
+    TResult? Function(Product product, int? productIndex)? toggleRemoteWishlist,
+    TResult? Function()? refreshProducts,
+    TResult? Function(Product product)? updateProductInList,
+    TResult? Function()? getNextProducts,
+    TResult? Function(String query)? searchProducts,
+    TResult? Function(ProductsFilter filter)? changeFilter,
+  }) {
+    return refreshProducts?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(Product product)? toggleWishlist,
+    TResult Function(Product product, int? productIndex)? toggleRemoteWishlist,
+    TResult Function()? refreshProducts,
+    TResult Function(Product product)? updateProductInList,
+    TResult Function()? getNextProducts,
+    TResult Function(String query)? searchProducts,
+    TResult Function(ProductsFilter filter)? changeFilter,
+    required TResult orElse(),
+  }) {
+    if (refreshProducts != null) {
+      return refreshProducts();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_ToggleWishlist value) toggleWishlist,
+    required TResult Function(_ToggleRemoteWishlist value) toggleRemoteWishlist,
+    required TResult Function(_RefreshProducts value) refreshProducts,
+    required TResult Function(_UpdateProductInList value) updateProductInList,
+    required TResult Function(_GetNextProducts value) getNextProducts,
+    required TResult Function(_SearchProducts value) searchProducts,
+    required TResult Function(_ChangeFilter value) changeFilter,
+  }) {
+    return refreshProducts(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_ToggleWishlist value)? toggleWishlist,
+    TResult? Function(_ToggleRemoteWishlist value)? toggleRemoteWishlist,
+    TResult? Function(_RefreshProducts value)? refreshProducts,
+    TResult? Function(_UpdateProductInList value)? updateProductInList,
+    TResult? Function(_GetNextProducts value)? getNextProducts,
+    TResult? Function(_SearchProducts value)? searchProducts,
+    TResult? Function(_ChangeFilter value)? changeFilter,
+  }) {
+    return refreshProducts?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_ToggleWishlist value)? toggleWishlist,
+    TResult Function(_ToggleRemoteWishlist value)? toggleRemoteWishlist,
+    TResult Function(_RefreshProducts value)? refreshProducts,
+    TResult Function(_UpdateProductInList value)? updateProductInList,
+    TResult Function(_GetNextProducts value)? getNextProducts,
+    TResult Function(_SearchProducts value)? searchProducts,
+    TResult Function(_ChangeFilter value)? changeFilter,
+    required TResult orElse(),
+  }) {
+    if (refreshProducts != null) {
+      return refreshProducts(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RefreshProducts implements WishlistEvent {
+  const factory _RefreshProducts() = _$_RefreshProducts;
+}
+
+/// @nodoc
+abstract class _$$_UpdateProductInListCopyWith<$Res> {
+  factory _$$_UpdateProductInListCopyWith(_$_UpdateProductInList value,
+          $Res Function(_$_UpdateProductInList) then) =
+      __$$_UpdateProductInListCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Product product});
+}
+
+/// @nodoc
+class __$$_UpdateProductInListCopyWithImpl<$Res>
+    extends _$WishlistEventCopyWithImpl<$Res, _$_UpdateProductInList>
+    implements _$$_UpdateProductInListCopyWith<$Res> {
+  __$$_UpdateProductInListCopyWithImpl(_$_UpdateProductInList _value,
+      $Res Function(_$_UpdateProductInList) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? product = null,
+  }) {
+    return _then(_$_UpdateProductInList(
+      null == product
+          ? _value.product
+          : product // ignore: cast_nullable_to_non_nullable
+              as Product,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_UpdateProductInList implements _UpdateProductInList {
+  const _$_UpdateProductInList(this.product);
+
+  @override
+  final Product product;
+
+  @override
+  String toString() {
+    return 'WishlistEvent.updateProductInList(product: $product)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_UpdateProductInList &&
+            (identical(other.product, product) || other.product == product));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, product);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_UpdateProductInListCopyWith<_$_UpdateProductInList> get copyWith =>
+      __$$_UpdateProductInListCopyWithImpl<_$_UpdateProductInList>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(Product product) toggleWishlist,
+    required TResult Function(Product product, int? productIndex)
+        toggleRemoteWishlist,
+    required TResult Function() refreshProducts,
+    required TResult Function(Product product) updateProductInList,
+    required TResult Function() getNextProducts,
+    required TResult Function(String query) searchProducts,
+    required TResult Function(ProductsFilter filter) changeFilter,
+  }) {
+    return updateProductInList(product);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(Product product)? toggleWishlist,
+    TResult? Function(Product product, int? productIndex)? toggleRemoteWishlist,
+    TResult? Function()? refreshProducts,
+    TResult? Function(Product product)? updateProductInList,
+    TResult? Function()? getNextProducts,
+    TResult? Function(String query)? searchProducts,
+    TResult? Function(ProductsFilter filter)? changeFilter,
+  }) {
+    return updateProductInList?.call(product);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(Product product)? toggleWishlist,
+    TResult Function(Product product, int? productIndex)? toggleRemoteWishlist,
+    TResult Function()? refreshProducts,
+    TResult Function(Product product)? updateProductInList,
+    TResult Function()? getNextProducts,
+    TResult Function(String query)? searchProducts,
+    TResult Function(ProductsFilter filter)? changeFilter,
+    required TResult orElse(),
+  }) {
+    if (updateProductInList != null) {
+      return updateProductInList(product);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_ToggleWishlist value) toggleWishlist,
+    required TResult Function(_ToggleRemoteWishlist value) toggleRemoteWishlist,
+    required TResult Function(_RefreshProducts value) refreshProducts,
+    required TResult Function(_UpdateProductInList value) updateProductInList,
+    required TResult Function(_GetNextProducts value) getNextProducts,
+    required TResult Function(_SearchProducts value) searchProducts,
+    required TResult Function(_ChangeFilter value) changeFilter,
+  }) {
+    return updateProductInList(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_ToggleWishlist value)? toggleWishlist,
+    TResult? Function(_ToggleRemoteWishlist value)? toggleRemoteWishlist,
+    TResult? Function(_RefreshProducts value)? refreshProducts,
+    TResult? Function(_UpdateProductInList value)? updateProductInList,
+    TResult? Function(_GetNextProducts value)? getNextProducts,
+    TResult? Function(_SearchProducts value)? searchProducts,
+    TResult? Function(_ChangeFilter value)? changeFilter,
+  }) {
+    return updateProductInList?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_ToggleWishlist value)? toggleWishlist,
+    TResult Function(_ToggleRemoteWishlist value)? toggleRemoteWishlist,
+    TResult Function(_RefreshProducts value)? refreshProducts,
+    TResult Function(_UpdateProductInList value)? updateProductInList,
+    TResult Function(_GetNextProducts value)? getNextProducts,
+    TResult Function(_SearchProducts value)? searchProducts,
+    TResult Function(_ChangeFilter value)? changeFilter,
+    required TResult orElse(),
+  }) {
+    if (updateProductInList != null) {
+      return updateProductInList(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateProductInList implements WishlistEvent {
+  const factory _UpdateProductInList(final Product product) =
+      _$_UpdateProductInList;
+
+  Product get product;
+  @JsonKey(ignore: true)
+  _$$_UpdateProductInListCopyWith<_$_UpdateProductInList> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_GetNextProductsCopyWith<$Res> {
+  factory _$$_GetNextProductsCopyWith(
+          _$_GetNextProducts value, $Res Function(_$_GetNextProducts) then) =
+      __$$_GetNextProductsCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_GetNextProductsCopyWithImpl<$Res>
+    extends _$WishlistEventCopyWithImpl<$Res, _$_GetNextProducts>
+    implements _$$_GetNextProductsCopyWith<$Res> {
+  __$$_GetNextProductsCopyWithImpl(
+      _$_GetNextProducts _value, $Res Function(_$_GetNextProducts) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_GetNextProducts implements _GetNextProducts {
+  const _$_GetNextProducts();
+
+  @override
+  String toString() {
+    return 'WishlistEvent.getNextProducts()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_GetNextProducts);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(Product product) toggleWishlist,
+    required TResult Function(Product product, int? productIndex)
+        toggleRemoteWishlist,
+    required TResult Function() refreshProducts,
+    required TResult Function(Product product) updateProductInList,
+    required TResult Function() getNextProducts,
+    required TResult Function(String query) searchProducts,
+    required TResult Function(ProductsFilter filter) changeFilter,
+  }) {
+    return getNextProducts();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(Product product)? toggleWishlist,
+    TResult? Function(Product product, int? productIndex)? toggleRemoteWishlist,
+    TResult? Function()? refreshProducts,
+    TResult? Function(Product product)? updateProductInList,
+    TResult? Function()? getNextProducts,
+    TResult? Function(String query)? searchProducts,
+    TResult? Function(ProductsFilter filter)? changeFilter,
+  }) {
+    return getNextProducts?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(Product product)? toggleWishlist,
+    TResult Function(Product product, int? productIndex)? toggleRemoteWishlist,
+    TResult Function()? refreshProducts,
+    TResult Function(Product product)? updateProductInList,
+    TResult Function()? getNextProducts,
+    TResult Function(String query)? searchProducts,
+    TResult Function(ProductsFilter filter)? changeFilter,
+    required TResult orElse(),
+  }) {
+    if (getNextProducts != null) {
+      return getNextProducts();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_ToggleWishlist value) toggleWishlist,
+    required TResult Function(_ToggleRemoteWishlist value) toggleRemoteWishlist,
+    required TResult Function(_RefreshProducts value) refreshProducts,
+    required TResult Function(_UpdateProductInList value) updateProductInList,
+    required TResult Function(_GetNextProducts value) getNextProducts,
+    required TResult Function(_SearchProducts value) searchProducts,
+    required TResult Function(_ChangeFilter value) changeFilter,
+  }) {
+    return getNextProducts(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_ToggleWishlist value)? toggleWishlist,
+    TResult? Function(_ToggleRemoteWishlist value)? toggleRemoteWishlist,
+    TResult? Function(_RefreshProducts value)? refreshProducts,
+    TResult? Function(_UpdateProductInList value)? updateProductInList,
+    TResult? Function(_GetNextProducts value)? getNextProducts,
+    TResult? Function(_SearchProducts value)? searchProducts,
+    TResult? Function(_ChangeFilter value)? changeFilter,
+  }) {
+    return getNextProducts?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_ToggleWishlist value)? toggleWishlist,
+    TResult Function(_ToggleRemoteWishlist value)? toggleRemoteWishlist,
+    TResult Function(_RefreshProducts value)? refreshProducts,
+    TResult Function(_UpdateProductInList value)? updateProductInList,
+    TResult Function(_GetNextProducts value)? getNextProducts,
+    TResult Function(_SearchProducts value)? searchProducts,
+    TResult Function(_ChangeFilter value)? changeFilter,
+    required TResult orElse(),
+  }) {
+    if (getNextProducts != null) {
+      return getNextProducts(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetNextProducts implements WishlistEvent {
+  const factory _GetNextProducts() = _$_GetNextProducts;
+}
+
+/// @nodoc
+abstract class _$$_SearchProductsCopyWith<$Res> {
+  factory _$$_SearchProductsCopyWith(
+          _$_SearchProducts value, $Res Function(_$_SearchProducts) then) =
+      __$$_SearchProductsCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String query});
+}
+
+/// @nodoc
+class __$$_SearchProductsCopyWithImpl<$Res>
+    extends _$WishlistEventCopyWithImpl<$Res, _$_SearchProducts>
+    implements _$$_SearchProductsCopyWith<$Res> {
+  __$$_SearchProductsCopyWithImpl(
+      _$_SearchProducts _value, $Res Function(_$_SearchProducts) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? query = null,
+  }) {
+    return _then(_$_SearchProducts(
+      null == query
+          ? _value.query
+          : query // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SearchProducts implements _SearchProducts {
+  const _$_SearchProducts(this.query);
+
+  @override
+  final String query;
+
+  @override
+  String toString() {
+    return 'WishlistEvent.searchProducts(query: $query)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SearchProducts &&
+            (identical(other.query, query) || other.query == query));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, query);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SearchProductsCopyWith<_$_SearchProducts> get copyWith =>
+      __$$_SearchProductsCopyWithImpl<_$_SearchProducts>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(Product product) toggleWishlist,
+    required TResult Function(Product product, int? productIndex)
+        toggleRemoteWishlist,
+    required TResult Function() refreshProducts,
+    required TResult Function(Product product) updateProductInList,
+    required TResult Function() getNextProducts,
+    required TResult Function(String query) searchProducts,
+    required TResult Function(ProductsFilter filter) changeFilter,
+  }) {
+    return searchProducts(query);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(Product product)? toggleWishlist,
+    TResult? Function(Product product, int? productIndex)? toggleRemoteWishlist,
+    TResult? Function()? refreshProducts,
+    TResult? Function(Product product)? updateProductInList,
+    TResult? Function()? getNextProducts,
+    TResult? Function(String query)? searchProducts,
+    TResult? Function(ProductsFilter filter)? changeFilter,
+  }) {
+    return searchProducts?.call(query);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(Product product)? toggleWishlist,
+    TResult Function(Product product, int? productIndex)? toggleRemoteWishlist,
+    TResult Function()? refreshProducts,
+    TResult Function(Product product)? updateProductInList,
+    TResult Function()? getNextProducts,
+    TResult Function(String query)? searchProducts,
+    TResult Function(ProductsFilter filter)? changeFilter,
+    required TResult orElse(),
+  }) {
+    if (searchProducts != null) {
+      return searchProducts(query);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_ToggleWishlist value) toggleWishlist,
+    required TResult Function(_ToggleRemoteWishlist value) toggleRemoteWishlist,
+    required TResult Function(_RefreshProducts value) refreshProducts,
+    required TResult Function(_UpdateProductInList value) updateProductInList,
+    required TResult Function(_GetNextProducts value) getNextProducts,
+    required TResult Function(_SearchProducts value) searchProducts,
+    required TResult Function(_ChangeFilter value) changeFilter,
+  }) {
+    return searchProducts(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_ToggleWishlist value)? toggleWishlist,
+    TResult? Function(_ToggleRemoteWishlist value)? toggleRemoteWishlist,
+    TResult? Function(_RefreshProducts value)? refreshProducts,
+    TResult? Function(_UpdateProductInList value)? updateProductInList,
+    TResult? Function(_GetNextProducts value)? getNextProducts,
+    TResult? Function(_SearchProducts value)? searchProducts,
+    TResult? Function(_ChangeFilter value)? changeFilter,
+  }) {
+    return searchProducts?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_ToggleWishlist value)? toggleWishlist,
+    TResult Function(_ToggleRemoteWishlist value)? toggleRemoteWishlist,
+    TResult Function(_RefreshProducts value)? refreshProducts,
+    TResult Function(_UpdateProductInList value)? updateProductInList,
+    TResult Function(_GetNextProducts value)? getNextProducts,
+    TResult Function(_SearchProducts value)? searchProducts,
+    TResult Function(_ChangeFilter value)? changeFilter,
+    required TResult orElse(),
+  }) {
+    if (searchProducts != null) {
+      return searchProducts(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SearchProducts implements WishlistEvent {
+  const factory _SearchProducts(final String query) = _$_SearchProducts;
+
+  String get query;
+  @JsonKey(ignore: true)
+  _$$_SearchProductsCopyWith<_$_SearchProducts> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_ChangeFilterCopyWith<$Res> {
+  factory _$$_ChangeFilterCopyWith(
+          _$_ChangeFilter value, $Res Function(_$_ChangeFilter) then) =
+      __$$_ChangeFilterCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ProductsFilter filter});
+}
+
+/// @nodoc
+class __$$_ChangeFilterCopyWithImpl<$Res>
+    extends _$WishlistEventCopyWithImpl<$Res, _$_ChangeFilter>
+    implements _$$_ChangeFilterCopyWith<$Res> {
+  __$$_ChangeFilterCopyWithImpl(
+      _$_ChangeFilter _value, $Res Function(_$_ChangeFilter) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? filter = null,
+  }) {
+    return _then(_$_ChangeFilter(
+      null == filter
+          ? _value.filter
+          : filter // ignore: cast_nullable_to_non_nullable
+              as ProductsFilter,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ChangeFilter implements _ChangeFilter {
+  const _$_ChangeFilter(this.filter);
+
+  @override
+  final ProductsFilter filter;
+
+  @override
+  String toString() {
+    return 'WishlistEvent.changeFilter(filter: $filter)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeFilter &&
+            (identical(other.filter, filter) || other.filter == filter));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, filter);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ChangeFilterCopyWith<_$_ChangeFilter> get copyWith =>
+      __$$_ChangeFilterCopyWithImpl<_$_ChangeFilter>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(Product product) toggleWishlist,
+    required TResult Function(Product product, int? productIndex)
+        toggleRemoteWishlist,
+    required TResult Function() refreshProducts,
+    required TResult Function(Product product) updateProductInList,
+    required TResult Function() getNextProducts,
+    required TResult Function(String query) searchProducts,
+    required TResult Function(ProductsFilter filter) changeFilter,
+  }) {
+    return changeFilter(filter);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(Product product)? toggleWishlist,
+    TResult? Function(Product product, int? productIndex)? toggleRemoteWishlist,
+    TResult? Function()? refreshProducts,
+    TResult? Function(Product product)? updateProductInList,
+    TResult? Function()? getNextProducts,
+    TResult? Function(String query)? searchProducts,
+    TResult? Function(ProductsFilter filter)? changeFilter,
+  }) {
+    return changeFilter?.call(filter);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(Product product)? toggleWishlist,
+    TResult Function(Product product, int? productIndex)? toggleRemoteWishlist,
+    TResult Function()? refreshProducts,
+    TResult Function(Product product)? updateProductInList,
+    TResult Function()? getNextProducts,
+    TResult Function(String query)? searchProducts,
+    TResult Function(ProductsFilter filter)? changeFilter,
+    required TResult orElse(),
+  }) {
+    if (changeFilter != null) {
+      return changeFilter(filter);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_ToggleWishlist value) toggleWishlist,
+    required TResult Function(_ToggleRemoteWishlist value) toggleRemoteWishlist,
+    required TResult Function(_RefreshProducts value) refreshProducts,
+    required TResult Function(_UpdateProductInList value) updateProductInList,
+    required TResult Function(_GetNextProducts value) getNextProducts,
+    required TResult Function(_SearchProducts value) searchProducts,
+    required TResult Function(_ChangeFilter value) changeFilter,
+  }) {
+    return changeFilter(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_ToggleWishlist value)? toggleWishlist,
+    TResult? Function(_ToggleRemoteWishlist value)? toggleRemoteWishlist,
+    TResult? Function(_RefreshProducts value)? refreshProducts,
+    TResult? Function(_UpdateProductInList value)? updateProductInList,
+    TResult? Function(_GetNextProducts value)? getNextProducts,
+    TResult? Function(_SearchProducts value)? searchProducts,
+    TResult? Function(_ChangeFilter value)? changeFilter,
+  }) {
+    return changeFilter?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_ToggleWishlist value)? toggleWishlist,
+    TResult Function(_ToggleRemoteWishlist value)? toggleRemoteWishlist,
+    TResult Function(_RefreshProducts value)? refreshProducts,
+    TResult Function(_UpdateProductInList value)? updateProductInList,
+    TResult Function(_GetNextProducts value)? getNextProducts,
+    TResult Function(_SearchProducts value)? searchProducts,
+    TResult Function(_ChangeFilter value)? changeFilter,
+    required TResult orElse(),
+  }) {
+    if (changeFilter != null) {
+      return changeFilter(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangeFilter implements WishlistEvent {
+  const factory _ChangeFilter(final ProductsFilter filter) = _$_ChangeFilter;
+
+  ProductsFilter get filter;
+  @JsonKey(ignore: true)
+  _$$_ChangeFilterCopyWith<_$_ChangeFilter> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+WishlistState _$WishlistStateFromJson(Map<String, dynamic> json) {
+  return _WishlistState.fromJson(json);
 }
 
 /// @nodoc
 mixin _$WishlistState {
   Info get info => throw _privateConstructorUsedError;
-  List<Product> get wishlist => throw _privateConstructorUsedError;
+  List<Product> get products => throw _privateConstructorUsedError;
   ProductsFilter get filter => throw _privateConstructorUsedError;
   WishlistStatus get status => throw _privateConstructorUsedError;
   Failure get failure => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $WishlistStateCopyWith<WishlistState> get copyWith =>
       throw _privateConstructorUsedError;
@@ -632,7 +1419,7 @@ abstract class $WishlistStateCopyWith<$Res> {
   @useResult
   $Res call(
       {Info info,
-      List<Product> wishlist,
+      List<Product> products,
       ProductsFilter filter,
       WishlistStatus status,
       Failure failure});
@@ -654,7 +1441,7 @@ class _$WishlistStateCopyWithImpl<$Res, $Val extends WishlistState>
   @override
   $Res call({
     Object? info = null,
-    Object? wishlist = null,
+    Object? products = null,
     Object? filter = null,
     Object? status = null,
     Object? failure = null,
@@ -664,9 +1451,9 @@ class _$WishlistStateCopyWithImpl<$Res, $Val extends WishlistState>
           ? _value.info
           : info // ignore: cast_nullable_to_non_nullable
               as Info,
-      wishlist: null == wishlist
-          ? _value.wishlist
-          : wishlist // ignore: cast_nullable_to_non_nullable
+      products: null == products
+          ? _value.products
+          : products // ignore: cast_nullable_to_non_nullable
               as List<Product>,
       filter: null == filter
           ? _value.filter
@@ -702,7 +1489,7 @@ abstract class _$$_WishlistStateCopyWith<$Res>
   @useResult
   $Res call(
       {Info info,
-      List<Product> wishlist,
+      List<Product> products,
       ProductsFilter filter,
       WishlistStatus status,
       Failure failure});
@@ -723,7 +1510,7 @@ class __$$_WishlistStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? info = null,
-    Object? wishlist = null,
+    Object? products = null,
     Object? filter = null,
     Object? status = null,
     Object? failure = null,
@@ -733,9 +1520,9 @@ class __$$_WishlistStateCopyWithImpl<$Res>
           ? _value.info
           : info // ignore: cast_nullable_to_non_nullable
               as Info,
-      wishlist: null == wishlist
-          ? _value._wishlist
-          : wishlist // ignore: cast_nullable_to_non_nullable
+      products: null == products
+          ? _value._products
+          : products // ignore: cast_nullable_to_non_nullable
               as List<Product>,
       filter: null == filter
           ? _value.filter
@@ -754,27 +1541,30 @@ class __$$_WishlistStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_WishlistState extends _WishlistState {
   const _$_WishlistState(
       {this.info = const Info.initial(),
-      final List<Product> wishlist = const [],
+      final List<Product> products = const [],
       this.filter = const ProductsFilter(),
       this.status = WishlistStatus.initial,
       this.failure = const CasualFailure()})
-      : _wishlist = wishlist,
+      : _products = products,
         super._();
+
+  factory _$_WishlistState.fromJson(Map<String, dynamic> json) =>
+      _$$_WishlistStateFromJson(json);
 
   @override
   @JsonKey()
   final Info info;
-  final List<Product> _wishlist;
+  final List<Product> _products;
   @override
   @JsonKey()
-  List<Product> get wishlist {
-    if (_wishlist is EqualUnmodifiableListView) return _wishlist;
+  List<Product> get products {
+    if (_products is EqualUnmodifiableListView) return _products;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_wishlist);
+    return EqualUnmodifiableListView(_products);
   }
 
   @override
@@ -789,7 +1579,7 @@ class _$_WishlistState extends _WishlistState {
 
   @override
   String toString() {
-    return 'WishlistState(info: $info, wishlist: $wishlist, filter: $filter, status: $status, failure: $failure)';
+    return 'WishlistState(info: $info, products: $products, filter: $filter, status: $status, failure: $failure)';
   }
 
   @override
@@ -798,36 +1588,47 @@ class _$_WishlistState extends _WishlistState {
         (other.runtimeType == runtimeType &&
             other is _$_WishlistState &&
             (identical(other.info, info) || other.info == info) &&
-            const DeepCollectionEquality().equals(other._wishlist, _wishlist) &&
+            const DeepCollectionEquality().equals(other._products, _products) &&
             (identical(other.filter, filter) || other.filter == filter) &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.failure, failure) || other.failure == failure));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, info,
-      const DeepCollectionEquality().hash(_wishlist), filter, status, failure);
+      const DeepCollectionEquality().hash(_products), filter, status, failure);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$_WishlistStateCopyWith<_$_WishlistState> get copyWith =>
       __$$_WishlistStateCopyWithImpl<_$_WishlistState>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_WishlistStateToJson(
+      this,
+    );
+  }
 }
 
 abstract class _WishlistState extends WishlistState {
   const factory _WishlistState(
       {final Info info,
-      final List<Product> wishlist,
+      final List<Product> products,
       final ProductsFilter filter,
       final WishlistStatus status,
       final Failure failure}) = _$_WishlistState;
   const _WishlistState._() : super._();
 
+  factory _WishlistState.fromJson(Map<String, dynamic> json) =
+      _$_WishlistState.fromJson;
+
   @override
   Info get info;
   @override
-  List<Product> get wishlist;
+  List<Product> get products;
   @override
   ProductsFilter get filter;
   @override

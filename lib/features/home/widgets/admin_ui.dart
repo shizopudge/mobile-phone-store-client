@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../products/presentation/pages/search_products_page.dart';
+import '../../products/presentation/pages/browse_products_page.dart';
 import '../../profile/presentation/pages/profile_page.dart';
 import 'home_body.dart';
 
@@ -13,7 +13,7 @@ class AdminUI extends StatelessWidget {
   Widget build(BuildContext context) {
     return const HomeBody(
       pages: [
-        SearchProductsPage(),
+        BrowseProductsPage(),
         Center(
           child: Text(
             'Add',
@@ -26,7 +26,7 @@ class AdminUI extends StatelessWidget {
           icon: Icon(
             Icons.search_rounded,
           ),
-          label: 'Search',
+          label: 'Browse',
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.add_rounded),
@@ -42,7 +42,7 @@ class AdminUI extends StatelessWidget {
           icon: Icon(
             Icons.search_rounded,
           ),
-          label: Text('Search'),
+          label: Text('Browse'),
         ),
         NavigationRailDestination(
           icon: Icon(Icons.add_rounded),
@@ -58,7 +58,7 @@ class AdminUI extends StatelessWidget {
           icon: Icon(
             Icons.search_rounded,
           ),
-          text: 'Search',
+          text: 'Browse',
         ),
         Tab(
           icon: Icon(

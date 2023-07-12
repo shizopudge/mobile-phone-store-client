@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'search_products_bloc.dart';
+part of 'browse_products_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$SearchProductsEvent {
+mixin _$BrowseProductsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
@@ -81,16 +81,16 @@ mixin _$SearchProductsEvent {
 }
 
 /// @nodoc
-abstract class $SearchProductsEventCopyWith<$Res> {
-  factory $SearchProductsEventCopyWith(
-          SearchProductsEvent value, $Res Function(SearchProductsEvent) then) =
-      _$SearchProductsEventCopyWithImpl<$Res, SearchProductsEvent>;
+abstract class $BrowseProductsEventCopyWith<$Res> {
+  factory $BrowseProductsEventCopyWith(
+          BrowseProductsEvent value, $Res Function(BrowseProductsEvent) then) =
+      _$BrowseProductsEventCopyWithImpl<$Res, BrowseProductsEvent>;
 }
 
 /// @nodoc
-class _$SearchProductsEventCopyWithImpl<$Res, $Val extends SearchProductsEvent>
-    implements $SearchProductsEventCopyWith<$Res> {
-  _$SearchProductsEventCopyWithImpl(this._value, this._then);
+class _$BrowseProductsEventCopyWithImpl<$Res, $Val extends BrowseProductsEvent>
+    implements $BrowseProductsEventCopyWith<$Res> {
+  _$BrowseProductsEventCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -107,7 +107,7 @@ abstract class _$$_InitialCopyWith<$Res> {
 
 /// @nodoc
 class __$$_InitialCopyWithImpl<$Res>
-    extends _$SearchProductsEventCopyWithImpl<$Res, _$_Initial>
+    extends _$BrowseProductsEventCopyWithImpl<$Res, _$_Initial>
     implements _$$_InitialCopyWith<$Res> {
   __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
       : super(_value, _then);
@@ -120,7 +120,7 @@ class _$_Initial implements _Initial {
 
   @override
   String toString() {
-    return 'SearchProductsEvent.initial()';
+    return 'BrowseProductsEvent.initial()';
   }
 
   @override
@@ -219,7 +219,7 @@ class _$_Initial implements _Initial {
   }
 }
 
-abstract class _Initial implements SearchProductsEvent {
+abstract class _Initial implements BrowseProductsEvent {
   const factory _Initial() = _$_Initial;
 }
 
@@ -232,7 +232,7 @@ abstract class _$$_RefreshProductsCopyWith<$Res> {
 
 /// @nodoc
 class __$$_RefreshProductsCopyWithImpl<$Res>
-    extends _$SearchProductsEventCopyWithImpl<$Res, _$_RefreshProducts>
+    extends _$BrowseProductsEventCopyWithImpl<$Res, _$_RefreshProducts>
     implements _$$_RefreshProductsCopyWith<$Res> {
   __$$_RefreshProductsCopyWithImpl(
       _$_RefreshProducts _value, $Res Function(_$_RefreshProducts) _then)
@@ -246,7 +246,7 @@ class _$_RefreshProducts implements _RefreshProducts {
 
   @override
   String toString() {
-    return 'SearchProductsEvent.refreshProducts()';
+    return 'BrowseProductsEvent.refreshProducts()';
   }
 
   @override
@@ -345,7 +345,7 @@ class _$_RefreshProducts implements _RefreshProducts {
   }
 }
 
-abstract class _RefreshProducts implements SearchProductsEvent {
+abstract class _RefreshProducts implements BrowseProductsEvent {
   const factory _RefreshProducts() = _$_RefreshProducts;
 }
 
@@ -358,7 +358,7 @@ abstract class _$$_GetNextProductsCopyWith<$Res> {
 
 /// @nodoc
 class __$$_GetNextProductsCopyWithImpl<$Res>
-    extends _$SearchProductsEventCopyWithImpl<$Res, _$_GetNextProducts>
+    extends _$BrowseProductsEventCopyWithImpl<$Res, _$_GetNextProducts>
     implements _$$_GetNextProductsCopyWith<$Res> {
   __$$_GetNextProductsCopyWithImpl(
       _$_GetNextProducts _value, $Res Function(_$_GetNextProducts) _then)
@@ -372,7 +372,7 @@ class _$_GetNextProducts implements _GetNextProducts {
 
   @override
   String toString() {
-    return 'SearchProductsEvent.getNextProducts()';
+    return 'BrowseProductsEvent.getNextProducts()';
   }
 
   @override
@@ -471,7 +471,7 @@ class _$_GetNextProducts implements _GetNextProducts {
   }
 }
 
-abstract class _GetNextProducts implements SearchProductsEvent {
+abstract class _GetNextProducts implements BrowseProductsEvent {
   const factory _GetNextProducts() = _$_GetNextProducts;
 }
 
@@ -486,7 +486,7 @@ abstract class _$$_SearchProductsCopyWith<$Res> {
 
 /// @nodoc
 class __$$_SearchProductsCopyWithImpl<$Res>
-    extends _$SearchProductsEventCopyWithImpl<$Res, _$_SearchProducts>
+    extends _$BrowseProductsEventCopyWithImpl<$Res, _$_SearchProducts>
     implements _$$_SearchProductsCopyWith<$Res> {
   __$$_SearchProductsCopyWithImpl(
       _$_SearchProducts _value, $Res Function(_$_SearchProducts) _then)
@@ -516,7 +516,7 @@ class _$_SearchProducts implements _SearchProducts {
 
   @override
   String toString() {
-    return 'SearchProductsEvent.searchProducts(query: $query)';
+    return 'BrowseProductsEvent.searchProducts(query: $query)';
   }
 
   @override
@@ -623,7 +623,7 @@ class _$_SearchProducts implements _SearchProducts {
   }
 }
 
-abstract class _SearchProducts implements SearchProductsEvent {
+abstract class _SearchProducts implements BrowseProductsEvent {
   const factory _SearchProducts(final String query) = _$_SearchProducts;
 
   String get query;
@@ -643,7 +643,7 @@ abstract class _$$_UpdateProductInListCopyWith<$Res> {
 
 /// @nodoc
 class __$$_UpdateProductInListCopyWithImpl<$Res>
-    extends _$SearchProductsEventCopyWithImpl<$Res, _$_UpdateProductInList>
+    extends _$BrowseProductsEventCopyWithImpl<$Res, _$_UpdateProductInList>
     implements _$$_UpdateProductInListCopyWith<$Res> {
   __$$_UpdateProductInListCopyWithImpl(_$_UpdateProductInList _value,
       $Res Function(_$_UpdateProductInList) _then)
@@ -673,7 +673,7 @@ class _$_UpdateProductInList implements _UpdateProductInList {
 
   @override
   String toString() {
-    return 'SearchProductsEvent.updateProductInList(product: $product)';
+    return 'BrowseProductsEvent.updateProductInList(product: $product)';
   }
 
   @override
@@ -781,7 +781,7 @@ class _$_UpdateProductInList implements _UpdateProductInList {
   }
 }
 
-abstract class _UpdateProductInList implements SearchProductsEvent {
+abstract class _UpdateProductInList implements BrowseProductsEvent {
   const factory _UpdateProductInList(final Product product) =
       _$_UpdateProductInList;
 
@@ -802,7 +802,7 @@ abstract class _$$_ChangeFilterCopyWith<$Res> {
 
 /// @nodoc
 class __$$_ChangeFilterCopyWithImpl<$Res>
-    extends _$SearchProductsEventCopyWithImpl<$Res, _$_ChangeFilter>
+    extends _$BrowseProductsEventCopyWithImpl<$Res, _$_ChangeFilter>
     implements _$$_ChangeFilterCopyWith<$Res> {
   __$$_ChangeFilterCopyWithImpl(
       _$_ChangeFilter _value, $Res Function(_$_ChangeFilter) _then)
@@ -832,7 +832,7 @@ class _$_ChangeFilter implements _ChangeFilter {
 
   @override
   String toString() {
-    return 'SearchProductsEvent.changeFilter(filter: $filter)';
+    return 'BrowseProductsEvent.changeFilter(filter: $filter)';
   }
 
   @override
@@ -939,7 +939,7 @@ class _$_ChangeFilter implements _ChangeFilter {
   }
 }
 
-abstract class _ChangeFilter implements SearchProductsEvent {
+abstract class _ChangeFilter implements BrowseProductsEvent {
   const factory _ChangeFilter(final ProductsFilter filter) = _$_ChangeFilter;
 
   ProductsFilter get filter;
@@ -948,44 +948,44 @@ abstract class _ChangeFilter implements SearchProductsEvent {
       throw _privateConstructorUsedError;
 }
 
-SearchProductsState _$SearchProductsStateFromJson(Map<String, dynamic> json) {
-  return _SearchProductsState.fromJson(json);
+BrowseProductsState _$BrowseProductsStateFromJson(Map<String, dynamic> json) {
+  return _BrowseProductsState.fromJson(json);
 }
 
 /// @nodoc
-mixin _$SearchProductsState {
+mixin _$BrowseProductsState {
   Info get info => throw _privateConstructorUsedError;
   List<Product> get products => throw _privateConstructorUsedError;
   ProductsFilter get filter => throw _privateConstructorUsedError;
-  SearchProductsStatus get status => throw _privateConstructorUsedError;
+  BrowseProductsStatus get status => throw _privateConstructorUsedError;
   Failure get failure => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $SearchProductsStateCopyWith<SearchProductsState> get copyWith =>
+  $BrowseProductsStateCopyWith<BrowseProductsState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SearchProductsStateCopyWith<$Res> {
-  factory $SearchProductsStateCopyWith(
-          SearchProductsState value, $Res Function(SearchProductsState) then) =
-      _$SearchProductsStateCopyWithImpl<$Res, SearchProductsState>;
+abstract class $BrowseProductsStateCopyWith<$Res> {
+  factory $BrowseProductsStateCopyWith(
+          BrowseProductsState value, $Res Function(BrowseProductsState) then) =
+      _$BrowseProductsStateCopyWithImpl<$Res, BrowseProductsState>;
   @useResult
   $Res call(
       {Info info,
       List<Product> products,
       ProductsFilter filter,
-      SearchProductsStatus status,
+      BrowseProductsStatus status,
       Failure failure});
 
   $FailureCopyWith<$Res> get failure;
 }
 
 /// @nodoc
-class _$SearchProductsStateCopyWithImpl<$Res, $Val extends SearchProductsState>
-    implements $SearchProductsStateCopyWith<$Res> {
-  _$SearchProductsStateCopyWithImpl(this._value, this._then);
+class _$BrowseProductsStateCopyWithImpl<$Res, $Val extends BrowseProductsState>
+    implements $BrowseProductsStateCopyWith<$Res> {
+  _$BrowseProductsStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -1017,7 +1017,7 @@ class _$SearchProductsStateCopyWithImpl<$Res, $Val extends SearchProductsState>
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as SearchProductsStatus,
+              as BrowseProductsStatus,
       failure: null == failure
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
@@ -1035,18 +1035,18 @@ class _$SearchProductsStateCopyWithImpl<$Res, $Val extends SearchProductsState>
 }
 
 /// @nodoc
-abstract class _$$_SearchProductsStateCopyWith<$Res>
-    implements $SearchProductsStateCopyWith<$Res> {
-  factory _$$_SearchProductsStateCopyWith(_$_SearchProductsState value,
-          $Res Function(_$_SearchProductsState) then) =
-      __$$_SearchProductsStateCopyWithImpl<$Res>;
+abstract class _$$_BrowseProductsStateCopyWith<$Res>
+    implements $BrowseProductsStateCopyWith<$Res> {
+  factory _$$_BrowseProductsStateCopyWith(_$_BrowseProductsState value,
+          $Res Function(_$_BrowseProductsState) then) =
+      __$$_BrowseProductsStateCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
       {Info info,
       List<Product> products,
       ProductsFilter filter,
-      SearchProductsStatus status,
+      BrowseProductsStatus status,
       Failure failure});
 
   @override
@@ -1054,11 +1054,11 @@ abstract class _$$_SearchProductsStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_SearchProductsStateCopyWithImpl<$Res>
-    extends _$SearchProductsStateCopyWithImpl<$Res, _$_SearchProductsState>
-    implements _$$_SearchProductsStateCopyWith<$Res> {
-  __$$_SearchProductsStateCopyWithImpl(_$_SearchProductsState _value,
-      $Res Function(_$_SearchProductsState) _then)
+class __$$_BrowseProductsStateCopyWithImpl<$Res>
+    extends _$BrowseProductsStateCopyWithImpl<$Res, _$_BrowseProductsState>
+    implements _$$_BrowseProductsStateCopyWith<$Res> {
+  __$$_BrowseProductsStateCopyWithImpl(_$_BrowseProductsState _value,
+      $Res Function(_$_BrowseProductsState) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1070,7 +1070,7 @@ class __$$_SearchProductsStateCopyWithImpl<$Res>
     Object? status = null,
     Object? failure = null,
   }) {
-    return _then(_$_SearchProductsState(
+    return _then(_$_BrowseProductsState(
       info: null == info
           ? _value.info
           : info // ignore: cast_nullable_to_non_nullable
@@ -1086,7 +1086,7 @@ class __$$_SearchProductsStateCopyWithImpl<$Res>
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as SearchProductsStatus,
+              as BrowseProductsStatus,
       failure: null == failure
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
@@ -1097,18 +1097,18 @@ class __$$_SearchProductsStateCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_SearchProductsState extends _SearchProductsState {
-  const _$_SearchProductsState(
+class _$_BrowseProductsState extends _BrowseProductsState {
+  const _$_BrowseProductsState(
       {this.info = const Info.initial(),
       final List<Product> products = const [],
       this.filter = const ProductsFilter(),
-      this.status = SearchProductsStatus.initial,
+      this.status = BrowseProductsStatus.initial,
       this.failure = const CasualFailure()})
       : _products = products,
         super._();
 
-  factory _$_SearchProductsState.fromJson(Map<String, dynamic> json) =>
-      _$$_SearchProductsStateFromJson(json);
+  factory _$_BrowseProductsState.fromJson(Map<String, dynamic> json) =>
+      _$$_BrowseProductsStateFromJson(json);
 
   @override
   @JsonKey()
@@ -1127,21 +1127,21 @@ class _$_SearchProductsState extends _SearchProductsState {
   final ProductsFilter filter;
   @override
   @JsonKey()
-  final SearchProductsStatus status;
+  final BrowseProductsStatus status;
   @override
   @JsonKey()
   final Failure failure;
 
   @override
   String toString() {
-    return 'SearchProductsState(info: $info, products: $products, filter: $filter, status: $status, failure: $failure)';
+    return 'BrowseProductsState(info: $info, products: $products, filter: $filter, status: $status, failure: $failure)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SearchProductsState &&
+            other is _$_BrowseProductsState &&
             (identical(other.info, info) || other.info == info) &&
             const DeepCollectionEquality().equals(other._products, _products) &&
             (identical(other.filter, filter) || other.filter == filter) &&
@@ -1157,29 +1157,29 @@ class _$_SearchProductsState extends _SearchProductsState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SearchProductsStateCopyWith<_$_SearchProductsState> get copyWith =>
-      __$$_SearchProductsStateCopyWithImpl<_$_SearchProductsState>(
+  _$$_BrowseProductsStateCopyWith<_$_BrowseProductsState> get copyWith =>
+      __$$_BrowseProductsStateCopyWithImpl<_$_BrowseProductsState>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SearchProductsStateToJson(
+    return _$$_BrowseProductsStateToJson(
       this,
     );
   }
 }
 
-abstract class _SearchProductsState extends SearchProductsState {
-  const factory _SearchProductsState(
+abstract class _BrowseProductsState extends BrowseProductsState {
+  const factory _BrowseProductsState(
       {final Info info,
       final List<Product> products,
       final ProductsFilter filter,
-      final SearchProductsStatus status,
-      final Failure failure}) = _$_SearchProductsState;
-  const _SearchProductsState._() : super._();
+      final BrowseProductsStatus status,
+      final Failure failure}) = _$_BrowseProductsState;
+  const _BrowseProductsState._() : super._();
 
-  factory _SearchProductsState.fromJson(Map<String, dynamic> json) =
-      _$_SearchProductsState.fromJson;
+  factory _BrowseProductsState.fromJson(Map<String, dynamic> json) =
+      _$_BrowseProductsState.fromJson;
 
   @override
   Info get info;
@@ -1188,11 +1188,11 @@ abstract class _SearchProductsState extends SearchProductsState {
   @override
   ProductsFilter get filter;
   @override
-  SearchProductsStatus get status;
+  BrowseProductsStatus get status;
   @override
   Failure get failure;
   @override
   @JsonKey(ignore: true)
-  _$$_SearchProductsStateCopyWith<_$_SearchProductsState> get copyWith =>
+  _$$_BrowseProductsStateCopyWith<_$_BrowseProductsState> get copyWith =>
       throw _privateConstructorUsedError;
 }

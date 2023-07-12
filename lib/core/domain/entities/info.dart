@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-import '../../data/models/info/items_info_model.dart';
+import '../../data/models/info/info_model.dart';
 
 class Info extends Equatable {
   final int currentPage;

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../cart/presentation/pages/cart_page.dart';
-import '../../products/presentation/pages/search_products_page.dart';
+import '../../products/presentation/pages/browse_products_page.dart';
 import '../../profile/presentation/pages/profile_page.dart';
 import '../../wishlist/presentation/pages/wishlist_page.dart';
 import 'home_body.dart';
@@ -15,7 +15,7 @@ class UserUI extends StatelessWidget {
   Widget build(BuildContext context) {
     return const HomeBody(
       pages: [
-        SearchProductsPage(),
+        BrowseProductsPage(),
         WishlistPage(),
         CartPage(),
         ProfilePage(),
@@ -25,7 +25,7 @@ class UserUI extends StatelessWidget {
             icon: Icon(
               Icons.search_rounded,
             ),
-            label: 'Search'),
+            label: 'Browse'),
         BottomNavigationBarItem(
             icon: Icon(
               Icons.favorite_rounded,
@@ -47,7 +47,7 @@ class UserUI extends StatelessWidget {
             icon: Icon(
               Icons.search_rounded,
             ),
-            label: Text('Search')),
+            label: Text('Browse')),
         NavigationRailDestination(
             icon: Icon(
               Icons.favorite_rounded,
@@ -69,7 +69,7 @@ class UserUI extends StatelessWidget {
             icon: Icon(
               Icons.search_rounded,
             ),
-            text: 'Search'),
+            text: 'Browse'),
         Tab(
             icon: Icon(
               Icons.favorite_rounded,

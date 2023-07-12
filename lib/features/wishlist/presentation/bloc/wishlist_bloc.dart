@@ -1,99 +1,202 @@
 import 'dart:async';
 
-import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
+import '../../../../core/domain/entities/cart_wishlist_response.dart';
+import 'package:rxdart/rxdart.dart';
 
+import '../../../../core/constants/type_defs.dart';
 import '../../../../core/domain/entities/info.dart';
 import '../../../../core/domain/entities/product.dart';
 import '../../../../core/domain/entities/products_filter.dart';
 import '../../../../core/domain/usecases/products/toggle_wishlist.dart';
-import '../../../../core/domain/usecases/usecase.dart';
 import '../../../../core/failure/failure.dart';
-import '../../../../core/utils/debouncer.dart';
 import '../../domain/usecases/get_wishlist.dart';
 
 part 'wishlist_bloc.freezed.dart';
+part 'wishlist_bloc.g.dart';
 part 'wishlist_event.dart';
 part 'wishlist_state.dart';
 
-class WishlistBloc extends Bloc<WishlistEvent, WishlistState> {
+class WishlistBloc extends Bloc<WishlistEvent, WishlistState>
+    with HydratedMixin {
   WishlistBloc({
     required GetWishlist getWishlistUsecase,
     required ToggleWishlist toggleWishlistUsecase,
   })  : _getWishlistUsecase = getWishlistUsecase,
         _toggleWishlistUsecase = toggleWishlistUsecase,
         super(const WishlistState()) {
-    on<_GetWishlist>(_getWishlist);
-    on<_RefreshWishlist>(_refreshWishlist);
+    on<_Initial>(_initial);
+    on<_RefreshProducts>(_refreshProducts);
     on<_ToggleWishlist>(_toggleWishlist);
-    on<_ChangeWishlist>(_changeWishlist);
+    on<_ToggleRemoteWishlist>(_toggleRemoteWishlist,
+        transformer: (events, mapper) => events
+            .debounceTime(const Duration(milliseconds: 500))
+            .switchMap(mapper));
+    on<_GetNextProducts>(_getNextProducts);
+    on<_SearchProducts>(_searchProducts);
+    on<_UpdateProductInList>(_updateProductInList);
+    on<_ChangeFilter>(_changeFilter);
   }
 
   final GetWishlist _getWishlistUsecase;
   final ToggleWishlist _toggleWishlistUsecase;
 
-  final FutureDebouncer _futureDebouncer = FutureDebouncer(milliseconds: 500);
-
-  FutureOr<void> _getWishlist(
-      _GetWishlist event, Emitter<WishlistState> emit) async {
+  FutureOr<void> _initial(_Initial event, Emitter<WishlistState> emit) async {
     emit(state.copyWith(status: WishlistStatus.loading));
-    final res = await _getWishlistUsecase.call(NoParams());
+    final res = await _getManyProducts();
     res.fold(
-        (failure) => _throwFailure(emit, failure),
-        (r) => emit(state.copyWith(
-            status: WishlistStatus.success,
-            info: r.info,
-            wishlist: r.products)));
-  }
-
-  FutureOr<void> _refreshWishlist(
-      _RefreshWishlist event, Emitter<WishlistState> emit) async {
-    if (!state.isRefreshing) {
-      emit(state.copyWith(status: WishlistStatus.refreshing));
-      final res = await _getWishlistUsecase.call(NoParams());
-      res.fold(
-          (failure) => _throwFailure(emit, failure),
-          (r) => emit(state.copyWith(
-              status: WishlistStatus.success,
-              info: r.info,
-              wishlist: r.products)));
-    }
+      (failure) => _throwFailure(emit, failure),
+      (r) => emit(
+        state.copyWith(
+          status: WishlistStatus.success,
+          info: r.info,
+          products: r.products,
+        ),
+      ),
+    );
   }
 
   FutureOr<void> _toggleWishlist(
       _ToggleWishlist event, Emitter<WishlistState> emit) async {
-    final List<Product> wislist = state.wishlist;
-    List<Product> updatedWishlist = [...wislist];
-    if (wislist.contains(event.product)) {
-      final int productIndex = wislist.indexOf(event.product);
-      updatedWishlist.removeAt(productIndex);
-      add(WishlistEvent.changeWishlist(updatedWishlist));
-      await _futureDebouncer.call(() async {
-        final res = await _toggleWishlistUsecase
-            .call(ToggleWishlistParams(id: event.product.id));
-        res.fold((failure) {
-          updatedWishlist.insert(productIndex, event.product);
-          add(WishlistEvent.changeWishlist(updatedWishlist));
-          _throwFailure(emit, failure);
-        }, (r) => add(WishlistEvent.changeWishlist(r.products)));
-      });
+    List<Product> products = [...state.products];
+    final int productIndex = products.indexOf(event.product);
+    if (productIndex != -1) {
+      products.removeAt(productIndex);
+      emit(state.copyWith(products: products));
+      add(_ToggleRemoteWishlist(
+          product: event.product, productIndex: productIndex));
     } else {
-      updatedWishlist.add(event.product);
-      add(WishlistEvent.changeWishlist(updatedWishlist));
-      await _futureDebouncer.call(() async {
-        final res = await _toggleWishlistUsecase
-            .call(ToggleWishlistParams(id: event.product.id));
-        res.fold((failure) {
-          updatedWishlist.remove(event.product);
-          add(WishlistEvent.changeWishlist(updatedWishlist));
-          _throwFailure(emit, failure);
-        }, (r) => add(WishlistEvent.changeWishlist(updatedWishlist)));
-      });
+      products.insert(0, event.product);
+      emit(state.copyWith(products: products));
+      add(_ToggleRemoteWishlist(product: event.product, productIndex: null));
     }
   }
 
-  void _changeWishlist(_ChangeWishlist event, Emitter<WishlistState> emit) =>
-      emit(state.copyWith(wishlist: event.wishlist));
+  FutureOr<void> _toggleRemoteWishlist(
+      _ToggleRemoteWishlist event, Emitter<WishlistState> emit) async {
+    List<Product> products = [...state.products];
+    if (event.productIndex == null) {
+      final res = await _toggleWishlistUsecase
+          .call(ToggleWishlistParams(id: event.product.id));
+      res.fold((failure) {
+        products.remove(event.product);
+        emit(state.copyWith(products: products));
+        _throwFailure(emit, failure);
+      }, (r) => null);
+    } else {
+      final res = await _toggleWishlistUsecase
+          .call(ToggleWishlistParams(id: event.product.id));
+      res.fold((failure) {
+        products.insert(event.productIndex!, event.product);
+        emit(state.copyWith(products: products));
+        _throwFailure(emit, failure);
+      }, (r) => null);
+    }
+  }
+
+  FutureOr<void> _refreshProducts(
+      _RefreshProducts event, Emitter<WishlistState> emit) async {
+    if (!state.isRefreshing) {
+      emit(state.copyWith(
+          status: WishlistStatus.refreshing,
+          filter: state.filter.copyWith(page: 1)));
+      final res = await _getManyProducts();
+      res.fold(
+        (failure) => _throwFailure(emit, failure),
+        (r) => emit(
+          state.copyWith(
+            status: WishlistStatus.success,
+            products: r.products,
+            info: r.info,
+          ),
+        ),
+      );
+    }
+  }
+
+  FutureOr<void> _getNextProducts(
+      _GetNextProducts event, Emitter<WishlistState> emit) async {
+    if (!state.isLastPage && !state.isPaginating && !state.isRefreshing) {
+      emit(state.copyWith(
+          status: WishlistStatus.loading,
+          filter: state.filter.copyWith(page: state.filter.page + 1)));
+      final res = await _getManyProducts();
+      res.fold(
+        (failure) => _throwFailure(emit, failure),
+        (r) {
+          emit(
+            state.copyWith(
+              status: WishlistStatus.success,
+              info: r.info,
+              products: [...state.products, ...r.products],
+            ),
+          );
+        },
+      );
+    }
+  }
+
+  void _searchProducts(
+      _SearchProducts event, Emitter<WishlistState> emit) async {
+    if (event.query != state.filter.query) {
+      emit(state.copyWith(
+          filter: state.filter.copyWith(query: event.query, page: 1),
+          status: WishlistStatus.refreshing));
+      final res = await _getManyProducts();
+      res.fold(
+        (failure) => _throwFailure(emit, failure),
+        (r) => emit(
+          state.copyWith(
+            status: WishlistStatus.success,
+            info: r.info,
+            products: r.products,
+          ),
+        ),
+      );
+    }
+  }
+
+  void _updateProductInList(
+      _UpdateProductInList event, Emitter<WishlistState> emit) {
+    final List<Product> products = [...state.products];
+    final int index =
+        products.indexWhere((product) => product.id == event.product.id);
+    if (index != -1) {
+      products[index] = event.product;
+      emit(state.copyWith(products: products));
+    }
+  }
+
+  void _changeFilter(_ChangeFilter event, Emitter<WishlistState> emit) async {
+    emit(state.copyWith(
+        filter: event.filter.copyWith(page: 1),
+        status: WishlistStatus.loading,
+        products: []));
+    final res = await _getManyProducts();
+    res.fold(
+      (failure) => _throwFailure(emit, failure),
+      (r) => emit(
+        state.copyWith(
+          status: WishlistStatus.success,
+          info: r.info,
+          products: r.products,
+        ),
+      ),
+    );
+  }
+
+  FutureEither<CartWishlistResponse> _getManyProducts() async =>
+      await _getWishlistUsecase.call(GetWishlistParams(
+        page: state.filter.page,
+        limit: state.filter.limit,
+        query: state.filter.query,
+        sort: state.filter.sort.toString(),
+        minCost: state.filter.minCost,
+        maxCost: state.filter.maxCost,
+        withDiscount: state.filter.withDiscount,
+        newArrival: state.filter.newArrival,
+      ));
 
   void _throwFailure(Emitter<WishlistState> emit, Failure failure) {
     emit(state.copyWith(status: WishlistStatus.failure, failure: failure));
@@ -102,8 +205,19 @@ class WishlistBloc extends Bloc<WishlistEvent, WishlistState> {
   }
 
   @override
-  Future<void> close() {
-    _futureDebouncer.dispose();
-    return super.close();
+  WishlistState? fromJson(Map<String, dynamic> json) =>
+      _WishlistState.fromJson(json);
+
+  @override
+  Map<String, dynamic>? toJson(WishlistState state) {
+    if (!state.isFailure &&
+        !state.isLoading &&
+        !state.isRefreshing &&
+        !state.isPaginating) {
+      return state
+          .copyWith(filter: state.filter.copyWith(page: 1, query: ''))
+          .toJson();
+    }
+    return null;
   }
 }

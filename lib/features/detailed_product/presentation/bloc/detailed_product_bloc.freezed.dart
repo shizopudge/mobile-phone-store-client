@@ -22,8 +22,6 @@ mixin _$DetailedProductEvent {
     required TResult Function(Product? product) changeProduct,
     required TResult Function(String? newColorCode) changeColor,
     required TResult Function(int? newStorage) changeStorage,
-    required TResult Function(Product product) toggleCart,
-    required TResult Function(Product product) toggleWishlist,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,8 +30,6 @@ mixin _$DetailedProductEvent {
     TResult? Function(Product? product)? changeProduct,
     TResult? Function(String? newColorCode)? changeColor,
     TResult? Function(int? newStorage)? changeStorage,
-    TResult? Function(Product product)? toggleCart,
-    TResult? Function(Product product)? toggleWishlist,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -42,8 +38,6 @@ mixin _$DetailedProductEvent {
     TResult Function(Product? product)? changeProduct,
     TResult Function(String? newColorCode)? changeColor,
     TResult Function(int? newStorage)? changeStorage,
-    TResult Function(Product product)? toggleCart,
-    TResult Function(Product product)? toggleWishlist,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -53,8 +47,6 @@ mixin _$DetailedProductEvent {
     required TResult Function(_ChangeProduct value) changeProduct,
     required TResult Function(_ChangeColor value) changeColor,
     required TResult Function(_ChangeStorage value) changeStorage,
-    required TResult Function(_ToggleCart value) toggleCart,
-    required TResult Function(_ToggleWishlist value) toggleWishlist,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,8 +55,6 @@ mixin _$DetailedProductEvent {
     TResult? Function(_ChangeProduct value)? changeProduct,
     TResult? Function(_ChangeColor value)? changeColor,
     TResult? Function(_ChangeStorage value)? changeStorage,
-    TResult? Function(_ToggleCart value)? toggleCart,
-    TResult? Function(_ToggleWishlist value)? toggleWishlist,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -73,8 +63,6 @@ mixin _$DetailedProductEvent {
     TResult Function(_ChangeProduct value)? changeProduct,
     TResult Function(_ChangeColor value)? changeColor,
     TResult Function(_ChangeStorage value)? changeStorage,
-    TResult Function(_ToggleCart value)? toggleCart,
-    TResult Function(_ToggleWishlist value)? toggleWishlist,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -186,8 +174,6 @@ class _$_GetOneProduct with DiagnosticableTreeMixin implements _GetOneProduct {
     required TResult Function(Product? product) changeProduct,
     required TResult Function(String? newColorCode) changeColor,
     required TResult Function(int? newStorage) changeStorage,
-    required TResult Function(Product product) toggleCart,
-    required TResult Function(Product product) toggleWishlist,
   }) {
     return getOneProduct(id, isInitial);
   }
@@ -199,8 +185,6 @@ class _$_GetOneProduct with DiagnosticableTreeMixin implements _GetOneProduct {
     TResult? Function(Product? product)? changeProduct,
     TResult? Function(String? newColorCode)? changeColor,
     TResult? Function(int? newStorage)? changeStorage,
-    TResult? Function(Product product)? toggleCart,
-    TResult? Function(Product product)? toggleWishlist,
   }) {
     return getOneProduct?.call(id, isInitial);
   }
@@ -212,8 +196,6 @@ class _$_GetOneProduct with DiagnosticableTreeMixin implements _GetOneProduct {
     TResult Function(Product? product)? changeProduct,
     TResult Function(String? newColorCode)? changeColor,
     TResult Function(int? newStorage)? changeStorage,
-    TResult Function(Product product)? toggleCart,
-    TResult Function(Product product)? toggleWishlist,
     required TResult orElse(),
   }) {
     if (getOneProduct != null) {
@@ -229,8 +211,6 @@ class _$_GetOneProduct with DiagnosticableTreeMixin implements _GetOneProduct {
     required TResult Function(_ChangeProduct value) changeProduct,
     required TResult Function(_ChangeColor value) changeColor,
     required TResult Function(_ChangeStorage value) changeStorage,
-    required TResult Function(_ToggleCart value) toggleCart,
-    required TResult Function(_ToggleWishlist value) toggleWishlist,
   }) {
     return getOneProduct(this);
   }
@@ -242,8 +222,6 @@ class _$_GetOneProduct with DiagnosticableTreeMixin implements _GetOneProduct {
     TResult? Function(_ChangeProduct value)? changeProduct,
     TResult? Function(_ChangeColor value)? changeColor,
     TResult? Function(_ChangeStorage value)? changeStorage,
-    TResult? Function(_ToggleCart value)? toggleCart,
-    TResult? Function(_ToggleWishlist value)? toggleWishlist,
   }) {
     return getOneProduct?.call(this);
   }
@@ -255,8 +233,6 @@ class _$_GetOneProduct with DiagnosticableTreeMixin implements _GetOneProduct {
     TResult Function(_ChangeProduct value)? changeProduct,
     TResult Function(_ChangeColor value)? changeColor,
     TResult Function(_ChangeStorage value)? changeStorage,
-    TResult Function(_ToggleCart value)? toggleCart,
-    TResult Function(_ToggleWishlist value)? toggleWishlist,
     required TResult orElse(),
   }) {
     if (getOneProduct != null) {
@@ -353,8 +329,6 @@ class _$_ChangeProduct with DiagnosticableTreeMixin implements _ChangeProduct {
     required TResult Function(Product? product) changeProduct,
     required TResult Function(String? newColorCode) changeColor,
     required TResult Function(int? newStorage) changeStorage,
-    required TResult Function(Product product) toggleCart,
-    required TResult Function(Product product) toggleWishlist,
   }) {
     return changeProduct(product);
   }
@@ -366,8 +340,6 @@ class _$_ChangeProduct with DiagnosticableTreeMixin implements _ChangeProduct {
     TResult? Function(Product? product)? changeProduct,
     TResult? Function(String? newColorCode)? changeColor,
     TResult? Function(int? newStorage)? changeStorage,
-    TResult? Function(Product product)? toggleCart,
-    TResult? Function(Product product)? toggleWishlist,
   }) {
     return changeProduct?.call(product);
   }
@@ -379,8 +351,6 @@ class _$_ChangeProduct with DiagnosticableTreeMixin implements _ChangeProduct {
     TResult Function(Product? product)? changeProduct,
     TResult Function(String? newColorCode)? changeColor,
     TResult Function(int? newStorage)? changeStorage,
-    TResult Function(Product product)? toggleCart,
-    TResult Function(Product product)? toggleWishlist,
     required TResult orElse(),
   }) {
     if (changeProduct != null) {
@@ -396,8 +366,6 @@ class _$_ChangeProduct with DiagnosticableTreeMixin implements _ChangeProduct {
     required TResult Function(_ChangeProduct value) changeProduct,
     required TResult Function(_ChangeColor value) changeColor,
     required TResult Function(_ChangeStorage value) changeStorage,
-    required TResult Function(_ToggleCart value) toggleCart,
-    required TResult Function(_ToggleWishlist value) toggleWishlist,
   }) {
     return changeProduct(this);
   }
@@ -409,8 +377,6 @@ class _$_ChangeProduct with DiagnosticableTreeMixin implements _ChangeProduct {
     TResult? Function(_ChangeProduct value)? changeProduct,
     TResult? Function(_ChangeColor value)? changeColor,
     TResult? Function(_ChangeStorage value)? changeStorage,
-    TResult? Function(_ToggleCart value)? toggleCart,
-    TResult? Function(_ToggleWishlist value)? toggleWishlist,
   }) {
     return changeProduct?.call(this);
   }
@@ -422,8 +388,6 @@ class _$_ChangeProduct with DiagnosticableTreeMixin implements _ChangeProduct {
     TResult Function(_ChangeProduct value)? changeProduct,
     TResult Function(_ChangeColor value)? changeColor,
     TResult Function(_ChangeStorage value)? changeStorage,
-    TResult Function(_ToggleCart value)? toggleCart,
-    TResult Function(_ToggleWishlist value)? toggleWishlist,
     required TResult orElse(),
   }) {
     if (changeProduct != null) {
@@ -519,8 +483,6 @@ class _$_ChangeColor with DiagnosticableTreeMixin implements _ChangeColor {
     required TResult Function(Product? product) changeProduct,
     required TResult Function(String? newColorCode) changeColor,
     required TResult Function(int? newStorage) changeStorage,
-    required TResult Function(Product product) toggleCart,
-    required TResult Function(Product product) toggleWishlist,
   }) {
     return changeColor(newColorCode);
   }
@@ -532,8 +494,6 @@ class _$_ChangeColor with DiagnosticableTreeMixin implements _ChangeColor {
     TResult? Function(Product? product)? changeProduct,
     TResult? Function(String? newColorCode)? changeColor,
     TResult? Function(int? newStorage)? changeStorage,
-    TResult? Function(Product product)? toggleCart,
-    TResult? Function(Product product)? toggleWishlist,
   }) {
     return changeColor?.call(newColorCode);
   }
@@ -545,8 +505,6 @@ class _$_ChangeColor with DiagnosticableTreeMixin implements _ChangeColor {
     TResult Function(Product? product)? changeProduct,
     TResult Function(String? newColorCode)? changeColor,
     TResult Function(int? newStorage)? changeStorage,
-    TResult Function(Product product)? toggleCart,
-    TResult Function(Product product)? toggleWishlist,
     required TResult orElse(),
   }) {
     if (changeColor != null) {
@@ -562,8 +520,6 @@ class _$_ChangeColor with DiagnosticableTreeMixin implements _ChangeColor {
     required TResult Function(_ChangeProduct value) changeProduct,
     required TResult Function(_ChangeColor value) changeColor,
     required TResult Function(_ChangeStorage value) changeStorage,
-    required TResult Function(_ToggleCart value) toggleCart,
-    required TResult Function(_ToggleWishlist value) toggleWishlist,
   }) {
     return changeColor(this);
   }
@@ -575,8 +531,6 @@ class _$_ChangeColor with DiagnosticableTreeMixin implements _ChangeColor {
     TResult? Function(_ChangeProduct value)? changeProduct,
     TResult? Function(_ChangeColor value)? changeColor,
     TResult? Function(_ChangeStorage value)? changeStorage,
-    TResult? Function(_ToggleCart value)? toggleCart,
-    TResult? Function(_ToggleWishlist value)? toggleWishlist,
   }) {
     return changeColor?.call(this);
   }
@@ -588,8 +542,6 @@ class _$_ChangeColor with DiagnosticableTreeMixin implements _ChangeColor {
     TResult Function(_ChangeProduct value)? changeProduct,
     TResult Function(_ChangeColor value)? changeColor,
     TResult Function(_ChangeStorage value)? changeStorage,
-    TResult Function(_ToggleCart value)? toggleCart,
-    TResult Function(_ToggleWishlist value)? toggleWishlist,
     required TResult orElse(),
   }) {
     if (changeColor != null) {
@@ -685,8 +637,6 @@ class _$_ChangeStorage with DiagnosticableTreeMixin implements _ChangeStorage {
     required TResult Function(Product? product) changeProduct,
     required TResult Function(String? newColorCode) changeColor,
     required TResult Function(int? newStorage) changeStorage,
-    required TResult Function(Product product) toggleCart,
-    required TResult Function(Product product) toggleWishlist,
   }) {
     return changeStorage(newStorage);
   }
@@ -698,8 +648,6 @@ class _$_ChangeStorage with DiagnosticableTreeMixin implements _ChangeStorage {
     TResult? Function(Product? product)? changeProduct,
     TResult? Function(String? newColorCode)? changeColor,
     TResult? Function(int? newStorage)? changeStorage,
-    TResult? Function(Product product)? toggleCart,
-    TResult? Function(Product product)? toggleWishlist,
   }) {
     return changeStorage?.call(newStorage);
   }
@@ -711,8 +659,6 @@ class _$_ChangeStorage with DiagnosticableTreeMixin implements _ChangeStorage {
     TResult Function(Product? product)? changeProduct,
     TResult Function(String? newColorCode)? changeColor,
     TResult Function(int? newStorage)? changeStorage,
-    TResult Function(Product product)? toggleCart,
-    TResult Function(Product product)? toggleWishlist,
     required TResult orElse(),
   }) {
     if (changeStorage != null) {
@@ -728,8 +674,6 @@ class _$_ChangeStorage with DiagnosticableTreeMixin implements _ChangeStorage {
     required TResult Function(_ChangeProduct value) changeProduct,
     required TResult Function(_ChangeColor value) changeColor,
     required TResult Function(_ChangeStorage value) changeStorage,
-    required TResult Function(_ToggleCart value) toggleCart,
-    required TResult Function(_ToggleWishlist value) toggleWishlist,
   }) {
     return changeStorage(this);
   }
@@ -741,8 +685,6 @@ class _$_ChangeStorage with DiagnosticableTreeMixin implements _ChangeStorage {
     TResult? Function(_ChangeProduct value)? changeProduct,
     TResult? Function(_ChangeColor value)? changeColor,
     TResult? Function(_ChangeStorage value)? changeStorage,
-    TResult? Function(_ToggleCart value)? toggleCart,
-    TResult? Function(_ToggleWishlist value)? toggleWishlist,
   }) {
     return changeStorage?.call(this);
   }
@@ -754,8 +696,6 @@ class _$_ChangeStorage with DiagnosticableTreeMixin implements _ChangeStorage {
     TResult Function(_ChangeProduct value)? changeProduct,
     TResult Function(_ChangeColor value)? changeColor,
     TResult Function(_ChangeStorage value)? changeStorage,
-    TResult Function(_ToggleCart value)? toggleCart,
-    TResult Function(_ToggleWishlist value)? toggleWishlist,
     required TResult orElse(),
   }) {
     if (changeStorage != null) {
@@ -771,338 +711,6 @@ abstract class _ChangeStorage implements DetailedProductEvent {
   int? get newStorage;
   @JsonKey(ignore: true)
   _$$_ChangeStorageCopyWith<_$_ChangeStorage> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$_ToggleCartCopyWith<$Res> {
-  factory _$$_ToggleCartCopyWith(
-          _$_ToggleCart value, $Res Function(_$_ToggleCart) then) =
-      __$$_ToggleCartCopyWithImpl<$Res>;
-  @useResult
-  $Res call({Product product});
-}
-
-/// @nodoc
-class __$$_ToggleCartCopyWithImpl<$Res>
-    extends _$DetailedProductEventCopyWithImpl<$Res, _$_ToggleCart>
-    implements _$$_ToggleCartCopyWith<$Res> {
-  __$$_ToggleCartCopyWithImpl(
-      _$_ToggleCart _value, $Res Function(_$_ToggleCart) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? product = null,
-  }) {
-    return _then(_$_ToggleCart(
-      null == product
-          ? _value.product
-          : product // ignore: cast_nullable_to_non_nullable
-              as Product,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_ToggleCart with DiagnosticableTreeMixin implements _ToggleCart {
-  const _$_ToggleCart(this.product);
-
-  @override
-  final Product product;
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'DetailedProductEvent.toggleCart(product: $product)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'DetailedProductEvent.toggleCart'))
-      ..add(DiagnosticsProperty('product', product));
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_ToggleCart &&
-            (identical(other.product, product) || other.product == product));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, product);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_ToggleCartCopyWith<_$_ToggleCart> get copyWith =>
-      __$$_ToggleCartCopyWithImpl<_$_ToggleCart>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String id, bool isInitial) getOneProduct,
-    required TResult Function(Product? product) changeProduct,
-    required TResult Function(String? newColorCode) changeColor,
-    required TResult Function(int? newStorage) changeStorage,
-    required TResult Function(Product product) toggleCart,
-    required TResult Function(Product product) toggleWishlist,
-  }) {
-    return toggleCart(product);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String id, bool isInitial)? getOneProduct,
-    TResult? Function(Product? product)? changeProduct,
-    TResult? Function(String? newColorCode)? changeColor,
-    TResult? Function(int? newStorage)? changeStorage,
-    TResult? Function(Product product)? toggleCart,
-    TResult? Function(Product product)? toggleWishlist,
-  }) {
-    return toggleCart?.call(product);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String id, bool isInitial)? getOneProduct,
-    TResult Function(Product? product)? changeProduct,
-    TResult Function(String? newColorCode)? changeColor,
-    TResult Function(int? newStorage)? changeStorage,
-    TResult Function(Product product)? toggleCart,
-    TResult Function(Product product)? toggleWishlist,
-    required TResult orElse(),
-  }) {
-    if (toggleCart != null) {
-      return toggleCart(product);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_GetOneProduct value) getOneProduct,
-    required TResult Function(_ChangeProduct value) changeProduct,
-    required TResult Function(_ChangeColor value) changeColor,
-    required TResult Function(_ChangeStorage value) changeStorage,
-    required TResult Function(_ToggleCart value) toggleCart,
-    required TResult Function(_ToggleWishlist value) toggleWishlist,
-  }) {
-    return toggleCart(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_GetOneProduct value)? getOneProduct,
-    TResult? Function(_ChangeProduct value)? changeProduct,
-    TResult? Function(_ChangeColor value)? changeColor,
-    TResult? Function(_ChangeStorage value)? changeStorage,
-    TResult? Function(_ToggleCart value)? toggleCart,
-    TResult? Function(_ToggleWishlist value)? toggleWishlist,
-  }) {
-    return toggleCart?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetOneProduct value)? getOneProduct,
-    TResult Function(_ChangeProduct value)? changeProduct,
-    TResult Function(_ChangeColor value)? changeColor,
-    TResult Function(_ChangeStorage value)? changeStorage,
-    TResult Function(_ToggleCart value)? toggleCart,
-    TResult Function(_ToggleWishlist value)? toggleWishlist,
-    required TResult orElse(),
-  }) {
-    if (toggleCart != null) {
-      return toggleCart(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _ToggleCart implements DetailedProductEvent {
-  const factory _ToggleCart(final Product product) = _$_ToggleCart;
-
-  Product get product;
-  @JsonKey(ignore: true)
-  _$$_ToggleCartCopyWith<_$_ToggleCart> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$_ToggleWishlistCopyWith<$Res> {
-  factory _$$_ToggleWishlistCopyWith(
-          _$_ToggleWishlist value, $Res Function(_$_ToggleWishlist) then) =
-      __$$_ToggleWishlistCopyWithImpl<$Res>;
-  @useResult
-  $Res call({Product product});
-}
-
-/// @nodoc
-class __$$_ToggleWishlistCopyWithImpl<$Res>
-    extends _$DetailedProductEventCopyWithImpl<$Res, _$_ToggleWishlist>
-    implements _$$_ToggleWishlistCopyWith<$Res> {
-  __$$_ToggleWishlistCopyWithImpl(
-      _$_ToggleWishlist _value, $Res Function(_$_ToggleWishlist) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? product = null,
-  }) {
-    return _then(_$_ToggleWishlist(
-      null == product
-          ? _value.product
-          : product // ignore: cast_nullable_to_non_nullable
-              as Product,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_ToggleWishlist
-    with DiagnosticableTreeMixin
-    implements _ToggleWishlist {
-  const _$_ToggleWishlist(this.product);
-
-  @override
-  final Product product;
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'DetailedProductEvent.toggleWishlist(product: $product)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'DetailedProductEvent.toggleWishlist'))
-      ..add(DiagnosticsProperty('product', product));
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_ToggleWishlist &&
-            (identical(other.product, product) || other.product == product));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, product);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_ToggleWishlistCopyWith<_$_ToggleWishlist> get copyWith =>
-      __$$_ToggleWishlistCopyWithImpl<_$_ToggleWishlist>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String id, bool isInitial) getOneProduct,
-    required TResult Function(Product? product) changeProduct,
-    required TResult Function(String? newColorCode) changeColor,
-    required TResult Function(int? newStorage) changeStorage,
-    required TResult Function(Product product) toggleCart,
-    required TResult Function(Product product) toggleWishlist,
-  }) {
-    return toggleWishlist(product);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String id, bool isInitial)? getOneProduct,
-    TResult? Function(Product? product)? changeProduct,
-    TResult? Function(String? newColorCode)? changeColor,
-    TResult? Function(int? newStorage)? changeStorage,
-    TResult? Function(Product product)? toggleCart,
-    TResult? Function(Product product)? toggleWishlist,
-  }) {
-    return toggleWishlist?.call(product);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String id, bool isInitial)? getOneProduct,
-    TResult Function(Product? product)? changeProduct,
-    TResult Function(String? newColorCode)? changeColor,
-    TResult Function(int? newStorage)? changeStorage,
-    TResult Function(Product product)? toggleCart,
-    TResult Function(Product product)? toggleWishlist,
-    required TResult orElse(),
-  }) {
-    if (toggleWishlist != null) {
-      return toggleWishlist(product);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_GetOneProduct value) getOneProduct,
-    required TResult Function(_ChangeProduct value) changeProduct,
-    required TResult Function(_ChangeColor value) changeColor,
-    required TResult Function(_ChangeStorage value) changeStorage,
-    required TResult Function(_ToggleCart value) toggleCart,
-    required TResult Function(_ToggleWishlist value) toggleWishlist,
-  }) {
-    return toggleWishlist(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_GetOneProduct value)? getOneProduct,
-    TResult? Function(_ChangeProduct value)? changeProduct,
-    TResult? Function(_ChangeColor value)? changeColor,
-    TResult? Function(_ChangeStorage value)? changeStorage,
-    TResult? Function(_ToggleCart value)? toggleCart,
-    TResult? Function(_ToggleWishlist value)? toggleWishlist,
-  }) {
-    return toggleWishlist?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetOneProduct value)? getOneProduct,
-    TResult Function(_ChangeProduct value)? changeProduct,
-    TResult Function(_ChangeColor value)? changeColor,
-    TResult Function(_ChangeStorage value)? changeStorage,
-    TResult Function(_ToggleCart value)? toggleCart,
-    TResult Function(_ToggleWishlist value)? toggleWishlist,
-    required TResult orElse(),
-  }) {
-    if (toggleWishlist != null) {
-      return toggleWishlist(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _ToggleWishlist implements DetailedProductEvent {
-  const factory _ToggleWishlist(final Product product) = _$_ToggleWishlist;
-
-  Product get product;
-  @JsonKey(ignore: true)
-  _$$_ToggleWishlistCopyWith<_$_ToggleWishlist> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

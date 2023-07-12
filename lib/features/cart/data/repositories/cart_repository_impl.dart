@@ -11,9 +11,26 @@ class CartRepositoryImpl implements CartRepository {
 
   const CartRepositoryImpl({required this.remoteDataSource});
   @override
-  FutureEither<CartWishlistResponse> getCart() async {
+  FutureEither<CartWishlistResponse> getCart({
+    required int page,
+    required int limit,
+    required String query,
+    required String sort,
+    required double? minCost,
+    required double? maxCost,
+    required bool withDiscount,
+    required bool newArrival,
+  }) async {
     try {
-      final res = await remoteDataSource.getCart();
+      final res = await remoteDataSource.getCart(
+          page: page,
+          limit: limit,
+          query: query,
+          sort: sort,
+          minCost: minCost,
+          maxCost: maxCost,
+          withDiscount: withDiscount,
+          newArrival: newArrival);
       return Right(CartWishlistResponse.fromModel(res));
     } on Failure catch (e) {
       return Left(e);

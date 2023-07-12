@@ -2,16 +2,16 @@ import 'package:dartz/dartz.dart';
 
 import '../../../../core/constants/type_defs.dart';
 import '../../../../core/failure/failure.dart';
-import '../../domain/entities/search_products_response.dart';
-import '../../domain/repositories/search_products_repository.dart';
-import '../datasources/search_products_remote_data_source.dart';
+import '../../domain/entities/browse_products_response.dart';
+import '../../domain/repositories/browse_products_repository.dart';
+import '../datasources/browse_products_remote_data_source.dart';
 
-class SearchProductsRepositoryImpl implements SearchProductsRepository {
-  final SearchProductsRemoteDataSource remoteDataSource;
+class BrowseProductsRepositoryImpl implements BrowseProductsRepository {
+  final BrowseProductsRemoteDataSource remoteDataSource;
 
-  SearchProductsRepositoryImpl({required this.remoteDataSource});
+  BrowseProductsRepositoryImpl({required this.remoteDataSource});
   @override
-  FutureEither<SearchProductsResponse> getManyProducts({
+  FutureEither<BrowseProductsResponse> getManyProducts({
     required int page,
     required int limit,
     required String query,
@@ -32,7 +32,7 @@ class SearchProductsRepositoryImpl implements SearchProductsRepository {
         withDiscount: withDiscount,
         newArrival: newArrival,
       );
-      final productsResponse = SearchProductsResponse.fromModel(res);
+      final productsResponse = BrowseProductsResponse.fromModel(res);
       return Right(productsResponse);
     } on Failure catch (e) {
       return Left(e);

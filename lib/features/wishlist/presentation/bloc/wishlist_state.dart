@@ -19,18 +19,24 @@ class WishlistState with _$WishlistState {
   const WishlistState._();
   const factory WishlistState({
     @Default(Info.initial()) Info info,
-    @Default([]) List<Product> wishlist,
+    @Default([]) List<Product> products,
     @Default(ProductsFilter()) ProductsFilter filter,
     @Default(WishlistStatus.initial) WishlistStatus status,
     @Default(CasualFailure()) Failure failure,
   }) = _WishlistState;
 
+  factory WishlistState.fromJson(Map<String, dynamic> json) =>
+      _$WishlistStateFromJson(json);
+
   bool get isInitial => status.isInitial;
-  bool get isLoading => status.isLoading;
+  bool get isLoading => status.isLoading && products.isEmpty;
   bool get isRefreshing => status.isRefreshing;
   bool get isSuccess => status.isSuccess;
   bool get isFailure => status.isFailure;
-  bool get isPaginating => status.isLoading && wishlist.isNotEmpty;
+  bool get isPaginating => status.isLoading && products.isNotEmpty;
 
-  bool get isLastPage => info.countOnPage < filter.limit && wishlist.isNotEmpty;
+  bool get isLastPage =>
+      (info.countOnPage < filter.limit) && products.isNotEmpty;
+  bool get isNothingFound => !isLastPage && products.isEmpty;
+  bool get isFilterActive => filter != const ProductsFilter();
 }

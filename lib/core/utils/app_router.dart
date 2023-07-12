@@ -19,9 +19,9 @@ import '../../features/login/domain/usecases/login_as_guest.dart';
 import '../../features/login/domain/usecases/register.dart';
 import '../../features/login/presentation/bloc/login_bloc.dart';
 import '../../features/login/presentation/pages/login_page.dart';
-import '../../features/products/data/repositories/search_products_repository_impl.dart';
+import '../../features/products/data/repositories/browse_products_repository_impl.dart';
 import '../../features/products/domain/usecases/get_many_products.dart';
-import '../../features/products/presentation/bloc/search_products_bloc.dart';
+import '../../features/products/presentation/bloc/browse_products_bloc.dart';
 import '../../features/profile/data/repositories/profile_repository_impl.dart';
 import '../../features/profile/domain/usecases/delete_image.dart';
 import '../../features/profile/domain/usecases/edit_profile.dart';
@@ -44,7 +44,7 @@ class AppRouter {
   final _homeCubit = HomeCubit();
   final _productsBloc = SearchProductsBloc(
     getManyProductsUsecase:
-        GetManyProduct(getIt<SearchProductsRepositoryImpl>()),
+        GetManyProduct(getIt<BrowseProductsRepositoryImpl>()),
   );
   final _wishlistBloc = WishlistBloc(
       getWishlistUsecase: GetWishlist(getIt<WishlistRepositoryImpl>()),
@@ -57,8 +57,6 @@ class AppRouter {
   late final _detailedProductBloc = DetailedProductBloc(
     cartBloc: _cartBloc,
     wishlistBloc: _wishlistBloc,
-    toggleCartUsecase: ToggleCart(getIt<ProductsRepositoryImpl>()),
-    toggleWishlistUsecase: ToggleWishlist(getIt<ProductsRepositoryImpl>()),
     productsBloc: _productsBloc,
     getOneProductUsecase: GetOneProduct(getIt<DetailedProductRepositoryImpl>()),
     changeColorUsecase: ChangeColor(
@@ -96,13 +94,13 @@ class AppRouter {
                 value: _homeCubit,
               ),
               BlocProvider.value(
-                value: _productsBloc..add(const SearchProductsEvent.initial()),
+                value: _productsBloc..add(const BrowseProductsEvent.initial()),
               ),
               BlocProvider.value(
-                value: _wishlistBloc..add(const WishlistEvent.getWishlist()),
+                value: _wishlistBloc..add(const WishlistEvent.initial()),
               ),
               BlocProvider.value(
-                value: _cartBloc..add(const CartEvent.getCart()),
+                value: _cartBloc..add(const CartEvent.initial()),
               ),
               BlocProvider.value(
                 value: _detailedProductBloc,

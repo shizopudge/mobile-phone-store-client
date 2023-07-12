@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
-import '../../../../core/failure/failure.dart';
 
 import '../../../../core/constants/type_defs.dart';
 import '../../../../core/domain/entities/product.dart';
+import '../../../../core/failure/failure.dart';
 
 abstract interface class DetailedProductRepository {
   FutureEither<Product> getOneProduct(String id);

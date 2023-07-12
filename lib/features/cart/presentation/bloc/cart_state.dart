@@ -19,18 +19,24 @@ class CartState with _$CartState {
   const CartState._();
   const factory CartState({
     @Default(Info.initial()) Info info,
-    @Default([]) List<Product> cart,
+    @Default([]) List<Product> products,
     @Default(ProductsFilter()) ProductsFilter filter,
     @Default(CartStatus.initial) CartStatus status,
     @Default(CasualFailure()) Failure failure,
   }) = _CartState;
 
+  factory CartState.fromJson(Map<String, dynamic> json) =>
+      _$CartStateFromJson(json);
+
   bool get isInitial => status.isInitial;
-  bool get isLoading => status.isLoading;
+  bool get isLoading => status.isLoading && products.isEmpty;
   bool get isRefreshing => status.isRefreshing;
   bool get isSuccess => status.isSuccess;
   bool get isFailure => status.isFailure;
-  bool get isPaginating => status.isLoading && cart.isNotEmpty;
+  bool get isPaginating => status.isLoading && products.isNotEmpty;
 
-  bool get isLastPage => info.countOnPage < filter.limit && cart.isNotEmpty;
+  bool get isLastPage =>
+      (info.countOnPage < filter.limit) && products.isNotEmpty;
+  bool get isNothingFound => !isLastPage && products.isEmpty;
+  bool get isFilterActive => filter != const ProductsFilter();
 }

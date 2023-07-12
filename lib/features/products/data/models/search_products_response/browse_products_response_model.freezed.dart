@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'search_products_response_model.dart';
+part of 'browse_products_response_model.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,29 +14,29 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-SearchProductsResponseModel _$SearchProductsResponseModelFromJson(
+BrowseProductsResponseModel _$BrowseProductsResponseModelFromJson(
     Map<String, dynamic> json) {
-  return _SearchProductsResponseModel.fromJson(json);
+  return _BrowseProductsResponseModel.fromJson(json);
 }
 
 /// @nodoc
-mixin _$SearchProductsResponseModel {
+mixin _$BrowseProductsResponseModel {
   InfoModel get info => throw _privateConstructorUsedError;
   List<ProductModel> get products => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $SearchProductsResponseModelCopyWith<SearchProductsResponseModel>
+  $BrowseProductsResponseModelCopyWith<BrowseProductsResponseModel>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SearchProductsResponseModelCopyWith<$Res> {
-  factory $SearchProductsResponseModelCopyWith(
-          SearchProductsResponseModel value,
-          $Res Function(SearchProductsResponseModel) then) =
-      _$SearchProductsResponseModelCopyWithImpl<$Res,
-          SearchProductsResponseModel>;
+abstract class $BrowseProductsResponseModelCopyWith<$Res> {
+  factory $BrowseProductsResponseModelCopyWith(
+          BrowseProductsResponseModel value,
+          $Res Function(BrowseProductsResponseModel) then) =
+      _$BrowseProductsResponseModelCopyWithImpl<$Res,
+          BrowseProductsResponseModel>;
   @useResult
   $Res call({InfoModel info, List<ProductModel> products});
 
@@ -44,10 +44,10 @@ abstract class $SearchProductsResponseModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$SearchProductsResponseModelCopyWithImpl<$Res,
-        $Val extends SearchProductsResponseModel>
-    implements $SearchProductsResponseModelCopyWith<$Res> {
-  _$SearchProductsResponseModelCopyWithImpl(this._value, this._then);
+class _$BrowseProductsResponseModelCopyWithImpl<$Res,
+        $Val extends BrowseProductsResponseModel>
+    implements $BrowseProductsResponseModelCopyWith<$Res> {
+  _$BrowseProductsResponseModelCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -82,12 +82,12 @@ class _$SearchProductsResponseModelCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_SearchProductsResponseModelCopyWith<$Res>
-    implements $SearchProductsResponseModelCopyWith<$Res> {
-  factory _$$_SearchProductsResponseModelCopyWith(
-          _$_SearchProductsResponseModel value,
-          $Res Function(_$_SearchProductsResponseModel) then) =
-      __$$_SearchProductsResponseModelCopyWithImpl<$Res>;
+abstract class _$$_BrowseProductsResponseModelCopyWith<$Res>
+    implements $BrowseProductsResponseModelCopyWith<$Res> {
+  factory _$$_BrowseProductsResponseModelCopyWith(
+          _$_BrowseProductsResponseModel value,
+          $Res Function(_$_BrowseProductsResponseModel) then) =
+      __$$_BrowseProductsResponseModelCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({InfoModel info, List<ProductModel> products});
@@ -97,13 +97,13 @@ abstract class _$$_SearchProductsResponseModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_SearchProductsResponseModelCopyWithImpl<$Res>
-    extends _$SearchProductsResponseModelCopyWithImpl<$Res,
-        _$_SearchProductsResponseModel>
-    implements _$$_SearchProductsResponseModelCopyWith<$Res> {
-  __$$_SearchProductsResponseModelCopyWithImpl(
-      _$_SearchProductsResponseModel _value,
-      $Res Function(_$_SearchProductsResponseModel) _then)
+class __$$_BrowseProductsResponseModelCopyWithImpl<$Res>
+    extends _$BrowseProductsResponseModelCopyWithImpl<$Res,
+        _$_BrowseProductsResponseModel>
+    implements _$$_BrowseProductsResponseModelCopyWith<$Res> {
+  __$$_BrowseProductsResponseModelCopyWithImpl(
+      _$_BrowseProductsResponseModel _value,
+      $Res Function(_$_BrowseProductsResponseModel) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -112,7 +112,7 @@ class __$$_SearchProductsResponseModelCopyWithImpl<$Res>
     Object? info = null,
     Object? products = null,
   }) {
-    return _then(_$_SearchProductsResponseModel(
+    return _then(_$_BrowseProductsResponseModel(
       info: null == info
           ? _value.info
           : info // ignore: cast_nullable_to_non_nullable
@@ -127,13 +127,13 @@ class __$$_SearchProductsResponseModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_SearchProductsResponseModel implements _SearchProductsResponseModel {
-  const _$_SearchProductsResponseModel(
+class _$_BrowseProductsResponseModel implements _BrowseProductsResponseModel {
+  const _$_BrowseProductsResponseModel(
       {required this.info, required final List<ProductModel> products})
       : _products = products;
 
-  factory _$_SearchProductsResponseModel.fromJson(Map<String, dynamic> json) =>
-      _$$_SearchProductsResponseModelFromJson(json);
+  factory _$_BrowseProductsResponseModel.fromJson(Map<String, dynamic> json) =>
+      _$$_BrowseProductsResponseModelFromJson(json);
 
   @override
   final InfoModel info;
@@ -147,14 +147,14 @@ class _$_SearchProductsResponseModel implements _SearchProductsResponseModel {
 
   @override
   String toString() {
-    return 'SearchProductsResponseModel(info: $info, products: $products)';
+    return 'BrowseProductsResponseModel(info: $info, products: $products)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SearchProductsResponseModel &&
+            other is _$_BrowseProductsResponseModel &&
             (identical(other.info, info) || other.info == info) &&
             const DeepCollectionEquality().equals(other._products, _products));
   }
@@ -167,27 +167,27 @@ class _$_SearchProductsResponseModel implements _SearchProductsResponseModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SearchProductsResponseModelCopyWith<_$_SearchProductsResponseModel>
-      get copyWith => __$$_SearchProductsResponseModelCopyWithImpl<
-          _$_SearchProductsResponseModel>(this, _$identity);
+  _$$_BrowseProductsResponseModelCopyWith<_$_BrowseProductsResponseModel>
+      get copyWith => __$$_BrowseProductsResponseModelCopyWithImpl<
+          _$_BrowseProductsResponseModel>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SearchProductsResponseModelToJson(
+    return _$$_BrowseProductsResponseModelToJson(
       this,
     );
   }
 }
 
-abstract class _SearchProductsResponseModel
-    implements SearchProductsResponseModel {
-  const factory _SearchProductsResponseModel(
+abstract class _BrowseProductsResponseModel
+    implements BrowseProductsResponseModel {
+  const factory _BrowseProductsResponseModel(
           {required final InfoModel info,
           required final List<ProductModel> products}) =
-      _$_SearchProductsResponseModel;
+      _$_BrowseProductsResponseModel;
 
-  factory _SearchProductsResponseModel.fromJson(Map<String, dynamic> json) =
-      _$_SearchProductsResponseModel.fromJson;
+  factory _BrowseProductsResponseModel.fromJson(Map<String, dynamic> json) =
+      _$_BrowseProductsResponseModel.fromJson;
 
   @override
   InfoModel get info;
@@ -195,6 +195,6 @@ abstract class _SearchProductsResponseModel
   List<ProductModel> get products;
   @override
   @JsonKey(ignore: true)
-  _$$_SearchProductsResponseModelCopyWith<_$_SearchProductsResponseModel>
+  _$$_BrowseProductsResponseModelCopyWith<_$_BrowseProductsResponseModel>
       get copyWith => throw _privateConstructorUsedError;
 }

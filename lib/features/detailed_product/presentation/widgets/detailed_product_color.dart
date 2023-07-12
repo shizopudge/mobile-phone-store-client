@@ -36,11 +36,11 @@ class DetailedProductColor extends StatelessWidget {
               : null,
           boxShadow: [
             BoxShadow(
-              blurRadius: 8,
-              spreadRadius: 2,
+              blurRadius: 2,
+              spreadRadius: .5,
               offset: const Offset(
+                .1,
                 .25,
-                1.5,
               ),
               color: kGrey.withOpacity(
                 .5,

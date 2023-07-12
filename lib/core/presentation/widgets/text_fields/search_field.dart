@@ -4,24 +4,30 @@ import '../../../styles/styles.dart';
 import '../../../utils/size_config.dart';
 
 class SearchField extends StatelessWidget {
-  final TextEditingController _searchController;
+  final TextEditingController searchController;
   final VoidCallback onClear;
   final VoidCallback onFilter;
+  final VoidCallback toggleSearchResult;
   final bool showClose;
   final bool showFilter;
+  final bool isFilterActive;
+  final bool showSearchResults;
   const SearchField({
     super.key,
-    required TextEditingController searchController,
+    required this.searchController,
     required this.showClose,
     this.showFilter = true,
     required this.onClear,
     required this.onFilter,
-  }) : _searchController = searchController;
+    required this.isFilterActive,
+    required this.toggleSearchResult,
+    required this.showSearchResults,
+  });
 
   @override
   Widget build(BuildContext context) {
     return TextField(
-      controller: _searchController,
+      controller: searchController,
       cursorColor: kDarkBlue,
       style: kMedium.copyWith(
         color: kDarkBlue,
@@ -63,10 +69,22 @@ class SearchField extends StatelessWidget {
                     onPressed: onFilter,
                     icon: Icon(
                       Icons.filter_list_rounded,
-                      color: kDarkBlue,
+                      color: isFilterActive
+                          ? kLightBlue
+                          : kDarkBlue.withOpacity(.5),
                       size: SizeConfig.iconMedium,
                     ),
                   ),
+                IconButton(
+                  onPressed: toggleSearchResult,
+                  icon: Icon(
+                    Icons.info_rounded,
+                    color: showSearchResults
+                        ? kLightBlue
+                        : kDarkBlue.withOpacity(.5),
+                    size: SizeConfig.iconMedium,
+                  ),
+                ),
               ],
             ),
           ),

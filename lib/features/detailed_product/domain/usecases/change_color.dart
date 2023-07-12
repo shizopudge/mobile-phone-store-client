@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
-import '../../../../core/failure/failure.dart';
-import '../repositories/detailed_product_repository.dart';
 
 import '../../../../core/domain/entities/product.dart';
+import '../../../../core/failure/failure.dart';
+import '../repositories/detailed_product_repository.dart';
 
 class ChangeColor {
   final DetailedProductRepository repository;

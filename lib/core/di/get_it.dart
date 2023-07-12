@@ -19,8 +19,8 @@ import '../../features/detailed_product/data/repositories/detailed_product_repos
 import '../../features/login/data/datasources/login_local_data_source.dart';
 import '../../features/login/data/datasources/login_remote_data_source.dart';
 import '../../features/login/data/repositories/login_repository_impl.dart';
-import '../../features/products/data/datasources/search_products_remote_data_source.dart';
-import '../../features/products/data/repositories/search_products_repository_impl.dart';
+import '../../features/products/data/datasources/browse_products_remote_data_source.dart';
+import '../../features/products/data/repositories/browse_products_repository_impl.dart';
 import '../../features/profile/data/datasources/profile_remote_data_source.dart';
 import '../../features/profile/data/repositories/profile_repository_impl.dart';
 import '../../features/wishlist/data/datasources/wishlist_remote_data_source.dart';
@@ -58,9 +58,9 @@ Future<void> appSetup() async {
       remoteDataSource: ProfileRemoteDataSourceImpl(getIt<DioClient>())));
   getIt.registerSingleton(
       ImageRepositoryImpl(localDataSource: ImageLocalDataSourceImpl()));
-  getIt.registerSingleton(SearchProductsRepositoryImpl(
+  getIt.registerSingleton(BrowseProductsRepositoryImpl(
       remoteDataSource:
-          SearchProductsRemoteDataSourceImpl(getIt<DioClient>())));
+          BrowseProductsRemoteDataSourceImpl(getIt<DioClient>())));
   getIt.registerSingleton(DetailedProductRepositoryImpl(
       remoteDataSource:
           DetailedProductRemoteDataSourceImpl(getIt<DioClient>())));

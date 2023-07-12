@@ -18,51 +18,76 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$CartEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getCart,
-    required TResult Function() refreshCart,
+    required TResult Function() initial,
     required TResult Function(Product product) toggleCart,
-    required TResult Function(List<Product> cart) changeCart,
+    required TResult Function(Product product, int? productIndex)
+        toggleRemoteCart,
+    required TResult Function() refreshProducts,
+    required TResult Function(Product product) updateProductInList,
+    required TResult Function() getNextProducts,
+    required TResult Function(String query) searchProducts,
+    required TResult Function(ProductsFilter filter) changeFilter,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? getCart,
-    TResult? Function()? refreshCart,
+    TResult? Function()? initial,
     TResult? Function(Product product)? toggleCart,
-    TResult? Function(List<Product> cart)? changeCart,
+    TResult? Function(Product product, int? productIndex)? toggleRemoteCart,
+    TResult? Function()? refreshProducts,
+    TResult? Function(Product product)? updateProductInList,
+    TResult? Function()? getNextProducts,
+    TResult? Function(String query)? searchProducts,
+    TResult? Function(ProductsFilter filter)? changeFilter,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getCart,
-    TResult Function()? refreshCart,
+    TResult Function()? initial,
     TResult Function(Product product)? toggleCart,
-    TResult Function(List<Product> cart)? changeCart,
+    TResult Function(Product product, int? productIndex)? toggleRemoteCart,
+    TResult Function()? refreshProducts,
+    TResult Function(Product product)? updateProductInList,
+    TResult Function()? getNextProducts,
+    TResult Function(String query)? searchProducts,
+    TResult Function(ProductsFilter filter)? changeFilter,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_GetCart value) getCart,
-    required TResult Function(_RefreshCart value) refreshCart,
+    required TResult Function(_Initial value) initial,
     required TResult Function(_ToggleCart value) toggleCart,
-    required TResult Function(_ChangeCart value) changeCart,
+    required TResult Function(_ToggleRemoteCart value) toggleRemoteCart,
+    required TResult Function(_RefreshProducts value) refreshProducts,
+    required TResult Function(_UpdateProductInList value) updateProductInList,
+    required TResult Function(_GetNextProducts value) getNextProducts,
+    required TResult Function(_SearchProducts value) searchProducts,
+    required TResult Function(_ChangeFilter value) changeFilter,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_GetCart value)? getCart,
-    TResult? Function(_RefreshCart value)? refreshCart,
+    TResult? Function(_Initial value)? initial,
     TResult? Function(_ToggleCart value)? toggleCart,
-    TResult? Function(_ChangeCart value)? changeCart,
+    TResult? Function(_ToggleRemoteCart value)? toggleRemoteCart,
+    TResult? Function(_RefreshProducts value)? refreshProducts,
+    TResult? Function(_UpdateProductInList value)? updateProductInList,
+    TResult? Function(_GetNextProducts value)? getNextProducts,
+    TResult? Function(_SearchProducts value)? searchProducts,
+    TResult? Function(_ChangeFilter value)? changeFilter,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetCart value)? getCart,
-    TResult Function(_RefreshCart value)? refreshCart,
+    TResult Function(_Initial value)? initial,
     TResult Function(_ToggleCart value)? toggleCart,
-    TResult Function(_ChangeCart value)? changeCart,
+    TResult Function(_ToggleRemoteCart value)? toggleRemoteCart,
+    TResult Function(_RefreshProducts value)? refreshProducts,
+    TResult Function(_UpdateProductInList value)? updateProductInList,
+    TResult Function(_GetNextProducts value)? getNextProducts,
+    TResult Function(_SearchProducts value)? searchProducts,
+    TResult Function(_ChangeFilter value)? changeFilter,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -86,34 +111,34 @@ class _$CartEventCopyWithImpl<$Res, $Val extends CartEvent>
 }
 
 /// @nodoc
-abstract class _$$_GetCartCopyWith<$Res> {
-  factory _$$_GetCartCopyWith(
-          _$_GetCart value, $Res Function(_$_GetCart) then) =
-      __$$_GetCartCopyWithImpl<$Res>;
+abstract class _$$_InitialCopyWith<$Res> {
+  factory _$$_InitialCopyWith(
+          _$_Initial value, $Res Function(_$_Initial) then) =
+      __$$_InitialCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_GetCartCopyWithImpl<$Res>
-    extends _$CartEventCopyWithImpl<$Res, _$_GetCart>
-    implements _$$_GetCartCopyWith<$Res> {
-  __$$_GetCartCopyWithImpl(_$_GetCart _value, $Res Function(_$_GetCart) _then)
+class __$$_InitialCopyWithImpl<$Res>
+    extends _$CartEventCopyWithImpl<$Res, _$_Initial>
+    implements _$$_InitialCopyWith<$Res> {
+  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_GetCart implements _GetCart {
-  const _$_GetCart();
+class _$_Initial implements _Initial {
+  const _$_Initial();
 
   @override
   String toString() {
-    return 'CartEvent.getCart()';
+    return 'CartEvent.initial()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_GetCart);
+        (other.runtimeType == runtimeType && other is _$_Initial);
   }
 
   @override
@@ -122,36 +147,49 @@ class _$_GetCart implements _GetCart {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getCart,
-    required TResult Function() refreshCart,
+    required TResult Function() initial,
     required TResult Function(Product product) toggleCart,
-    required TResult Function(List<Product> cart) changeCart,
+    required TResult Function(Product product, int? productIndex)
+        toggleRemoteCart,
+    required TResult Function() refreshProducts,
+    required TResult Function(Product product) updateProductInList,
+    required TResult Function() getNextProducts,
+    required TResult Function(String query) searchProducts,
+    required TResult Function(ProductsFilter filter) changeFilter,
   }) {
-    return getCart();
+    return initial();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? getCart,
-    TResult? Function()? refreshCart,
+    TResult? Function()? initial,
     TResult? Function(Product product)? toggleCart,
-    TResult? Function(List<Product> cart)? changeCart,
+    TResult? Function(Product product, int? productIndex)? toggleRemoteCart,
+    TResult? Function()? refreshProducts,
+    TResult? Function(Product product)? updateProductInList,
+    TResult? Function()? getNextProducts,
+    TResult? Function(String query)? searchProducts,
+    TResult? Function(ProductsFilter filter)? changeFilter,
   }) {
-    return getCart?.call();
+    return initial?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getCart,
-    TResult Function()? refreshCart,
+    TResult Function()? initial,
     TResult Function(Product product)? toggleCart,
-    TResult Function(List<Product> cart)? changeCart,
+    TResult Function(Product product, int? productIndex)? toggleRemoteCart,
+    TResult Function()? refreshProducts,
+    TResult Function(Product product)? updateProductInList,
+    TResult Function()? getNextProducts,
+    TResult Function(String query)? searchProducts,
+    TResult Function(ProductsFilter filter)? changeFilter,
     required TResult orElse(),
   }) {
-    if (getCart != null) {
-      return getCart();
+    if (initial != null) {
+      return initial();
     }
     return orElse();
   }
@@ -159,157 +197,55 @@ class _$_GetCart implements _GetCart {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_GetCart value) getCart,
-    required TResult Function(_RefreshCart value) refreshCart,
+    required TResult Function(_Initial value) initial,
     required TResult Function(_ToggleCart value) toggleCart,
-    required TResult Function(_ChangeCart value) changeCart,
+    required TResult Function(_ToggleRemoteCart value) toggleRemoteCart,
+    required TResult Function(_RefreshProducts value) refreshProducts,
+    required TResult Function(_UpdateProductInList value) updateProductInList,
+    required TResult Function(_GetNextProducts value) getNextProducts,
+    required TResult Function(_SearchProducts value) searchProducts,
+    required TResult Function(_ChangeFilter value) changeFilter,
   }) {
-    return getCart(this);
+    return initial(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_GetCart value)? getCart,
-    TResult? Function(_RefreshCart value)? refreshCart,
+    TResult? Function(_Initial value)? initial,
     TResult? Function(_ToggleCart value)? toggleCart,
-    TResult? Function(_ChangeCart value)? changeCart,
+    TResult? Function(_ToggleRemoteCart value)? toggleRemoteCart,
+    TResult? Function(_RefreshProducts value)? refreshProducts,
+    TResult? Function(_UpdateProductInList value)? updateProductInList,
+    TResult? Function(_GetNextProducts value)? getNextProducts,
+    TResult? Function(_SearchProducts value)? searchProducts,
+    TResult? Function(_ChangeFilter value)? changeFilter,
   }) {
-    return getCart?.call(this);
+    return initial?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetCart value)? getCart,
-    TResult Function(_RefreshCart value)? refreshCart,
+    TResult Function(_Initial value)? initial,
     TResult Function(_ToggleCart value)? toggleCart,
-    TResult Function(_ChangeCart value)? changeCart,
+    TResult Function(_ToggleRemoteCart value)? toggleRemoteCart,
+    TResult Function(_RefreshProducts value)? refreshProducts,
+    TResult Function(_UpdateProductInList value)? updateProductInList,
+    TResult Function(_GetNextProducts value)? getNextProducts,
+    TResult Function(_SearchProducts value)? searchProducts,
+    TResult Function(_ChangeFilter value)? changeFilter,
     required TResult orElse(),
   }) {
-    if (getCart != null) {
-      return getCart(this);
+    if (initial != null) {
+      return initial(this);
     }
     return orElse();
   }
 }
 
-abstract class _GetCart implements CartEvent {
-  const factory _GetCart() = _$_GetCart;
-}
-
-/// @nodoc
-abstract class _$$_RefreshCartCopyWith<$Res> {
-  factory _$$_RefreshCartCopyWith(
-          _$_RefreshCart value, $Res Function(_$_RefreshCart) then) =
-      __$$_RefreshCartCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_RefreshCartCopyWithImpl<$Res>
-    extends _$CartEventCopyWithImpl<$Res, _$_RefreshCart>
-    implements _$$_RefreshCartCopyWith<$Res> {
-  __$$_RefreshCartCopyWithImpl(
-      _$_RefreshCart _value, $Res Function(_$_RefreshCart) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$_RefreshCart implements _RefreshCart {
-  const _$_RefreshCart();
-
-  @override
-  String toString() {
-    return 'CartEvent.refreshCart()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_RefreshCart);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() getCart,
-    required TResult Function() refreshCart,
-    required TResult Function(Product product) toggleCart,
-    required TResult Function(List<Product> cart) changeCart,
-  }) {
-    return refreshCart();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? getCart,
-    TResult? Function()? refreshCart,
-    TResult? Function(Product product)? toggleCart,
-    TResult? Function(List<Product> cart)? changeCart,
-  }) {
-    return refreshCart?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getCart,
-    TResult Function()? refreshCart,
-    TResult Function(Product product)? toggleCart,
-    TResult Function(List<Product> cart)? changeCart,
-    required TResult orElse(),
-  }) {
-    if (refreshCart != null) {
-      return refreshCart();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_GetCart value) getCart,
-    required TResult Function(_RefreshCart value) refreshCart,
-    required TResult Function(_ToggleCart value) toggleCart,
-    required TResult Function(_ChangeCart value) changeCart,
-  }) {
-    return refreshCart(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_GetCart value)? getCart,
-    TResult? Function(_RefreshCart value)? refreshCart,
-    TResult? Function(_ToggleCart value)? toggleCart,
-    TResult? Function(_ChangeCart value)? changeCart,
-  }) {
-    return refreshCart?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetCart value)? getCart,
-    TResult Function(_RefreshCart value)? refreshCart,
-    TResult Function(_ToggleCart value)? toggleCart,
-    TResult Function(_ChangeCart value)? changeCart,
-    required TResult orElse(),
-  }) {
-    if (refreshCart != null) {
-      return refreshCart(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _RefreshCart implements CartEvent {
-  const factory _RefreshCart() = _$_RefreshCart;
+abstract class _Initial implements CartEvent {
+  const factory _Initial() = _$_Initial;
 }
 
 /// @nodoc
@@ -376,10 +312,15 @@ class _$_ToggleCart implements _ToggleCart {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getCart,
-    required TResult Function() refreshCart,
+    required TResult Function() initial,
     required TResult Function(Product product) toggleCart,
-    required TResult Function(List<Product> cart) changeCart,
+    required TResult Function(Product product, int? productIndex)
+        toggleRemoteCart,
+    required TResult Function() refreshProducts,
+    required TResult Function(Product product) updateProductInList,
+    required TResult Function() getNextProducts,
+    required TResult Function(String query) searchProducts,
+    required TResult Function(ProductsFilter filter) changeFilter,
   }) {
     return toggleCart(product);
   }
@@ -387,10 +328,14 @@ class _$_ToggleCart implements _ToggleCart {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? getCart,
-    TResult? Function()? refreshCart,
+    TResult? Function()? initial,
     TResult? Function(Product product)? toggleCart,
-    TResult? Function(List<Product> cart)? changeCart,
+    TResult? Function(Product product, int? productIndex)? toggleRemoteCart,
+    TResult? Function()? refreshProducts,
+    TResult? Function(Product product)? updateProductInList,
+    TResult? Function()? getNextProducts,
+    TResult? Function(String query)? searchProducts,
+    TResult? Function(ProductsFilter filter)? changeFilter,
   }) {
     return toggleCart?.call(product);
   }
@@ -398,10 +343,14 @@ class _$_ToggleCart implements _ToggleCart {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getCart,
-    TResult Function()? refreshCart,
+    TResult Function()? initial,
     TResult Function(Product product)? toggleCart,
-    TResult Function(List<Product> cart)? changeCart,
+    TResult Function(Product product, int? productIndex)? toggleRemoteCart,
+    TResult Function()? refreshProducts,
+    TResult Function(Product product)? updateProductInList,
+    TResult Function()? getNextProducts,
+    TResult Function(String query)? searchProducts,
+    TResult Function(ProductsFilter filter)? changeFilter,
     required TResult orElse(),
   }) {
     if (toggleCart != null) {
@@ -413,10 +362,14 @@ class _$_ToggleCart implements _ToggleCart {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_GetCart value) getCart,
-    required TResult Function(_RefreshCart value) refreshCart,
+    required TResult Function(_Initial value) initial,
     required TResult Function(_ToggleCart value) toggleCart,
-    required TResult Function(_ChangeCart value) changeCart,
+    required TResult Function(_ToggleRemoteCart value) toggleRemoteCart,
+    required TResult Function(_RefreshProducts value) refreshProducts,
+    required TResult Function(_UpdateProductInList value) updateProductInList,
+    required TResult Function(_GetNextProducts value) getNextProducts,
+    required TResult Function(_SearchProducts value) searchProducts,
+    required TResult Function(_ChangeFilter value) changeFilter,
   }) {
     return toggleCart(this);
   }
@@ -424,10 +377,14 @@ class _$_ToggleCart implements _ToggleCart {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_GetCart value)? getCart,
-    TResult? Function(_RefreshCart value)? refreshCart,
+    TResult? Function(_Initial value)? initial,
     TResult? Function(_ToggleCart value)? toggleCart,
-    TResult? Function(_ChangeCart value)? changeCart,
+    TResult? Function(_ToggleRemoteCart value)? toggleRemoteCart,
+    TResult? Function(_RefreshProducts value)? refreshProducts,
+    TResult? Function(_UpdateProductInList value)? updateProductInList,
+    TResult? Function(_GetNextProducts value)? getNextProducts,
+    TResult? Function(_SearchProducts value)? searchProducts,
+    TResult? Function(_ChangeFilter value)? changeFilter,
   }) {
     return toggleCart?.call(this);
   }
@@ -435,10 +392,14 @@ class _$_ToggleCart implements _ToggleCart {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetCart value)? getCart,
-    TResult Function(_RefreshCart value)? refreshCart,
+    TResult Function(_Initial value)? initial,
     TResult Function(_ToggleCart value)? toggleCart,
-    TResult Function(_ChangeCart value)? changeCart,
+    TResult Function(_ToggleRemoteCart value)? toggleRemoteCart,
+    TResult Function(_RefreshProducts value)? refreshProducts,
+    TResult Function(_UpdateProductInList value)? updateProductInList,
+    TResult Function(_GetNextProducts value)? getNextProducts,
+    TResult Function(_SearchProducts value)? searchProducts,
+    TResult Function(_ChangeFilter value)? changeFilter,
     required TResult orElse(),
   }) {
     if (toggleCart != null) {
@@ -458,105 +419,122 @@ abstract class _ToggleCart implements CartEvent {
 }
 
 /// @nodoc
-abstract class _$$_ChangeCartCopyWith<$Res> {
-  factory _$$_ChangeCartCopyWith(
-          _$_ChangeCart value, $Res Function(_$_ChangeCart) then) =
-      __$$_ChangeCartCopyWithImpl<$Res>;
+abstract class _$$_ToggleRemoteCartCopyWith<$Res> {
+  factory _$$_ToggleRemoteCartCopyWith(
+          _$_ToggleRemoteCart value, $Res Function(_$_ToggleRemoteCart) then) =
+      __$$_ToggleRemoteCartCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<Product> cart});
+  $Res call({Product product, int? productIndex});
 }
 
 /// @nodoc
-class __$$_ChangeCartCopyWithImpl<$Res>
-    extends _$CartEventCopyWithImpl<$Res, _$_ChangeCart>
-    implements _$$_ChangeCartCopyWith<$Res> {
-  __$$_ChangeCartCopyWithImpl(
-      _$_ChangeCart _value, $Res Function(_$_ChangeCart) _then)
+class __$$_ToggleRemoteCartCopyWithImpl<$Res>
+    extends _$CartEventCopyWithImpl<$Res, _$_ToggleRemoteCart>
+    implements _$$_ToggleRemoteCartCopyWith<$Res> {
+  __$$_ToggleRemoteCartCopyWithImpl(
+      _$_ToggleRemoteCart _value, $Res Function(_$_ToggleRemoteCart) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? cart = null,
+    Object? product = null,
+    Object? productIndex = freezed,
   }) {
-    return _then(_$_ChangeCart(
-      null == cart
-          ? _value._cart
-          : cart // ignore: cast_nullable_to_non_nullable
-              as List<Product>,
+    return _then(_$_ToggleRemoteCart(
+      product: null == product
+          ? _value.product
+          : product // ignore: cast_nullable_to_non_nullable
+              as Product,
+      productIndex: freezed == productIndex
+          ? _value.productIndex
+          : productIndex // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_ChangeCart implements _ChangeCart {
-  const _$_ChangeCart(final List<Product> cart) : _cart = cart;
+class _$_ToggleRemoteCart implements _ToggleRemoteCart {
+  const _$_ToggleRemoteCart(
+      {required this.product, required this.productIndex});
 
-  final List<Product> _cart;
   @override
-  List<Product> get cart {
-    if (_cart is EqualUnmodifiableListView) return _cart;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_cart);
-  }
+  final Product product;
+  @override
+  final int? productIndex;
 
   @override
   String toString() {
-    return 'CartEvent.changeCart(cart: $cart)';
+    return 'CartEvent.toggleRemoteCart(product: $product, productIndex: $productIndex)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ChangeCart &&
-            const DeepCollectionEquality().equals(other._cart, _cart));
+            other is _$_ToggleRemoteCart &&
+            (identical(other.product, product) || other.product == product) &&
+            (identical(other.productIndex, productIndex) ||
+                other.productIndex == productIndex));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_cart));
+  int get hashCode => Object.hash(runtimeType, product, productIndex);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ChangeCartCopyWith<_$_ChangeCart> get copyWith =>
-      __$$_ChangeCartCopyWithImpl<_$_ChangeCart>(this, _$identity);
+  _$$_ToggleRemoteCartCopyWith<_$_ToggleRemoteCart> get copyWith =>
+      __$$_ToggleRemoteCartCopyWithImpl<_$_ToggleRemoteCart>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getCart,
-    required TResult Function() refreshCart,
+    required TResult Function() initial,
     required TResult Function(Product product) toggleCart,
-    required TResult Function(List<Product> cart) changeCart,
+    required TResult Function(Product product, int? productIndex)
+        toggleRemoteCart,
+    required TResult Function() refreshProducts,
+    required TResult Function(Product product) updateProductInList,
+    required TResult Function() getNextProducts,
+    required TResult Function(String query) searchProducts,
+    required TResult Function(ProductsFilter filter) changeFilter,
   }) {
-    return changeCart(cart);
+    return toggleRemoteCart(product, productIndex);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? getCart,
-    TResult? Function()? refreshCart,
+    TResult? Function()? initial,
     TResult? Function(Product product)? toggleCart,
-    TResult? Function(List<Product> cart)? changeCart,
+    TResult? Function(Product product, int? productIndex)? toggleRemoteCart,
+    TResult? Function()? refreshProducts,
+    TResult? Function(Product product)? updateProductInList,
+    TResult? Function()? getNextProducts,
+    TResult? Function(String query)? searchProducts,
+    TResult? Function(ProductsFilter filter)? changeFilter,
   }) {
-    return changeCart?.call(cart);
+    return toggleRemoteCart?.call(product, productIndex);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getCart,
-    TResult Function()? refreshCart,
+    TResult Function()? initial,
     TResult Function(Product product)? toggleCart,
-    TResult Function(List<Product> cart)? changeCart,
+    TResult Function(Product product, int? productIndex)? toggleRemoteCart,
+    TResult Function()? refreshProducts,
+    TResult Function(Product product)? updateProductInList,
+    TResult Function()? getNextProducts,
+    TResult Function(String query)? searchProducts,
+    TResult Function(ProductsFilter filter)? changeFilter,
     required TResult orElse(),
   }) {
-    if (changeCart != null) {
-      return changeCart(cart);
+    if (toggleRemoteCart != null) {
+      return toggleRemoteCart(product, productIndex);
     }
     return orElse();
   }
@@ -564,58 +542,868 @@ class _$_ChangeCart implements _ChangeCart {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_GetCart value) getCart,
-    required TResult Function(_RefreshCart value) refreshCart,
+    required TResult Function(_Initial value) initial,
     required TResult Function(_ToggleCart value) toggleCart,
-    required TResult Function(_ChangeCart value) changeCart,
+    required TResult Function(_ToggleRemoteCart value) toggleRemoteCart,
+    required TResult Function(_RefreshProducts value) refreshProducts,
+    required TResult Function(_UpdateProductInList value) updateProductInList,
+    required TResult Function(_GetNextProducts value) getNextProducts,
+    required TResult Function(_SearchProducts value) searchProducts,
+    required TResult Function(_ChangeFilter value) changeFilter,
   }) {
-    return changeCart(this);
+    return toggleRemoteCart(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_GetCart value)? getCart,
-    TResult? Function(_RefreshCart value)? refreshCart,
+    TResult? Function(_Initial value)? initial,
     TResult? Function(_ToggleCart value)? toggleCart,
-    TResult? Function(_ChangeCart value)? changeCart,
+    TResult? Function(_ToggleRemoteCart value)? toggleRemoteCart,
+    TResult? Function(_RefreshProducts value)? refreshProducts,
+    TResult? Function(_UpdateProductInList value)? updateProductInList,
+    TResult? Function(_GetNextProducts value)? getNextProducts,
+    TResult? Function(_SearchProducts value)? searchProducts,
+    TResult? Function(_ChangeFilter value)? changeFilter,
   }) {
-    return changeCart?.call(this);
+    return toggleRemoteCart?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetCart value)? getCart,
-    TResult Function(_RefreshCart value)? refreshCart,
+    TResult Function(_Initial value)? initial,
     TResult Function(_ToggleCart value)? toggleCart,
-    TResult Function(_ChangeCart value)? changeCart,
+    TResult Function(_ToggleRemoteCart value)? toggleRemoteCart,
+    TResult Function(_RefreshProducts value)? refreshProducts,
+    TResult Function(_UpdateProductInList value)? updateProductInList,
+    TResult Function(_GetNextProducts value)? getNextProducts,
+    TResult Function(_SearchProducts value)? searchProducts,
+    TResult Function(_ChangeFilter value)? changeFilter,
     required TResult orElse(),
   }) {
-    if (changeCart != null) {
-      return changeCart(this);
+    if (toggleRemoteCart != null) {
+      return toggleRemoteCart(this);
     }
     return orElse();
   }
 }
 
-abstract class _ChangeCart implements CartEvent {
-  const factory _ChangeCart(final List<Product> cart) = _$_ChangeCart;
+abstract class _ToggleRemoteCart implements CartEvent {
+  const factory _ToggleRemoteCart(
+      {required final Product product,
+      required final int? productIndex}) = _$_ToggleRemoteCart;
 
-  List<Product> get cart;
+  Product get product;
+  int? get productIndex;
   @JsonKey(ignore: true)
-  _$$_ChangeCartCopyWith<_$_ChangeCart> get copyWith =>
+  _$$_ToggleRemoteCartCopyWith<_$_ToggleRemoteCart> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_RefreshProductsCopyWith<$Res> {
+  factory _$$_RefreshProductsCopyWith(
+          _$_RefreshProducts value, $Res Function(_$_RefreshProducts) then) =
+      __$$_RefreshProductsCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_RefreshProductsCopyWithImpl<$Res>
+    extends _$CartEventCopyWithImpl<$Res, _$_RefreshProducts>
+    implements _$$_RefreshProductsCopyWith<$Res> {
+  __$$_RefreshProductsCopyWithImpl(
+      _$_RefreshProducts _value, $Res Function(_$_RefreshProducts) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_RefreshProducts implements _RefreshProducts {
+  const _$_RefreshProducts();
+
+  @override
+  String toString() {
+    return 'CartEvent.refreshProducts()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_RefreshProducts);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(Product product) toggleCart,
+    required TResult Function(Product product, int? productIndex)
+        toggleRemoteCart,
+    required TResult Function() refreshProducts,
+    required TResult Function(Product product) updateProductInList,
+    required TResult Function() getNextProducts,
+    required TResult Function(String query) searchProducts,
+    required TResult Function(ProductsFilter filter) changeFilter,
+  }) {
+    return refreshProducts();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(Product product)? toggleCart,
+    TResult? Function(Product product, int? productIndex)? toggleRemoteCart,
+    TResult? Function()? refreshProducts,
+    TResult? Function(Product product)? updateProductInList,
+    TResult? Function()? getNextProducts,
+    TResult? Function(String query)? searchProducts,
+    TResult? Function(ProductsFilter filter)? changeFilter,
+  }) {
+    return refreshProducts?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(Product product)? toggleCart,
+    TResult Function(Product product, int? productIndex)? toggleRemoteCart,
+    TResult Function()? refreshProducts,
+    TResult Function(Product product)? updateProductInList,
+    TResult Function()? getNextProducts,
+    TResult Function(String query)? searchProducts,
+    TResult Function(ProductsFilter filter)? changeFilter,
+    required TResult orElse(),
+  }) {
+    if (refreshProducts != null) {
+      return refreshProducts();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_ToggleCart value) toggleCart,
+    required TResult Function(_ToggleRemoteCart value) toggleRemoteCart,
+    required TResult Function(_RefreshProducts value) refreshProducts,
+    required TResult Function(_UpdateProductInList value) updateProductInList,
+    required TResult Function(_GetNextProducts value) getNextProducts,
+    required TResult Function(_SearchProducts value) searchProducts,
+    required TResult Function(_ChangeFilter value) changeFilter,
+  }) {
+    return refreshProducts(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_ToggleCart value)? toggleCart,
+    TResult? Function(_ToggleRemoteCart value)? toggleRemoteCart,
+    TResult? Function(_RefreshProducts value)? refreshProducts,
+    TResult? Function(_UpdateProductInList value)? updateProductInList,
+    TResult? Function(_GetNextProducts value)? getNextProducts,
+    TResult? Function(_SearchProducts value)? searchProducts,
+    TResult? Function(_ChangeFilter value)? changeFilter,
+  }) {
+    return refreshProducts?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_ToggleCart value)? toggleCart,
+    TResult Function(_ToggleRemoteCart value)? toggleRemoteCart,
+    TResult Function(_RefreshProducts value)? refreshProducts,
+    TResult Function(_UpdateProductInList value)? updateProductInList,
+    TResult Function(_GetNextProducts value)? getNextProducts,
+    TResult Function(_SearchProducts value)? searchProducts,
+    TResult Function(_ChangeFilter value)? changeFilter,
+    required TResult orElse(),
+  }) {
+    if (refreshProducts != null) {
+      return refreshProducts(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RefreshProducts implements CartEvent {
+  const factory _RefreshProducts() = _$_RefreshProducts;
+}
+
+/// @nodoc
+abstract class _$$_UpdateProductInListCopyWith<$Res> {
+  factory _$$_UpdateProductInListCopyWith(_$_UpdateProductInList value,
+          $Res Function(_$_UpdateProductInList) then) =
+      __$$_UpdateProductInListCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Product product});
+}
+
+/// @nodoc
+class __$$_UpdateProductInListCopyWithImpl<$Res>
+    extends _$CartEventCopyWithImpl<$Res, _$_UpdateProductInList>
+    implements _$$_UpdateProductInListCopyWith<$Res> {
+  __$$_UpdateProductInListCopyWithImpl(_$_UpdateProductInList _value,
+      $Res Function(_$_UpdateProductInList) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? product = null,
+  }) {
+    return _then(_$_UpdateProductInList(
+      null == product
+          ? _value.product
+          : product // ignore: cast_nullable_to_non_nullable
+              as Product,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_UpdateProductInList implements _UpdateProductInList {
+  const _$_UpdateProductInList(this.product);
+
+  @override
+  final Product product;
+
+  @override
+  String toString() {
+    return 'CartEvent.updateProductInList(product: $product)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_UpdateProductInList &&
+            (identical(other.product, product) || other.product == product));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, product);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_UpdateProductInListCopyWith<_$_UpdateProductInList> get copyWith =>
+      __$$_UpdateProductInListCopyWithImpl<_$_UpdateProductInList>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(Product product) toggleCart,
+    required TResult Function(Product product, int? productIndex)
+        toggleRemoteCart,
+    required TResult Function() refreshProducts,
+    required TResult Function(Product product) updateProductInList,
+    required TResult Function() getNextProducts,
+    required TResult Function(String query) searchProducts,
+    required TResult Function(ProductsFilter filter) changeFilter,
+  }) {
+    return updateProductInList(product);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(Product product)? toggleCart,
+    TResult? Function(Product product, int? productIndex)? toggleRemoteCart,
+    TResult? Function()? refreshProducts,
+    TResult? Function(Product product)? updateProductInList,
+    TResult? Function()? getNextProducts,
+    TResult? Function(String query)? searchProducts,
+    TResult? Function(ProductsFilter filter)? changeFilter,
+  }) {
+    return updateProductInList?.call(product);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(Product product)? toggleCart,
+    TResult Function(Product product, int? productIndex)? toggleRemoteCart,
+    TResult Function()? refreshProducts,
+    TResult Function(Product product)? updateProductInList,
+    TResult Function()? getNextProducts,
+    TResult Function(String query)? searchProducts,
+    TResult Function(ProductsFilter filter)? changeFilter,
+    required TResult orElse(),
+  }) {
+    if (updateProductInList != null) {
+      return updateProductInList(product);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_ToggleCart value) toggleCart,
+    required TResult Function(_ToggleRemoteCart value) toggleRemoteCart,
+    required TResult Function(_RefreshProducts value) refreshProducts,
+    required TResult Function(_UpdateProductInList value) updateProductInList,
+    required TResult Function(_GetNextProducts value) getNextProducts,
+    required TResult Function(_SearchProducts value) searchProducts,
+    required TResult Function(_ChangeFilter value) changeFilter,
+  }) {
+    return updateProductInList(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_ToggleCart value)? toggleCart,
+    TResult? Function(_ToggleRemoteCart value)? toggleRemoteCart,
+    TResult? Function(_RefreshProducts value)? refreshProducts,
+    TResult? Function(_UpdateProductInList value)? updateProductInList,
+    TResult? Function(_GetNextProducts value)? getNextProducts,
+    TResult? Function(_SearchProducts value)? searchProducts,
+    TResult? Function(_ChangeFilter value)? changeFilter,
+  }) {
+    return updateProductInList?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_ToggleCart value)? toggleCart,
+    TResult Function(_ToggleRemoteCart value)? toggleRemoteCart,
+    TResult Function(_RefreshProducts value)? refreshProducts,
+    TResult Function(_UpdateProductInList value)? updateProductInList,
+    TResult Function(_GetNextProducts value)? getNextProducts,
+    TResult Function(_SearchProducts value)? searchProducts,
+    TResult Function(_ChangeFilter value)? changeFilter,
+    required TResult orElse(),
+  }) {
+    if (updateProductInList != null) {
+      return updateProductInList(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateProductInList implements CartEvent {
+  const factory _UpdateProductInList(final Product product) =
+      _$_UpdateProductInList;
+
+  Product get product;
+  @JsonKey(ignore: true)
+  _$$_UpdateProductInListCopyWith<_$_UpdateProductInList> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_GetNextProductsCopyWith<$Res> {
+  factory _$$_GetNextProductsCopyWith(
+          _$_GetNextProducts value, $Res Function(_$_GetNextProducts) then) =
+      __$$_GetNextProductsCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_GetNextProductsCopyWithImpl<$Res>
+    extends _$CartEventCopyWithImpl<$Res, _$_GetNextProducts>
+    implements _$$_GetNextProductsCopyWith<$Res> {
+  __$$_GetNextProductsCopyWithImpl(
+      _$_GetNextProducts _value, $Res Function(_$_GetNextProducts) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_GetNextProducts implements _GetNextProducts {
+  const _$_GetNextProducts();
+
+  @override
+  String toString() {
+    return 'CartEvent.getNextProducts()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_GetNextProducts);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(Product product) toggleCart,
+    required TResult Function(Product product, int? productIndex)
+        toggleRemoteCart,
+    required TResult Function() refreshProducts,
+    required TResult Function(Product product) updateProductInList,
+    required TResult Function() getNextProducts,
+    required TResult Function(String query) searchProducts,
+    required TResult Function(ProductsFilter filter) changeFilter,
+  }) {
+    return getNextProducts();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(Product product)? toggleCart,
+    TResult? Function(Product product, int? productIndex)? toggleRemoteCart,
+    TResult? Function()? refreshProducts,
+    TResult? Function(Product product)? updateProductInList,
+    TResult? Function()? getNextProducts,
+    TResult? Function(String query)? searchProducts,
+    TResult? Function(ProductsFilter filter)? changeFilter,
+  }) {
+    return getNextProducts?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(Product product)? toggleCart,
+    TResult Function(Product product, int? productIndex)? toggleRemoteCart,
+    TResult Function()? refreshProducts,
+    TResult Function(Product product)? updateProductInList,
+    TResult Function()? getNextProducts,
+    TResult Function(String query)? searchProducts,
+    TResult Function(ProductsFilter filter)? changeFilter,
+    required TResult orElse(),
+  }) {
+    if (getNextProducts != null) {
+      return getNextProducts();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_ToggleCart value) toggleCart,
+    required TResult Function(_ToggleRemoteCart value) toggleRemoteCart,
+    required TResult Function(_RefreshProducts value) refreshProducts,
+    required TResult Function(_UpdateProductInList value) updateProductInList,
+    required TResult Function(_GetNextProducts value) getNextProducts,
+    required TResult Function(_SearchProducts value) searchProducts,
+    required TResult Function(_ChangeFilter value) changeFilter,
+  }) {
+    return getNextProducts(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_ToggleCart value)? toggleCart,
+    TResult? Function(_ToggleRemoteCart value)? toggleRemoteCart,
+    TResult? Function(_RefreshProducts value)? refreshProducts,
+    TResult? Function(_UpdateProductInList value)? updateProductInList,
+    TResult? Function(_GetNextProducts value)? getNextProducts,
+    TResult? Function(_SearchProducts value)? searchProducts,
+    TResult? Function(_ChangeFilter value)? changeFilter,
+  }) {
+    return getNextProducts?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_ToggleCart value)? toggleCart,
+    TResult Function(_ToggleRemoteCart value)? toggleRemoteCart,
+    TResult Function(_RefreshProducts value)? refreshProducts,
+    TResult Function(_UpdateProductInList value)? updateProductInList,
+    TResult Function(_GetNextProducts value)? getNextProducts,
+    TResult Function(_SearchProducts value)? searchProducts,
+    TResult Function(_ChangeFilter value)? changeFilter,
+    required TResult orElse(),
+  }) {
+    if (getNextProducts != null) {
+      return getNextProducts(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetNextProducts implements CartEvent {
+  const factory _GetNextProducts() = _$_GetNextProducts;
+}
+
+/// @nodoc
+abstract class _$$_SearchProductsCopyWith<$Res> {
+  factory _$$_SearchProductsCopyWith(
+          _$_SearchProducts value, $Res Function(_$_SearchProducts) then) =
+      __$$_SearchProductsCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String query});
+}
+
+/// @nodoc
+class __$$_SearchProductsCopyWithImpl<$Res>
+    extends _$CartEventCopyWithImpl<$Res, _$_SearchProducts>
+    implements _$$_SearchProductsCopyWith<$Res> {
+  __$$_SearchProductsCopyWithImpl(
+      _$_SearchProducts _value, $Res Function(_$_SearchProducts) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? query = null,
+  }) {
+    return _then(_$_SearchProducts(
+      null == query
+          ? _value.query
+          : query // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SearchProducts implements _SearchProducts {
+  const _$_SearchProducts(this.query);
+
+  @override
+  final String query;
+
+  @override
+  String toString() {
+    return 'CartEvent.searchProducts(query: $query)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SearchProducts &&
+            (identical(other.query, query) || other.query == query));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, query);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SearchProductsCopyWith<_$_SearchProducts> get copyWith =>
+      __$$_SearchProductsCopyWithImpl<_$_SearchProducts>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(Product product) toggleCart,
+    required TResult Function(Product product, int? productIndex)
+        toggleRemoteCart,
+    required TResult Function() refreshProducts,
+    required TResult Function(Product product) updateProductInList,
+    required TResult Function() getNextProducts,
+    required TResult Function(String query) searchProducts,
+    required TResult Function(ProductsFilter filter) changeFilter,
+  }) {
+    return searchProducts(query);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(Product product)? toggleCart,
+    TResult? Function(Product product, int? productIndex)? toggleRemoteCart,
+    TResult? Function()? refreshProducts,
+    TResult? Function(Product product)? updateProductInList,
+    TResult? Function()? getNextProducts,
+    TResult? Function(String query)? searchProducts,
+    TResult? Function(ProductsFilter filter)? changeFilter,
+  }) {
+    return searchProducts?.call(query);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(Product product)? toggleCart,
+    TResult Function(Product product, int? productIndex)? toggleRemoteCart,
+    TResult Function()? refreshProducts,
+    TResult Function(Product product)? updateProductInList,
+    TResult Function()? getNextProducts,
+    TResult Function(String query)? searchProducts,
+    TResult Function(ProductsFilter filter)? changeFilter,
+    required TResult orElse(),
+  }) {
+    if (searchProducts != null) {
+      return searchProducts(query);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_ToggleCart value) toggleCart,
+    required TResult Function(_ToggleRemoteCart value) toggleRemoteCart,
+    required TResult Function(_RefreshProducts value) refreshProducts,
+    required TResult Function(_UpdateProductInList value) updateProductInList,
+    required TResult Function(_GetNextProducts value) getNextProducts,
+    required TResult Function(_SearchProducts value) searchProducts,
+    required TResult Function(_ChangeFilter value) changeFilter,
+  }) {
+    return searchProducts(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_ToggleCart value)? toggleCart,
+    TResult? Function(_ToggleRemoteCart value)? toggleRemoteCart,
+    TResult? Function(_RefreshProducts value)? refreshProducts,
+    TResult? Function(_UpdateProductInList value)? updateProductInList,
+    TResult? Function(_GetNextProducts value)? getNextProducts,
+    TResult? Function(_SearchProducts value)? searchProducts,
+    TResult? Function(_ChangeFilter value)? changeFilter,
+  }) {
+    return searchProducts?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_ToggleCart value)? toggleCart,
+    TResult Function(_ToggleRemoteCart value)? toggleRemoteCart,
+    TResult Function(_RefreshProducts value)? refreshProducts,
+    TResult Function(_UpdateProductInList value)? updateProductInList,
+    TResult Function(_GetNextProducts value)? getNextProducts,
+    TResult Function(_SearchProducts value)? searchProducts,
+    TResult Function(_ChangeFilter value)? changeFilter,
+    required TResult orElse(),
+  }) {
+    if (searchProducts != null) {
+      return searchProducts(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SearchProducts implements CartEvent {
+  const factory _SearchProducts(final String query) = _$_SearchProducts;
+
+  String get query;
+  @JsonKey(ignore: true)
+  _$$_SearchProductsCopyWith<_$_SearchProducts> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_ChangeFilterCopyWith<$Res> {
+  factory _$$_ChangeFilterCopyWith(
+          _$_ChangeFilter value, $Res Function(_$_ChangeFilter) then) =
+      __$$_ChangeFilterCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ProductsFilter filter});
+}
+
+/// @nodoc
+class __$$_ChangeFilterCopyWithImpl<$Res>
+    extends _$CartEventCopyWithImpl<$Res, _$_ChangeFilter>
+    implements _$$_ChangeFilterCopyWith<$Res> {
+  __$$_ChangeFilterCopyWithImpl(
+      _$_ChangeFilter _value, $Res Function(_$_ChangeFilter) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? filter = null,
+  }) {
+    return _then(_$_ChangeFilter(
+      null == filter
+          ? _value.filter
+          : filter // ignore: cast_nullable_to_non_nullable
+              as ProductsFilter,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ChangeFilter implements _ChangeFilter {
+  const _$_ChangeFilter(this.filter);
+
+  @override
+  final ProductsFilter filter;
+
+  @override
+  String toString() {
+    return 'CartEvent.changeFilter(filter: $filter)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeFilter &&
+            (identical(other.filter, filter) || other.filter == filter));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, filter);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ChangeFilterCopyWith<_$_ChangeFilter> get copyWith =>
+      __$$_ChangeFilterCopyWithImpl<_$_ChangeFilter>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(Product product) toggleCart,
+    required TResult Function(Product product, int? productIndex)
+        toggleRemoteCart,
+    required TResult Function() refreshProducts,
+    required TResult Function(Product product) updateProductInList,
+    required TResult Function() getNextProducts,
+    required TResult Function(String query) searchProducts,
+    required TResult Function(ProductsFilter filter) changeFilter,
+  }) {
+    return changeFilter(filter);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(Product product)? toggleCart,
+    TResult? Function(Product product, int? productIndex)? toggleRemoteCart,
+    TResult? Function()? refreshProducts,
+    TResult? Function(Product product)? updateProductInList,
+    TResult? Function()? getNextProducts,
+    TResult? Function(String query)? searchProducts,
+    TResult? Function(ProductsFilter filter)? changeFilter,
+  }) {
+    return changeFilter?.call(filter);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(Product product)? toggleCart,
+    TResult Function(Product product, int? productIndex)? toggleRemoteCart,
+    TResult Function()? refreshProducts,
+    TResult Function(Product product)? updateProductInList,
+    TResult Function()? getNextProducts,
+    TResult Function(String query)? searchProducts,
+    TResult Function(ProductsFilter filter)? changeFilter,
+    required TResult orElse(),
+  }) {
+    if (changeFilter != null) {
+      return changeFilter(filter);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_ToggleCart value) toggleCart,
+    required TResult Function(_ToggleRemoteCart value) toggleRemoteCart,
+    required TResult Function(_RefreshProducts value) refreshProducts,
+    required TResult Function(_UpdateProductInList value) updateProductInList,
+    required TResult Function(_GetNextProducts value) getNextProducts,
+    required TResult Function(_SearchProducts value) searchProducts,
+    required TResult Function(_ChangeFilter value) changeFilter,
+  }) {
+    return changeFilter(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_ToggleCart value)? toggleCart,
+    TResult? Function(_ToggleRemoteCart value)? toggleRemoteCart,
+    TResult? Function(_RefreshProducts value)? refreshProducts,
+    TResult? Function(_UpdateProductInList value)? updateProductInList,
+    TResult? Function(_GetNextProducts value)? getNextProducts,
+    TResult? Function(_SearchProducts value)? searchProducts,
+    TResult? Function(_ChangeFilter value)? changeFilter,
+  }) {
+    return changeFilter?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_ToggleCart value)? toggleCart,
+    TResult Function(_ToggleRemoteCart value)? toggleRemoteCart,
+    TResult Function(_RefreshProducts value)? refreshProducts,
+    TResult Function(_UpdateProductInList value)? updateProductInList,
+    TResult Function(_GetNextProducts value)? getNextProducts,
+    TResult Function(_SearchProducts value)? searchProducts,
+    TResult Function(_ChangeFilter value)? changeFilter,
+    required TResult orElse(),
+  }) {
+    if (changeFilter != null) {
+      return changeFilter(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangeFilter implements CartEvent {
+  const factory _ChangeFilter(final ProductsFilter filter) = _$_ChangeFilter;
+
+  ProductsFilter get filter;
+  @JsonKey(ignore: true)
+  _$$_ChangeFilterCopyWith<_$_ChangeFilter> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+CartState _$CartStateFromJson(Map<String, dynamic> json) {
+  return _CartState.fromJson(json);
 }
 
 /// @nodoc
 mixin _$CartState {
   Info get info => throw _privateConstructorUsedError;
-  List<Product> get cart => throw _privateConstructorUsedError;
+  List<Product> get products => throw _privateConstructorUsedError;
   ProductsFilter get filter => throw _privateConstructorUsedError;
   CartStatus get status => throw _privateConstructorUsedError;
   Failure get failure => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $CartStateCopyWith<CartState> get copyWith =>
       throw _privateConstructorUsedError;
@@ -628,7 +1416,7 @@ abstract class $CartStateCopyWith<$Res> {
   @useResult
   $Res call(
       {Info info,
-      List<Product> cart,
+      List<Product> products,
       ProductsFilter filter,
       CartStatus status,
       Failure failure});
@@ -650,7 +1438,7 @@ class _$CartStateCopyWithImpl<$Res, $Val extends CartState>
   @override
   $Res call({
     Object? info = null,
-    Object? cart = null,
+    Object? products = null,
     Object? filter = null,
     Object? status = null,
     Object? failure = null,
@@ -660,9 +1448,9 @@ class _$CartStateCopyWithImpl<$Res, $Val extends CartState>
           ? _value.info
           : info // ignore: cast_nullable_to_non_nullable
               as Info,
-      cart: null == cart
-          ? _value.cart
-          : cart // ignore: cast_nullable_to_non_nullable
+      products: null == products
+          ? _value.products
+          : products // ignore: cast_nullable_to_non_nullable
               as List<Product>,
       filter: null == filter
           ? _value.filter
@@ -697,7 +1485,7 @@ abstract class _$$_CartStateCopyWith<$Res> implements $CartStateCopyWith<$Res> {
   @useResult
   $Res call(
       {Info info,
-      List<Product> cart,
+      List<Product> products,
       ProductsFilter filter,
       CartStatus status,
       Failure failure});
@@ -718,7 +1506,7 @@ class __$$_CartStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? info = null,
-    Object? cart = null,
+    Object? products = null,
     Object? filter = null,
     Object? status = null,
     Object? failure = null,
@@ -728,9 +1516,9 @@ class __$$_CartStateCopyWithImpl<$Res>
           ? _value.info
           : info // ignore: cast_nullable_to_non_nullable
               as Info,
-      cart: null == cart
-          ? _value._cart
-          : cart // ignore: cast_nullable_to_non_nullable
+      products: null == products
+          ? _value._products
+          : products // ignore: cast_nullable_to_non_nullable
               as List<Product>,
       filter: null == filter
           ? _value.filter
@@ -749,27 +1537,30 @@ class __$$_CartStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_CartState extends _CartState {
   const _$_CartState(
       {this.info = const Info.initial(),
-      final List<Product> cart = const [],
+      final List<Product> products = const [],
       this.filter = const ProductsFilter(),
       this.status = CartStatus.initial,
       this.failure = const CasualFailure()})
-      : _cart = cart,
+      : _products = products,
         super._();
+
+  factory _$_CartState.fromJson(Map<String, dynamic> json) =>
+      _$$_CartStateFromJson(json);
 
   @override
   @JsonKey()
   final Info info;
-  final List<Product> _cart;
+  final List<Product> _products;
   @override
   @JsonKey()
-  List<Product> get cart {
-    if (_cart is EqualUnmodifiableListView) return _cart;
+  List<Product> get products {
+    if (_products is EqualUnmodifiableListView) return _products;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_cart);
+    return EqualUnmodifiableListView(_products);
   }
 
   @override
@@ -784,7 +1575,7 @@ class _$_CartState extends _CartState {
 
   @override
   String toString() {
-    return 'CartState(info: $info, cart: $cart, filter: $filter, status: $status, failure: $failure)';
+    return 'CartState(info: $info, products: $products, filter: $filter, status: $status, failure: $failure)';
   }
 
   @override
@@ -793,36 +1584,47 @@ class _$_CartState extends _CartState {
         (other.runtimeType == runtimeType &&
             other is _$_CartState &&
             (identical(other.info, info) || other.info == info) &&
-            const DeepCollectionEquality().equals(other._cart, _cart) &&
+            const DeepCollectionEquality().equals(other._products, _products) &&
             (identical(other.filter, filter) || other.filter == filter) &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.failure, failure) || other.failure == failure));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, info,
-      const DeepCollectionEquality().hash(_cart), filter, status, failure);
+      const DeepCollectionEquality().hash(_products), filter, status, failure);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$_CartStateCopyWith<_$_CartState> get copyWith =>
       __$$_CartStateCopyWithImpl<_$_CartState>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_CartStateToJson(
+      this,
+    );
+  }
 }
 
 abstract class _CartState extends CartState {
   const factory _CartState(
       {final Info info,
-      final List<Product> cart,
+      final List<Product> products,
       final ProductsFilter filter,
       final CartStatus status,
       final Failure failure}) = _$_CartState;
   const _CartState._() : super._();
 
+  factory _CartState.fromJson(Map<String, dynamic> json) =
+      _$_CartState.fromJson;
+
   @override
   Info get info;
   @override
-  List<Product> get cart;
+  List<Product> get products;
   @override
   ProductsFilter get filter;
   @override

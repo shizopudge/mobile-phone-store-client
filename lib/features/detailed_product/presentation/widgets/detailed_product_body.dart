@@ -77,10 +77,10 @@ class DetailedProductBody extends StatelessWidget {
                           title: product.color,
                           child: SizedBox(
                             height: SizeConfig.isMobile
-                                ? SizeConfig.screenWidth! * .1
+                                ? SizeConfig.screenWidth! * .09
                                 : SizeConfig.isTablet
-                                    ? SizeConfig.screenWidth! * .075
-                                    : SizeConfig.screenWidth! * .04,
+                                    ? SizeConfig.screenWidth! * .06
+                                    : SizeConfig.screenWidth! * .035,
                             child: DetailedProductColors(
                               product: product,
                             ),
@@ -100,8 +100,8 @@ class DetailedProductBody extends StatelessWidget {
                               height: SizeConfig.isMobile
                                   ? SizeConfig.screenWidth! * .15
                                   : SizeConfig.isTablet
-                                      ? SizeConfig.screenWidth! * .12
-                                      : SizeConfig.screenWidth! * .08,
+                                      ? SizeConfig.screenWidth! * .085
+                                      : SizeConfig.screenWidth! * .06,
                               child: DetailedProductGallery(
                                 images: product.images,
                               ),
@@ -122,8 +122,8 @@ class DetailedProductBody extends StatelessWidget {
                               height: SizeConfig.isMobile
                                   ? SizeConfig.screenWidth! * .08
                                   : SizeConfig.isTablet
-                                      ? SizeConfig.screenWidth! * .06
-                                      : SizeConfig.screenWidth! * .04,
+                                      ? SizeConfig.screenWidth! * .05
+                                      : SizeConfig.screenWidth! * .03,
                               child: DetailedProductTags(
                                 product: product,
                               ),

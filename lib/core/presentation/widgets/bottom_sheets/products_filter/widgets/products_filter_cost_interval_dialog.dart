@@ -53,8 +53,8 @@ class _CostIntervalDialogState extends State<ProductsFilterCostIntervalDialog> {
               fontSize: SizeConfig.body2,
             ),
           ),
-          const SizedBox(
-            height: 4,
+          SizedBox(
+            height: SizeConfig.setPadding(8),
           ),
           CasualTextField(
             controller: _maxCostController,
@@ -71,17 +71,18 @@ class _CostIntervalDialogState extends State<ProductsFilterCostIntervalDialog> {
               fontSize: SizeConfig.body2,
             ),
           ),
-          const SizedBox(
-            height: 12,
+          SizedBox(
+            height: SizeConfig.setPadding(12),
           ),
           CasualButton(
             onTap: () =>
                 widget.onTap(_minCostController.text, _maxCostController.text),
             text: 'Enter',
+            borderRadius: SizeConfig.borderRadiusSmall,
             fontSize: SizeConfig.body2,
           ),
-          const SizedBox(
-            height: 12,
+          SizedBox(
+            height: SizeConfig.setPadding(12),
           ),
         ],
       ),

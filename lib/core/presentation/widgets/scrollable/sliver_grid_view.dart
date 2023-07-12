@@ -24,7 +24,7 @@ class SliverGridView<T> extends StatelessWidget {
             ? 2
             : SizeConfig.isTablet
                 ? 3
-                : 6,
+                : 5,
         crossAxisSpacing: SizeConfig.isMobile
             ? SizeConfig.setPadding(10)
             : SizeConfig.isTablet

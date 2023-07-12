@@ -1,29 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../constants/enums.dart';
 import '../../../../domain/entities/products_filter.dart';
 import '../../../../failure/failure.dart';
+import '../../../../utils/popup_utils.dart';
+import '../../../../utils/size_config.dart';
 import '../../../animations/fade_animation_x.dart';
 import '../../../animations/fade_animation_y_down.dart';
 import '../../../animations/fade_animation_y_up.dart';
 import '../../buttons/casual_button.dart';
 import '../../buttons/casual_text_button.dart';
 import '../../other/bottom_sheet_divider.dart';
-import '../../../../utils/popup_utils.dart';
-import '../../../../utils/size_config.dart';
-import '../../../../../features/products/presentation/bloc/search_products_bloc.dart';
 import 'widgets/products_filter_button.dart';
 import 'widgets/products_filter_cost_interval_dialog.dart';
 import 'widgets/products_filter_cost_slider.dart';
 import 'widgets/products_filter_item.dart';
 
 class ProductsFilterPage extends StatefulWidget {
-  final BuildContext productsContext;
+  final void Function(ProductsFilter filter) onApply;
+  final VoidCallback onReset;
   final ProductsFilter currentFilter;
   const ProductsFilterPage(
-      {super.key, required BuildContext context, required this.currentFilter})
-      : productsContext = context;
+      {super.key,
+      required this.currentFilter,
+      required this.onApply,
+      required this.onReset});
 
   @override
   State<ProductsFilterPage> createState() => _ProductsFilterPageState();
@@ -113,9 +114,7 @@ class _ProductsFilterPageState extends State<ProductsFilterPage> {
                     title: 'Filter',
                     action: CasualTextButton(
                       onTap: () {
-                        widget.productsContext.read<SearchProductsBloc>().add(
-                            const SearchProductsEvent.changeFilter(
-                                ProductsFilter()));
+                        widget.onReset();
                         Navigator.of(context).pop();
                       },
                       text: 'Reset',
@@ -253,9 +252,7 @@ class _ProductsFilterPageState extends State<ProductsFilterPage> {
             delay: .4,
             child: CasualButton(
               onTap: () {
-                widget.productsContext
-                    .read<SearchProductsBloc>()
-                    .add(SearchProductsEvent.changeFilter(filter));
+                widget.onApply(filter);
                 Navigator.of(context).pop();
               },
               text: 'Apply filter',

@@ -13,6 +13,7 @@ class GoTopButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
+      heroTag: UniqueKey(),
       mini: true,
       onPressed: onTap,
       shape: RoundedRectangleBorder(

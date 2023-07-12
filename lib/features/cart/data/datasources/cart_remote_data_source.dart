@@ -6,7 +6,16 @@ import '../../../../core/data/models/cart_wishlist_response/cart_wishlist_respon
 import '../../../../core/failure/failure.dart';
 
 abstract interface class CartRemoteDataSource {
-  Future<CartWishlistResponseModel> getCart();
+  Future<CartWishlistResponseModel> getCart({
+    required int page,
+    required int limit,
+    required String query,
+    required String sort,
+    required double? minCost,
+    required double? maxCost,
+    required bool withDiscount,
+    required bool newArrival,
+  });
 }
 
 class CartRemoteDataSourceImpl implements CartRemoteDataSource {
@@ -15,10 +24,30 @@ class CartRemoteDataSourceImpl implements CartRemoteDataSource {
   CartRemoteDataSourceImpl(this.dioClient);
 
   @override
-  Future<CartWishlistResponseModel> getCart() async {
+  Future<CartWishlistResponseModel> getCart({
+    required int page,
+    required int limit,
+    required String query,
+    required String sort,
+    required double? minCost,
+    required double? maxCost,
+    required bool withDiscount,
+    required bool newArrival,
+  }) async {
     try {
+      final Map<String, dynamic> queryParameters = {
+        'page': page,
+        'limit': limit,
+        'query': query,
+        'sort': sort,
+        'withDiscount': withDiscount,
+        'newArrival': newArrival,
+      };
+      if (minCost != null) queryParameters['minCost'] = minCost;
+      if (maxCost != null) queryParameters['maxCost'] = maxCost;
       final res = await dioClient.dio.get(
         '${ApiConstants.users}/cart/products',
+        queryParameters: queryParameters,
       );
       return CartWishlistResponseModel.fromJson(res.data);
     } on DioException catch (e) {

@@ -23,7 +23,7 @@ class DetailedProductHeader extends StatelessWidget {
     final CurrentUser? user =
         context.select<AuthBloc, CurrentUser?>((bloc) => bloc.state.user);
     final wishlist = context
-        .select<WishlistBloc, List<Product>>((bloc) => bloc.state.wishlist);
+        .select<WishlistBloc, List<Product>>((bloc) => bloc.state.products);
     return FadeAnimationYDown(
       delay: .1,
       child: Row(
@@ -45,8 +45,8 @@ class DetailedProductHeader extends StatelessWidget {
           if (user != null)
             RoundedIconButton(
               onTap: () => context
-                  .read<DetailedProductBloc>()
-                  .add(DetailedProductEvent.toggleWishlist(product)),
+                  .read<WishlistBloc>()
+                  .add(WishlistEvent.toggleWishlist(product)),
               child: Icon(
                 product.isInWishlist(wishlist)
                     ? Icons.favorite_rounded

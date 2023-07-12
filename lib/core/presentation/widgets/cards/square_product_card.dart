@@ -1,23 +1,22 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:shimmer/shimmer.dart';
 
-import '../../../api/api_constants.dart';
 import '../../../domain/entities/product.dart';
 import '../../../styles/styles.dart';
 import '../../../utils/size_config.dart';
+import '../other/casual_network_image.dart';
 import '../other/discount.dart';
 import '../other/tag.dart';
 
-class ProductCard extends StatelessWidget {
+class SquareProductCard extends StatelessWidget {
   final VoidCallback onTap;
   final Product product;
-
-  const ProductCard({
+  final bool withHero;
+  const SquareProductCard({
     super.key,
     required this.onTap,
     required this.product,
+    this.withHero = true,
   });
 
   @override
@@ -56,45 +55,53 @@ class ProductCard extends StatelessWidget {
                     children: [
                       if (product.images.isNotEmpty)
                         Expanded(
-                          child: CachedNetworkImage(
-                            imageUrl:
-                                '${ApiConstants.imagesUrl}/${product.images[0]}',
-                            imageBuilder: (context, imageProvider) => Hero(
-                              tag: product.images[0],
-                              child: Container(
-                                padding: const EdgeInsets.all(5),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(
-                                      SizeConfig.borderRadiusSmall),
-                                ),
-                                child: Image(
-                                  image: imageProvider,
-                                  fit: BoxFit.cover,
-                                ),
+                          child: CasualNetworkImage(
+                            imageName: product.images[0],
+                            imageBuilder: (context, imageProvider) => withHero
+                                ? Hero(
+                                    tag: product.images[0],
+                                    child: Container(
+                                      padding: const EdgeInsets.all(5),
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(
+                                            SizeConfig.borderRadiusSmall),
+                                      ),
+                                      child: Image(
+                                        image: imageProvider,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  )
+                                : Container(
+                                    padding: const EdgeInsets.all(5),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(
+                                          SizeConfig.borderRadiusSmall),
+                                    ),
+                                    child: Image(
+                                      image: imageProvider,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                            placeholder: Container(
+                              padding: const EdgeInsets.all(5),
+                              decoration: BoxDecoration(
+                                color: kGrey,
+                                borderRadius: BorderRadius.circular(
+                                    SizeConfig.borderRadiusSmall),
                               ),
                             ),
-                            placeholder: (context, url) => Shimmer.fromColors(
-                              baseColor: kGrey.withOpacity(.3),
-                              highlightColor: kWhite,
-                              child: Container(
-                                margin: const EdgeInsets.all(8),
-                                decoration: BoxDecoration(
-                                  color: kGrey,
-                                  borderRadius: BorderRadius.circular(
-                                      SizeConfig.borderRadiusSmall),
-                                ),
+                            error: Container(
+                              padding: const EdgeInsets.all(5),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(
+                                    SizeConfig.borderRadiusSmall),
                               ),
-                            ),
-                            errorWidget: (context, url, error) =>
-                                Shimmer.fromColors(
-                              baseColor: kGrey.withOpacity(.3),
-                              highlightColor: kWhite,
-                              child: Container(
-                                margin: const EdgeInsets.all(8),
-                                decoration: BoxDecoration(
-                                  color: kGrey,
-                                  borderRadius: BorderRadius.circular(
-                                      SizeConfig.borderRadiusSmall),
+                              child: const FittedBox(
+                                fit: BoxFit.contain,
+                                child: Icon(
+                                  Icons.image,
+                                  color: kDarkBlue,
                                 ),
                               ),
                             ),
@@ -211,8 +218,8 @@ class ProductCard extends StatelessWidget {
               ),
               if (product.isDiscounted)
                 Positioned(
-                  top: -constraints.maxWidth * .03,
-                  right: -constraints.maxWidth * .05,
+                  top: -constraints.maxWidth * .06,
+                  right: -constraints.maxWidth * .055,
                   child: Discount(
                     discount: product.discount,
                     fontSize: constraints.maxWidth * .1,

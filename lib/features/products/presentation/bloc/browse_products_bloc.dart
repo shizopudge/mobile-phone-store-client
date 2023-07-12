@@ -8,20 +8,19 @@ import '../../../../core/domain/entities/info.dart';
 import '../../../../core/domain/entities/product.dart';
 import '../../../../core/domain/entities/products_filter.dart';
 import '../../../../core/failure/failure.dart';
-import '../../../../core/utils/size_config.dart';
-import '../../domain/entities/search_products_response.dart';
+import '../../domain/entities/browse_products_response.dart';
 import '../../domain/usecases/get_many_products.dart';
 
-part 'search_products_bloc.freezed.dart';
-part 'search_products_bloc.g.dart';
-part 'search_products_event.dart';
-part 'search_products_state.dart';
+part 'browse_products_bloc.freezed.dart';
+part 'browse_products_bloc.g.dart';
+part 'browse_products_event.dart';
+part 'browse_products_state.dart';
 
-class SearchProductsBloc extends Bloc<SearchProductsEvent, SearchProductsState>
+class SearchProductsBloc extends Bloc<BrowseProductsEvent, BrowseProductsState>
     with HydratedMixin {
   SearchProductsBloc({required GetManyProduct getManyProductsUsecase})
       : _getManyProductsUsecase = getManyProductsUsecase,
-        super(const SearchProductsState()) {
+        super(const BrowseProductsState()) {
     on<_Initial>(_initial);
     on<_RefreshProducts>(_refreshProducts);
     on<_GetNextProducts>(_getNextProducts);
@@ -33,17 +32,14 @@ class SearchProductsBloc extends Bloc<SearchProductsEvent, SearchProductsState>
   final GetManyProduct _getManyProductsUsecase;
 
   FutureOr<void> _initial(
-      _Initial event, Emitter<SearchProductsState> emit) async {
-    emit(state.copyWith(status: SearchProductsStatus.loading));
-    if (!SizeConfig.isMobile) {
-      emit(state.copyWith(filter: state.filter.copyWith(limit: 30)));
-    }
+      _Initial event, Emitter<BrowseProductsState> emit) async {
+    emit(state.copyWith(status: BrowseProductsStatus.loading));
     final res = await _getManyProducts();
     res.fold(
       (failure) => _throwFailure(emit, failure),
       (r) => emit(
         state.copyWith(
-          status: SearchProductsStatus.success,
+          status: BrowseProductsStatus.success,
           info: r.info,
           products: r.products,
         ),
@@ -52,17 +48,17 @@ class SearchProductsBloc extends Bloc<SearchProductsEvent, SearchProductsState>
   }
 
   FutureOr<void> _refreshProducts(
-      event, Emitter<SearchProductsState> emit) async {
+      event, Emitter<BrowseProductsState> emit) async {
     if (!state.isRefreshing) {
       emit(state.copyWith(
-          status: SearchProductsStatus.refreshing,
+          status: BrowseProductsStatus.refreshing,
           filter: state.filter.copyWith(page: 1)));
       final res = await _getManyProducts();
       res.fold(
         (failure) => _throwFailure(emit, failure),
         (r) => emit(
           state.copyWith(
-            status: SearchProductsStatus.success,
+            status: BrowseProductsStatus.success,
             products: r.products,
             info: r.info,
           ),
@@ -72,10 +68,10 @@ class SearchProductsBloc extends Bloc<SearchProductsEvent, SearchProductsState>
   }
 
   FutureOr<void> _getNextProducts(
-      _GetNextProducts event, Emitter<SearchProductsState> emit) async {
+      _GetNextProducts event, Emitter<BrowseProductsState> emit) async {
     if (!state.isLastPage && !state.isPaginating && !state.isRefreshing) {
       emit(state.copyWith(
-          status: SearchProductsStatus.loading,
+          status: BrowseProductsStatus.loading,
           filter: state.filter.copyWith(page: state.filter.page + 1)));
       final res = await _getManyProducts();
       res.fold(
@@ -83,7 +79,7 @@ class SearchProductsBloc extends Bloc<SearchProductsEvent, SearchProductsState>
         (r) {
           emit(
             state.copyWith(
-              status: SearchProductsStatus.success,
+              status: BrowseProductsStatus.success,
               info: r.info,
               products: [...state.products, ...r.products],
             ),
@@ -94,44 +90,48 @@ class SearchProductsBloc extends Bloc<SearchProductsEvent, SearchProductsState>
   }
 
   void _searchProducts(
-      _SearchProducts event, Emitter<SearchProductsState> emit) async {
-    emit(state.copyWith(
-        filter: state.filter.copyWith(query: event.query, page: 1),
-        status: SearchProductsStatus.refreshing));
-    final res = await _getManyProducts();
-    res.fold(
-      (failure) => _throwFailure(emit, failure),
-      (r) => emit(
-        state.copyWith(
-          status: SearchProductsStatus.success,
-          info: r.info,
-          products: r.products,
+      _SearchProducts event, Emitter<BrowseProductsState> emit) async {
+    if (event.query != state.filter.query) {
+      emit(state.copyWith(
+          filter: state.filter.copyWith(query: event.query, page: 1),
+          status: BrowseProductsStatus.refreshing));
+      final res = await _getManyProducts();
+      res.fold(
+        (failure) => _throwFailure(emit, failure),
+        (r) => emit(
+          state.copyWith(
+            status: BrowseProductsStatus.success,
+            info: r.info,
+            products: r.products,
+          ),
         ),
-      ),
-    );
+      );
+    }
   }
 
   void _updateProductInList(
-      _UpdateProductInList event, Emitter<SearchProductsState> emit) {
+      _UpdateProductInList event, Emitter<BrowseProductsState> emit) {
     final List<Product> products = [...state.products];
     final int index =
         products.indexWhere((product) => product.id == event.product.id);
-    products[index] = event.product;
-    emit(state.copyWith(products: products));
+    if (index != -1) {
+      products[index] = event.product;
+      emit(state.copyWith(products: products));
+    }
   }
 
   void _changeFilter(
-      _ChangeFilter event, Emitter<SearchProductsState> emit) async {
+      _ChangeFilter event, Emitter<BrowseProductsState> emit) async {
     emit(state.copyWith(
         filter: event.filter.copyWith(page: 1),
-        status: SearchProductsStatus.loading,
+        status: BrowseProductsStatus.loading,
         products: []));
     final res = await _getManyProducts();
     res.fold(
       (failure) => _throwFailure(emit, failure),
       (r) => emit(
         state.copyWith(
-          status: SearchProductsStatus.success,
+          status: BrowseProductsStatus.success,
           info: r.info,
           products: r.products,
         ),
@@ -139,7 +139,7 @@ class SearchProductsBloc extends Bloc<SearchProductsEvent, SearchProductsState>
     );
   }
 
-  FutureEither<SearchProductsResponse> _getManyProducts() async =>
+  FutureEither<BrowseProductsResponse> _getManyProducts() async =>
       await _getManyProductsUsecase.call(GetProductsParams(
         page: state.filter.page,
         limit: state.filter.limit,
@@ -151,19 +151,19 @@ class SearchProductsBloc extends Bloc<SearchProductsEvent, SearchProductsState>
         newArrival: state.filter.newArrival,
       ));
 
-  void _throwFailure(Emitter<SearchProductsState> emit, Failure failure) {
+  void _throwFailure(Emitter<BrowseProductsState> emit, Failure failure) {
     emit(
-        state.copyWith(status: SearchProductsStatus.failure, failure: failure));
-    emit(
-        state.copyWith(status: SearchProductsStatus.initial, failure: failure));
+        state.copyWith(status: BrowseProductsStatus.failure, failure: failure));
+    emit(state.copyWith(
+        status: BrowseProductsStatus.initial, failure: const CasualFailure()));
   }
 
   @override
-  SearchProductsState? fromJson(Map<String, dynamic> json) =>
-      _SearchProductsState.fromJson(json);
+  BrowseProductsState? fromJson(Map<String, dynamic> json) =>
+      _BrowseProductsState.fromJson(json);
 
   @override
-  Map<String, dynamic>? toJson(SearchProductsState state) {
+  Map<String, dynamic>? toJson(BrowseProductsState state) {
     if (!state.isFailure &&
         !state.isLoading &&
         !state.isRefreshing &&

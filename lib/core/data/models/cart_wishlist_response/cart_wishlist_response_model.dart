@@ -2,7 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../domain/entities/cart_wishlist_response.dart';
 import '../../../domain/entities/product.dart';
-import '../info/items_info_model.dart';
+import '../info/info_model.dart';
 import '../product/product_model.dart';
 
 part 'cart_wishlist_response_model.freezed.dart';
