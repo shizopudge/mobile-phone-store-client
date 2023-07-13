@@ -22,7 +22,7 @@ mixin _$WishlistEvent {
     required TResult Function(Product product) toggleWishlist,
     required TResult Function(Product product, int? productIndex)
         toggleRemoteWishlist,
-    required TResult Function() refreshProducts,
+    required TResult Function() refresh,
     required TResult Function(Product product) updateProductInList,
     required TResult Function() getNextProducts,
     required TResult Function(String query) searchProducts,
@@ -34,7 +34,7 @@ mixin _$WishlistEvent {
     TResult? Function()? initial,
     TResult? Function(Product product)? toggleWishlist,
     TResult? Function(Product product, int? productIndex)? toggleRemoteWishlist,
-    TResult? Function()? refreshProducts,
+    TResult? Function()? refresh,
     TResult? Function(Product product)? updateProductInList,
     TResult? Function()? getNextProducts,
     TResult? Function(String query)? searchProducts,
@@ -46,7 +46,7 @@ mixin _$WishlistEvent {
     TResult Function()? initial,
     TResult Function(Product product)? toggleWishlist,
     TResult Function(Product product, int? productIndex)? toggleRemoteWishlist,
-    TResult Function()? refreshProducts,
+    TResult Function()? refresh,
     TResult Function(Product product)? updateProductInList,
     TResult Function()? getNextProducts,
     TResult Function(String query)? searchProducts,
@@ -59,7 +59,7 @@ mixin _$WishlistEvent {
     required TResult Function(_Initial value) initial,
     required TResult Function(_ToggleWishlist value) toggleWishlist,
     required TResult Function(_ToggleRemoteWishlist value) toggleRemoteWishlist,
-    required TResult Function(_RefreshProducts value) refreshProducts,
+    required TResult Function(_Refresh value) refresh,
     required TResult Function(_UpdateProductInList value) updateProductInList,
     required TResult Function(_GetNextProducts value) getNextProducts,
     required TResult Function(_SearchProducts value) searchProducts,
@@ -71,7 +71,7 @@ mixin _$WishlistEvent {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_ToggleWishlist value)? toggleWishlist,
     TResult? Function(_ToggleRemoteWishlist value)? toggleRemoteWishlist,
-    TResult? Function(_RefreshProducts value)? refreshProducts,
+    TResult? Function(_Refresh value)? refresh,
     TResult? Function(_UpdateProductInList value)? updateProductInList,
     TResult? Function(_GetNextProducts value)? getNextProducts,
     TResult? Function(_SearchProducts value)? searchProducts,
@@ -83,7 +83,7 @@ mixin _$WishlistEvent {
     TResult Function(_Initial value)? initial,
     TResult Function(_ToggleWishlist value)? toggleWishlist,
     TResult Function(_ToggleRemoteWishlist value)? toggleRemoteWishlist,
-    TResult Function(_RefreshProducts value)? refreshProducts,
+    TResult Function(_Refresh value)? refresh,
     TResult Function(_UpdateProductInList value)? updateProductInList,
     TResult Function(_GetNextProducts value)? getNextProducts,
     TResult Function(_SearchProducts value)? searchProducts,
@@ -152,7 +152,7 @@ class _$_Initial implements _Initial {
     required TResult Function(Product product) toggleWishlist,
     required TResult Function(Product product, int? productIndex)
         toggleRemoteWishlist,
-    required TResult Function() refreshProducts,
+    required TResult Function() refresh,
     required TResult Function(Product product) updateProductInList,
     required TResult Function() getNextProducts,
     required TResult Function(String query) searchProducts,
@@ -167,7 +167,7 @@ class _$_Initial implements _Initial {
     TResult? Function()? initial,
     TResult? Function(Product product)? toggleWishlist,
     TResult? Function(Product product, int? productIndex)? toggleRemoteWishlist,
-    TResult? Function()? refreshProducts,
+    TResult? Function()? refresh,
     TResult? Function(Product product)? updateProductInList,
     TResult? Function()? getNextProducts,
     TResult? Function(String query)? searchProducts,
@@ -182,7 +182,7 @@ class _$_Initial implements _Initial {
     TResult Function()? initial,
     TResult Function(Product product)? toggleWishlist,
     TResult Function(Product product, int? productIndex)? toggleRemoteWishlist,
-    TResult Function()? refreshProducts,
+    TResult Function()? refresh,
     TResult Function(Product product)? updateProductInList,
     TResult Function()? getNextProducts,
     TResult Function(String query)? searchProducts,
@@ -201,7 +201,7 @@ class _$_Initial implements _Initial {
     required TResult Function(_Initial value) initial,
     required TResult Function(_ToggleWishlist value) toggleWishlist,
     required TResult Function(_ToggleRemoteWishlist value) toggleRemoteWishlist,
-    required TResult Function(_RefreshProducts value) refreshProducts,
+    required TResult Function(_Refresh value) refresh,
     required TResult Function(_UpdateProductInList value) updateProductInList,
     required TResult Function(_GetNextProducts value) getNextProducts,
     required TResult Function(_SearchProducts value) searchProducts,
@@ -216,7 +216,7 @@ class _$_Initial implements _Initial {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_ToggleWishlist value)? toggleWishlist,
     TResult? Function(_ToggleRemoteWishlist value)? toggleRemoteWishlist,
-    TResult? Function(_RefreshProducts value)? refreshProducts,
+    TResult? Function(_Refresh value)? refresh,
     TResult? Function(_UpdateProductInList value)? updateProductInList,
     TResult? Function(_GetNextProducts value)? getNextProducts,
     TResult? Function(_SearchProducts value)? searchProducts,
@@ -231,7 +231,7 @@ class _$_Initial implements _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(_ToggleWishlist value)? toggleWishlist,
     TResult Function(_ToggleRemoteWishlist value)? toggleRemoteWishlist,
-    TResult Function(_RefreshProducts value)? refreshProducts,
+    TResult Function(_Refresh value)? refresh,
     TResult Function(_UpdateProductInList value)? updateProductInList,
     TResult Function(_GetNextProducts value)? getNextProducts,
     TResult Function(_SearchProducts value)? searchProducts,
@@ -317,7 +317,7 @@ class _$_ToggleWishlist implements _ToggleWishlist {
     required TResult Function(Product product) toggleWishlist,
     required TResult Function(Product product, int? productIndex)
         toggleRemoteWishlist,
-    required TResult Function() refreshProducts,
+    required TResult Function() refresh,
     required TResult Function(Product product) updateProductInList,
     required TResult Function() getNextProducts,
     required TResult Function(String query) searchProducts,
@@ -332,7 +332,7 @@ class _$_ToggleWishlist implements _ToggleWishlist {
     TResult? Function()? initial,
     TResult? Function(Product product)? toggleWishlist,
     TResult? Function(Product product, int? productIndex)? toggleRemoteWishlist,
-    TResult? Function()? refreshProducts,
+    TResult? Function()? refresh,
     TResult? Function(Product product)? updateProductInList,
     TResult? Function()? getNextProducts,
     TResult? Function(String query)? searchProducts,
@@ -347,7 +347,7 @@ class _$_ToggleWishlist implements _ToggleWishlist {
     TResult Function()? initial,
     TResult Function(Product product)? toggleWishlist,
     TResult Function(Product product, int? productIndex)? toggleRemoteWishlist,
-    TResult Function()? refreshProducts,
+    TResult Function()? refresh,
     TResult Function(Product product)? updateProductInList,
     TResult Function()? getNextProducts,
     TResult Function(String query)? searchProducts,
@@ -366,7 +366,7 @@ class _$_ToggleWishlist implements _ToggleWishlist {
     required TResult Function(_Initial value) initial,
     required TResult Function(_ToggleWishlist value) toggleWishlist,
     required TResult Function(_ToggleRemoteWishlist value) toggleRemoteWishlist,
-    required TResult Function(_RefreshProducts value) refreshProducts,
+    required TResult Function(_Refresh value) refresh,
     required TResult Function(_UpdateProductInList value) updateProductInList,
     required TResult Function(_GetNextProducts value) getNextProducts,
     required TResult Function(_SearchProducts value) searchProducts,
@@ -381,7 +381,7 @@ class _$_ToggleWishlist implements _ToggleWishlist {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_ToggleWishlist value)? toggleWishlist,
     TResult? Function(_ToggleRemoteWishlist value)? toggleRemoteWishlist,
-    TResult? Function(_RefreshProducts value)? refreshProducts,
+    TResult? Function(_Refresh value)? refresh,
     TResult? Function(_UpdateProductInList value)? updateProductInList,
     TResult? Function(_GetNextProducts value)? getNextProducts,
     TResult? Function(_SearchProducts value)? searchProducts,
@@ -396,7 +396,7 @@ class _$_ToggleWishlist implements _ToggleWishlist {
     TResult Function(_Initial value)? initial,
     TResult Function(_ToggleWishlist value)? toggleWishlist,
     TResult Function(_ToggleRemoteWishlist value)? toggleRemoteWishlist,
-    TResult Function(_RefreshProducts value)? refreshProducts,
+    TResult Function(_Refresh value)? refresh,
     TResult Function(_UpdateProductInList value)? updateProductInList,
     TResult Function(_GetNextProducts value)? getNextProducts,
     TResult Function(_SearchProducts value)? searchProducts,
@@ -498,7 +498,7 @@ class _$_ToggleRemoteWishlist implements _ToggleRemoteWishlist {
     required TResult Function(Product product) toggleWishlist,
     required TResult Function(Product product, int? productIndex)
         toggleRemoteWishlist,
-    required TResult Function() refreshProducts,
+    required TResult Function() refresh,
     required TResult Function(Product product) updateProductInList,
     required TResult Function() getNextProducts,
     required TResult Function(String query) searchProducts,
@@ -513,7 +513,7 @@ class _$_ToggleRemoteWishlist implements _ToggleRemoteWishlist {
     TResult? Function()? initial,
     TResult? Function(Product product)? toggleWishlist,
     TResult? Function(Product product, int? productIndex)? toggleRemoteWishlist,
-    TResult? Function()? refreshProducts,
+    TResult? Function()? refresh,
     TResult? Function(Product product)? updateProductInList,
     TResult? Function()? getNextProducts,
     TResult? Function(String query)? searchProducts,
@@ -528,7 +528,7 @@ class _$_ToggleRemoteWishlist implements _ToggleRemoteWishlist {
     TResult Function()? initial,
     TResult Function(Product product)? toggleWishlist,
     TResult Function(Product product, int? productIndex)? toggleRemoteWishlist,
-    TResult Function()? refreshProducts,
+    TResult Function()? refresh,
     TResult Function(Product product)? updateProductInList,
     TResult Function()? getNextProducts,
     TResult Function(String query)? searchProducts,
@@ -547,7 +547,7 @@ class _$_ToggleRemoteWishlist implements _ToggleRemoteWishlist {
     required TResult Function(_Initial value) initial,
     required TResult Function(_ToggleWishlist value) toggleWishlist,
     required TResult Function(_ToggleRemoteWishlist value) toggleRemoteWishlist,
-    required TResult Function(_RefreshProducts value) refreshProducts,
+    required TResult Function(_Refresh value) refresh,
     required TResult Function(_UpdateProductInList value) updateProductInList,
     required TResult Function(_GetNextProducts value) getNextProducts,
     required TResult Function(_SearchProducts value) searchProducts,
@@ -562,7 +562,7 @@ class _$_ToggleRemoteWishlist implements _ToggleRemoteWishlist {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_ToggleWishlist value)? toggleWishlist,
     TResult? Function(_ToggleRemoteWishlist value)? toggleRemoteWishlist,
-    TResult? Function(_RefreshProducts value)? refreshProducts,
+    TResult? Function(_Refresh value)? refresh,
     TResult? Function(_UpdateProductInList value)? updateProductInList,
     TResult? Function(_GetNextProducts value)? getNextProducts,
     TResult? Function(_SearchProducts value)? searchProducts,
@@ -577,7 +577,7 @@ class _$_ToggleRemoteWishlist implements _ToggleRemoteWishlist {
     TResult Function(_Initial value)? initial,
     TResult Function(_ToggleWishlist value)? toggleWishlist,
     TResult Function(_ToggleRemoteWishlist value)? toggleRemoteWishlist,
-    TResult Function(_RefreshProducts value)? refreshProducts,
+    TResult Function(_Refresh value)? refresh,
     TResult Function(_UpdateProductInList value)? updateProductInList,
     TResult Function(_GetNextProducts value)? getNextProducts,
     TResult Function(_SearchProducts value)? searchProducts,
@@ -604,35 +604,34 @@ abstract class _ToggleRemoteWishlist implements WishlistEvent {
 }
 
 /// @nodoc
-abstract class _$$_RefreshProductsCopyWith<$Res> {
-  factory _$$_RefreshProductsCopyWith(
-          _$_RefreshProducts value, $Res Function(_$_RefreshProducts) then) =
-      __$$_RefreshProductsCopyWithImpl<$Res>;
+abstract class _$$_RefreshCopyWith<$Res> {
+  factory _$$_RefreshCopyWith(
+          _$_Refresh value, $Res Function(_$_Refresh) then) =
+      __$$_RefreshCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_RefreshProductsCopyWithImpl<$Res>
-    extends _$WishlistEventCopyWithImpl<$Res, _$_RefreshProducts>
-    implements _$$_RefreshProductsCopyWith<$Res> {
-  __$$_RefreshProductsCopyWithImpl(
-      _$_RefreshProducts _value, $Res Function(_$_RefreshProducts) _then)
+class __$$_RefreshCopyWithImpl<$Res>
+    extends _$WishlistEventCopyWithImpl<$Res, _$_Refresh>
+    implements _$$_RefreshCopyWith<$Res> {
+  __$$_RefreshCopyWithImpl(_$_Refresh _value, $Res Function(_$_Refresh) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_RefreshProducts implements _RefreshProducts {
-  const _$_RefreshProducts();
+class _$_Refresh implements _Refresh {
+  const _$_Refresh();
 
   @override
   String toString() {
-    return 'WishlistEvent.refreshProducts()';
+    return 'WishlistEvent.refresh()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_RefreshProducts);
+        (other.runtimeType == runtimeType && other is _$_Refresh);
   }
 
   @override
@@ -645,13 +644,13 @@ class _$_RefreshProducts implements _RefreshProducts {
     required TResult Function(Product product) toggleWishlist,
     required TResult Function(Product product, int? productIndex)
         toggleRemoteWishlist,
-    required TResult Function() refreshProducts,
+    required TResult Function() refresh,
     required TResult Function(Product product) updateProductInList,
     required TResult Function() getNextProducts,
     required TResult Function(String query) searchProducts,
     required TResult Function(ProductsFilter filter) changeFilter,
   }) {
-    return refreshProducts();
+    return refresh();
   }
 
   @override
@@ -660,13 +659,13 @@ class _$_RefreshProducts implements _RefreshProducts {
     TResult? Function()? initial,
     TResult? Function(Product product)? toggleWishlist,
     TResult? Function(Product product, int? productIndex)? toggleRemoteWishlist,
-    TResult? Function()? refreshProducts,
+    TResult? Function()? refresh,
     TResult? Function(Product product)? updateProductInList,
     TResult? Function()? getNextProducts,
     TResult? Function(String query)? searchProducts,
     TResult? Function(ProductsFilter filter)? changeFilter,
   }) {
-    return refreshProducts?.call();
+    return refresh?.call();
   }
 
   @override
@@ -675,15 +674,15 @@ class _$_RefreshProducts implements _RefreshProducts {
     TResult Function()? initial,
     TResult Function(Product product)? toggleWishlist,
     TResult Function(Product product, int? productIndex)? toggleRemoteWishlist,
-    TResult Function()? refreshProducts,
+    TResult Function()? refresh,
     TResult Function(Product product)? updateProductInList,
     TResult Function()? getNextProducts,
     TResult Function(String query)? searchProducts,
     TResult Function(ProductsFilter filter)? changeFilter,
     required TResult orElse(),
   }) {
-    if (refreshProducts != null) {
-      return refreshProducts();
+    if (refresh != null) {
+      return refresh();
     }
     return orElse();
   }
@@ -694,13 +693,13 @@ class _$_RefreshProducts implements _RefreshProducts {
     required TResult Function(_Initial value) initial,
     required TResult Function(_ToggleWishlist value) toggleWishlist,
     required TResult Function(_ToggleRemoteWishlist value) toggleRemoteWishlist,
-    required TResult Function(_RefreshProducts value) refreshProducts,
+    required TResult Function(_Refresh value) refresh,
     required TResult Function(_UpdateProductInList value) updateProductInList,
     required TResult Function(_GetNextProducts value) getNextProducts,
     required TResult Function(_SearchProducts value) searchProducts,
     required TResult Function(_ChangeFilter value) changeFilter,
   }) {
-    return refreshProducts(this);
+    return refresh(this);
   }
 
   @override
@@ -709,13 +708,13 @@ class _$_RefreshProducts implements _RefreshProducts {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_ToggleWishlist value)? toggleWishlist,
     TResult? Function(_ToggleRemoteWishlist value)? toggleRemoteWishlist,
-    TResult? Function(_RefreshProducts value)? refreshProducts,
+    TResult? Function(_Refresh value)? refresh,
     TResult? Function(_UpdateProductInList value)? updateProductInList,
     TResult? Function(_GetNextProducts value)? getNextProducts,
     TResult? Function(_SearchProducts value)? searchProducts,
     TResult? Function(_ChangeFilter value)? changeFilter,
   }) {
-    return refreshProducts?.call(this);
+    return refresh?.call(this);
   }
 
   @override
@@ -724,22 +723,22 @@ class _$_RefreshProducts implements _RefreshProducts {
     TResult Function(_Initial value)? initial,
     TResult Function(_ToggleWishlist value)? toggleWishlist,
     TResult Function(_ToggleRemoteWishlist value)? toggleRemoteWishlist,
-    TResult Function(_RefreshProducts value)? refreshProducts,
+    TResult Function(_Refresh value)? refresh,
     TResult Function(_UpdateProductInList value)? updateProductInList,
     TResult Function(_GetNextProducts value)? getNextProducts,
     TResult Function(_SearchProducts value)? searchProducts,
     TResult Function(_ChangeFilter value)? changeFilter,
     required TResult orElse(),
   }) {
-    if (refreshProducts != null) {
-      return refreshProducts(this);
+    if (refresh != null) {
+      return refresh(this);
     }
     return orElse();
   }
 }
 
-abstract class _RefreshProducts implements WishlistEvent {
-  const factory _RefreshProducts() = _$_RefreshProducts;
+abstract class _Refresh implements WishlistEvent {
+  const factory _Refresh() = _$_Refresh;
 }
 
 /// @nodoc
@@ -811,7 +810,7 @@ class _$_UpdateProductInList implements _UpdateProductInList {
     required TResult Function(Product product) toggleWishlist,
     required TResult Function(Product product, int? productIndex)
         toggleRemoteWishlist,
-    required TResult Function() refreshProducts,
+    required TResult Function() refresh,
     required TResult Function(Product product) updateProductInList,
     required TResult Function() getNextProducts,
     required TResult Function(String query) searchProducts,
@@ -826,7 +825,7 @@ class _$_UpdateProductInList implements _UpdateProductInList {
     TResult? Function()? initial,
     TResult? Function(Product product)? toggleWishlist,
     TResult? Function(Product product, int? productIndex)? toggleRemoteWishlist,
-    TResult? Function()? refreshProducts,
+    TResult? Function()? refresh,
     TResult? Function(Product product)? updateProductInList,
     TResult? Function()? getNextProducts,
     TResult? Function(String query)? searchProducts,
@@ -841,7 +840,7 @@ class _$_UpdateProductInList implements _UpdateProductInList {
     TResult Function()? initial,
     TResult Function(Product product)? toggleWishlist,
     TResult Function(Product product, int? productIndex)? toggleRemoteWishlist,
-    TResult Function()? refreshProducts,
+    TResult Function()? refresh,
     TResult Function(Product product)? updateProductInList,
     TResult Function()? getNextProducts,
     TResult Function(String query)? searchProducts,
@@ -860,7 +859,7 @@ class _$_UpdateProductInList implements _UpdateProductInList {
     required TResult Function(_Initial value) initial,
     required TResult Function(_ToggleWishlist value) toggleWishlist,
     required TResult Function(_ToggleRemoteWishlist value) toggleRemoteWishlist,
-    required TResult Function(_RefreshProducts value) refreshProducts,
+    required TResult Function(_Refresh value) refresh,
     required TResult Function(_UpdateProductInList value) updateProductInList,
     required TResult Function(_GetNextProducts value) getNextProducts,
     required TResult Function(_SearchProducts value) searchProducts,
@@ -875,7 +874,7 @@ class _$_UpdateProductInList implements _UpdateProductInList {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_ToggleWishlist value)? toggleWishlist,
     TResult? Function(_ToggleRemoteWishlist value)? toggleRemoteWishlist,
-    TResult? Function(_RefreshProducts value)? refreshProducts,
+    TResult? Function(_Refresh value)? refresh,
     TResult? Function(_UpdateProductInList value)? updateProductInList,
     TResult? Function(_GetNextProducts value)? getNextProducts,
     TResult? Function(_SearchProducts value)? searchProducts,
@@ -890,7 +889,7 @@ class _$_UpdateProductInList implements _UpdateProductInList {
     TResult Function(_Initial value)? initial,
     TResult Function(_ToggleWishlist value)? toggleWishlist,
     TResult Function(_ToggleRemoteWishlist value)? toggleRemoteWishlist,
-    TResult Function(_RefreshProducts value)? refreshProducts,
+    TResult Function(_Refresh value)? refresh,
     TResult Function(_UpdateProductInList value)? updateProductInList,
     TResult Function(_GetNextProducts value)? getNextProducts,
     TResult Function(_SearchProducts value)? searchProducts,
@@ -956,7 +955,7 @@ class _$_GetNextProducts implements _GetNextProducts {
     required TResult Function(Product product) toggleWishlist,
     required TResult Function(Product product, int? productIndex)
         toggleRemoteWishlist,
-    required TResult Function() refreshProducts,
+    required TResult Function() refresh,
     required TResult Function(Product product) updateProductInList,
     required TResult Function() getNextProducts,
     required TResult Function(String query) searchProducts,
@@ -971,7 +970,7 @@ class _$_GetNextProducts implements _GetNextProducts {
     TResult? Function()? initial,
     TResult? Function(Product product)? toggleWishlist,
     TResult? Function(Product product, int? productIndex)? toggleRemoteWishlist,
-    TResult? Function()? refreshProducts,
+    TResult? Function()? refresh,
     TResult? Function(Product product)? updateProductInList,
     TResult? Function()? getNextProducts,
     TResult? Function(String query)? searchProducts,
@@ -986,7 +985,7 @@ class _$_GetNextProducts implements _GetNextProducts {
     TResult Function()? initial,
     TResult Function(Product product)? toggleWishlist,
     TResult Function(Product product, int? productIndex)? toggleRemoteWishlist,
-    TResult Function()? refreshProducts,
+    TResult Function()? refresh,
     TResult Function(Product product)? updateProductInList,
     TResult Function()? getNextProducts,
     TResult Function(String query)? searchProducts,
@@ -1005,7 +1004,7 @@ class _$_GetNextProducts implements _GetNextProducts {
     required TResult Function(_Initial value) initial,
     required TResult Function(_ToggleWishlist value) toggleWishlist,
     required TResult Function(_ToggleRemoteWishlist value) toggleRemoteWishlist,
-    required TResult Function(_RefreshProducts value) refreshProducts,
+    required TResult Function(_Refresh value) refresh,
     required TResult Function(_UpdateProductInList value) updateProductInList,
     required TResult Function(_GetNextProducts value) getNextProducts,
     required TResult Function(_SearchProducts value) searchProducts,
@@ -1020,7 +1019,7 @@ class _$_GetNextProducts implements _GetNextProducts {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_ToggleWishlist value)? toggleWishlist,
     TResult? Function(_ToggleRemoteWishlist value)? toggleRemoteWishlist,
-    TResult? Function(_RefreshProducts value)? refreshProducts,
+    TResult? Function(_Refresh value)? refresh,
     TResult? Function(_UpdateProductInList value)? updateProductInList,
     TResult? Function(_GetNextProducts value)? getNextProducts,
     TResult? Function(_SearchProducts value)? searchProducts,
@@ -1035,7 +1034,7 @@ class _$_GetNextProducts implements _GetNextProducts {
     TResult Function(_Initial value)? initial,
     TResult Function(_ToggleWishlist value)? toggleWishlist,
     TResult Function(_ToggleRemoteWishlist value)? toggleRemoteWishlist,
-    TResult Function(_RefreshProducts value)? refreshProducts,
+    TResult Function(_Refresh value)? refresh,
     TResult Function(_UpdateProductInList value)? updateProductInList,
     TResult Function(_GetNextProducts value)? getNextProducts,
     TResult Function(_SearchProducts value)? searchProducts,
@@ -1121,7 +1120,7 @@ class _$_SearchProducts implements _SearchProducts {
     required TResult Function(Product product) toggleWishlist,
     required TResult Function(Product product, int? productIndex)
         toggleRemoteWishlist,
-    required TResult Function() refreshProducts,
+    required TResult Function() refresh,
     required TResult Function(Product product) updateProductInList,
     required TResult Function() getNextProducts,
     required TResult Function(String query) searchProducts,
@@ -1136,7 +1135,7 @@ class _$_SearchProducts implements _SearchProducts {
     TResult? Function()? initial,
     TResult? Function(Product product)? toggleWishlist,
     TResult? Function(Product product, int? productIndex)? toggleRemoteWishlist,
-    TResult? Function()? refreshProducts,
+    TResult? Function()? refresh,
     TResult? Function(Product product)? updateProductInList,
     TResult? Function()? getNextProducts,
     TResult? Function(String query)? searchProducts,
@@ -1151,7 +1150,7 @@ class _$_SearchProducts implements _SearchProducts {
     TResult Function()? initial,
     TResult Function(Product product)? toggleWishlist,
     TResult Function(Product product, int? productIndex)? toggleRemoteWishlist,
-    TResult Function()? refreshProducts,
+    TResult Function()? refresh,
     TResult Function(Product product)? updateProductInList,
     TResult Function()? getNextProducts,
     TResult Function(String query)? searchProducts,
@@ -1170,7 +1169,7 @@ class _$_SearchProducts implements _SearchProducts {
     required TResult Function(_Initial value) initial,
     required TResult Function(_ToggleWishlist value) toggleWishlist,
     required TResult Function(_ToggleRemoteWishlist value) toggleRemoteWishlist,
-    required TResult Function(_RefreshProducts value) refreshProducts,
+    required TResult Function(_Refresh value) refresh,
     required TResult Function(_UpdateProductInList value) updateProductInList,
     required TResult Function(_GetNextProducts value) getNextProducts,
     required TResult Function(_SearchProducts value) searchProducts,
@@ -1185,7 +1184,7 @@ class _$_SearchProducts implements _SearchProducts {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_ToggleWishlist value)? toggleWishlist,
     TResult? Function(_ToggleRemoteWishlist value)? toggleRemoteWishlist,
-    TResult? Function(_RefreshProducts value)? refreshProducts,
+    TResult? Function(_Refresh value)? refresh,
     TResult? Function(_UpdateProductInList value)? updateProductInList,
     TResult? Function(_GetNextProducts value)? getNextProducts,
     TResult? Function(_SearchProducts value)? searchProducts,
@@ -1200,7 +1199,7 @@ class _$_SearchProducts implements _SearchProducts {
     TResult Function(_Initial value)? initial,
     TResult Function(_ToggleWishlist value)? toggleWishlist,
     TResult Function(_ToggleRemoteWishlist value)? toggleRemoteWishlist,
-    TResult Function(_RefreshProducts value)? refreshProducts,
+    TResult Function(_Refresh value)? refresh,
     TResult Function(_UpdateProductInList value)? updateProductInList,
     TResult Function(_GetNextProducts value)? getNextProducts,
     TResult Function(_SearchProducts value)? searchProducts,
@@ -1291,7 +1290,7 @@ class _$_ChangeFilter implements _ChangeFilter {
     required TResult Function(Product product) toggleWishlist,
     required TResult Function(Product product, int? productIndex)
         toggleRemoteWishlist,
-    required TResult Function() refreshProducts,
+    required TResult Function() refresh,
     required TResult Function(Product product) updateProductInList,
     required TResult Function() getNextProducts,
     required TResult Function(String query) searchProducts,
@@ -1306,7 +1305,7 @@ class _$_ChangeFilter implements _ChangeFilter {
     TResult? Function()? initial,
     TResult? Function(Product product)? toggleWishlist,
     TResult? Function(Product product, int? productIndex)? toggleRemoteWishlist,
-    TResult? Function()? refreshProducts,
+    TResult? Function()? refresh,
     TResult? Function(Product product)? updateProductInList,
     TResult? Function()? getNextProducts,
     TResult? Function(String query)? searchProducts,
@@ -1321,7 +1320,7 @@ class _$_ChangeFilter implements _ChangeFilter {
     TResult Function()? initial,
     TResult Function(Product product)? toggleWishlist,
     TResult Function(Product product, int? productIndex)? toggleRemoteWishlist,
-    TResult Function()? refreshProducts,
+    TResult Function()? refresh,
     TResult Function(Product product)? updateProductInList,
     TResult Function()? getNextProducts,
     TResult Function(String query)? searchProducts,
@@ -1340,7 +1339,7 @@ class _$_ChangeFilter implements _ChangeFilter {
     required TResult Function(_Initial value) initial,
     required TResult Function(_ToggleWishlist value) toggleWishlist,
     required TResult Function(_ToggleRemoteWishlist value) toggleRemoteWishlist,
-    required TResult Function(_RefreshProducts value) refreshProducts,
+    required TResult Function(_Refresh value) refresh,
     required TResult Function(_UpdateProductInList value) updateProductInList,
     required TResult Function(_GetNextProducts value) getNextProducts,
     required TResult Function(_SearchProducts value) searchProducts,
@@ -1355,7 +1354,7 @@ class _$_ChangeFilter implements _ChangeFilter {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_ToggleWishlist value)? toggleWishlist,
     TResult? Function(_ToggleRemoteWishlist value)? toggleRemoteWishlist,
-    TResult? Function(_RefreshProducts value)? refreshProducts,
+    TResult? Function(_Refresh value)? refresh,
     TResult? Function(_UpdateProductInList value)? updateProductInList,
     TResult? Function(_GetNextProducts value)? getNextProducts,
     TResult? Function(_SearchProducts value)? searchProducts,
@@ -1370,7 +1369,7 @@ class _$_ChangeFilter implements _ChangeFilter {
     TResult Function(_Initial value)? initial,
     TResult Function(_ToggleWishlist value)? toggleWishlist,
     TResult Function(_ToggleRemoteWishlist value)? toggleRemoteWishlist,
-    TResult Function(_RefreshProducts value)? refreshProducts,
+    TResult Function(_Refresh value)? refresh,
     TResult Function(_UpdateProductInList value)? updateProductInList,
     TResult Function(_GetNextProducts value)? getNextProducts,
     TResult Function(_SearchProducts value)? searchProducts,

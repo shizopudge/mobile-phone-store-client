@@ -3,16 +3,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/presentation/animations/fade_animation_x.dart';
 import '../../../../core/presentation/widgets/buttons/casual_text_button.dart';
+import '../../../../core/presentation/widgets/other/editable_image.dart';
 import '../../../../core/presentation/widgets/other/password_checkbox.dart';
 import '../../../../core/presentation/widgets/text_fields/casual_text_field.dart';
 import '../../../../core/presentation/widgets/text_fields/password_text_field.dart';
 import '../../../../core/utils/size_config.dart';
 import '../../../auth/presentation/bloc/auth_bloc.dart';
 import '../bloc/profile_bloc.dart';
-import 'editable_user_image.dart';
 
 class ProfileEditBody extends StatelessWidget {
-  final Function(String? userImage) onProfileImageTap;
+  final void Function(String? userImage) onProfileImageTap;
   final TextEditingController emailController;
   final TextEditingController usernameController;
   final TextEditingController newPasswordController;
@@ -43,9 +43,9 @@ class ProfileEditBody extends StatelessWidget {
                           : 100)),
               child: Column(
                 children: [
-                  EditableUserImage(
+                  EditableImage(
                     onTap: () => onProfileImageTap(userImage),
-                    userImage: userImage,
+                    image: userImage,
                     pickedImage: state.image,
                   ),
                   SizedBox(

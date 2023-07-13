@@ -6,17 +6,15 @@ import '../../../utils/size_config.dart';
 class SearchField extends StatelessWidget {
   final TextEditingController searchController;
   final VoidCallback onClear;
-  final VoidCallback onFilter;
+  final VoidCallback? onFilter;
   final VoidCallback toggleSearchResult;
   final bool showClose;
-  final bool showFilter;
   final bool isFilterActive;
   final bool showSearchResults;
   const SearchField({
     super.key,
     required this.searchController,
     required this.showClose,
-    this.showFilter = true,
     required this.onClear,
     required this.onFilter,
     required this.isFilterActive,
@@ -64,7 +62,7 @@ class SearchField extends StatelessWidget {
                       ),
                     ),
                   ),
-                if (showFilter)
+                if (onFilter != null)
                   IconButton(
                     onPressed: onFilter,
                     icon: Icon(

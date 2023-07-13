@@ -91,3 +91,54 @@ class ProductsFilter extends Equatable {
   factory ProductsFilter.fromJson(String source) =>
       ProductsFilter.fromMap(json.decode(source) as Map<String, dynamic>);
 }
+
+class SimpleFilter extends Equatable {
+  final int page;
+  final int limit;
+  final String query;
+  const SimpleFilter({
+    this.page = 1,
+    this.limit = 10,
+    this.query = '',
+  });
+
+  SimpleFilter copyWith({
+    int? page,
+    int? limit,
+    String? query,
+  }) {
+    return SimpleFilter(
+      page: page ?? this.page,
+      limit: limit ?? this.limit,
+      query: query ?? this.query,
+    );
+  }
+
+  @override
+  List<Object?> get props => [
+        page,
+        limit,
+        query,
+      ];
+
+  Map<String, dynamic> toMap() {
+    return <String, dynamic>{
+      'page': page,
+      'limit': limit,
+      'query': query,
+    };
+  }
+
+  factory SimpleFilter.fromMap(Map<String, dynamic> map) {
+    return SimpleFilter(
+      page: map['page'] as int,
+      limit: map['limit'] as int,
+      query: map['query'] as String,
+    );
+  }
+
+  String toJson() => json.encode(toMap());
+
+  factory SimpleFilter.fromJson(String source) =>
+      SimpleFilter.fromMap(json.decode(source) as Map<String, dynamic>);
+}

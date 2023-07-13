@@ -28,6 +28,14 @@ class CartState with _$CartState {
   factory CartState.fromJson(Map<String, dynamic> json) =>
       _$CartStateFromJson(json);
 
+  double _getTotalCost() {
+    double totalCost = 0.0;
+    for (Product product in products) {
+      totalCost += product.cost;
+    }
+    return totalCost;
+  }
+
   bool get isInitial => status.isInitial;
   bool get isLoading => status.isLoading && products.isEmpty;
   bool get isRefreshing => status.isRefreshing;
@@ -35,8 +43,9 @@ class CartState with _$CartState {
   bool get isFailure => status.isFailure;
   bool get isPaginating => status.isLoading && products.isNotEmpty;
 
-  bool get isLastPage =>
-      (info.countOnPage < filter.limit) && products.isNotEmpty;
-  bool get isNothingFound => !isLastPage && products.isEmpty;
+  bool get isLastPage => info.countOnPage < filter.limit && products.isNotEmpty;
+  bool get isNothingFound => products.isEmpty;
   bool get isFilterActive => filter != const ProductsFilter();
+
+  double get totalCost => _getTotalCost();
 }

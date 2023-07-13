@@ -9,6 +9,7 @@ class CasualButton extends StatelessWidget {
   final bool isEnabled;
   final Color enabledBgColor;
   final Color disabledBgColor;
+  final Color? textColor;
   final double? height;
   final double fontSize;
   final bool? expand;
@@ -21,6 +22,7 @@ class CasualButton extends StatelessWidget {
     this.isEnabled = true,
     this.enabledBgColor = kBlack,
     this.disabledBgColor = kGrey,
+    this.textColor,
     this.height,
     this.expand = true,
     this.borderRadius,
@@ -42,7 +44,7 @@ class CasualButton extends StatelessWidget {
       child: Text(
         text,
         style: kMedium.copyWith(
-          color: kWhite,
+          color: textColor ?? kWhite,
           fontSize: fontSize,
         ),
       ),

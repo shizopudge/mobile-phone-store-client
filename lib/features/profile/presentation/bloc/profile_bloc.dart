@@ -14,9 +14,9 @@ import '../../../../core/domain/usecases/image/pick_image.dart';
 import '../../../../core/domain/usecases/usecase.dart';
 import '../../../../core/failure/failure.dart';
 import '../../../auth/presentation/bloc/auth_bloc.dart';
-import '../../domain/usecases/delete_image.dart';
+import '../../domain/usecases/delete_user_image.dart';
 import '../../domain/usecases/edit_profile.dart';
-import '../../domain/usecases/upload_image.dart';
+import '../../domain/usecases/upload_user_image.dart';
 
 part 'profile_bloc.freezed.dart';
 part 'profile_event.dart';
@@ -140,11 +140,6 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     });
   }
 
-  void _throwFailure(Emitter<ProfileState> emit, Failure failure) {
-    emit(state.copyWith(status: ProfileStatus.failure, failure: failure));
-    emit(state.copyWith(status: ProfileStatus.initial));
-  }
-
   FutureOr<void> _pickImage(
       _PickImage event, Emitter<ProfileState> emit) async {
     emit(state.copyWith(status: ProfileStatus.loading));
@@ -169,5 +164,11 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
           currentUser: state.currentUser?.copyWithNewImage(image: null),
           status: ProfileStatus.success));
     });
+  }
+
+  void _throwFailure(Emitter<ProfileState> emit, Failure failure) {
+    emit(state.copyWith(status: ProfileStatus.failure, failure: failure));
+    emit(state.copyWith(
+        status: ProfileStatus.initial, failure: const CasualFailure()));
   }
 }

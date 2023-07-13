@@ -3,7 +3,7 @@ part of 'browse_products_bloc.dart';
 @freezed
 class BrowseProductsEvent with _$BrowseProductsEvent {
   const factory BrowseProductsEvent.initial() = _Initial;
-  const factory BrowseProductsEvent.refreshProducts() = _RefreshProducts;
+  const factory BrowseProductsEvent.refresh() = _Refresh;
   const factory BrowseProductsEvent.getNextProducts() = _GetNextProducts;
   const factory BrowseProductsEvent.searchProducts(String query) =
       _SearchProducts;

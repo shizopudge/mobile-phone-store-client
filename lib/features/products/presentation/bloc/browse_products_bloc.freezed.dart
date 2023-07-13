@@ -19,7 +19,7 @@ mixin _$BrowseProductsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() refreshProducts,
+    required TResult Function() refresh,
     required TResult Function() getNextProducts,
     required TResult Function(String query) searchProducts,
     required TResult Function(Product product) updateProductInList,
@@ -29,7 +29,7 @@ mixin _$BrowseProductsEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? refreshProducts,
+    TResult? Function()? refresh,
     TResult? Function()? getNextProducts,
     TResult? Function(String query)? searchProducts,
     TResult? Function(Product product)? updateProductInList,
@@ -39,7 +39,7 @@ mixin _$BrowseProductsEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? refreshProducts,
+    TResult Function()? refresh,
     TResult Function()? getNextProducts,
     TResult Function(String query)? searchProducts,
     TResult Function(Product product)? updateProductInList,
@@ -50,7 +50,7 @@ mixin _$BrowseProductsEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(_RefreshProducts value) refreshProducts,
+    required TResult Function(_Refresh value) refresh,
     required TResult Function(_GetNextProducts value) getNextProducts,
     required TResult Function(_SearchProducts value) searchProducts,
     required TResult Function(_UpdateProductInList value) updateProductInList,
@@ -60,7 +60,7 @@ mixin _$BrowseProductsEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(_RefreshProducts value)? refreshProducts,
+    TResult? Function(_Refresh value)? refresh,
     TResult? Function(_GetNextProducts value)? getNextProducts,
     TResult? Function(_SearchProducts value)? searchProducts,
     TResult? Function(_UpdateProductInList value)? updateProductInList,
@@ -70,7 +70,7 @@ mixin _$BrowseProductsEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(_RefreshProducts value)? refreshProducts,
+    TResult Function(_Refresh value)? refresh,
     TResult Function(_GetNextProducts value)? getNextProducts,
     TResult Function(_SearchProducts value)? searchProducts,
     TResult Function(_UpdateProductInList value)? updateProductInList,
@@ -136,7 +136,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() refreshProducts,
+    required TResult Function() refresh,
     required TResult Function() getNextProducts,
     required TResult Function(String query) searchProducts,
     required TResult Function(Product product) updateProductInList,
@@ -149,7 +149,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? refreshProducts,
+    TResult? Function()? refresh,
     TResult? Function()? getNextProducts,
     TResult? Function(String query)? searchProducts,
     TResult? Function(Product product)? updateProductInList,
@@ -162,7 +162,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? refreshProducts,
+    TResult Function()? refresh,
     TResult Function()? getNextProducts,
     TResult Function(String query)? searchProducts,
     TResult Function(Product product)? updateProductInList,
@@ -179,7 +179,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(_RefreshProducts value) refreshProducts,
+    required TResult Function(_Refresh value) refresh,
     required TResult Function(_GetNextProducts value) getNextProducts,
     required TResult Function(_SearchProducts value) searchProducts,
     required TResult Function(_UpdateProductInList value) updateProductInList,
@@ -192,7 +192,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(_RefreshProducts value)? refreshProducts,
+    TResult? Function(_Refresh value)? refresh,
     TResult? Function(_GetNextProducts value)? getNextProducts,
     TResult? Function(_SearchProducts value)? searchProducts,
     TResult? Function(_UpdateProductInList value)? updateProductInList,
@@ -205,7 +205,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(_RefreshProducts value)? refreshProducts,
+    TResult Function(_Refresh value)? refresh,
     TResult Function(_GetNextProducts value)? getNextProducts,
     TResult Function(_SearchProducts value)? searchProducts,
     TResult Function(_UpdateProductInList value)? updateProductInList,
@@ -224,35 +224,34 @@ abstract class _Initial implements BrowseProductsEvent {
 }
 
 /// @nodoc
-abstract class _$$_RefreshProductsCopyWith<$Res> {
-  factory _$$_RefreshProductsCopyWith(
-          _$_RefreshProducts value, $Res Function(_$_RefreshProducts) then) =
-      __$$_RefreshProductsCopyWithImpl<$Res>;
+abstract class _$$_RefreshCopyWith<$Res> {
+  factory _$$_RefreshCopyWith(
+          _$_Refresh value, $Res Function(_$_Refresh) then) =
+      __$$_RefreshCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_RefreshProductsCopyWithImpl<$Res>
-    extends _$BrowseProductsEventCopyWithImpl<$Res, _$_RefreshProducts>
-    implements _$$_RefreshProductsCopyWith<$Res> {
-  __$$_RefreshProductsCopyWithImpl(
-      _$_RefreshProducts _value, $Res Function(_$_RefreshProducts) _then)
+class __$$_RefreshCopyWithImpl<$Res>
+    extends _$BrowseProductsEventCopyWithImpl<$Res, _$_Refresh>
+    implements _$$_RefreshCopyWith<$Res> {
+  __$$_RefreshCopyWithImpl(_$_Refresh _value, $Res Function(_$_Refresh) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_RefreshProducts implements _RefreshProducts {
-  const _$_RefreshProducts();
+class _$_Refresh implements _Refresh {
+  const _$_Refresh();
 
   @override
   String toString() {
-    return 'BrowseProductsEvent.refreshProducts()';
+    return 'BrowseProductsEvent.refresh()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_RefreshProducts);
+        (other.runtimeType == runtimeType && other is _$_Refresh);
   }
 
   @override
@@ -262,41 +261,41 @@ class _$_RefreshProducts implements _RefreshProducts {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() refreshProducts,
+    required TResult Function() refresh,
     required TResult Function() getNextProducts,
     required TResult Function(String query) searchProducts,
     required TResult Function(Product product) updateProductInList,
     required TResult Function(ProductsFilter filter) changeFilter,
   }) {
-    return refreshProducts();
+    return refresh();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? refreshProducts,
+    TResult? Function()? refresh,
     TResult? Function()? getNextProducts,
     TResult? Function(String query)? searchProducts,
     TResult? Function(Product product)? updateProductInList,
     TResult? Function(ProductsFilter filter)? changeFilter,
   }) {
-    return refreshProducts?.call();
+    return refresh?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? refreshProducts,
+    TResult Function()? refresh,
     TResult Function()? getNextProducts,
     TResult Function(String query)? searchProducts,
     TResult Function(Product product)? updateProductInList,
     TResult Function(ProductsFilter filter)? changeFilter,
     required TResult orElse(),
   }) {
-    if (refreshProducts != null) {
-      return refreshProducts();
+    if (refresh != null) {
+      return refresh();
     }
     return orElse();
   }
@@ -305,48 +304,48 @@ class _$_RefreshProducts implements _RefreshProducts {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(_RefreshProducts value) refreshProducts,
+    required TResult Function(_Refresh value) refresh,
     required TResult Function(_GetNextProducts value) getNextProducts,
     required TResult Function(_SearchProducts value) searchProducts,
     required TResult Function(_UpdateProductInList value) updateProductInList,
     required TResult Function(_ChangeFilter value) changeFilter,
   }) {
-    return refreshProducts(this);
+    return refresh(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(_RefreshProducts value)? refreshProducts,
+    TResult? Function(_Refresh value)? refresh,
     TResult? Function(_GetNextProducts value)? getNextProducts,
     TResult? Function(_SearchProducts value)? searchProducts,
     TResult? Function(_UpdateProductInList value)? updateProductInList,
     TResult? Function(_ChangeFilter value)? changeFilter,
   }) {
-    return refreshProducts?.call(this);
+    return refresh?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(_RefreshProducts value)? refreshProducts,
+    TResult Function(_Refresh value)? refresh,
     TResult Function(_GetNextProducts value)? getNextProducts,
     TResult Function(_SearchProducts value)? searchProducts,
     TResult Function(_UpdateProductInList value)? updateProductInList,
     TResult Function(_ChangeFilter value)? changeFilter,
     required TResult orElse(),
   }) {
-    if (refreshProducts != null) {
-      return refreshProducts(this);
+    if (refresh != null) {
+      return refresh(this);
     }
     return orElse();
   }
 }
 
-abstract class _RefreshProducts implements BrowseProductsEvent {
-  const factory _RefreshProducts() = _$_RefreshProducts;
+abstract class _Refresh implements BrowseProductsEvent {
+  const factory _Refresh() = _$_Refresh;
 }
 
 /// @nodoc
@@ -388,7 +387,7 @@ class _$_GetNextProducts implements _GetNextProducts {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() refreshProducts,
+    required TResult Function() refresh,
     required TResult Function() getNextProducts,
     required TResult Function(String query) searchProducts,
     required TResult Function(Product product) updateProductInList,
@@ -401,7 +400,7 @@ class _$_GetNextProducts implements _GetNextProducts {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? refreshProducts,
+    TResult? Function()? refresh,
     TResult? Function()? getNextProducts,
     TResult? Function(String query)? searchProducts,
     TResult? Function(Product product)? updateProductInList,
@@ -414,7 +413,7 @@ class _$_GetNextProducts implements _GetNextProducts {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? refreshProducts,
+    TResult Function()? refresh,
     TResult Function()? getNextProducts,
     TResult Function(String query)? searchProducts,
     TResult Function(Product product)? updateProductInList,
@@ -431,7 +430,7 @@ class _$_GetNextProducts implements _GetNextProducts {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(_RefreshProducts value) refreshProducts,
+    required TResult Function(_Refresh value) refresh,
     required TResult Function(_GetNextProducts value) getNextProducts,
     required TResult Function(_SearchProducts value) searchProducts,
     required TResult Function(_UpdateProductInList value) updateProductInList,
@@ -444,7 +443,7 @@ class _$_GetNextProducts implements _GetNextProducts {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(_RefreshProducts value)? refreshProducts,
+    TResult? Function(_Refresh value)? refresh,
     TResult? Function(_GetNextProducts value)? getNextProducts,
     TResult? Function(_SearchProducts value)? searchProducts,
     TResult? Function(_UpdateProductInList value)? updateProductInList,
@@ -457,7 +456,7 @@ class _$_GetNextProducts implements _GetNextProducts {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(_RefreshProducts value)? refreshProducts,
+    TResult Function(_Refresh value)? refresh,
     TResult Function(_GetNextProducts value)? getNextProducts,
     TResult Function(_SearchProducts value)? searchProducts,
     TResult Function(_UpdateProductInList value)? updateProductInList,
@@ -540,7 +539,7 @@ class _$_SearchProducts implements _SearchProducts {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() refreshProducts,
+    required TResult Function() refresh,
     required TResult Function() getNextProducts,
     required TResult Function(String query) searchProducts,
     required TResult Function(Product product) updateProductInList,
@@ -553,7 +552,7 @@ class _$_SearchProducts implements _SearchProducts {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? refreshProducts,
+    TResult? Function()? refresh,
     TResult? Function()? getNextProducts,
     TResult? Function(String query)? searchProducts,
     TResult? Function(Product product)? updateProductInList,
@@ -566,7 +565,7 @@ class _$_SearchProducts implements _SearchProducts {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? refreshProducts,
+    TResult Function()? refresh,
     TResult Function()? getNextProducts,
     TResult Function(String query)? searchProducts,
     TResult Function(Product product)? updateProductInList,
@@ -583,7 +582,7 @@ class _$_SearchProducts implements _SearchProducts {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(_RefreshProducts value) refreshProducts,
+    required TResult Function(_Refresh value) refresh,
     required TResult Function(_GetNextProducts value) getNextProducts,
     required TResult Function(_SearchProducts value) searchProducts,
     required TResult Function(_UpdateProductInList value) updateProductInList,
@@ -596,7 +595,7 @@ class _$_SearchProducts implements _SearchProducts {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(_RefreshProducts value)? refreshProducts,
+    TResult? Function(_Refresh value)? refresh,
     TResult? Function(_GetNextProducts value)? getNextProducts,
     TResult? Function(_SearchProducts value)? searchProducts,
     TResult? Function(_UpdateProductInList value)? updateProductInList,
@@ -609,7 +608,7 @@ class _$_SearchProducts implements _SearchProducts {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(_RefreshProducts value)? refreshProducts,
+    TResult Function(_Refresh value)? refresh,
     TResult Function(_GetNextProducts value)? getNextProducts,
     TResult Function(_SearchProducts value)? searchProducts,
     TResult Function(_UpdateProductInList value)? updateProductInList,
@@ -698,7 +697,7 @@ class _$_UpdateProductInList implements _UpdateProductInList {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() refreshProducts,
+    required TResult Function() refresh,
     required TResult Function() getNextProducts,
     required TResult Function(String query) searchProducts,
     required TResult Function(Product product) updateProductInList,
@@ -711,7 +710,7 @@ class _$_UpdateProductInList implements _UpdateProductInList {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? refreshProducts,
+    TResult? Function()? refresh,
     TResult? Function()? getNextProducts,
     TResult? Function(String query)? searchProducts,
     TResult? Function(Product product)? updateProductInList,
@@ -724,7 +723,7 @@ class _$_UpdateProductInList implements _UpdateProductInList {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? refreshProducts,
+    TResult Function()? refresh,
     TResult Function()? getNextProducts,
     TResult Function(String query)? searchProducts,
     TResult Function(Product product)? updateProductInList,
@@ -741,7 +740,7 @@ class _$_UpdateProductInList implements _UpdateProductInList {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(_RefreshProducts value) refreshProducts,
+    required TResult Function(_Refresh value) refresh,
     required TResult Function(_GetNextProducts value) getNextProducts,
     required TResult Function(_SearchProducts value) searchProducts,
     required TResult Function(_UpdateProductInList value) updateProductInList,
@@ -754,7 +753,7 @@ class _$_UpdateProductInList implements _UpdateProductInList {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(_RefreshProducts value)? refreshProducts,
+    TResult? Function(_Refresh value)? refresh,
     TResult? Function(_GetNextProducts value)? getNextProducts,
     TResult? Function(_SearchProducts value)? searchProducts,
     TResult? Function(_UpdateProductInList value)? updateProductInList,
@@ -767,7 +766,7 @@ class _$_UpdateProductInList implements _UpdateProductInList {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(_RefreshProducts value)? refreshProducts,
+    TResult Function(_Refresh value)? refresh,
     TResult Function(_GetNextProducts value)? getNextProducts,
     TResult Function(_SearchProducts value)? searchProducts,
     TResult Function(_UpdateProductInList value)? updateProductInList,
@@ -856,7 +855,7 @@ class _$_ChangeFilter implements _ChangeFilter {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() refreshProducts,
+    required TResult Function() refresh,
     required TResult Function() getNextProducts,
     required TResult Function(String query) searchProducts,
     required TResult Function(Product product) updateProductInList,
@@ -869,7 +868,7 @@ class _$_ChangeFilter implements _ChangeFilter {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? refreshProducts,
+    TResult? Function()? refresh,
     TResult? Function()? getNextProducts,
     TResult? Function(String query)? searchProducts,
     TResult? Function(Product product)? updateProductInList,
@@ -882,7 +881,7 @@ class _$_ChangeFilter implements _ChangeFilter {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? refreshProducts,
+    TResult Function()? refresh,
     TResult Function()? getNextProducts,
     TResult Function(String query)? searchProducts,
     TResult Function(Product product)? updateProductInList,
@@ -899,7 +898,7 @@ class _$_ChangeFilter implements _ChangeFilter {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(_RefreshProducts value) refreshProducts,
+    required TResult Function(_Refresh value) refresh,
     required TResult Function(_GetNextProducts value) getNextProducts,
     required TResult Function(_SearchProducts value) searchProducts,
     required TResult Function(_UpdateProductInList value) updateProductInList,
@@ -912,7 +911,7 @@ class _$_ChangeFilter implements _ChangeFilter {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(_RefreshProducts value)? refreshProducts,
+    TResult? Function(_Refresh value)? refresh,
     TResult? Function(_GetNextProducts value)? getNextProducts,
     TResult? Function(_SearchProducts value)? searchProducts,
     TResult? Function(_UpdateProductInList value)? updateProductInList,
@@ -925,7 +924,7 @@ class _$_ChangeFilter implements _ChangeFilter {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(_RefreshProducts value)? refreshProducts,
+    TResult Function(_Refresh value)? refresh,
     TResult Function(_GetNextProducts value)? getNextProducts,
     TResult Function(_SearchProducts value)? searchProducts,
     TResult Function(_UpdateProductInList value)? updateProductInList,

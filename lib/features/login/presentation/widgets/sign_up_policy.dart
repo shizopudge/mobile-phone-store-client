@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/styles/styles.dart';
 import '../../../../core/utils/size_config.dart';
+import 'sign_up_policy_bottom_sheet.dart';
 
 class PolicyText extends StatelessWidget {
   const PolicyText({
@@ -26,7 +27,14 @@ class PolicyText extends StatelessWidget {
               color: kLightBlue,
               fontSize: SizeConfig.body3,
             ),
-            recognizer: TapGestureRecognizer()..onTap = () {},
+            recognizer: TapGestureRecognizer()
+              ..onTap = () => showModalBottomSheet(
+                    context: context,
+                    backgroundColor: kLightWhite,
+                    useSafeArea: true,
+                    isScrollControlled: true,
+                    builder: (_) => const SignUpPolicyBottomSheet(),
+                  ),
           ),
         ],
       ),

@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../domain/entities/info.dart';
 
-import '../../../../core/domain/entities/products_filter.dart';
 import '../../../../core/presentation/animations/fade_animation_y_down.dart';
-import '../../../../core/presentation/widgets/bottom_sheets/products_filter/products_filter_bottom_sheet.dart';
 import '../../../../core/presentation/widgets/buttons/go_top_button.dart';
 import '../../../../core/presentation/widgets/buttons/next_page_button.dart';
 import '../../../../core/presentation/widgets/loading/casual_loader.dart';
@@ -17,15 +14,16 @@ import '../../../../core/utils/debouncer.dart';
 import '../../../../core/utils/size_config.dart';
 import '../../../../features/detailed_product/presentation/bloc/detailed_product_bloc.dart';
 import '../../../../features/detailed_product/presentation/pages/detailed_product_page.dart';
+import '../../../domain/entities/info.dart';
 
-class ProductsPage<B extends Bloc<E, S>, E, S> extends StatefulWidget {
+class ListPage<B extends Bloc<E, S>, E, S> extends StatefulWidget {
   final void Function(String query) onSearch;
-  final void Function(ProductsFilter filter) onFilterChange;
+  final VoidCallback? onFilterTap;
   final VoidCallback onPagination;
   final VoidCallback onRefresh;
   final Widget child;
   final BlocListener<B, S> listener;
-  final ProductsFilter currentFIlter;
+  final String query;
   final Info searchInfo;
   final bool isFilterActive;
   final bool isRefreshing;
@@ -33,15 +31,15 @@ class ProductsPage<B extends Bloc<E, S>, E, S> extends StatefulWidget {
   final bool isLoading;
   final bool isLastPage;
   final bool isNothingFound;
-  const ProductsPage({
+  const ListPage({
     super.key,
     required this.onSearch,
+    required this.onFilterTap,
     required this.onPagination,
-    required this.onFilterChange,
     required this.onRefresh,
     required this.child,
     required this.listener,
-    required this.currentFIlter,
+    required this.query,
     required this.searchInfo,
     required this.isFilterActive,
     required this.isRefreshing,
@@ -52,10 +50,10 @@ class ProductsPage<B extends Bloc<E, S>, E, S> extends StatefulWidget {
   });
 
   @override
-  State<ProductsPage> createState() => _ProductsPageState();
+  State<ListPage> createState() => _ListPageState();
 }
 
-class _ProductsPageState extends State<ProductsPage> {
+class _ListPageState extends State<ListPage> {
   late final TextEditingController _searchController = TextEditingController()
     ..addListener(_searchListener);
   late final ScrollController _scrollController = ScrollController()
@@ -87,23 +85,6 @@ class _ProductsPageState extends State<ProductsPage> {
   }
 
   void onClearTap(BuildContext context) => _searchController.clear();
-
-  void onFilterTap(
-      {required BuildContext context, required ProductsFilter currentFilter}) {
-    primaryFocus?.unfocus();
-    showModalBottomSheet(
-      context: context,
-      constraints: const BoxConstraints.expand(),
-      backgroundColor: kLightWhite,
-      useSafeArea: true,
-      isScrollControlled: true,
-      builder: (_) => ProductsFilterPage(
-        onApply: (filter) => widget.onFilterChange(filter),
-        onReset: () => widget.onFilterChange(const ProductsFilter()),
-        currentFilter: currentFilter,
-      ),
-    );
-  }
 
   void goTop() {
     _scrollController.animateTo(0,
@@ -186,13 +167,9 @@ class _ProductsPageState extends State<ProductsPage> {
                                       delay: .4,
                                       child: SearchField(
                                         searchController: _searchController,
-                                        showClose: widget
-                                            .currentFIlter.query.isNotEmpty,
+                                        showClose: widget.query.isNotEmpty,
                                         onClear: () => onClearTap(context),
-                                        onFilter: () => onFilterTap(
-                                          context: context,
-                                          currentFilter: widget.currentFIlter,
-                                        ),
+                                        onFilter: widget.onFilterTap,
                                         isFilterActive: widget.isFilterActive,
                                         toggleSearchResult: () =>
                                             _showSearchResult.value =

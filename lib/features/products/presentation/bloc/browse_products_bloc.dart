@@ -6,7 +6,7 @@ import 'package:hydrated_bloc/hydrated_bloc.dart';
 import '../../../../core/constants/type_defs.dart';
 import '../../../../core/domain/entities/info.dart';
 import '../../../../core/domain/entities/product.dart';
-import '../../../../core/domain/entities/products_filter.dart';
+import '../../../../core/domain/entities/filters.dart';
 import '../../../../core/failure/failure.dart';
 import '../../domain/entities/browse_products_response.dart';
 import '../../domain/usecases/get_many_products.dart';
@@ -16,25 +16,25 @@ part 'browse_products_bloc.g.dart';
 part 'browse_products_event.dart';
 part 'browse_products_state.dart';
 
-class SearchProductsBloc extends Bloc<BrowseProductsEvent, BrowseProductsState>
+class BrowseProductsBloc extends Bloc<BrowseProductsEvent, BrowseProductsState>
     with HydratedMixin {
-  SearchProductsBloc({required GetManyProduct getManyProductsUsecase})
+  BrowseProductsBloc({required GetProduct getManyProductsUsecase})
       : _getManyProductsUsecase = getManyProductsUsecase,
         super(const BrowseProductsState()) {
     on<_Initial>(_initial);
-    on<_RefreshProducts>(_refreshProducts);
+    on<_Refresh>(_refresh);
     on<_GetNextProducts>(_getNextProducts);
     on<_SearchProducts>(_searchProducts);
     on<_UpdateProductInList>(_updateProductInList);
     on<_ChangeFilter>(_changeFilter);
   }
 
-  final GetManyProduct _getManyProductsUsecase;
+  final GetProduct _getManyProductsUsecase;
 
   FutureOr<void> _initial(
       _Initial event, Emitter<BrowseProductsState> emit) async {
     emit(state.copyWith(status: BrowseProductsStatus.loading));
-    final res = await _getManyProducts();
+    final res = await _getProducts();
     res.fold(
       (failure) => _throwFailure(emit, failure),
       (r) => emit(
@@ -47,13 +47,12 @@ class SearchProductsBloc extends Bloc<BrowseProductsEvent, BrowseProductsState>
     );
   }
 
-  FutureOr<void> _refreshProducts(
-      event, Emitter<BrowseProductsState> emit) async {
+  FutureOr<void> _refresh(event, Emitter<BrowseProductsState> emit) async {
     if (!state.isRefreshing) {
       emit(state.copyWith(
           status: BrowseProductsStatus.refreshing,
           filter: state.filter.copyWith(page: 1)));
-      final res = await _getManyProducts();
+      final res = await _getProducts();
       res.fold(
         (failure) => _throwFailure(emit, failure),
         (r) => emit(
@@ -73,7 +72,7 @@ class SearchProductsBloc extends Bloc<BrowseProductsEvent, BrowseProductsState>
       emit(state.copyWith(
           status: BrowseProductsStatus.loading,
           filter: state.filter.copyWith(page: state.filter.page + 1)));
-      final res = await _getManyProducts();
+      final res = await _getProducts();
       res.fold(
         (failure) => _throwFailure(emit, failure),
         (r) {
@@ -95,7 +94,7 @@ class SearchProductsBloc extends Bloc<BrowseProductsEvent, BrowseProductsState>
       emit(state.copyWith(
           filter: state.filter.copyWith(query: event.query, page: 1),
           status: BrowseProductsStatus.refreshing));
-      final res = await _getManyProducts();
+      final res = await _getProducts();
       res.fold(
         (failure) => _throwFailure(emit, failure),
         (r) => emit(
@@ -126,7 +125,7 @@ class SearchProductsBloc extends Bloc<BrowseProductsEvent, BrowseProductsState>
         filter: event.filter.copyWith(page: 1),
         status: BrowseProductsStatus.loading,
         products: []));
-    final res = await _getManyProducts();
+    final res = await _getProducts();
     res.fold(
       (failure) => _throwFailure(emit, failure),
       (r) => emit(
@@ -139,7 +138,7 @@ class SearchProductsBloc extends Bloc<BrowseProductsEvent, BrowseProductsState>
     );
   }
 
-  FutureEither<BrowseProductsResponse> _getManyProducts() async =>
+  FutureEither<BrowseProductsResponse> _getProducts() async =>
       await _getManyProductsUsecase.call(GetProductsParams(
         page: state.filter.page,
         limit: state.filter.limit,

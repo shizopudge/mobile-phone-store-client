@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/presentation/widgets/buttons/casual_button.dart';
-import '../../../../core/presentation/widgets/other/casual_dialog.dart';
-import '../../../../core/styles/colors.dart';
-import '../../../../core/utils/size_config.dart';
+import '../../../styles/colors.dart';
+import '../../../utils/size_config.dart';
+import '../buttons/casual_button.dart';
+import '../other/casual_dialog.dart';
 
-class EditUserImageDialog extends StatelessWidget {
+class EditImageDialog extends StatelessWidget {
   final VoidCallback onUpload;
   final VoidCallback onDelete;
-  const EditUserImageDialog({
+  const EditImageDialog({
     super.key,
     required this.onUpload,
     required this.onDelete,
@@ -18,7 +18,7 @@ class EditUserImageDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return CasualDialog(
         title: 'Image actions',
-        subtitle: 'What you want to do with your profile image?',
+        subtitle: 'What you want to do with image?',
         innerPadding: 12,
         child: Center(
           child: Padding(

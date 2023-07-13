@@ -8,7 +8,7 @@ import 'package:rxdart/rxdart.dart';
 import '../../../../core/constants/type_defs.dart';
 import '../../../../core/domain/entities/info.dart';
 import '../../../../core/domain/entities/product.dart';
-import '../../../../core/domain/entities/products_filter.dart';
+import '../../../../core/domain/entities/filters.dart';
 import '../../../../core/domain/usecases/products/toggle_wishlist.dart';
 import '../../../../core/failure/failure.dart';
 import '../../domain/usecases/get_wishlist.dart';
@@ -27,7 +27,7 @@ class WishlistBloc extends Bloc<WishlistEvent, WishlistState>
         _toggleWishlistUsecase = toggleWishlistUsecase,
         super(const WishlistState()) {
     on<_Initial>(_initial);
-    on<_RefreshProducts>(_refreshProducts);
+    on<_Refresh>(_refresh);
     on<_ToggleWishlist>(_toggleWishlist);
     on<_ToggleRemoteWishlist>(_toggleRemoteWishlist,
         transformer: (events, mapper) => events
@@ -44,7 +44,7 @@ class WishlistBloc extends Bloc<WishlistEvent, WishlistState>
 
   FutureOr<void> _initial(_Initial event, Emitter<WishlistState> emit) async {
     emit(state.copyWith(status: WishlistStatus.loading));
-    final res = await _getManyProducts();
+    final res = await _getProducts();
     res.fold(
       (failure) => _throwFailure(emit, failure),
       (r) => emit(
@@ -95,13 +95,12 @@ class WishlistBloc extends Bloc<WishlistEvent, WishlistState>
     }
   }
 
-  FutureOr<void> _refreshProducts(
-      _RefreshProducts event, Emitter<WishlistState> emit) async {
+  FutureOr<void> _refresh(_Refresh event, Emitter<WishlistState> emit) async {
     if (!state.isRefreshing) {
       emit(state.copyWith(
           status: WishlistStatus.refreshing,
           filter: state.filter.copyWith(page: 1)));
-      final res = await _getManyProducts();
+      final res = await _getProducts();
       res.fold(
         (failure) => _throwFailure(emit, failure),
         (r) => emit(
@@ -121,7 +120,7 @@ class WishlistBloc extends Bloc<WishlistEvent, WishlistState>
       emit(state.copyWith(
           status: WishlistStatus.loading,
           filter: state.filter.copyWith(page: state.filter.page + 1)));
-      final res = await _getManyProducts();
+      final res = await _getProducts();
       res.fold(
         (failure) => _throwFailure(emit, failure),
         (r) {
@@ -143,7 +142,7 @@ class WishlistBloc extends Bloc<WishlistEvent, WishlistState>
       emit(state.copyWith(
           filter: state.filter.copyWith(query: event.query, page: 1),
           status: WishlistStatus.refreshing));
-      final res = await _getManyProducts();
+      final res = await _getProducts();
       res.fold(
         (failure) => _throwFailure(emit, failure),
         (r) => emit(
@@ -173,7 +172,7 @@ class WishlistBloc extends Bloc<WishlistEvent, WishlistState>
         filter: event.filter.copyWith(page: 1),
         status: WishlistStatus.loading,
         products: []));
-    final res = await _getManyProducts();
+    final res = await _getProducts();
     res.fold(
       (failure) => _throwFailure(emit, failure),
       (r) => emit(
@@ -186,7 +185,7 @@ class WishlistBloc extends Bloc<WishlistEvent, WishlistState>
     );
   }
 
-  FutureEither<CartWishlistResponse> _getManyProducts() async =>
+  FutureEither<CartWishlistResponse> _getProducts() async =>
       await _getWishlistUsecase.call(GetWishlistParams(
         page: state.filter.page,
         limit: state.filter.limit,

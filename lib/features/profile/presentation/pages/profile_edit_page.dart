@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/presentation/animations/fade_animation_y_up.dart';
+import '../../../../core/presentation/widgets/buttons/casual_button.dart';
+import '../../../../core/presentation/widgets/dialogs/edit_image_dialog.dart';
 import '../../../../core/presentation/widgets/loading/stack_loading.dart';
 import '../../../../core/presentation/widgets/other/access_listener.dart';
 import '../../../../core/presentation/widgets/other/casual_app_bar.dart';
@@ -9,10 +11,8 @@ import '../../../../core/styles/styles.dart';
 import '../../../../core/utils/size_config.dart';
 import '../../../auth/presentation/bloc/auth_bloc.dart';
 import '../bloc/profile_bloc.dart';
-import '../widgets/edit_user_image_dialog.dart';
 import '../widgets/password_verify_dialog.dart';
 import '../widgets/profile_edit_body.dart';
-import '../widgets/profile_edit_bottom.dart';
 
 class ProfileEditPage extends StatefulWidget {
   static const String path = '/profile-edit';
@@ -56,7 +56,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
     } else {
       showDialog(
         context: context,
-        builder: (dialogContext) => EditUserImageDialog(
+        builder: (dialogContext) => EditImageDialog(
           onUpload: () {
             context.read<ProfileBloc>().add(const ProfileEvent.pickImage());
             Navigator.of(dialogContext).pop();
@@ -97,13 +97,10 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
       child: BlocConsumer<ProfileBloc, ProfileState>(
         listenWhen: (previous, current) =>
             current.status.isSuccess || current.status.isFailure,
-        listener: (context, state) {
-          final ProfileStatus status = state.status;
-          status.callWhen(
-            success: () => Navigator.of(context).pop(),
-            failure: () => state.failure.call(context),
-          );
-        },
+        listener: (context, state) => state.callWhen(
+          success: () => Navigator.of(context).pop(),
+          failure: () => state.failure.call(context),
+        ),
         builder: (context, state) => StackLoading(
           isLoading: state.status.isLoading,
           child: Scaffold(
@@ -124,11 +121,13 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
                 ),
                 FadeAnimationYUp(
                   delay: .6,
-                  child: ProfileEditBottom(
-                    onEditTap: _onEditTap,
-                    isAvailable: state.isAvailable,
+                  child: CasualButton(
+                    onTap: _onEditTap,
+                    isEnabled: state.isAvailable,
+                    text: 'EDIT',
+                    fontSize: SizeConfig.body1,
                   ),
-                )
+                ),
               ],
             ),
           ),

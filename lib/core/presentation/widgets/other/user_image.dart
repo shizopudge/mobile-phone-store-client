@@ -5,10 +5,10 @@ import 'package:shimmer/shimmer.dart';
 import '../../../api/api_constants.dart';
 import '../../../styles/styles.dart';
 
-class UserImage extends StatelessWidget {
+class CasualImage extends StatelessWidget {
   final String? image;
   final double radius;
-  const UserImage({
+  const CasualImage({
     super.key,
     required this.image,
     required this.radius,

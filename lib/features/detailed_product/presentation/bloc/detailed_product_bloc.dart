@@ -23,7 +23,7 @@ class DetailedProductBloc
   DetailedProductBloc({
     required CartBloc cartBloc,
     required WishlistBloc wishlistBloc,
-    required SearchProductsBloc productsBloc,
+    required BrowseProductsBloc productsBloc,
     required GetOneProduct getOneProductUsecase,
     required ChangeColor changeColorUsecase,
     required ChangeStorage changeStorageUsecase,
@@ -42,7 +42,7 @@ class DetailedProductBloc
 
   final CartBloc _cartBloc;
   final WishlistBloc _wishlistBloc;
-  final SearchProductsBloc _productsBloc;
+  final BrowseProductsBloc _productsBloc;
   final GetOneProduct _getOneProductUsecase;
   final ChangeColor _changeColorUsecase;
   final ChangeStorage _changeStorageUsecase;

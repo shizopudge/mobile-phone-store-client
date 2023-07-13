@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/domain/entities/filters.dart';
 import '../../../../core/domain/entities/product.dart';
 import '../../../../core/presentation/animations/fade_animation_x.dart';
+import '../../../../core/presentation/widgets/bottom_sheets/products_filter/products_filter_bottom_sheet.dart';
 import '../../../../core/presentation/widgets/cards/rectangle_product_card.dart';
 import '../../../../core/presentation/widgets/cards/square_product_card.dart';
+import '../../../../core/presentation/widgets/other/casual_dismissible.dart';
 import '../../../../core/presentation/widgets/pages/products_page.dart';
 import '../../../../core/presentation/widgets/scrollable/sliver_grid_view.dart';
+import '../../../../core/styles/styles.dart';
 import '../../../../core/utils/popup_utils.dart';
 import '../../../../core/utils/size_config.dart';
 import '../../../detailed_product/presentation/bloc/detailed_product_bloc.dart';
@@ -20,7 +24,7 @@ class WishlistPage extends StatelessWidget {
     SizeConfig.init(context);
     return BlocBuilder<WishlistBloc, WishlistState>(
       builder: (context, state) {
-        return ProductsPage<WishlistBloc, WishlistEvent, WishlistState>(
+        return ListPage<WishlistBloc, WishlistEvent, WishlistState>(
           onSearch: (query) => context.read<WishlistBloc>().add(
                 WishlistEvent.searchProducts(
                   query,
@@ -29,11 +33,27 @@ class WishlistPage extends StatelessWidget {
           onPagination: () => context
               .read<WishlistBloc>()
               .add(const WishlistEvent.getNextProducts()),
-          onFilterChange: (newFilter) => context
-              .read<WishlistBloc>()
-              .add(WishlistEvent.changeFilter(newFilter)),
+          onFilterTap: () {
+            primaryFocus?.unfocus();
+            showModalBottomSheet(
+              context: context,
+              constraints: const BoxConstraints.expand(),
+              backgroundColor: kLightWhite,
+              useSafeArea: true,
+              isScrollControlled: true,
+              builder: (_) => ProductsFilterPage(
+                onApply: (newFilter) => context
+                    .read<WishlistBloc>()
+                    .add(WishlistEvent.changeFilter(newFilter)),
+                onReset: () => context
+                    .read<WishlistBloc>()
+                    .add(const WishlistEvent.changeFilter(ProductsFilter())),
+                currentFilter: state.filter,
+              ),
+            );
+          },
           onRefresh: () => context.read<WishlistBloc>().add(
-                const WishlistEvent.refreshProducts(),
+                const WishlistEvent.refresh(),
               ),
           listener: BlocListener(
             listenWhen: (previous, current) => current.isFailure,
@@ -44,7 +64,7 @@ class WishlistPage extends StatelessWidget {
               }
             },
           ),
-          currentFIlter: state.filter,
+          query: state.filter.query,
           searchInfo: state.info,
           isFilterActive: state.isFilterActive,
           isRefreshing: state.isRefreshing,
@@ -59,9 +79,8 @@ class WishlistPage extends StatelessWidget {
                     final Product product = state.products[index];
                     return FadeAnimationX(
                       delay: index * .025,
-                      child: Dismissible(
-                        key: UniqueKey(),
-                        onDismissed: (direction) => context
+                      child: CasualDismissible(
+                        onDismiss: (direction) => context
                             .read<WishlistBloc>()
                             .add(WishlistEvent.toggleWishlist(product)),
                         child: RectangleProductCard(
@@ -77,14 +96,18 @@ class WishlistPage extends StatelessWidget {
               : SliverGridView<Product>(
                   items: state.products,
                   child: (product, index) => FadeAnimationX(
-                    key: UniqueKey(),
                     delay: index * .025,
-                    child: SquareProductCard(
-                      onTap: () => context
-                          .read<DetailedProductBloc>()
-                          .add(DetailedProductEvent.changeProduct(product)),
-                      product: product,
-                      withHero: false,
+                    child: CasualDismissible(
+                      onDismiss: (direction) => context
+                          .read<WishlistBloc>()
+                          .add(WishlistEvent.toggleWishlist(product)),
+                      child: SquareProductCard(
+                        onTap: () => context
+                            .read<DetailedProductBloc>()
+                            .add(DetailedProductEvent.changeProduct(product)),
+                        product: product,
+                        withHero: false,
+                      ),
                     ),
                   ),
                 ),

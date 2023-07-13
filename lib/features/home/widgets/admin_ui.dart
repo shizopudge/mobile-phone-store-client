@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:phone_store/core/di/get_it.dart';
+import 'package:phone_store/features/manufacturers/domain/usecases/get_manufacturers.dart';
+import 'package:phone_store/features/manufacturers/presentation/bloc/manufacturers_bloc.dart';
 
+import '../../manufacturers/data/repositories/manufacturers_repository_impl.dart';
+import '../../manufacturers/presentation/pages/manufacturers_page.dart';
 import '../../products/presentation/pages/browse_products_page.dart';
 import '../../profile/presentation/pages/profile_page.dart';
 import 'home_body.dart';
@@ -11,17 +17,19 @@ class AdminUI extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const HomeBody(
+    return HomeBody(
       pages: [
-        BrowseProductsPage(),
-        Center(
-          child: Text(
-            'Add',
-          ),
+        const BrowseProductsPage(),
+        BlocProvider(
+          create: (context) => ManufacturersBloc(
+              getManufacturersUsecase:
+                  GetManufacturers(getIt<ManufacturersRepositoryImpl>()))
+            ..add(const ManufacturersEvent.initial()),
+          child: const ManufacturersPage(),
         ),
-        ProfilePage(),
+        const ProfilePage(),
       ],
-      navBottomBarItems: [
+      navBottomBarItems: const [
         BottomNavigationBarItem(
           icon: Icon(
             Icons.search_rounded,
@@ -37,7 +45,7 @@ class AdminUI extends StatelessWidget {
           label: 'Profile',
         ),
       ],
-      navRailItems: [
+      navRailItems: const [
         NavigationRailDestination(
           icon: Icon(
             Icons.search_rounded,
@@ -53,7 +61,7 @@ class AdminUI extends StatelessWidget {
           label: Text('Profile'),
         ),
       ],
-      navTopBarItems: [
+      navTopBarItems: const [
         Tab(
           icon: Icon(
             Icons.search_rounded,

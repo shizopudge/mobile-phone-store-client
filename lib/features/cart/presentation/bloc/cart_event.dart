@@ -7,7 +7,7 @@ class CartEvent with _$CartEvent {
   const factory CartEvent.toggleRemoteCart(
       {required Product product,
       required int? productIndex}) = _ToggleRemoteCart;
-  const factory CartEvent.refreshProducts() = _RefreshProducts;
+  const factory CartEvent.refresh() = _Refresh;
   const factory CartEvent.updateProductInList(Product product) =
       _UpdateProductInList;
   const factory CartEvent.getNextProducts() = _GetNextProducts;

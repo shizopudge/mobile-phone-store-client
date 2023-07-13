@@ -7,7 +7,7 @@ class WishlistEvent with _$WishlistEvent {
   const factory WishlistEvent.toggleRemoteWishlist(
       {required Product product,
       required int? productIndex}) = _ToggleRemoteWishlist;
-  const factory WishlistEvent.refreshProducts() = _RefreshProducts;
+  const factory WishlistEvent.refresh() = _Refresh;
   const factory WishlistEvent.updateProductInList(Product product) =
       _UpdateProductInList;
   const factory WishlistEvent.getNextProducts() = _GetNextProducts;

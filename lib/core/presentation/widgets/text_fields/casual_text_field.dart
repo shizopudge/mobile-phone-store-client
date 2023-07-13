@@ -14,6 +14,7 @@ class CasualTextField extends StatelessWidget {
   final String? label;
   final TextStyle? labelStyle;
   final TextInputType? keyboardType;
+  final int? maxLines;
   final int? maxLength;
   final String? counterText;
   final TextStyle? counterStyle;
@@ -29,6 +30,7 @@ class CasualTextField extends StatelessWidget {
     this.label,
     this.labelStyle,
     this.keyboardType,
+    this.maxLines,
     this.maxLength,
     this.counterText,
     this.counterStyle,
@@ -47,6 +49,7 @@ class CasualTextField extends StatelessWidget {
       onChanged: onChange,
       maxLength: maxLength,
       enabled: isAvailable,
+      maxLines: maxLines,
       decoration: InputDecoration(
         counterText: counterText,
         counterStyle: counterStyle,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../constants/enums.dart';
-import '../../../../domain/entities/products_filter.dart';
+import '../../../../domain/entities/filters.dart';
 import '../../../../failure/failure.dart';
 import '../../../../utils/popup_utils.dart';
 import '../../../../utils/size_config.dart';

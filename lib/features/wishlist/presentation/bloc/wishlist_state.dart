@@ -35,8 +35,7 @@ class WishlistState with _$WishlistState {
   bool get isFailure => status.isFailure;
   bool get isPaginating => status.isLoading && products.isNotEmpty;
 
-  bool get isLastPage =>
-      (info.countOnPage < filter.limit) && products.isNotEmpty;
-  bool get isNothingFound => !isLastPage && products.isEmpty;
+  bool get isLastPage => info.countOnPage < filter.limit && products.isNotEmpty;
+  bool get isNothingFound => products.isEmpty;
   bool get isFilterActive => filter != const ProductsFilter();
 }

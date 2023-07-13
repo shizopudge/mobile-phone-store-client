@@ -8,7 +8,7 @@ import '../../../../core/constants/type_defs.dart';
 import '../../../../core/domain/entities/cart_wishlist_response.dart';
 import '../../../../core/domain/entities/info.dart';
 import '../../../../core/domain/entities/product.dart';
-import '../../../../core/domain/entities/products_filter.dart';
+import '../../../../core/domain/entities/filters.dart';
 import '../../../../core/domain/usecases/products/toggle_cart.dart';
 import '../../../../core/failure/failure.dart';
 import '../../domain/usecases/get_cart.dart';
@@ -26,7 +26,7 @@ class CartBloc extends Bloc<CartEvent, CartState> with HydratedMixin {
         _toggleCartUsecase = toggleCartUsecase,
         super(const CartState()) {
     on<_Initial>(_initial);
-    on<_RefreshProducts>(_refreshProducts);
+    on<_Refresh>(_refresh);
     on<_ToggleCart>(_toggleCart);
     on<_ToggleRemoteCart>(_toggleRemoteCart,
         transformer: (events, mapper) => events
@@ -43,7 +43,7 @@ class CartBloc extends Bloc<CartEvent, CartState> with HydratedMixin {
 
   FutureOr<void> _initial(_Initial event, Emitter<CartState> emit) async {
     emit(state.copyWith(status: CartStatus.loading));
-    final res = await _getManyProducts();
+    final res = await _getProducts();
     res.fold(
       (failure) => _throwFailure(emit, failure),
       (r) => emit(
@@ -93,13 +93,12 @@ class CartBloc extends Bloc<CartEvent, CartState> with HydratedMixin {
     }
   }
 
-  FutureOr<void> _refreshProducts(
-      _RefreshProducts event, Emitter<CartState> emit) async {
+  FutureOr<void> _refresh(_Refresh event, Emitter<CartState> emit) async {
     if (!state.isRefreshing) {
       emit(state.copyWith(
           status: CartStatus.refreshing,
           filter: state.filter.copyWith(page: 1)));
-      final res = await _getManyProducts();
+      final res = await _getProducts();
       res.fold(
         (failure) => _throwFailure(emit, failure),
         (r) => emit(
@@ -119,7 +118,7 @@ class CartBloc extends Bloc<CartEvent, CartState> with HydratedMixin {
       emit(state.copyWith(
           status: CartStatus.loading,
           filter: state.filter.copyWith(page: state.filter.page + 1)));
-      final res = await _getManyProducts();
+      final res = await _getProducts();
       res.fold(
         (failure) => _throwFailure(emit, failure),
         (r) {
@@ -140,7 +139,7 @@ class CartBloc extends Bloc<CartEvent, CartState> with HydratedMixin {
       emit(state.copyWith(
           filter: state.filter.copyWith(query: event.query, page: 1),
           status: CartStatus.refreshing));
-      final res = await _getManyProducts();
+      final res = await _getProducts();
       res.fold(
         (failure) => _throwFailure(emit, failure),
         (r) => emit(
@@ -170,7 +169,7 @@ class CartBloc extends Bloc<CartEvent, CartState> with HydratedMixin {
         filter: event.filter.copyWith(page: 1),
         status: CartStatus.loading,
         products: []));
-    final res = await _getManyProducts();
+    final res = await _getProducts();
     res.fold(
       (failure) => _throwFailure(emit, failure),
       (r) => emit(
@@ -183,7 +182,7 @@ class CartBloc extends Bloc<CartEvent, CartState> with HydratedMixin {
     );
   }
 
-  FutureEither<CartWishlistResponse> _getManyProducts() async =>
+  FutureEither<CartWishlistResponse> _getProducts() async =>
       await _getCartUsecase.call(GetCartParams(
         page: state.filter.page,
         limit: state.filter.limit,

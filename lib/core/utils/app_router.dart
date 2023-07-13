@@ -5,6 +5,17 @@ import '../../features/auth/presentation/bloc/auth_bloc.dart';
 import '../../features/cart/data/repositories/cart_repository_impl.dart';
 import '../../features/cart/domain/usecases/get_cart.dart';
 import '../../features/cart/presentation/bloc/cart_bloc.dart';
+import '../../features/create_edit_manufacturer/data/repositories/create_edit_manufacturer_repository_impl.dart';
+import '../../features/create_edit_manufacturer/domain/usecases/create_manufacturer.dart';
+import '../../features/create_edit_manufacturer/domain/usecases/edit_manufacturer.dart';
+import '../../features/create_edit_manufacturer/domain/usecases/upload_manufacturer_image.dart';
+import '../../features/create_edit_manufacturer/presentation/bloc/create_edit_manufacturer_bloc.dart';
+import '../../features/create_edit_manufacturer/presentation/pages/create_edit_manufacturer_page.dart';
+import '../../features/create_edit_model/data/repositories/create_edit_model_repository_impl.dart';
+import '../../features/create_edit_model/domain/usecases/create_model.dart';
+import '../../features/create_edit_model/domain/usecases/edit_model.dart';
+import '../../features/create_edit_model/presentation/bloc/create_edit_model_bloc.dart';
+import '../../features/create_edit_model/presentation/pages/create_edit_model_page.dart';
 import '../../features/detailed_product/data/repositories/detailed_product_repository_impl.dart';
 import '../../features/detailed_product/domain/usecases/change_color.dart';
 import '../../features/detailed_product/domain/usecases/change_storage.dart';
@@ -23,9 +34,9 @@ import '../../features/products/data/repositories/browse_products_repository_imp
 import '../../features/products/domain/usecases/get_many_products.dart';
 import '../../features/products/presentation/bloc/browse_products_bloc.dart';
 import '../../features/profile/data/repositories/profile_repository_impl.dart';
-import '../../features/profile/domain/usecases/delete_image.dart';
+import '../../features/profile/domain/usecases/delete_user_image.dart';
 import '../../features/profile/domain/usecases/edit_profile.dart';
-import '../../features/profile/domain/usecases/upload_image.dart';
+import '../../features/profile/domain/usecases/upload_user_image.dart';
 import '../../features/profile/presentation/bloc/profile_bloc.dart';
 import '../../features/profile/presentation/pages/profile_edit_page.dart';
 import '../../features/wishlist/data/repositories/wishlist_repository_impl.dart';
@@ -42,9 +53,8 @@ import 'page_transition_util.dart';
 
 class AppRouter {
   final _homeCubit = HomeCubit();
-  final _productsBloc = SearchProductsBloc(
-    getManyProductsUsecase:
-        GetManyProduct(getIt<BrowseProductsRepositoryImpl>()),
+  final _productsBloc = BrowseProductsBloc(
+    getManyProductsUsecase: GetProduct(getIt<BrowseProductsRepositoryImpl>()),
   );
   final _wishlistBloc = WishlistBloc(
       getWishlistUsecase: GetWishlist(getIt<WishlistRepositoryImpl>()),
@@ -140,6 +150,41 @@ class AppRouter {
               ),
             ],
             child: const DetailedProductPage(),
+          ),
+          duration: const Duration(milliseconds: 500),
+        );
+      case CreateEditManufacturerPage.path:
+        return PageTransitionUtil.go(
+          page: MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (_) => CreateEditManufacturerBloc(
+                    pickImageUsecase: PickImage(getIt<ImageRepositoryImpl>()),
+                    createManufacturerUsecase: CreateManufacturer(
+                        getIt<CreateEditManufacturerRepositoryImpl>()),
+                    editManufacturerUsecase: EditManufacturer(
+                        getIt<CreateEditManufacturerRepositoryImpl>()),
+                    uploadManufacturerImageUsecase: UploadManufacturerImage(
+                        getIt<CreateEditManufacturerRepositoryImpl>())),
+              ),
+            ],
+            child: const CreateEditManufacturerPage(),
+          ),
+          duration: const Duration(milliseconds: 500),
+        );
+      case CreateEditModelPage.path:
+        return PageTransitionUtil.go(
+          page: MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (_) => CreateEditModelBloc(
+                    createModelUsecase:
+                        CreateModel(getIt<CreateEditModelRepositoryImpl>()),
+                    editModelUsecase:
+                        EditModel(getIt<CreateEditModelRepositoryImpl>())),
+              ),
+            ],
+            child: const CreateEditModelPage(),
           ),
           duration: const Duration(milliseconds: 500),
         );

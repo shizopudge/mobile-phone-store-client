@@ -6,6 +6,7 @@ import '../../../../core/failure/failure.dart';
 import '../../../../core/presentation/animations/fade_animation_y_down.dart';
 import '../../../../core/presentation/widgets/buttons/casual_text_button.dart';
 import '../../../../core/presentation/widgets/loading/casual_loader.dart';
+import '../../../../core/presentation/widgets/other/access_listener.dart';
 import '../../../../core/presentation/widgets/pages/error_page.dart';
 import '../../../../core/styles/colors.dart';
 import '../../../../core/utils/popup_utils.dart';
@@ -50,94 +51,96 @@ class _DetailedProductPageState extends State<DetailedProductPage> {
   @override
   Widget build(BuildContext context) {
     SizeConfig.init(context);
-    return WillPopScope(
-      onWillPop: () async {
-        context
-            .read<DetailedProductBloc>()
-            .add(const DetailedProductEvent.changeProduct(null));
-        return true;
-      },
-      child: BlocConsumer<DetailedProductBloc, DetailedProductState>(
-        listenWhen: (previous, current) => current.isFailure,
-        listener: (context, state) {
-          PopupUtils.showFailureSnackBar(
-              context: context, failure: state.failure);
+    return AccessListener(
+      child: WillPopScope(
+        onWillPop: () async {
+          context
+              .read<DetailedProductBloc>()
+              .add(const DetailedProductEvent.changeProduct(null));
+          return true;
         },
-        builder: (context, state) {
-          final Product? product = state.product;
-          if (product == null) {
-            return FadeAnimationYDown(
-              delay: .5,
-              child: ErrorPage(
-                failure: const CasualFailure(
-                  message: 'Product not found',
+        child: BlocConsumer<DetailedProductBloc, DetailedProductState>(
+          listenWhen: (previous, current) => current.isFailure,
+          listener: (context, state) {
+            PopupUtils.showFailureSnackBar(
+                context: context, failure: state.failure);
+          },
+          builder: (context, state) {
+            final Product? product = state.product;
+            if (product == null) {
+              return FadeAnimationYDown(
+                delay: .5,
+                child: ErrorPage(
+                  failure: const CasualFailure(
+                    message: 'Product not found',
+                  ),
+                  action: CasualTextButton(
+                    onTap: () => Navigator.of(context).pop(),
+                    text: 'Go back',
+                  ),
                 ),
-                action: CasualTextButton(
-                  onTap: () => Navigator.of(context).pop(),
-                  text: 'Go back',
+              );
+            }
+            return Scaffold(
+              backgroundColor: kLightWhite,
+              body: SafeArea(
+                child: Stack(
+                  children: [
+                    Column(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: SizeConfig.setPadding(20)),
+                          child: DetailedProductHeader(
+                            product: product,
+                          ),
+                        ),
+                        if (state.isLoading)
+                          const Expanded(
+                            child: Center(
+                              child: FadeAnimationYDown(
+                                delay: .1,
+                                child: CasualLoader(
+                                  color: kDarkBlue,
+                                ),
+                              ),
+                            ),
+                          )
+                        else
+                          Expanded(
+                            child: ValueListenableBuilder(
+                              valueListenable: _showInfo,
+                              builder: (context, showInfo, child) =>
+                                  RefreshIndicator(
+                                color: kDarkBlue,
+                                onRefresh: () async => context
+                                    .read<DetailedProductBloc>()
+                                    .add(DetailedProductEvent.getOneProduct(
+                                        id: product.id)),
+                                child: DetailedProductBody(
+                                  product: product,
+                                  scrollController: _scrollController,
+                                  showInfo: showInfo,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ValueListenableBuilder(
+                          valueListenable: _showInfo,
+                          builder: (context, showInfo, _) =>
+                              DetailedProductBottom(
+                            product: product,
+                            showInfo: showInfo,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ),
             );
-          }
-          return Scaffold(
-            backgroundColor: kLightWhite,
-            body: SafeArea(
-              child: Stack(
-                children: [
-                  Column(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: SizeConfig.setPadding(20)),
-                        child: DetailedProductHeader(
-                          product: product,
-                        ),
-                      ),
-                      if (state.isLoading)
-                        const Expanded(
-                          child: Center(
-                            child: FadeAnimationYDown(
-                              delay: .1,
-                              child: CasualLoader(
-                                color: kDarkBlue,
-                              ),
-                            ),
-                          ),
-                        )
-                      else
-                        Expanded(
-                          child: ValueListenableBuilder(
-                            valueListenable: _showInfo,
-                            builder: (context, showInfo, child) =>
-                                RefreshIndicator(
-                              color: kDarkBlue,
-                              onRefresh: () async => context
-                                  .read<DetailedProductBloc>()
-                                  .add(DetailedProductEvent.getOneProduct(
-                                      id: product.id)),
-                              child: DetailedProductBody(
-                                product: product,
-                                scrollController: _scrollController,
-                                showInfo: showInfo,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ValueListenableBuilder(
-                        valueListenable: _showInfo,
-                        builder: (context, showInfo, _) =>
-                            DetailedProductBottom(
-                          product: product,
-                          showInfo: showInfo,
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          );
-        },
+          },
+        ),
       ),
     );
   }

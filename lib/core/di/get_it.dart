@@ -2,6 +2,8 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
+import 'package:phone_store/features/manufacturers/data/datasources/manufacturers_remote_data_source.dart';
+import 'package:phone_store/features/manufacturers/data/repositories/manufacturers_repository_impl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../features/auth/data/datasources/auth_local_data_source.dart';
@@ -14,6 +16,10 @@ import '../../features/auth/domain/usecases/refresh_tokens.dart';
 import '../../features/auth/presentation/bloc/auth_bloc.dart';
 import '../../features/cart/data/datasources/cart_remote_data_source.dart';
 import '../../features/cart/data/repositories/cart_repository_impl.dart';
+import '../../features/create_edit_manufacturer/data/datasources/create_edit_manufacturer_remote_data_source.dart';
+import '../../features/create_edit_manufacturer/data/repositories/create_edit_manufacturer_repository_impl.dart';
+import '../../features/create_edit_model/data/datasources/create_edit_model_remote_data_source.dart';
+import '../../features/create_edit_model/data/repositories/create_edit_model_repository_impl.dart';
 import '../../features/detailed_product/data/datasources/detailed_product_remote_data_source.dart';
 import '../../features/detailed_product/data/repositories/detailed_product_repository_impl.dart';
 import '../../features/login/data/datasources/login_local_data_source.dart';
@@ -70,6 +76,14 @@ Future<void> appSetup() async {
       remoteDataSource: WishlistRemoteDataSourceImpl(getIt<DioClient>())));
   getIt.registerSingleton(CartRepositoryImpl(
       remoteDataSource: CartRemoteDataSourceImpl(getIt<DioClient>())));
+  getIt.registerSingleton(CreateEditManufacturerRepositoryImpl(
+      remoteDataSource:
+          CreateEditManufacturerRemoteDataSourceImpl(getIt<DioClient>())));
+  getIt.registerSingleton(CreateEditModelRepositoryImpl(
+      remoteDataSource:
+          CreateEditModelRemoteDataSourceImpl(getIt<DioClient>())));
+  getIt.registerSingleton(ManufacturersRepositoryImpl(
+      remoteDataSource: ManufacturersRemoteDataSourceImpl(getIt<DioClient>())));
 
   /// Interceptors initialization
   getIt<DioClient>().dio.interceptors.addAll({
