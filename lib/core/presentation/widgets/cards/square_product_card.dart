@@ -61,7 +61,6 @@ class SquareProductCard extends StatelessWidget {
                                 ? Hero(
                                     tag: product.images[0],
                                     child: Container(
-                                      padding: const EdgeInsets.all(5),
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(
                                             SizeConfig.borderRadiusSmall),
@@ -73,7 +72,6 @@ class SquareProductCard extends StatelessWidget {
                                     ),
                                   )
                                 : Container(
-                                    padding: const EdgeInsets.all(5),
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(
                                           SizeConfig.borderRadiusSmall),
@@ -84,7 +82,6 @@ class SquareProductCard extends StatelessWidget {
                                     ),
                                   ),
                             placeholder: Container(
-                              padding: const EdgeInsets.all(5),
                               decoration: BoxDecoration(
                                 color: kGrey,
                                 borderRadius: BorderRadius.circular(
@@ -92,7 +89,6 @@ class SquareProductCard extends StatelessWidget {
                               ),
                             ),
                             error: Container(
-                              padding: const EdgeInsets.all(5),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(
                                     SizeConfig.borderRadiusSmall),
@@ -110,7 +106,6 @@ class SquareProductCard extends StatelessWidget {
                       else
                         Expanded(
                           child: Container(
-                            padding: const EdgeInsets.all(5),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(
                                   SizeConfig.borderRadiusDefault),

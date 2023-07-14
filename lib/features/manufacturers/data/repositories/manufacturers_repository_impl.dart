@@ -26,4 +26,16 @@ class ManufacturersRepositoryImpl implements ManufacturersRepository {
       return Left(CasualFailure(message: e.toString()));
     }
   }
+
+  @override
+  FutureEither<void> deleteManufacturer(String id) async {
+    try {
+      await remoteDataSource.deleteManufacturer(id);
+      return const Right(null);
+    } on Failure catch (e) {
+      return Left(e);
+    } catch (e) {
+      return Left(CasualFailure(message: e.toString()));
+    }
+  }
 }

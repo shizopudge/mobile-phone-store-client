@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../../core/presentation/widgets/other/access_listener.dart';
 
 import '../../../../core/presentation/widgets/buttons/casual_button.dart';
 import '../../../../core/presentation/widgets/loading/stack_loading.dart';
@@ -18,20 +19,67 @@ class CreateEditModelPage extends StatefulWidget {
 }
 
 class _CreateEditModelPageState extends State<CreateEditModelPage> {
-  late final TextEditingController _nameController = TextEditingController()
+  late final TextEditingController _nameController = TextEditingController(
+      text: context.read<CreateEditModelBloc>().state.model?.name ?? '')
     ..addListener(_nameListener);
   late final TextEditingController _descriptionController =
-      TextEditingController()..addListener(_descriptionListener);
+      TextEditingController(
+          text: context.read<CreateEditModelBloc>().state.model?.description ??
+              '')
+        ..addListener(_descriptionListener);
   late final TextEditingController _pixelDensityController =
-      TextEditingController()..addListener(_pixelDensityListener);
+      TextEditingController(
+          text: context
+                  .read<CreateEditModelBloc>()
+                  .state
+                  .model
+                  ?.pixelDensity
+                  .toString() ??
+              '')
+        ..addListener(_pixelDensityListener);
   late final TextEditingController _screenRefreshRateController =
-      TextEditingController()..addListener(_screenRefreshRateListener);
+      TextEditingController(
+          text: context
+                  .read<CreateEditModelBloc>()
+                  .state
+                  .model
+                  ?.screenRefreshRate
+                  .toString() ??
+              '')
+        ..addListener(_screenRefreshRateListener);
   late final TextEditingController _screenDiagonalController =
-      TextEditingController()..addListener(_screenDiagonalListener);
-  late final TextEditingController _weightController = TextEditingController()
+      TextEditingController(
+          text: context
+                  .read<CreateEditModelBloc>()
+                  .state
+                  .model
+                  ?.screenDiagonal
+                  .toString() ??
+              '')
+        ..addListener(_screenDiagonalListener);
+  late final TextEditingController _weightController = TextEditingController(
+      text:
+          context.read<CreateEditModelBloc>().state.model?.weight.toString() ??
+              '')
     ..addListener(_weightListener);
-  final TextEditingController _widthController = TextEditingController();
-  final TextEditingController _heightController = TextEditingController();
+  late final TextEditingController _widthController = TextEditingController(
+      text: context
+              .read<CreateEditModelBloc>()
+              .state
+              .model
+              ?.screenWidth
+              .toString() ??
+          '')
+    ..addListener(_widthListener);
+  late final TextEditingController _heightController = TextEditingController(
+      text: context
+              .read<CreateEditModelBloc>()
+              .state
+              .model
+              ?.screenHeight
+              .toString() ??
+          '')
+    ..addListener(_heightListener);
 
   void _nameListener() => context
       .read<CreateEditModelBloc>()
@@ -57,6 +105,14 @@ class _CreateEditModelPageState extends State<CreateEditModelPage> {
       CreateEditModelEvent.changePixelDensity(
           int.tryParse(_pixelDensityController.text.trim()) ?? 0));
 
+  void _widthListener() => context.read<CreateEditModelBloc>().add(
+      CreateEditModelEvent.changeScreenResolution(
+          '${_widthController.text.trim()}x${_heightController.text.trim()}'));
+
+  void _heightListener() => context.read<CreateEditModelBloc>().add(
+      CreateEditModelEvent.changeScreenResolution(
+          '${_widthController.text.trim()}x${_heightController.text.trim()}'));
+
   @override
   void dispose() {
     _nameController.dispose();
@@ -72,56 +128,74 @@ class _CreateEditModelPageState extends State<CreateEditModelPage> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<CreateEditModelBloc, CreateEditModelState>(
-      listenWhen: (previous, current) =>
-          current.status.isSuccess || current.status.isFailure,
-      listener: (context, state) => state.callWhen(
-        success: () => Navigator.of(context).pop(),
-        failure: () => state.failure.call(context),
+    return AccessListener(
+      child: WillPopScope(
+        onWillPop: () async {
+          context
+              .read<CreateEditModelBloc>()
+              .add(const CreateEditModelEvent.setModel(null));
+          return true;
+        },
+        child: BlocConsumer<CreateEditModelBloc, CreateEditModelState>(
+          listenWhen: (previous, current) =>
+              current.status.isSuccess || current.status.isFailure,
+          listener: (context, state) => state.callWhen(
+            success: () {
+              context
+                  .read<CreateEditModelBloc>()
+                  .add(const CreateEditModelEvent.setModel(null));
+              Navigator.of(context).pop();
+            },
+            failure: () => state.failure.call(context),
+          ),
+          builder: (context, state) {
+            return StackLoading(
+              isLoading: state.isLoading,
+              child: Scaffold(
+                  backgroundColor: kWhite,
+                  appBar: CasualAppBar(
+                    title: state.model != null ? 'Edit Model' : 'Create Model',
+                    onPop: () => context
+                        .read<CreateEditModelBloc>()
+                        .add(const CreateEditModelEvent.setModel(null)),
+                  ),
+                  body: Column(
+                    children: [
+                      Expanded(
+                        child: CreateEditModelBody(
+                          nameController: _nameController,
+                          descriptionController: _descriptionController,
+                          pixelDensityController: _pixelDensityController,
+                          screenRefreshRateController:
+                              _screenRefreshRateController,
+                          screenDiagonalController: _screenDiagonalController,
+                          weightController: _weightController,
+                          widthController: _widthController,
+                          heightController: _heightController,
+                        ),
+                      ),
+                      CasualButton(
+                        onTap: () {
+                          if (state.model != null) {
+                            context
+                                .read<CreateEditModelBloc>()
+                                .add(const CreateEditModelEvent.editModel());
+                          } else {
+                            context
+                                .read<CreateEditModelBloc>()
+                                .add(const CreateEditModelEvent.createModel());
+                          }
+                        },
+                        text: state.model != null ? 'Edit' : 'Create',
+                        isEnabled: state.isAvailable,
+                        fontSize: SizeConfig.h3,
+                      ),
+                    ],
+                  )),
+            );
+          },
+        ),
       ),
-      builder: (context, state) {
-        return StackLoading(
-          isLoading: state.isLoading,
-          child: Scaffold(
-              backgroundColor: kWhite,
-              appBar: CasualAppBar(
-                title: state.model != null ? 'Edit Model' : 'Create Model',
-                canGoBack: true,
-              ),
-              body: Column(
-                children: [
-                  Expanded(
-                    child: CreateEditModelBody(
-                      nameController: _nameController,
-                      descriptionController: _descriptionController,
-                      pixelDensityController: _pixelDensityController,
-                      screenRefreshRateController: _screenRefreshRateController,
-                      screenDiagonalController: _screenDiagonalController,
-                      weightController: _weightController,
-                      widthController: _widthController,
-                      heightController: _heightController,
-                    ),
-                  ),
-                  CasualButton(
-                    onTap: () {
-                      if (state.model != null) {
-                        context
-                            .read<CreateEditModelBloc>()
-                            .add(const CreateEditModelEvent.editModel());
-                      } else {
-                        context
-                            .read<CreateEditModelBloc>()
-                            .add(const CreateEditModelEvent.createModel());
-                      }
-                    },
-                    text: state.model != null ? 'Edit' : 'Create',
-                    isEnabled: state.isAvailable,
-                    fontSize: SizeConfig.h3,
-                  ),
-                ],
-              )),
-        );
-      },
     );
   }
 }

@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
-import '../models/manufacturers_response_model.dart';
 
 import '../../../../core/api/api_constants.dart';
 import '../../../../core/api/dio_client.dart';
 import '../../../../core/failure/failure.dart';
+import '../models/manufacturers_response_model.dart';
 
 abstract interface class ManufacturersRemoteDataSource {
   Future<ManufacturersResponseModel> getManufacturers({
@@ -11,6 +11,7 @@ abstract interface class ManufacturersRemoteDataSource {
     required int page,
     required int limit,
   });
+  Future<void> deleteManufacturer(String id);
 }
 
 class ManufacturersRemoteDataSourceImpl
@@ -29,6 +30,19 @@ class ManufacturersRemoteDataSourceImpl
         'query': query,
       });
       return ManufacturersResponseModel.fromJson(res.data);
+    } on DioException catch (e) {
+      final res = e.response;
+      if (res != null) throw ServerFailure.fromJson(res.data);
+      throw CasualFailure(message: e.toString());
+    } catch (e) {
+      throw CasualFailure(message: e.toString());
+    }
+  }
+
+  @override
+  Future<void> deleteManufacturer(String id) async {
+    try {
+      await dioClient.dio.delete('${ApiConstants.manufacturers}/$id');
     } on DioException catch (e) {
       final res = e.response;
       if (res != null) throw ServerFailure.fromJson(res.data);

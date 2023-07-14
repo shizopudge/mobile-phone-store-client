@@ -1,85 +1,194 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:phone_store/core/domain/entities/manufacturer.dart';
 
+import '../../../../core/domain/entities/manufacturer.dart';
 import '../../../../core/presentation/animations/fade_animation_x.dart';
-import '../../../../core/presentation/widgets/pages/products_page.dart';
+import '../../../../core/presentation/widgets/buttons/casual_button.dart';
+import '../../../../core/presentation/widgets/cards/manufacturer_card.dart';
+import '../../../../core/presentation/widgets/dialogs/actions_dialog.dart';
+import '../../../../core/presentation/widgets/pages/search_page.dart';
 import '../../../../core/presentation/widgets/scrollable/sliver_grid_view.dart';
 import '../../../../core/styles/styles.dart';
-import '../../../../core/utils/popup_utils.dart';
 import '../../../../core/utils/size_config.dart';
+import '../../../create_edit_manufacturer/presentation/bloc/create_edit_manufacturer_bloc.dart';
+import '../../../create_edit_manufacturer/presentation/pages/create_edit_manufacturer_page.dart';
 import '../bloc/manufacturers_bloc.dart';
 
-class ManufacturersPage extends StatelessWidget {
-  const ManufacturersPage({super.key});
+class ManufacturersPage extends StatefulWidget {
+  final void Function(Manufacturer manufacturer) onSelectManufacturer;
+  const ManufacturersPage({
+    super.key,
+    required this.onSelectManufacturer,
+  });
+
+  @override
+  State<ManufacturersPage> createState() => _ManufacturersPageState();
+}
+
+class _ManufacturersPageState extends State<ManufacturersPage> {
+  @override
+  void initState() {
+    context.read<ManufacturersBloc>().add(const ManufacturersEvent.initial());
+    super.initState();
+  }
+
+  void _onLongPress({
+    required BuildContext context,
+    required Manufacturer manufacturer,
+  }) =>
+      showDialog(
+        context: context,
+        builder: (dialogContext) => ActionsDialog(
+          title: 'Manufacturer actions',
+          subtitle: 'What you want to do with manufacturer?',
+          actions: [
+            CasualButton(
+              text: 'Edit manufacturer',
+              onTap: () {
+                context.read<CreateEditManufacturerBloc>().add(
+                      CreateEditManufacturerEvent.setManufacturer(
+                        manufacturer,
+                      ),
+                    );
+                Navigator.of(dialogContext).pop();
+              },
+              enabledBgColor: kDarkBlue,
+              height: 45,
+              fontSize: SizeConfig.body2,
+            ),
+            CasualButton(
+              text: 'Delete manufacturer',
+              onTap: () {
+                context
+                    .read<ManufacturersBloc>()
+                    .add(ManufacturersEvent.deleteManufacturer(manufacturer));
+                Navigator.of(dialogContext).pop();
+              },
+              enabledBgColor: kRed,
+              height: 45,
+              fontSize: SizeConfig.body2,
+            ),
+          ],
+        ),
+      );
 
   @override
   Widget build(BuildContext context) {
     SizeConfig.init(context);
-    return BlocBuilder<ManufacturersBloc, ManufacturersState>(
+    return BlocConsumer<ManufacturersBloc, ManufacturersState>(
+      listenWhen: (previous, current) => current.isFailure,
+      listener: (context, state) {
+        if (state.isFailure) {
+          state.failure.call(context);
+        }
+      },
       builder: (context, state) {
-        return ListPage<ManufacturersBloc, ManufacturersEvent,
-            ManufacturersState>(
-          onSearch: (query) => context.read<ManufacturersBloc>().add(
-                ManufacturersEvent.searchManufacturers(
-                  query,
-                ),
-              ),
-          onPagination: () => context
-              .read<ManufacturersBloc>()
-              .add(const ManufacturersEvent.getNextManufacturers()),
-          onFilterTap: null,
-          onRefresh: () => context.read<ManufacturersBloc>().add(
-                const ManufacturersEvent.refresh(),
-              ),
-          listener: BlocListener(
-            listenWhen: (previous, current) => current.isFailure,
-            listener: (context, state) {
-              if (state.isFailure) {
-                PopupUtils.showFailureSnackBar(
-                    context: context, failure: state.failure);
-              }
-            },
-          ),
-          query: state.filter.query,
-          searchInfo: state.info,
-          isFilterActive: state.isFilterActive,
-          isRefreshing: state.isRefreshing,
-          isPaginating: state.isPaginating,
-          isLoading: state.isLoading,
-          isLastPage: state.isLastPage,
-          isNothingFound: state.isNothingFound,
-          child: SizeConfig.isMobile
-              ? SliverList.builder(
-                  itemCount: state.manufacturers.length,
-                  itemBuilder: (context, index) {
-                    final Manufacturer manufacturer =
-                        state.manufacturers[index];
-                    return FadeAnimationX(
-                      delay: index * .025,
-                      child: Text(
-                        manufacturer.name,
-                        style: kBold.copyWith(
-                          color: kDarkBlue,
-                          fontSize: 50,
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding:
+                  EdgeInsets.symmetric(horizontal: SizeConfig.setPadding(20)),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Flexible(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Manufacturers',
+                          overflow: TextOverflow.ellipsis,
+                          style: kBold.copyWith(
+                              color: kDarkBlue, fontSize: SizeConfig.h1),
                         ),
+                        SizedBox(
+                          height: SizeConfig.setPadding(8),
+                        ),
+                        Text(
+                          '*Hold to open actions dialog',
+                          overflow: TextOverflow.ellipsis,
+                          style: kMedium.copyWith(
+                              color: kDarkBlue.withOpacity(.75),
+                              fontSize: SizeConfig.body3),
+                        ),
+                      ],
+                    ),
+                  ),
+                  IconButton(
+                    onPressed: () => Navigator.of(context).pushNamed(
+                      CreateEditManufacturerPage.path,
+                    ),
+                    tooltip: 'Add',
+                    icon: Icon(
+                      Icons.add_rounded,
+                      color: kDarkBlue,
+                      size: SizeConfig.iconLarge,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Expanded(
+              child: SearchPage<ManufacturersBloc, ManufacturersEvent,
+                  ManufacturersState>(
+                onSearch: (query) => context.read<ManufacturersBloc>().add(
+                      ManufacturersEvent.searchManufacturers(
+                        query,
                       ),
-                    );
-                  },
-                )
-              : SliverGridView<Manufacturer>(
+                    ),
+                onPagination: () => context
+                    .read<ManufacturersBloc>()
+                    .add(const ManufacturersEvent.getNextManufacturers()),
+                onFilterTap: null,
+                onRefresh: () => context.read<ManufacturersBloc>().add(
+                      const ManufacturersEvent.refresh(),
+                    ),
+                listeners: [
+                  BlocListener<CreateEditManufacturerBloc,
+                      CreateEditManufacturerState>(
+                    listenWhen: (previous, current) =>
+                        current.manufacturer != null,
+                    listener: (context, state) {
+                      if (state.manufacturer != null &&
+                          ModalRoute.of(context)?.isCurrent == true) {
+                        Navigator.of(context)
+                            .pushNamed(CreateEditManufacturerPage.path);
+                      }
+                    },
+                  ),
+                ],
+                query: state.filter.query,
+                searchInfo: state.info,
+                isFilterActive: state.isFilterActive,
+                isRefreshing: state.isRefreshing,
+                isPaginating: state.isPaginating,
+                isLoading: state.isLoading,
+                isLastPage: state.isLastPage,
+                isNothingFound: state.isNothingFound,
+                child: SliverGridView<Manufacturer>(
                   items: state.manufacturers,
-                  child: (product, index) => FadeAnimationX(
+                  crossAxisCount: SizeConfig.isMobile
+                      ? 3
+                      : SizeConfig.isTablet
+                          ? 4
+                          : 6,
+                  child: (manufacturer, index) => FadeAnimationX(
+                    key: ValueKey(manufacturer.id),
                     delay: index * .025,
-                    child: Text(
-                      state.manufacturers[index].name,
-                      style: kBold.copyWith(
-                        color: kDarkBlue,
-                        fontSize: 50,
+                    child: ManufacturerCard(
+                      onTap: () => widget.onSelectManufacturer(manufacturer),
+                      onLongPress: () => _onLongPress(
+                        context: context,
+                        manufacturer: manufacturer,
                       ),
+                      manufacturer: manufacturer,
                     ),
                   ),
                 ),
+              ),
+            ),
+          ],
         );
       },
     );

@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../styles/styles.dart';
 import '../../../utils/size_config.dart';
 
-class ProductsNotFound extends StatelessWidget {
-  const ProductsNotFound({
+class NothingWasFound extends StatelessWidget {
+  const NothingWasFound({
     super.key,
   });
 

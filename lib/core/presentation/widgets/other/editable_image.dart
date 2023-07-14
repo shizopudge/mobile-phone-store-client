@@ -1,13 +1,9 @@
 import 'dart:io';
 
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:shimmer/shimmer.dart';
 
-import '../../../api/api_constants.dart';
-import '../../../styles/styles.dart';
 import '../../../utils/size_config.dart';
-import '../../animations/fade_animation_x.dart';
+import 'casual_network_image.dart';
 
 class EditableImage extends StatelessWidget {
   final VoidCallback onTap;
@@ -15,70 +11,63 @@ class EditableImage extends StatelessWidget {
   final File? pickedImage;
   const EditableImage({
     super.key,
-    required this.image,
-    required this.pickedImage,
     required this.onTap,
+    this.image,
+    this.pickedImage,
   });
 
   @override
   Widget build(BuildContext context) {
-    final radius = SizeConfig.radiusLarge;
     return GestureDetector(
       onTap: onTap,
       child: pickedImage != null
-          ? CircleAvatar(
-              backgroundImage: FileImage(pickedImage!),
-              backgroundColor: kLightWhite,
-              radius: radius,
+          ? ClipRRect(
+              borderRadius: BorderRadius.circular(SizeConfig.borderRadiusSmall),
+              child: SizedBox(
+                height: SizeConfig.screenWidth! * .5,
+                child: Image(
+                  image: FileImage(pickedImage!),
+                ),
+              ),
             )
           : image != null
-              ? CachedNetworkImage(
-                  imageUrl: '${ApiConstants.imagesUrl}/$image',
-                  imageBuilder: (context, imageProvider) => Hero(
-                    tag: image!,
-                    child: CircleAvatar(
-                      backgroundImage: imageProvider,
-                      backgroundColor: kLightWhite,
-                      radius: radius,
-                    ),
-                  ),
-                  placeholder: (context, url) => FadeAnimationX(
-                    delay: .25,
-                    child: Shimmer.fromColors(
-                      baseColor: kWhite,
-                      highlightColor: kLightWhite,
-                      child: CircleAvatar(
-                        backgroundColor: kGrey,
-                        radius: radius,
+              ? CasualNetworkImage(
+                  imageName: image!,
+                  imageBuilder: (context, imageProvider) => ClipRRect(
+                    borderRadius:
+                        BorderRadius.circular(SizeConfig.borderRadiusSmall),
+                    child: SizedBox(
+                      height: SizeConfig.screenWidth! * .5,
+                      child: Image(
+                        image: imageProvider,
                       ),
                     ),
                   ),
-                  errorWidget: (context, url, error) => FadeAnimationX(
-                    delay: .25,
-                    child: CircleAvatar(
-                      backgroundColor: kGrey,
-                      radius: radius,
-                      child: Shimmer.fromColors(
-                        baseColor: kWhite,
-                        highlightColor: kLightWhite,
-                        child: Icon(
-                          Icons.image,
-                          color: kWhite,
-                          size: SizeConfig.iconMedium,
-                        ),
+                  placeholder: SizedBox(
+                    height: SizeConfig.screenWidth! * .5,
+                    child: const FittedBox(
+                      fit: BoxFit.cover,
+                      child: Icon(
+                        Icons.image,
+                      ),
+                    ),
+                  ),
+                  error: SizedBox(
+                    height: SizeConfig.screenWidth! * .5,
+                    child: const FittedBox(
+                      fit: BoxFit.cover,
+                      child: Icon(
+                        Icons.image,
                       ),
                     ),
                   ),
                 )
-              : FadeAnimationX(
-                  delay: .25,
-                  child: CircleAvatar(
-                    backgroundColor: kDarkBlue,
-                    radius: radius,
+              : SizedBox(
+                  height: SizeConfig.screenWidth! * .25,
+                  child: const FittedBox(
+                    fit: BoxFit.cover,
                     child: Icon(
-                      Icons.file_upload_rounded,
-                      color: kWhite,
-                      size: SizeConfig.iconMedium,
+                      Icons.upload_rounded,
                     ),
                   ),
                 ),

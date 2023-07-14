@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../core/di/get_it.dart';
+import '../../cart/presentation/bloc/cart_bloc.dart';
+import '../../wishlist/presentation/bloc/wishlist_bloc.dart';
 
 import '../../cart/presentation/pages/cart_page.dart';
 import '../../products/presentation/pages/browse_products_page.dart';
@@ -13,14 +17,20 @@ class UserUI extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const HomeBody(
+    return HomeBody(
       pages: [
-        BrowseProductsPage(),
-        WishlistPage(),
-        CartPage(),
-        ProfilePage(),
+        const BrowseProductsPage(),
+        BlocProvider.value(
+          value: getIt<WishlistBloc>()..add(const WishlistEvent.initial()),
+          child: const WishlistPage(),
+        ),
+        BlocProvider.value(
+          value: getIt<CartBloc>()..add(const CartEvent.initial()),
+          child: const CartPage(),
+        ),
+        const ProfilePage(),
       ],
-      navBottomBarItems: [
+      navBottomBarItems: const [
         BottomNavigationBarItem(
             icon: Icon(
               Icons.search_rounded,
@@ -42,7 +52,7 @@ class UserUI extends StatelessWidget {
             ),
             label: 'Profile'),
       ],
-      navRailItems: [
+      navRailItems: const [
         NavigationRailDestination(
             icon: Icon(
               Icons.search_rounded,
@@ -64,7 +74,7 @@ class UserUI extends StatelessWidget {
             ),
             label: Text('Profile')),
       ],
-      navTopBarItems: [
+      navTopBarItems: const [
         Tab(
             icon: Icon(
               Icons.search_rounded,

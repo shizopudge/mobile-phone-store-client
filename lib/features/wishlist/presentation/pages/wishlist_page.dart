@@ -8,12 +8,12 @@ import '../../../../core/presentation/widgets/bottom_sheets/products_filter/prod
 import '../../../../core/presentation/widgets/cards/rectangle_product_card.dart';
 import '../../../../core/presentation/widgets/cards/square_product_card.dart';
 import '../../../../core/presentation/widgets/other/casual_dismissible.dart';
-import '../../../../core/presentation/widgets/pages/products_page.dart';
+import '../../../../core/presentation/widgets/pages/search_page.dart';
 import '../../../../core/presentation/widgets/scrollable/sliver_grid_view.dart';
 import '../../../../core/styles/styles.dart';
-import '../../../../core/utils/popup_utils.dart';
 import '../../../../core/utils/size_config.dart';
 import '../../../detailed_product/presentation/bloc/detailed_product_bloc.dart';
+import '../../../detailed_product/presentation/pages/detailed_product_page.dart';
 import '../bloc/wishlist_bloc.dart';
 
 class WishlistPage extends StatelessWidget {
@@ -22,9 +22,15 @@ class WishlistPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SizeConfig.init(context);
-    return BlocBuilder<WishlistBloc, WishlistState>(
+    return BlocConsumer<WishlistBloc, WishlistState>(
+      listenWhen: (previous, current) => current.isFailure,
+      listener: (context, state) {
+        if (state.isFailure) {
+          state.failure.call(context);
+        }
+      },
       builder: (context, state) {
-        return ListPage<WishlistBloc, WishlistEvent, WishlistState>(
+        return SearchPage<WishlistBloc, WishlistEvent, WishlistState>(
           onSearch: (query) => context.read<WishlistBloc>().add(
                 WishlistEvent.searchProducts(
                   query,
@@ -55,15 +61,18 @@ class WishlistPage extends StatelessWidget {
           onRefresh: () => context.read<WishlistBloc>().add(
                 const WishlistEvent.refresh(),
               ),
-          listener: BlocListener(
-            listenWhen: (previous, current) => current.isFailure,
-            listener: (context, state) {
-              if (state.isFailure) {
-                PopupUtils.showFailureSnackBar(
-                    context: context, failure: state.failure);
-              }
-            },
-          ),
+          listeners: [
+            BlocListener<DetailedProductBloc, DetailedProductState>(
+              listenWhen: (previous, current) => current.product != null,
+              listener: (context, state) {
+                if (state.product != null &&
+                    ModalRoute.of(context)?.isCurrent == true) {
+                  primaryFocus?.unfocus();
+                  Navigator.of(context).pushNamed(DetailedProductPage.path);
+                }
+              },
+            ),
+          ],
           query: state.filter.query,
           searchInfo: state.info,
           isFilterActive: state.isFilterActive,
@@ -83,6 +92,7 @@ class WishlistPage extends StatelessWidget {
                         onDismiss: (direction) => context
                             .read<WishlistBloc>()
                             .add(WishlistEvent.toggleWishlist(product)),
+                        label: 'Remove',
                         child: RectangleProductCard(
                             onTap: () => context
                                 .read<DetailedProductBloc>()
@@ -101,6 +111,7 @@ class WishlistPage extends StatelessWidget {
                       onDismiss: (direction) => context
                           .read<WishlistBloc>()
                           .add(WishlistEvent.toggleWishlist(product)),
+                      label: 'Remove',
                       child: SquareProductCard(
                         onTap: () => context
                             .read<DetailedProductBloc>()

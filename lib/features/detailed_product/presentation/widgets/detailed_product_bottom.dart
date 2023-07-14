@@ -62,34 +62,37 @@ class DetailedProductBottom extends StatelessWidget {
             ),
           ),
         ),
-        if (user != null) SizedBox(height: SizeConfig.setPadding(2)),
-        if (user != null)
-          FadeAnimationYDown(
-            delay: .7,
-            child: Container(
-              color: kLightWhite,
-              padding: EdgeInsets.symmetric(
-                horizontal: SizeConfig.setPadding(8),
-                vertical: SizeConfig.setPadding(2.5),
-              ),
-              child: Row(
-                children: [
-                  RoundedIconButton(
-                    onTap: () => context
-                        .read<CartBloc>()
-                        .add(CartEvent.toggleCart(product)),
-                    innerPadding: 12,
-                    child: Icon(
-                      product.isInCart(cart)
-                          ? Icons.shopping_bag_rounded
-                          : Icons.shopping_bag_outlined,
-                      color: kDarkBlue,
-                      size: SizeConfig.iconLarge,
+        SizedBox(height: SizeConfig.setPadding(2)),
+        FadeAnimationYDown(
+          delay: .7,
+          child: Container(
+            color: kLightWhite,
+            padding: EdgeInsets.symmetric(
+              horizontal: SizeConfig.setPadding(8),
+              vertical: SizeConfig.setPadding(2.5),
+            ),
+            child: Row(
+              children: [
+                if (user != null)
+                  if (!user.isAdmin)
+                    RoundedIconButton(
+                      onTap: () => context
+                          .read<CartBloc>()
+                          .add(CartEvent.toggleCart(product)),
+                      innerPadding: 12,
+                      child: Icon(
+                        product.isInCart(cart)
+                            ? Icons.shopping_bag_rounded
+                            : Icons.shopping_bag_outlined,
+                        color: kDarkBlue,
+                        size: SizeConfig.iconLarge,
+                      ),
                     ),
-                  ),
+                if (user != null)
                   SizedBox(
                     width: SizeConfig.setPadding(8),
                   ),
+                if (user != null && !user.isAdmin)
                   Expanded(
                     child: CasualButton(
                       onTap: () {},
@@ -101,10 +104,10 @@ class DetailedProductBottom extends StatelessWidget {
                       fontSize: SizeConfig.body1,
                     ),
                   ),
-                ],
-              ),
+              ],
             ),
           ),
+        ),
       ],
     );
   }

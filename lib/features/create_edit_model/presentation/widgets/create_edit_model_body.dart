@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../../../../core/constants/enums.dart';
 import '../../../../core/presentation/widgets/other/casual_dropdown_menu.dart';
-import '../../../../core/styles/styles.dart';
-
 import '../../../../core/presentation/widgets/text_fields/casual_text_field.dart';
+import '../../../../core/styles/styles.dart';
 import '../../../../core/utils/size_config.dart';
 import '../bloc/create_edit_model_bloc.dart';
 
@@ -58,7 +58,7 @@ class CreateEditModelBody extends StatelessWidget {
                       FilteringTextInputFormatter.allow(RegExp(r'[0-9a-zA-Z ]'))
                     ],
                     labelStyle: kSemiBold.copyWith(
-                        color: kLightBlue, fontSize: SizeConfig.h3),
+                        color: kDarkBlue, fontSize: SizeConfig.h3),
                     label: 'Model name',
                     hintText: 'Model name',
                   ),
@@ -68,11 +68,11 @@ class CreateEditModelBody extends StatelessWidget {
                   CasualTextField(
                     controller: descriptionController,
                     labelStyle: kSemiBold.copyWith(
-                        color: kLightBlue, fontSize: SizeConfig.h3),
+                        color: kDarkBlue, fontSize: SizeConfig.h3),
                     label: 'Description',
                     hintText: 'Description',
                     maxLines: 5,
-                    maxLength: 300,
+                    maxLength: 1500,
                     counterStyle: kSemiBold.copyWith(
                         color: kDarkBlue, fontSize: SizeConfig.body3),
                   ),
@@ -87,7 +87,7 @@ class CreateEditModelBody extends StatelessWidget {
                           Text(
                             'Operating system',
                             style: kBold.copyWith(
-                                color: kLightBlue, fontSize: SizeConfig.body1),
+                                color: kDarkBlue, fontSize: SizeConfig.body1),
                           ),
                           SizedBox(
                             height: SizeConfig.setPadding(20),
@@ -102,7 +102,7 @@ class CreateEditModelBody extends StatelessWidget {
                                   child: Text(
                                     OperatingSystem.values[index].toString(),
                                     style: kBold.copyWith(
-                                        color: kLightBlue,
+                                        color: kDarkBlue,
                                         fontSize: SizeConfig.body1),
                                   ),
                                 ),
@@ -124,7 +124,7 @@ class CreateEditModelBody extends StatelessWidget {
                           Text(
                             'Display type',
                             style: kBold.copyWith(
-                                color: kLightBlue, fontSize: SizeConfig.body1),
+                                color: kDarkBlue, fontSize: SizeConfig.body1),
                           ),
                           SizedBox(
                             height: SizeConfig.setPadding(20),
@@ -139,7 +139,7 @@ class CreateEditModelBody extends StatelessWidget {
                                   child: Text(
                                     DisplayType.values[index].toString(),
                                     style: kBold.copyWith(
-                                        color: kLightBlue,
+                                        color: kDarkBlue,
                                         fontSize: SizeConfig.body1),
                                   ),
                                 ),
@@ -170,7 +170,7 @@ class CreateEditModelBody extends StatelessWidget {
                       FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))
                     ],
                     labelStyle: kSemiBold.copyWith(
-                        color: kLightBlue, fontSize: SizeConfig.h3),
+                        color: kDarkBlue, fontSize: SizeConfig.h3),
                     label: 'Pixel density',
                     hintText: 'Pixel density',
                   ),
@@ -187,7 +187,7 @@ class CreateEditModelBody extends StatelessWidget {
                       FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))
                     ],
                     labelStyle: kSemiBold.copyWith(
-                        color: kLightBlue, fontSize: SizeConfig.h3),
+                        color: kDarkBlue, fontSize: SizeConfig.h3),
                     label: 'Screen refresh rate',
                     hintText: 'Screen refresh rate',
                   ),
@@ -204,7 +204,7 @@ class CreateEditModelBody extends StatelessWidget {
                       FilteringTextInputFormatter.allow(RegExp(r'[0-9\.]'))
                     ],
                     labelStyle: kSemiBold.copyWith(
-                        color: kLightBlue, fontSize: SizeConfig.h3),
+                        color: kDarkBlue, fontSize: SizeConfig.h3),
                     label: 'Screen Diagonal',
                     hintText: 'Screen Diagonal',
                   ),
@@ -221,7 +221,7 @@ class CreateEditModelBody extends StatelessWidget {
                       FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))
                     ],
                     labelStyle: kSemiBold.copyWith(
-                        color: kLightBlue, fontSize: SizeConfig.h3),
+                        color: kDarkBlue, fontSize: SizeConfig.h3),
                     label: 'Weight',
                     hintText: 'Weight',
                   ),
@@ -241,7 +241,7 @@ class CreateEditModelBody extends StatelessWidget {
                             FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))
                           ],
                           labelStyle: kSemiBold.copyWith(
-                              color: kLightBlue, fontSize: SizeConfig.h3),
+                              color: kDarkBlue, fontSize: SizeConfig.h3),
                           label: 'Width',
                           hintText: 'Width',
                         ),
@@ -260,7 +260,7 @@ class CreateEditModelBody extends StatelessWidget {
                             FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))
                           ],
                           labelStyle: kSemiBold.copyWith(
-                              color: kLightBlue, fontSize: SizeConfig.h3),
+                              color: kDarkBlue, fontSize: SizeConfig.h3),
                           label: 'Height',
                           hintText: 'Height',
                         ),

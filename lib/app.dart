@@ -8,19 +8,8 @@ import 'core/styles/styles.dart';
 import 'core/utils/app_router.dart';
 import 'features/auth/presentation/bloc/auth_bloc.dart';
 
-class App extends StatefulWidget {
+class App extends StatelessWidget {
   const App({super.key});
-
-  @override
-  State<App> createState() => _AppState();
-}
-
-class _AppState extends State<App> {
-  @override
-  void dispose() {
-    getIt<AppRouter>().dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {

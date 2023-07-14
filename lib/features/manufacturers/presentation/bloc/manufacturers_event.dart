@@ -10,4 +10,6 @@ class ManufacturersEvent with _$ManufacturersEvent {
       Manufacturer manufacturer) = _UpdateManufacturerInList;
   const factory ManufacturersEvent.getNextManufacturers() =
       _GetNextManufacturers;
+  const factory ManufacturersEvent.deleteManufacturer(
+      Manufacturer manufacturer) = _DeleteManufacturer;
 }

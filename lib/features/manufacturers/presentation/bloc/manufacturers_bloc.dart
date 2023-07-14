@@ -2,25 +2,29 @@ import 'dart:async';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
-import '../../../../core/domain/entities/filters.dart';
-import '../../../../core/domain/entities/manufacturer.dart';
-import '../../../../core/failure/failure.dart';
-
-import '../../../../core/constants/type_defs.dart';
-import '../../../../core/domain/entities/info.dart';
-import '../../domain/entities/manufacturers_response.dart';
-import '../../domain/usecases/get_manufacturers.dart';
 import 'package:rxdart/rxdart.dart';
 
-part 'manufacturers_event.dart';
-part 'manufacturers_state.dart';
+import '../../../../core/constants/type_defs.dart';
+import '../../../../core/domain/entities/filters.dart';
+import '../../../../core/domain/entities/info.dart';
+import '../../../../core/domain/entities/manufacturer.dart';
+import '../../../../core/failure/failure.dart';
+import '../../domain/entities/manufacturers_response.dart';
+import '../../domain/usecases/delete_manufacturer.dart';
+import '../../domain/usecases/get_manufacturers.dart';
+
 part 'manufacturers_bloc.freezed.dart';
 part 'manufacturers_bloc.g.dart';
+part 'manufacturers_event.dart';
+part 'manufacturers_state.dart';
 
 class ManufacturersBloc extends Bloc<ManufacturersEvent, ManufacturersState>
     with HydratedMixin {
-  ManufacturersBloc({required GetManufacturers getManufacturersUsecase})
-      : _getManufacturersUsecase = getManufacturersUsecase,
+  ManufacturersBloc({
+    required GetManufacturers getManufacturersUsecase,
+    required DeleteManufacturer deleteManufacturerUsecase,
+  })  : _getManufacturersUsecase = getManufacturersUsecase,
+        _deleteManufacturerUsecase = deleteManufacturerUsecase,
         super(const ManufacturersState()) {
     on<_Initial>(_initial);
     on<_Refresh>(_refresh);
@@ -30,16 +34,18 @@ class ManufacturersBloc extends Bloc<ManufacturersEvent, ManufacturersState>
             .switchMap(mapper));
     on<_GetNextManufacturers>(_getNextManufacturers);
     on<_UpdateManufacturerInList>(_updateManufacturerInList);
+    on<_DeleteManufacturer>(_deleteManufacturer);
   }
 
   final GetManufacturers _getManufacturersUsecase;
+  final DeleteManufacturer _deleteManufacturerUsecase;
 
   FutureOr<void> _initial(
       _Initial event, Emitter<ManufacturersState> emit) async {
     emit(state.copyWith(status: ManufacturersStatus.loading));
     final res = await _getManufacturers();
     res.fold(
-        (failure) => _throwFailure,
+        (failure) => _throwFailure(emit, failure),
         (r) => emit(state.copyWith(
             status: ManufacturersStatus.success,
             manufacturers: r.manufacturers,
@@ -52,7 +58,7 @@ class ManufacturersBloc extends Bloc<ManufacturersEvent, ManufacturersState>
       emit(state.copyWith(status: ManufacturersStatus.refreshing));
       final res = await _getManufacturers();
       res.fold(
-          (failure) => _throwFailure,
+          (failure) => _throwFailure(emit, failure),
           (r) => emit(state.copyWith(
               status: ManufacturersStatus.success,
               manufacturers: r.manufacturers,
@@ -111,6 +117,21 @@ class ManufacturersBloc extends Bloc<ManufacturersEvent, ManufacturersState>
       manufacturers[index] = event.manufacturer;
       emit(state.copyWith(manufacturers: manufacturers));
     }
+  }
+
+  FutureOr<void> _deleteManufacturer(
+      _DeleteManufacturer event, Emitter<ManufacturersState> emit) async {
+    final List<Manufacturer> manufacturers = [...state.manufacturers];
+    final int manufacturerIndex = manufacturers.indexOf(event.manufacturer);
+    manufacturers.removeAt(manufacturerIndex);
+    emit(state.copyWith(manufacturers: manufacturers));
+    final res = await _deleteManufacturerUsecase
+        .call(DeleteManufacturerParams(id: event.manufacturer.id));
+    res.fold((failure) {
+      manufacturers.insert(manufacturerIndex, event.manufacturer);
+      emit(state.copyWith(manufacturers: manufacturers));
+      _throwFailure(emit, failure);
+    }, (r) => null);
   }
 
   FutureEither<ManufacturersResponse> _getManufacturers() async =>

@@ -102,6 +102,14 @@ class Model extends Equatable {
     ];
   }
 
+  String _getScreenWidth() => screenResolution.split('x')[0];
+
+  String _getScreenHeight() => screenResolution.split('x')[1];
+
+  String get screenWidth => _getScreenWidth();
+
+  String get screenHeight => _getScreenHeight();
+
   factory Model.fromJson(Map<String, dynamic> json) =>
       Model.fromModel(ModelModel.fromJson(json));
 

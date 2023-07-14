@@ -7,4 +7,5 @@ abstract interface class ManufacturersRepository {
     required int page,
     required int limit,
   });
+  FutureEither<void> deleteManufacturer(String id);
 }

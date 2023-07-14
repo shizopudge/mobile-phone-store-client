@@ -63,7 +63,7 @@ class SearchResult extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      'Products count',
+                      'Items count',
                       textAlign: TextAlign.center,
                       style: kSemiBold.copyWith(
                         fontSize: SizeConfig.body1,
@@ -71,24 +71,26 @@ class SearchResult extends StatelessWidget {
                       ),
                     ),
                   ]),
-                  TableRow(children: [
-                    Text(
-                      pageCount.toString(),
-                      textAlign: TextAlign.center,
-                      style: kBold.copyWith(
-                        fontSize: SizeConfig.body2,
-                        color: kDarkBlue,
+                  TableRow(
+                    children: [
+                      Text(
+                        pageCount.toString(),
+                        textAlign: TextAlign.center,
+                        style: kBold.copyWith(
+                          fontSize: SizeConfig.body2,
+                          color: kDarkBlue,
+                        ),
                       ),
-                    ),
-                    Text(
-                      productsCount.toString(),
-                      textAlign: TextAlign.center,
-                      style: kBold.copyWith(
-                        fontSize: SizeConfig.body2,
-                        color: kDarkBlue,
+                      Text(
+                        productsCount.toString(),
+                        textAlign: TextAlign.center,
+                        style: kBold.copyWith(
+                          fontSize: SizeConfig.body2,
+                          color: kDarkBlue,
+                        ),
                       ),
-                    ),
-                  ]),
+                    ],
+                  ),
                 ],
               ),
             ],

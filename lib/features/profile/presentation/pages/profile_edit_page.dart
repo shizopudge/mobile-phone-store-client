@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/presentation/animations/fade_animation_y_up.dart';
 import '../../../../core/presentation/widgets/buttons/casual_button.dart';
-import '../../../../core/presentation/widgets/dialogs/edit_image_dialog.dart';
+import '../../../../core/presentation/widgets/dialogs/actions_dialog.dart';
 import '../../../../core/presentation/widgets/loading/stack_loading.dart';
 import '../../../../core/presentation/widgets/other/access_listener.dart';
 import '../../../../core/presentation/widgets/other/casual_app_bar.dart';
@@ -56,15 +56,33 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
     } else {
       showDialog(
         context: context,
-        builder: (dialogContext) => EditImageDialog(
-          onUpload: () {
-            context.read<ProfileBloc>().add(const ProfileEvent.pickImage());
-            Navigator.of(dialogContext).pop();
-          },
-          onDelete: () {
-            context.read<ProfileBloc>().add(const ProfileEvent.deleteImage());
-            Navigator.of(dialogContext).pop();
-          },
+        builder: (dialogContext) => ActionsDialog(
+          title: 'Image actions',
+          subtitle: 'What you want to do with image?',
+          actions: [
+            CasualButton(
+              text: 'Upload image',
+              onTap: () {
+                context.read<ProfileBloc>().add(const ProfileEvent.pickImage());
+                Navigator.of(dialogContext).pop();
+              },
+              enabledBgColor: kDarkBlue,
+              height: 45,
+              fontSize: SizeConfig.body2,
+            ),
+            CasualButton(
+              text: 'Delete image',
+              onTap: () {
+                context
+                    .read<ProfileBloc>()
+                    .add(const ProfileEvent.deleteImage());
+                Navigator.of(dialogContext).pop();
+              },
+              enabledBgColor: kRed,
+              height: 45,
+              fontSize: SizeConfig.body2,
+            ),
+          ],
         ),
       );
     }
@@ -105,9 +123,9 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
           isLoading: state.status.isLoading,
           child: Scaffold(
             backgroundColor: kWhite,
-            appBar: const CasualAppBar(
+            appBar: CasualAppBar(
               title: 'Edit profile',
-              canGoBack: true,
+              onPop: () {},
             ),
             body: Column(
               children: [

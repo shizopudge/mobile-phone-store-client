@@ -4,8 +4,8 @@ import '../../../styles/styles.dart';
 import '../../../utils/size_config.dart';
 import '../../animations/fade_animation_y_down.dart';
 
-class ProductsEnd extends StatelessWidget {
-  const ProductsEnd({
+class ResultsEnd extends StatelessWidget {
+  const ResultsEnd({
     super.key,
   });
 
@@ -24,7 +24,7 @@ class ProductsEnd extends StatelessWidget {
           child: FadeAnimationYDown(
             delay: .5,
             child: Text(
-              'You have viewed all products that match your search',
+              'You have viewed all results that match your search',
               textAlign: TextAlign.center,
               style: kMedium.copyWith(
                 color: kDarkBlue,

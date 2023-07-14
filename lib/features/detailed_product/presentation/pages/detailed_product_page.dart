@@ -9,7 +9,6 @@ import '../../../../core/presentation/widgets/loading/casual_loader.dart';
 import '../../../../core/presentation/widgets/other/access_listener.dart';
 import '../../../../core/presentation/widgets/pages/error_page.dart';
 import '../../../../core/styles/colors.dart';
-import '../../../../core/utils/popup_utils.dart';
 import '../../../../core/utils/size_config.dart';
 import '../bloc/detailed_product_bloc.dart';
 import '../widgets/detailed_product_body.dart';
@@ -62,8 +61,9 @@ class _DetailedProductPageState extends State<DetailedProductPage> {
         child: BlocConsumer<DetailedProductBloc, DetailedProductState>(
           listenWhen: (previous, current) => current.isFailure,
           listener: (context, state) {
-            PopupUtils.showFailureSnackBar(
-                context: context, failure: state.failure);
+            if (state.isFailure) {
+              state.failure.call(context);
+            }
           },
           builder: (context, state) {
             final Product? product = state.product;

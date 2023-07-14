@@ -18,7 +18,8 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$CreateEditManufacturerEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Manufacturer manufacturer) setManufacturer,
+    required TResult Function() initial,
+    required TResult Function(Manufacturer? manufacturer) setManufacturer,
     required TResult Function(String name) changeName,
     required TResult Function() createManufacturer,
     required TResult Function() editManufacturer,
@@ -28,7 +29,8 @@ mixin _$CreateEditManufacturerEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Manufacturer manufacturer)? setManufacturer,
+    TResult? Function()? initial,
+    TResult? Function(Manufacturer? manufacturer)? setManufacturer,
     TResult? Function(String name)? changeName,
     TResult? Function()? createManufacturer,
     TResult? Function()? editManufacturer,
@@ -38,7 +40,8 @@ mixin _$CreateEditManufacturerEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Manufacturer manufacturer)? setManufacturer,
+    TResult Function()? initial,
+    TResult Function(Manufacturer? manufacturer)? setManufacturer,
     TResult Function(String name)? changeName,
     TResult Function()? createManufacturer,
     TResult Function()? editManufacturer,
@@ -49,6 +52,7 @@ mixin _$CreateEditManufacturerEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
     required TResult Function(_SetManufacturer value) setManufacturer,
     required TResult Function(_ChangeName value) changeName,
     required TResult Function(_CreateManufacturer value) createManufacturer,
@@ -59,6 +63,7 @@ mixin _$CreateEditManufacturerEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
     TResult? Function(_SetManufacturer value)? setManufacturer,
     TResult? Function(_ChangeName value)? changeName,
     TResult? Function(_CreateManufacturer value)? createManufacturer,
@@ -69,6 +74,7 @@ mixin _$CreateEditManufacturerEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
     TResult Function(_SetManufacturer value)? setManufacturer,
     TResult Function(_ChangeName value)? changeName,
     TResult Function(_CreateManufacturer value)? createManufacturer,
@@ -102,12 +108,143 @@ class _$CreateEditManufacturerEventCopyWithImpl<$Res,
 }
 
 /// @nodoc
+abstract class _$$_InitialCopyWith<$Res> {
+  factory _$$_InitialCopyWith(
+          _$_Initial value, $Res Function(_$_Initial) then) =
+      __$$_InitialCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_InitialCopyWithImpl<$Res>
+    extends _$CreateEditManufacturerEventCopyWithImpl<$Res, _$_Initial>
+    implements _$$_InitialCopyWith<$Res> {
+  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_Initial implements _Initial {
+  const _$_Initial();
+
+  @override
+  String toString() {
+    return 'CreateEditManufacturerEvent.initial()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Initial);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(Manufacturer? manufacturer) setManufacturer,
+    required TResult Function(String name) changeName,
+    required TResult Function() createManufacturer,
+    required TResult Function() editManufacturer,
+    required TResult Function() pickImage,
+    required TResult Function() deleteImage,
+  }) {
+    return initial();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(Manufacturer? manufacturer)? setManufacturer,
+    TResult? Function(String name)? changeName,
+    TResult? Function()? createManufacturer,
+    TResult? Function()? editManufacturer,
+    TResult? Function()? pickImage,
+    TResult? Function()? deleteImage,
+  }) {
+    return initial?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(Manufacturer? manufacturer)? setManufacturer,
+    TResult Function(String name)? changeName,
+    TResult Function()? createManufacturer,
+    TResult Function()? editManufacturer,
+    TResult Function()? pickImage,
+    TResult Function()? deleteImage,
+    required TResult orElse(),
+  }) {
+    if (initial != null) {
+      return initial();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_SetManufacturer value) setManufacturer,
+    required TResult Function(_ChangeName value) changeName,
+    required TResult Function(_CreateManufacturer value) createManufacturer,
+    required TResult Function(_EditManufacturer value) editManufacturer,
+    required TResult Function(_PickImage value) pickImage,
+    required TResult Function(_DeleteImage value) deleteImage,
+  }) {
+    return initial(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_SetManufacturer value)? setManufacturer,
+    TResult? Function(_ChangeName value)? changeName,
+    TResult? Function(_CreateManufacturer value)? createManufacturer,
+    TResult? Function(_EditManufacturer value)? editManufacturer,
+    TResult? Function(_PickImage value)? pickImage,
+    TResult? Function(_DeleteImage value)? deleteImage,
+  }) {
+    return initial?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_SetManufacturer value)? setManufacturer,
+    TResult Function(_ChangeName value)? changeName,
+    TResult Function(_CreateManufacturer value)? createManufacturer,
+    TResult Function(_EditManufacturer value)? editManufacturer,
+    TResult Function(_PickImage value)? pickImage,
+    TResult Function(_DeleteImage value)? deleteImage,
+    required TResult orElse(),
+  }) {
+    if (initial != null) {
+      return initial(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Initial implements CreateEditManufacturerEvent {
+  const factory _Initial() = _$_Initial;
+}
+
+/// @nodoc
 abstract class _$$_SetManufacturerCopyWith<$Res> {
   factory _$$_SetManufacturerCopyWith(
           _$_SetManufacturer value, $Res Function(_$_SetManufacturer) then) =
       __$$_SetManufacturerCopyWithImpl<$Res>;
   @useResult
-  $Res call({Manufacturer manufacturer});
+  $Res call({Manufacturer? manufacturer});
 }
 
 /// @nodoc
@@ -121,13 +258,13 @@ class __$$_SetManufacturerCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? manufacturer = null,
+    Object? manufacturer = freezed,
   }) {
     return _then(_$_SetManufacturer(
-      null == manufacturer
+      freezed == manufacturer
           ? _value.manufacturer
           : manufacturer // ignore: cast_nullable_to_non_nullable
-              as Manufacturer,
+              as Manufacturer?,
     ));
   }
 }
@@ -138,7 +275,7 @@ class _$_SetManufacturer implements _SetManufacturer {
   const _$_SetManufacturer(this.manufacturer);
 
   @override
-  final Manufacturer manufacturer;
+  final Manufacturer? manufacturer;
 
   @override
   String toString() {
@@ -166,7 +303,8 @@ class _$_SetManufacturer implements _SetManufacturer {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Manufacturer manufacturer) setManufacturer,
+    required TResult Function() initial,
+    required TResult Function(Manufacturer? manufacturer) setManufacturer,
     required TResult Function(String name) changeName,
     required TResult Function() createManufacturer,
     required TResult Function() editManufacturer,
@@ -179,7 +317,8 @@ class _$_SetManufacturer implements _SetManufacturer {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Manufacturer manufacturer)? setManufacturer,
+    TResult? Function()? initial,
+    TResult? Function(Manufacturer? manufacturer)? setManufacturer,
     TResult? Function(String name)? changeName,
     TResult? Function()? createManufacturer,
     TResult? Function()? editManufacturer,
@@ -192,7 +331,8 @@ class _$_SetManufacturer implements _SetManufacturer {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Manufacturer manufacturer)? setManufacturer,
+    TResult Function()? initial,
+    TResult Function(Manufacturer? manufacturer)? setManufacturer,
     TResult Function(String name)? changeName,
     TResult Function()? createManufacturer,
     TResult Function()? editManufacturer,
@@ -209,6 +349,7 @@ class _$_SetManufacturer implements _SetManufacturer {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
     required TResult Function(_SetManufacturer value) setManufacturer,
     required TResult Function(_ChangeName value) changeName,
     required TResult Function(_CreateManufacturer value) createManufacturer,
@@ -222,6 +363,7 @@ class _$_SetManufacturer implements _SetManufacturer {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
     TResult? Function(_SetManufacturer value)? setManufacturer,
     TResult? Function(_ChangeName value)? changeName,
     TResult? Function(_CreateManufacturer value)? createManufacturer,
@@ -235,6 +377,7 @@ class _$_SetManufacturer implements _SetManufacturer {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
     TResult Function(_SetManufacturer value)? setManufacturer,
     TResult Function(_ChangeName value)? changeName,
     TResult Function(_CreateManufacturer value)? createManufacturer,
@@ -251,10 +394,10 @@ class _$_SetManufacturer implements _SetManufacturer {
 }
 
 abstract class _SetManufacturer implements CreateEditManufacturerEvent {
-  const factory _SetManufacturer(final Manufacturer manufacturer) =
+  const factory _SetManufacturer(final Manufacturer? manufacturer) =
       _$_SetManufacturer;
 
-  Manufacturer get manufacturer;
+  Manufacturer? get manufacturer;
   @JsonKey(ignore: true)
   _$$_SetManufacturerCopyWith<_$_SetManufacturer> get copyWith =>
       throw _privateConstructorUsedError;
@@ -324,7 +467,8 @@ class _$_ChangeName implements _ChangeName {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Manufacturer manufacturer) setManufacturer,
+    required TResult Function() initial,
+    required TResult Function(Manufacturer? manufacturer) setManufacturer,
     required TResult Function(String name) changeName,
     required TResult Function() createManufacturer,
     required TResult Function() editManufacturer,
@@ -337,7 +481,8 @@ class _$_ChangeName implements _ChangeName {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Manufacturer manufacturer)? setManufacturer,
+    TResult? Function()? initial,
+    TResult? Function(Manufacturer? manufacturer)? setManufacturer,
     TResult? Function(String name)? changeName,
     TResult? Function()? createManufacturer,
     TResult? Function()? editManufacturer,
@@ -350,7 +495,8 @@ class _$_ChangeName implements _ChangeName {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Manufacturer manufacturer)? setManufacturer,
+    TResult Function()? initial,
+    TResult Function(Manufacturer? manufacturer)? setManufacturer,
     TResult Function(String name)? changeName,
     TResult Function()? createManufacturer,
     TResult Function()? editManufacturer,
@@ -367,6 +513,7 @@ class _$_ChangeName implements _ChangeName {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
     required TResult Function(_SetManufacturer value) setManufacturer,
     required TResult Function(_ChangeName value) changeName,
     required TResult Function(_CreateManufacturer value) createManufacturer,
@@ -380,6 +527,7 @@ class _$_ChangeName implements _ChangeName {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
     TResult? Function(_SetManufacturer value)? setManufacturer,
     TResult? Function(_ChangeName value)? changeName,
     TResult? Function(_CreateManufacturer value)? createManufacturer,
@@ -393,6 +541,7 @@ class _$_ChangeName implements _ChangeName {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
     TResult Function(_SetManufacturer value)? setManufacturer,
     TResult Function(_ChangeName value)? changeName,
     TResult Function(_CreateManufacturer value)? createManufacturer,
@@ -455,7 +604,8 @@ class _$_CreateManufacturer implements _CreateManufacturer {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Manufacturer manufacturer) setManufacturer,
+    required TResult Function() initial,
+    required TResult Function(Manufacturer? manufacturer) setManufacturer,
     required TResult Function(String name) changeName,
     required TResult Function() createManufacturer,
     required TResult Function() editManufacturer,
@@ -468,7 +618,8 @@ class _$_CreateManufacturer implements _CreateManufacturer {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Manufacturer manufacturer)? setManufacturer,
+    TResult? Function()? initial,
+    TResult? Function(Manufacturer? manufacturer)? setManufacturer,
     TResult? Function(String name)? changeName,
     TResult? Function()? createManufacturer,
     TResult? Function()? editManufacturer,
@@ -481,7 +632,8 @@ class _$_CreateManufacturer implements _CreateManufacturer {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Manufacturer manufacturer)? setManufacturer,
+    TResult Function()? initial,
+    TResult Function(Manufacturer? manufacturer)? setManufacturer,
     TResult Function(String name)? changeName,
     TResult Function()? createManufacturer,
     TResult Function()? editManufacturer,
@@ -498,6 +650,7 @@ class _$_CreateManufacturer implements _CreateManufacturer {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
     required TResult Function(_SetManufacturer value) setManufacturer,
     required TResult Function(_ChangeName value) changeName,
     required TResult Function(_CreateManufacturer value) createManufacturer,
@@ -511,6 +664,7 @@ class _$_CreateManufacturer implements _CreateManufacturer {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
     TResult? Function(_SetManufacturer value)? setManufacturer,
     TResult? Function(_ChangeName value)? changeName,
     TResult? Function(_CreateManufacturer value)? createManufacturer,
@@ -524,6 +678,7 @@ class _$_CreateManufacturer implements _CreateManufacturer {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
     TResult Function(_SetManufacturer value)? setManufacturer,
     TResult Function(_ChangeName value)? changeName,
     TResult Function(_CreateManufacturer value)? createManufacturer,
@@ -581,7 +736,8 @@ class _$_EditManufacturer implements _EditManufacturer {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Manufacturer manufacturer) setManufacturer,
+    required TResult Function() initial,
+    required TResult Function(Manufacturer? manufacturer) setManufacturer,
     required TResult Function(String name) changeName,
     required TResult Function() createManufacturer,
     required TResult Function() editManufacturer,
@@ -594,7 +750,8 @@ class _$_EditManufacturer implements _EditManufacturer {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Manufacturer manufacturer)? setManufacturer,
+    TResult? Function()? initial,
+    TResult? Function(Manufacturer? manufacturer)? setManufacturer,
     TResult? Function(String name)? changeName,
     TResult? Function()? createManufacturer,
     TResult? Function()? editManufacturer,
@@ -607,7 +764,8 @@ class _$_EditManufacturer implements _EditManufacturer {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Manufacturer manufacturer)? setManufacturer,
+    TResult Function()? initial,
+    TResult Function(Manufacturer? manufacturer)? setManufacturer,
     TResult Function(String name)? changeName,
     TResult Function()? createManufacturer,
     TResult Function()? editManufacturer,
@@ -624,6 +782,7 @@ class _$_EditManufacturer implements _EditManufacturer {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
     required TResult Function(_SetManufacturer value) setManufacturer,
     required TResult Function(_ChangeName value) changeName,
     required TResult Function(_CreateManufacturer value) createManufacturer,
@@ -637,6 +796,7 @@ class _$_EditManufacturer implements _EditManufacturer {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
     TResult? Function(_SetManufacturer value)? setManufacturer,
     TResult? Function(_ChangeName value)? changeName,
     TResult? Function(_CreateManufacturer value)? createManufacturer,
@@ -650,6 +810,7 @@ class _$_EditManufacturer implements _EditManufacturer {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
     TResult Function(_SetManufacturer value)? setManufacturer,
     TResult Function(_ChangeName value)? changeName,
     TResult Function(_CreateManufacturer value)? createManufacturer,
@@ -707,7 +868,8 @@ class _$_PickImage implements _PickImage {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Manufacturer manufacturer) setManufacturer,
+    required TResult Function() initial,
+    required TResult Function(Manufacturer? manufacturer) setManufacturer,
     required TResult Function(String name) changeName,
     required TResult Function() createManufacturer,
     required TResult Function() editManufacturer,
@@ -720,7 +882,8 @@ class _$_PickImage implements _PickImage {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Manufacturer manufacturer)? setManufacturer,
+    TResult? Function()? initial,
+    TResult? Function(Manufacturer? manufacturer)? setManufacturer,
     TResult? Function(String name)? changeName,
     TResult? Function()? createManufacturer,
     TResult? Function()? editManufacturer,
@@ -733,7 +896,8 @@ class _$_PickImage implements _PickImage {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Manufacturer manufacturer)? setManufacturer,
+    TResult Function()? initial,
+    TResult Function(Manufacturer? manufacturer)? setManufacturer,
     TResult Function(String name)? changeName,
     TResult Function()? createManufacturer,
     TResult Function()? editManufacturer,
@@ -750,6 +914,7 @@ class _$_PickImage implements _PickImage {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
     required TResult Function(_SetManufacturer value) setManufacturer,
     required TResult Function(_ChangeName value) changeName,
     required TResult Function(_CreateManufacturer value) createManufacturer,
@@ -763,6 +928,7 @@ class _$_PickImage implements _PickImage {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
     TResult? Function(_SetManufacturer value)? setManufacturer,
     TResult? Function(_ChangeName value)? changeName,
     TResult? Function(_CreateManufacturer value)? createManufacturer,
@@ -776,6 +942,7 @@ class _$_PickImage implements _PickImage {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
     TResult Function(_SetManufacturer value)? setManufacturer,
     TResult Function(_ChangeName value)? changeName,
     TResult Function(_CreateManufacturer value)? createManufacturer,
@@ -833,7 +1000,8 @@ class _$_DeleteImage implements _DeleteImage {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Manufacturer manufacturer) setManufacturer,
+    required TResult Function() initial,
+    required TResult Function(Manufacturer? manufacturer) setManufacturer,
     required TResult Function(String name) changeName,
     required TResult Function() createManufacturer,
     required TResult Function() editManufacturer,
@@ -846,7 +1014,8 @@ class _$_DeleteImage implements _DeleteImage {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Manufacturer manufacturer)? setManufacturer,
+    TResult? Function()? initial,
+    TResult? Function(Manufacturer? manufacturer)? setManufacturer,
     TResult? Function(String name)? changeName,
     TResult? Function()? createManufacturer,
     TResult? Function()? editManufacturer,
@@ -859,7 +1028,8 @@ class _$_DeleteImage implements _DeleteImage {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Manufacturer manufacturer)? setManufacturer,
+    TResult Function()? initial,
+    TResult Function(Manufacturer? manufacturer)? setManufacturer,
     TResult Function(String name)? changeName,
     TResult Function()? createManufacturer,
     TResult Function()? editManufacturer,
@@ -876,6 +1046,7 @@ class _$_DeleteImage implements _DeleteImage {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
     required TResult Function(_SetManufacturer value) setManufacturer,
     required TResult Function(_ChangeName value) changeName,
     required TResult Function(_CreateManufacturer value) createManufacturer,
@@ -889,6 +1060,7 @@ class _$_DeleteImage implements _DeleteImage {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
     TResult? Function(_SetManufacturer value)? setManufacturer,
     TResult? Function(_ChangeName value)? changeName,
     TResult? Function(_CreateManufacturer value)? createManufacturer,
@@ -902,6 +1074,7 @@ class _$_DeleteImage implements _DeleteImage {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
     TResult Function(_SetManufacturer value)? setManufacturer,
     TResult Function(_ChangeName value)? changeName,
     TResult Function(_CreateManufacturer value)? createManufacturer,

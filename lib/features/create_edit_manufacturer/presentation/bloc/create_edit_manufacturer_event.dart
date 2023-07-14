@@ -2,8 +2,9 @@ part of 'create_edit_manufacturer_bloc.dart';
 
 @freezed
 class CreateEditManufacturerEvent with _$CreateEditManufacturerEvent {
+  const factory CreateEditManufacturerEvent.initial() = _Initial;
   const factory CreateEditManufacturerEvent.setManufacturer(
-      Manufacturer manufacturer) = _SetManufacturer;
+      Manufacturer? manufacturer) = _SetManufacturer;
   const factory CreateEditManufacturerEvent.changeName(String name) =
       _ChangeName;
   const factory CreateEditManufacturerEvent.createManufacturer() =

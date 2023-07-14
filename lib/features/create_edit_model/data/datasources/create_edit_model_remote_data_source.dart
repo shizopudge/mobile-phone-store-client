@@ -23,7 +23,6 @@ abstract interface class CreateEditModelRemoteDataSource {
     required String id,
     required String name,
     required String description,
-    required String manufacturerId,
     required int pixelDensity,
     required int screenRefreshRate,
     required double screenDiagonal,
@@ -82,7 +81,6 @@ class CreateEditModelRemoteDataSourceImpl
       {required String id,
       required String name,
       required String description,
-      required String manufacturerId,
       required int pixelDensity,
       required int screenRefreshRate,
       required double screenDiagonal,
@@ -96,7 +94,6 @@ class CreateEditModelRemoteDataSourceImpl
         data: {
           'name': name,
           'description': description,
-          'manufacturerId': manufacturerId,
           'pixelDensity': pixelDensity,
           'screenRefreshRate': screenRefreshRate,
           'screenDiagonal': screenDiagonal,

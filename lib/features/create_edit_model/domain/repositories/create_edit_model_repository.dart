@@ -19,7 +19,6 @@ abstract interface class CreateEditModelRepository {
     required String id,
     required String name,
     required String description,
-    required String manufacturerId,
     required int pixelDensity,
     required int screenRefreshRate,
     required double screenDiagonal,

@@ -24,6 +24,16 @@ class Manufacturer extends Equatable {
     );
   }
 
+  Manufacturer copyWithImage({
+    required String? newImage,
+  }) {
+    return Manufacturer(
+      id: id,
+      name: name,
+      image: newImage,
+    );
+  }
+
   factory Manufacturer.fromModel(ManufacturerModel model) =>
       Manufacturer(id: model.id, name: model.name, image: model.image);
 

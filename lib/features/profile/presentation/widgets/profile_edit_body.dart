@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/presentation/animations/fade_animation_x.dart';
 import '../../../../core/presentation/widgets/buttons/casual_text_button.dart';
-import '../../../../core/presentation/widgets/other/editable_image.dart';
+import '../../../../core/presentation/widgets/other/editable_circle_image.dart';
 import '../../../../core/presentation/widgets/other/password_checkbox.dart';
 import '../../../../core/presentation/widgets/text_fields/casual_text_field.dart';
 import '../../../../core/presentation/widgets/text_fields/password_text_field.dart';
@@ -43,7 +43,7 @@ class ProfileEditBody extends StatelessWidget {
                           : 100)),
               child: Column(
                 children: [
-                  EditableImage(
+                  EditableCircleImage(
                     onTap: () => onProfileImageTap(userImage),
                     image: userImage,
                     pickedImage: state.image,

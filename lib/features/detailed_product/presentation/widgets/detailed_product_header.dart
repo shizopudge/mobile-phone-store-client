@@ -43,18 +43,19 @@ class DetailedProductHeader extends StatelessWidget {
             ),
           ),
           if (user != null)
-            RoundedIconButton(
-              onTap: () => context
-                  .read<WishlistBloc>()
-                  .add(WishlistEvent.toggleWishlist(product)),
-              child: Icon(
-                product.isInWishlist(wishlist)
-                    ? Icons.favorite_rounded
-                    : Icons.favorite_outline_rounded,
-                color: kDarkBlue,
-                size: SizeConfig.iconMedium,
+            if (!user.isAdmin)
+              RoundedIconButton(
+                onTap: () => context
+                    .read<WishlistBloc>()
+                    .add(WishlistEvent.toggleWishlist(product)),
+                child: Icon(
+                  product.isInWishlist(wishlist)
+                      ? Icons.favorite_rounded
+                      : Icons.favorite_outline_rounded,
+                  color: kDarkBlue,
+                  size: SizeConfig.iconMedium,
+                ),
               ),
-            ),
         ],
       ),
     );

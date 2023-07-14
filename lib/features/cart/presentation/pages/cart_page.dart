@@ -9,12 +9,12 @@ import '../../../../core/presentation/widgets/bottom_sheets/products_filter/prod
 import '../../../../core/presentation/widgets/cards/rectangle_product_card.dart';
 import '../../../../core/presentation/widgets/cards/square_product_card.dart';
 import '../../../../core/presentation/widgets/other/casual_dismissible.dart';
-import '../../../../core/presentation/widgets/pages/products_page.dart';
+import '../../../../core/presentation/widgets/pages/search_page.dart';
 import '../../../../core/presentation/widgets/scrollable/sliver_grid_view.dart';
 import '../../../../core/styles/colors.dart';
-import '../../../../core/utils/popup_utils.dart';
 import '../../../../core/utils/size_config.dart';
 import '../../../detailed_product/presentation/bloc/detailed_product_bloc.dart';
+import '../../../detailed_product/presentation/pages/detailed_product_page.dart';
 import '../bloc/cart_bloc.dart';
 import '../widgets/cart_info.dart';
 
@@ -24,12 +24,18 @@ class CartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SizeConfig.init(context);
-    return BlocBuilder<CartBloc, CartState>(
+    return BlocConsumer<CartBloc, CartState>(
+      listenWhen: (previous, current) => current.isFailure,
+      listener: (context, state) {
+        if (state.isFailure) {
+          state.failure.call(context);
+        }
+      },
       builder: (context, state) {
         return Column(
           children: [
             Expanded(
-              child: ListPage<CartBloc, CartEvent, CartState>(
+              child: SearchPage<CartBloc, CartEvent, CartState>(
                 onSearch: (query) => context.read<CartBloc>().add(
                       CartEvent.searchProducts(
                         query,
@@ -60,15 +66,19 @@ class CartPage extends StatelessWidget {
                 onRefresh: () => context.read<CartBloc>().add(
                       const CartEvent.refresh(),
                     ),
-                listener: BlocListener(
-                  listenWhen: (previous, current) => current.isFailure,
-                  listener: (context, state) {
-                    if (state.isFailure) {
-                      PopupUtils.showFailureSnackBar(
-                          context: context, failure: state.failure);
-                    }
-                  },
-                ),
+                listeners: [
+                  BlocListener<DetailedProductBloc, DetailedProductState>(
+                    listenWhen: (previous, current) => current.product != null,
+                    listener: (context, state) {
+                      if (state.product != null &&
+                          ModalRoute.of(context)?.isCurrent == true) {
+                        primaryFocus?.unfocus();
+                        Navigator.of(context)
+                            .pushNamed(DetailedProductPage.path);
+                      }
+                    },
+                  ),
+                ],
                 query: state.filter.query,
                 searchInfo: state.info,
                 isFilterActive: state.isFilterActive,
@@ -88,6 +98,7 @@ class CartPage extends StatelessWidget {
                               onDismiss: (direction) => context
                                   .read<CartBloc>()
                                   .add(CartEvent.toggleCart(product)),
+                              label: 'Remove',
                               child: RectangleProductCard(
                                   onTap: () => context
                                       .read<DetailedProductBloc>()
@@ -106,6 +117,7 @@ class CartPage extends StatelessWidget {
                             onDismiss: (direction) => context
                                 .read<CartBloc>()
                                 .add(CartEvent.toggleCart(product)),
+                            label: 'Remove',
                             child: SquareProductCard(
                               onTap: () => context
                                   .read<DetailedProductBloc>()

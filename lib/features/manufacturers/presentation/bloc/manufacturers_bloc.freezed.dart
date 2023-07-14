@@ -24,6 +24,7 @@ mixin _$ManufacturersEvent {
     required TResult Function(Manufacturer manufacturer)
         updateManufacturerInList,
     required TResult Function() getNextManufacturers,
+    required TResult Function(Manufacturer manufacturer) deleteManufacturer,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -33,6 +34,7 @@ mixin _$ManufacturersEvent {
     TResult? Function(String query)? searchManufacturers,
     TResult? Function(Manufacturer manufacturer)? updateManufacturerInList,
     TResult? Function()? getNextManufacturers,
+    TResult? Function(Manufacturer manufacturer)? deleteManufacturer,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -42,6 +44,7 @@ mixin _$ManufacturersEvent {
     TResult Function(String query)? searchManufacturers,
     TResult Function(Manufacturer manufacturer)? updateManufacturerInList,
     TResult Function()? getNextManufacturers,
+    TResult Function(Manufacturer manufacturer)? deleteManufacturer,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -53,6 +56,7 @@ mixin _$ManufacturersEvent {
     required TResult Function(_UpdateManufacturerInList value)
         updateManufacturerInList,
     required TResult Function(_GetNextManufacturers value) getNextManufacturers,
+    required TResult Function(_DeleteManufacturer value) deleteManufacturer,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +67,7 @@ mixin _$ManufacturersEvent {
     TResult? Function(_UpdateManufacturerInList value)?
         updateManufacturerInList,
     TResult? Function(_GetNextManufacturers value)? getNextManufacturers,
+    TResult? Function(_DeleteManufacturer value)? deleteManufacturer,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -72,6 +77,7 @@ mixin _$ManufacturersEvent {
     TResult Function(_SearchManufacturers value)? searchManufacturers,
     TResult Function(_UpdateManufacturerInList value)? updateManufacturerInList,
     TResult Function(_GetNextManufacturers value)? getNextManufacturers,
+    TResult Function(_DeleteManufacturer value)? deleteManufacturer,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -138,6 +144,7 @@ class _$_Initial implements _Initial {
     required TResult Function(Manufacturer manufacturer)
         updateManufacturerInList,
     required TResult Function() getNextManufacturers,
+    required TResult Function(Manufacturer manufacturer) deleteManufacturer,
   }) {
     return initial();
   }
@@ -150,6 +157,7 @@ class _$_Initial implements _Initial {
     TResult? Function(String query)? searchManufacturers,
     TResult? Function(Manufacturer manufacturer)? updateManufacturerInList,
     TResult? Function()? getNextManufacturers,
+    TResult? Function(Manufacturer manufacturer)? deleteManufacturer,
   }) {
     return initial?.call();
   }
@@ -162,6 +170,7 @@ class _$_Initial implements _Initial {
     TResult Function(String query)? searchManufacturers,
     TResult Function(Manufacturer manufacturer)? updateManufacturerInList,
     TResult Function()? getNextManufacturers,
+    TResult Function(Manufacturer manufacturer)? deleteManufacturer,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -179,6 +188,7 @@ class _$_Initial implements _Initial {
     required TResult Function(_UpdateManufacturerInList value)
         updateManufacturerInList,
     required TResult Function(_GetNextManufacturers value) getNextManufacturers,
+    required TResult Function(_DeleteManufacturer value) deleteManufacturer,
   }) {
     return initial(this);
   }
@@ -192,6 +202,7 @@ class _$_Initial implements _Initial {
     TResult? Function(_UpdateManufacturerInList value)?
         updateManufacturerInList,
     TResult? Function(_GetNextManufacturers value)? getNextManufacturers,
+    TResult? Function(_DeleteManufacturer value)? deleteManufacturer,
   }) {
     return initial?.call(this);
   }
@@ -204,6 +215,7 @@ class _$_Initial implements _Initial {
     TResult Function(_SearchManufacturers value)? searchManufacturers,
     TResult Function(_UpdateManufacturerInList value)? updateManufacturerInList,
     TResult Function(_GetNextManufacturers value)? getNextManufacturers,
+    TResult Function(_DeleteManufacturer value)? deleteManufacturer,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -260,6 +272,7 @@ class _$_Refresh implements _Refresh {
     required TResult Function(Manufacturer manufacturer)
         updateManufacturerInList,
     required TResult Function() getNextManufacturers,
+    required TResult Function(Manufacturer manufacturer) deleteManufacturer,
   }) {
     return refresh();
   }
@@ -272,6 +285,7 @@ class _$_Refresh implements _Refresh {
     TResult? Function(String query)? searchManufacturers,
     TResult? Function(Manufacturer manufacturer)? updateManufacturerInList,
     TResult? Function()? getNextManufacturers,
+    TResult? Function(Manufacturer manufacturer)? deleteManufacturer,
   }) {
     return refresh?.call();
   }
@@ -284,6 +298,7 @@ class _$_Refresh implements _Refresh {
     TResult Function(String query)? searchManufacturers,
     TResult Function(Manufacturer manufacturer)? updateManufacturerInList,
     TResult Function()? getNextManufacturers,
+    TResult Function(Manufacturer manufacturer)? deleteManufacturer,
     required TResult orElse(),
   }) {
     if (refresh != null) {
@@ -301,6 +316,7 @@ class _$_Refresh implements _Refresh {
     required TResult Function(_UpdateManufacturerInList value)
         updateManufacturerInList,
     required TResult Function(_GetNextManufacturers value) getNextManufacturers,
+    required TResult Function(_DeleteManufacturer value) deleteManufacturer,
   }) {
     return refresh(this);
   }
@@ -314,6 +330,7 @@ class _$_Refresh implements _Refresh {
     TResult? Function(_UpdateManufacturerInList value)?
         updateManufacturerInList,
     TResult? Function(_GetNextManufacturers value)? getNextManufacturers,
+    TResult? Function(_DeleteManufacturer value)? deleteManufacturer,
   }) {
     return refresh?.call(this);
   }
@@ -326,6 +343,7 @@ class _$_Refresh implements _Refresh {
     TResult Function(_SearchManufacturers value)? searchManufacturers,
     TResult Function(_UpdateManufacturerInList value)? updateManufacturerInList,
     TResult Function(_GetNextManufacturers value)? getNextManufacturers,
+    TResult Function(_DeleteManufacturer value)? deleteManufacturer,
     required TResult orElse(),
   }) {
     if (refresh != null) {
@@ -410,6 +428,7 @@ class _$_SearchManufacturers implements _SearchManufacturers {
     required TResult Function(Manufacturer manufacturer)
         updateManufacturerInList,
     required TResult Function() getNextManufacturers,
+    required TResult Function(Manufacturer manufacturer) deleteManufacturer,
   }) {
     return searchManufacturers(query);
   }
@@ -422,6 +441,7 @@ class _$_SearchManufacturers implements _SearchManufacturers {
     TResult? Function(String query)? searchManufacturers,
     TResult? Function(Manufacturer manufacturer)? updateManufacturerInList,
     TResult? Function()? getNextManufacturers,
+    TResult? Function(Manufacturer manufacturer)? deleteManufacturer,
   }) {
     return searchManufacturers?.call(query);
   }
@@ -434,6 +454,7 @@ class _$_SearchManufacturers implements _SearchManufacturers {
     TResult Function(String query)? searchManufacturers,
     TResult Function(Manufacturer manufacturer)? updateManufacturerInList,
     TResult Function()? getNextManufacturers,
+    TResult Function(Manufacturer manufacturer)? deleteManufacturer,
     required TResult orElse(),
   }) {
     if (searchManufacturers != null) {
@@ -451,6 +472,7 @@ class _$_SearchManufacturers implements _SearchManufacturers {
     required TResult Function(_UpdateManufacturerInList value)
         updateManufacturerInList,
     required TResult Function(_GetNextManufacturers value) getNextManufacturers,
+    required TResult Function(_DeleteManufacturer value) deleteManufacturer,
   }) {
     return searchManufacturers(this);
   }
@@ -464,6 +486,7 @@ class _$_SearchManufacturers implements _SearchManufacturers {
     TResult? Function(_UpdateManufacturerInList value)?
         updateManufacturerInList,
     TResult? Function(_GetNextManufacturers value)? getNextManufacturers,
+    TResult? Function(_DeleteManufacturer value)? deleteManufacturer,
   }) {
     return searchManufacturers?.call(this);
   }
@@ -476,6 +499,7 @@ class _$_SearchManufacturers implements _SearchManufacturers {
     TResult Function(_SearchManufacturers value)? searchManufacturers,
     TResult Function(_UpdateManufacturerInList value)? updateManufacturerInList,
     TResult Function(_GetNextManufacturers value)? getNextManufacturers,
+    TResult Function(_DeleteManufacturer value)? deleteManufacturer,
     required TResult orElse(),
   }) {
     if (searchManufacturers != null) {
@@ -568,6 +592,7 @@ class _$_UpdateManufacturerInList implements _UpdateManufacturerInList {
     required TResult Function(Manufacturer manufacturer)
         updateManufacturerInList,
     required TResult Function() getNextManufacturers,
+    required TResult Function(Manufacturer manufacturer) deleteManufacturer,
   }) {
     return updateManufacturerInList(manufacturer);
   }
@@ -580,6 +605,7 @@ class _$_UpdateManufacturerInList implements _UpdateManufacturerInList {
     TResult? Function(String query)? searchManufacturers,
     TResult? Function(Manufacturer manufacturer)? updateManufacturerInList,
     TResult? Function()? getNextManufacturers,
+    TResult? Function(Manufacturer manufacturer)? deleteManufacturer,
   }) {
     return updateManufacturerInList?.call(manufacturer);
   }
@@ -592,6 +618,7 @@ class _$_UpdateManufacturerInList implements _UpdateManufacturerInList {
     TResult Function(String query)? searchManufacturers,
     TResult Function(Manufacturer manufacturer)? updateManufacturerInList,
     TResult Function()? getNextManufacturers,
+    TResult Function(Manufacturer manufacturer)? deleteManufacturer,
     required TResult orElse(),
   }) {
     if (updateManufacturerInList != null) {
@@ -609,6 +636,7 @@ class _$_UpdateManufacturerInList implements _UpdateManufacturerInList {
     required TResult Function(_UpdateManufacturerInList value)
         updateManufacturerInList,
     required TResult Function(_GetNextManufacturers value) getNextManufacturers,
+    required TResult Function(_DeleteManufacturer value) deleteManufacturer,
   }) {
     return updateManufacturerInList(this);
   }
@@ -622,6 +650,7 @@ class _$_UpdateManufacturerInList implements _UpdateManufacturerInList {
     TResult? Function(_UpdateManufacturerInList value)?
         updateManufacturerInList,
     TResult? Function(_GetNextManufacturers value)? getNextManufacturers,
+    TResult? Function(_DeleteManufacturer value)? deleteManufacturer,
   }) {
     return updateManufacturerInList?.call(this);
   }
@@ -634,6 +663,7 @@ class _$_UpdateManufacturerInList implements _UpdateManufacturerInList {
     TResult Function(_SearchManufacturers value)? searchManufacturers,
     TResult Function(_UpdateManufacturerInList value)? updateManufacturerInList,
     TResult Function(_GetNextManufacturers value)? getNextManufacturers,
+    TResult Function(_DeleteManufacturer value)? deleteManufacturer,
     required TResult orElse(),
   }) {
     if (updateManufacturerInList != null) {
@@ -697,6 +727,7 @@ class _$_GetNextManufacturers implements _GetNextManufacturers {
     required TResult Function(Manufacturer manufacturer)
         updateManufacturerInList,
     required TResult Function() getNextManufacturers,
+    required TResult Function(Manufacturer manufacturer) deleteManufacturer,
   }) {
     return getNextManufacturers();
   }
@@ -709,6 +740,7 @@ class _$_GetNextManufacturers implements _GetNextManufacturers {
     TResult? Function(String query)? searchManufacturers,
     TResult? Function(Manufacturer manufacturer)? updateManufacturerInList,
     TResult? Function()? getNextManufacturers,
+    TResult? Function(Manufacturer manufacturer)? deleteManufacturer,
   }) {
     return getNextManufacturers?.call();
   }
@@ -721,6 +753,7 @@ class _$_GetNextManufacturers implements _GetNextManufacturers {
     TResult Function(String query)? searchManufacturers,
     TResult Function(Manufacturer manufacturer)? updateManufacturerInList,
     TResult Function()? getNextManufacturers,
+    TResult Function(Manufacturer manufacturer)? deleteManufacturer,
     required TResult orElse(),
   }) {
     if (getNextManufacturers != null) {
@@ -738,6 +771,7 @@ class _$_GetNextManufacturers implements _GetNextManufacturers {
     required TResult Function(_UpdateManufacturerInList value)
         updateManufacturerInList,
     required TResult Function(_GetNextManufacturers value) getNextManufacturers,
+    required TResult Function(_DeleteManufacturer value) deleteManufacturer,
   }) {
     return getNextManufacturers(this);
   }
@@ -751,6 +785,7 @@ class _$_GetNextManufacturers implements _GetNextManufacturers {
     TResult? Function(_UpdateManufacturerInList value)?
         updateManufacturerInList,
     TResult? Function(_GetNextManufacturers value)? getNextManufacturers,
+    TResult? Function(_DeleteManufacturer value)? deleteManufacturer,
   }) {
     return getNextManufacturers?.call(this);
   }
@@ -763,6 +798,7 @@ class _$_GetNextManufacturers implements _GetNextManufacturers {
     TResult Function(_SearchManufacturers value)? searchManufacturers,
     TResult Function(_UpdateManufacturerInList value)? updateManufacturerInList,
     TResult Function(_GetNextManufacturers value)? getNextManufacturers,
+    TResult Function(_DeleteManufacturer value)? deleteManufacturer,
     required TResult orElse(),
   }) {
     if (getNextManufacturers != null) {
@@ -774,6 +810,169 @@ class _$_GetNextManufacturers implements _GetNextManufacturers {
 
 abstract class _GetNextManufacturers implements ManufacturersEvent {
   const factory _GetNextManufacturers() = _$_GetNextManufacturers;
+}
+
+/// @nodoc
+abstract class _$$_DeleteManufacturerCopyWith<$Res> {
+  factory _$$_DeleteManufacturerCopyWith(_$_DeleteManufacturer value,
+          $Res Function(_$_DeleteManufacturer) then) =
+      __$$_DeleteManufacturerCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Manufacturer manufacturer});
+}
+
+/// @nodoc
+class __$$_DeleteManufacturerCopyWithImpl<$Res>
+    extends _$ManufacturersEventCopyWithImpl<$Res, _$_DeleteManufacturer>
+    implements _$$_DeleteManufacturerCopyWith<$Res> {
+  __$$_DeleteManufacturerCopyWithImpl(
+      _$_DeleteManufacturer _value, $Res Function(_$_DeleteManufacturer) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? manufacturer = null,
+  }) {
+    return _then(_$_DeleteManufacturer(
+      null == manufacturer
+          ? _value.manufacturer
+          : manufacturer // ignore: cast_nullable_to_non_nullable
+              as Manufacturer,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_DeleteManufacturer implements _DeleteManufacturer {
+  const _$_DeleteManufacturer(this.manufacturer);
+
+  @override
+  final Manufacturer manufacturer;
+
+  @override
+  String toString() {
+    return 'ManufacturersEvent.deleteManufacturer(manufacturer: $manufacturer)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_DeleteManufacturer &&
+            (identical(other.manufacturer, manufacturer) ||
+                other.manufacturer == manufacturer));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, manufacturer);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_DeleteManufacturerCopyWith<_$_DeleteManufacturer> get copyWith =>
+      __$$_DeleteManufacturerCopyWithImpl<_$_DeleteManufacturer>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() refresh,
+    required TResult Function(String query) searchManufacturers,
+    required TResult Function(Manufacturer manufacturer)
+        updateManufacturerInList,
+    required TResult Function() getNextManufacturers,
+    required TResult Function(Manufacturer manufacturer) deleteManufacturer,
+  }) {
+    return deleteManufacturer(manufacturer);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? refresh,
+    TResult? Function(String query)? searchManufacturers,
+    TResult? Function(Manufacturer manufacturer)? updateManufacturerInList,
+    TResult? Function()? getNextManufacturers,
+    TResult? Function(Manufacturer manufacturer)? deleteManufacturer,
+  }) {
+    return deleteManufacturer?.call(manufacturer);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? refresh,
+    TResult Function(String query)? searchManufacturers,
+    TResult Function(Manufacturer manufacturer)? updateManufacturerInList,
+    TResult Function()? getNextManufacturers,
+    TResult Function(Manufacturer manufacturer)? deleteManufacturer,
+    required TResult orElse(),
+  }) {
+    if (deleteManufacturer != null) {
+      return deleteManufacturer(manufacturer);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Refresh value) refresh,
+    required TResult Function(_SearchManufacturers value) searchManufacturers,
+    required TResult Function(_UpdateManufacturerInList value)
+        updateManufacturerInList,
+    required TResult Function(_GetNextManufacturers value) getNextManufacturers,
+    required TResult Function(_DeleteManufacturer value) deleteManufacturer,
+  }) {
+    return deleteManufacturer(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Refresh value)? refresh,
+    TResult? Function(_SearchManufacturers value)? searchManufacturers,
+    TResult? Function(_UpdateManufacturerInList value)?
+        updateManufacturerInList,
+    TResult? Function(_GetNextManufacturers value)? getNextManufacturers,
+    TResult? Function(_DeleteManufacturer value)? deleteManufacturer,
+  }) {
+    return deleteManufacturer?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Refresh value)? refresh,
+    TResult Function(_SearchManufacturers value)? searchManufacturers,
+    TResult Function(_UpdateManufacturerInList value)? updateManufacturerInList,
+    TResult Function(_GetNextManufacturers value)? getNextManufacturers,
+    TResult Function(_DeleteManufacturer value)? deleteManufacturer,
+    required TResult orElse(),
+  }) {
+    if (deleteManufacturer != null) {
+      return deleteManufacturer(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DeleteManufacturer implements ManufacturersEvent {
+  const factory _DeleteManufacturer(final Manufacturer manufacturer) =
+      _$_DeleteManufacturer;
+
+  Manufacturer get manufacturer;
+  @JsonKey(ignore: true)
+  _$$_DeleteManufacturerCopyWith<_$_DeleteManufacturer> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 ManufacturersState _$ManufacturersStateFromJson(Map<String, dynamic> json) {

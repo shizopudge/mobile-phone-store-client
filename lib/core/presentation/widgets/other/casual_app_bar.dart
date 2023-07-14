@@ -5,13 +5,13 @@ import '../../../utils/size_config.dart';
 
 class CasualAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
-  final bool canGoBack;
+  final VoidCallback? onPop;
   final Color? backgroundColor;
   const CasualAppBar({
     super.key,
     required this.title,
     this.backgroundColor = kWhite,
-    this.canGoBack = false,
+    this.onPop,
   });
 
   @override
@@ -28,11 +28,15 @@ class CasualAppBar extends StatelessWidget implements PreferredSizeWidget {
       toolbarHeight: preferredSize.height,
       centerTitle: false,
       backgroundColor: backgroundColor,
-      leading: canGoBack
+      automaticallyImplyLeading: false,
+      leading: onPop != null
           ? IconButton(
-              onPressed: () => Navigator.of(context).pop(),
+              onPressed: () {
+                onPop!();
+                Navigator.of(context).pop();
+              },
               icon: Icon(
-                Icons.arrow_back_ios,
+                Icons.arrow_back,
                 size: SizeConfig.iconMedium,
                 color: kDarkBlue,
               ),

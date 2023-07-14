@@ -30,11 +30,10 @@ class CreateEditModelState with _$CreateEditModelState {
   const factory CreateEditModelState({
     @Default('') String name,
     @Default('') String description,
-    @Default('') String manufacturerId,
-    int? pixelDensity,
-    int? screenRefreshRate,
-    double? screenDiagonal,
-    int? weight,
+    @Default(0) int pixelDensity,
+    @Default(0) int screenRefreshRate,
+    @Default(0.0) double screenDiagonal,
+    @Default(0) int weight,
     @Default('') String screenResolution,
     @Default(OperatingSystem.ANDROID) OperatingSystem operatingSystem,
     @Default(DisplayType.AMOLED) DisplayType displayType,
@@ -42,6 +41,7 @@ class CreateEditModelState with _$CreateEditModelState {
     @Default(CasualFailure()) Failure failure,
     File? image,
     Model? model,
+    String? manufacturerId,
   }) = _CreateEditModelState;
 
   void callWhen({
@@ -57,13 +57,13 @@ class CreateEditModelState with _$CreateEditModelState {
     if (model != null) {
       if ((name.isNotEmpty && name != model!.name) ||
           description != model!.description ||
-          (manufacturerId.isNotEmpty &&
+          (manufacturerId != null &&
               manufacturerId != model!.manufacturer.id) ||
-          (pixelDensity != null && pixelDensity != model!.pixelDensity) ||
-          (screenRefreshRate != null &&
+          (pixelDensity != 0 && pixelDensity != model!.pixelDensity) ||
+          (screenRefreshRate != 0 &&
               screenRefreshRate != model!.screenRefreshRate) ||
-          (screenDiagonal != null && screenDiagonal != model!.screenDiagonal) ||
-          (weight != null && weight != model!.weight) ||
+          (screenDiagonal != 0.0 && screenDiagonal != model!.screenDiagonal) ||
+          (weight != 0 && weight != model!.weight) ||
           (screenResolution.isNotEmpty &&
               screenResolution != model!.screenResolution) ||
           operatingSystem != model!.operatingSystem ||
@@ -72,11 +72,11 @@ class CreateEditModelState with _$CreateEditModelState {
       }
     } else {
       if (name.isNotEmpty &&
-          manufacturerId.isNotEmpty &&
-          pixelDensity != null &&
-          screenRefreshRate != null &&
-          screenDiagonal != null &&
-          weight != null &&
+          manufacturerId != null &&
+          pixelDensity != 0 &&
+          screenRefreshRate != 0 &&
+          screenDiagonal != 0.0 &&
+          weight != 0 &&
           screenResolution.isNotEmpty) {
         return true;
       }

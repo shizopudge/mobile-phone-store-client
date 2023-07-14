@@ -12,17 +12,15 @@ import '../../../../core/presentation/widgets/text_fields/search_field.dart';
 import '../../../../core/styles/styles.dart';
 import '../../../../core/utils/debouncer.dart';
 import '../../../../core/utils/size_config.dart';
-import '../../../../features/detailed_product/presentation/bloc/detailed_product_bloc.dart';
-import '../../../../features/detailed_product/presentation/pages/detailed_product_page.dart';
 import '../../../domain/entities/info.dart';
 
-class ListPage<B extends Bloc<E, S>, E, S> extends StatefulWidget {
+class SearchPage<B extends Bloc<E, S>, E, S> extends StatefulWidget {
   final void Function(String query) onSearch;
   final VoidCallback? onFilterTap;
   final VoidCallback onPagination;
   final VoidCallback onRefresh;
   final Widget child;
-  final BlocListener<B, S> listener;
+  final List<BlocListener> listeners;
   final String query;
   final Info searchInfo;
   final bool isFilterActive;
@@ -31,14 +29,14 @@ class ListPage<B extends Bloc<E, S>, E, S> extends StatefulWidget {
   final bool isLoading;
   final bool isLastPage;
   final bool isNothingFound;
-  const ListPage({
+  const SearchPage({
     super.key,
     required this.onSearch,
     required this.onFilterTap,
     required this.onPagination,
     required this.onRefresh,
     required this.child,
-    required this.listener,
+    required this.listeners,
     required this.query,
     required this.searchInfo,
     required this.isFilterActive,
@@ -50,12 +48,12 @@ class ListPage<B extends Bloc<E, S>, E, S> extends StatefulWidget {
   });
 
   @override
-  State<ListPage> createState() => _ListPageState();
+  State<SearchPage> createState() => _SearchPageState();
 }
 
-class _ListPageState extends State<ListPage> {
-  late final TextEditingController _searchController = TextEditingController()
-    ..addListener(_searchListener);
+class _SearchPageState extends State<SearchPage> {
+  late final TextEditingController _searchController =
+      TextEditingController(text: widget.query)..addListener(_searchListener);
   late final ScrollController _scrollController = ScrollController()
     ..addListener(_scrollListener);
   final ValueNotifier<bool> _isScrolled = ValueNotifier<bool>(false);
@@ -107,19 +105,7 @@ class _ListPageState extends State<ListPage> {
   Widget build(BuildContext context) {
     SizeConfig.init(context);
     return MultiBlocListener(
-      listeners: [
-        widget.listener,
-        BlocListener<DetailedProductBloc, DetailedProductState>(
-          listenWhen: (previous, current) => current.product != null,
-          listener: (context, state) {
-            if (state.product != null &&
-                ModalRoute.of(context)?.isCurrent == true) {
-              primaryFocus?.unfocus();
-              Navigator.of(context).pushNamed(DetailedProductPage.path);
-            }
-          },
-        ),
-      ],
+      listeners: widget.listeners,
       child: ValueListenableBuilder(
         valueListenable: _isScrolled,
         builder: (context, isScrolled, _) => Scaffold(
@@ -211,7 +197,7 @@ class _ListPageState extends State<ListPage> {
                         child: Center(
                           child: FadeAnimationYDown(
                             delay: .1,
-                            child: ProductsNotFound(),
+                            child: NothingWasFound(),
                           ),
                         ),
                       ),
@@ -242,7 +228,7 @@ class _ListPageState extends State<ListPage> {
                           ),
                         ),
                       ),
-                    if (widget.isLastPage) const ProductsEnd(),
+                    if (widget.isLastPage) const ResultsEnd(),
                     if (!widget.isLastPage &&
                         !widget.isPaginating &&
                         !widget.isNothingFound)

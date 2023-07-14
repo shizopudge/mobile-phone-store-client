@@ -16,7 +16,6 @@ class EditModel implements UseCase<Model, EditModelParams> {
           id: params.id,
           name: params.name,
           description: params.description,
-          manufacturerId: params.manufacturerId,
           pixelDensity: params.pixelDensity,
           screenRefreshRate: params.screenRefreshRate,
           screenDiagonal: params.screenDiagonal,
@@ -30,7 +29,6 @@ class EditModelParams extends Equatable {
   final String id;
   final String name;
   final String description;
-  final String manufacturerId;
   final int pixelDensity;
   final int screenRefreshRate;
   final double screenDiagonal;
@@ -43,7 +41,6 @@ class EditModelParams extends Equatable {
     required this.id,
     required this.name,
     required this.description,
-    required this.manufacturerId,
     required this.pixelDensity,
     required this.screenRefreshRate,
     required this.screenDiagonal,
@@ -58,7 +55,6 @@ class EditModelParams extends Equatable {
         id,
         name,
         description,
-        manufacturerId,
         pixelDensity,
         screenRefreshRate,
         screenDiagonal,

@@ -18,10 +18,10 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$CreateEditModelEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Model model) setModel,
+    required TResult Function(Model? model) setModel,
+    required TResult Function(String manufacturerId) setManufacturerId,
     required TResult Function(String name) changeName,
     required TResult Function(String description) changeDescription,
-    required TResult Function(String manufacturerId) changeManufacturerId,
     required TResult Function(int pixelDensity) changePixelDensity,
     required TResult Function(int screenRefreshRate) changeScreenRefreshRate,
     required TResult Function(double screenDiagonal) changeScreenDiagonal,
@@ -30,16 +30,18 @@ mixin _$CreateEditModelEvent {
     required TResult Function(OperatingSystem operatingSystem)
         changeOperatingSystem,
     required TResult Function(DisplayType displayType) changeDisplayType,
+    required TResult Function(String screenResolution) changeWidth,
+    required TResult Function(String screenResolution) changeHeight,
     required TResult Function() createModel,
     required TResult Function() editModel,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Model model)? setModel,
+    TResult? Function(Model? model)? setModel,
+    TResult? Function(String manufacturerId)? setManufacturerId,
     TResult? Function(String name)? changeName,
     TResult? Function(String description)? changeDescription,
-    TResult? Function(String manufacturerId)? changeManufacturerId,
     TResult? Function(int pixelDensity)? changePixelDensity,
     TResult? Function(int screenRefreshRate)? changeScreenRefreshRate,
     TResult? Function(double screenDiagonal)? changeScreenDiagonal,
@@ -47,16 +49,18 @@ mixin _$CreateEditModelEvent {
     TResult? Function(String screenResolution)? changeScreenResolution,
     TResult? Function(OperatingSystem operatingSystem)? changeOperatingSystem,
     TResult? Function(DisplayType displayType)? changeDisplayType,
+    TResult? Function(String screenResolution)? changeWidth,
+    TResult? Function(String screenResolution)? changeHeight,
     TResult? Function()? createModel,
     TResult? Function()? editModel,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Model model)? setModel,
+    TResult Function(Model? model)? setModel,
+    TResult Function(String manufacturerId)? setManufacturerId,
     TResult Function(String name)? changeName,
     TResult Function(String description)? changeDescription,
-    TResult Function(String manufacturerId)? changeManufacturerId,
     TResult Function(int pixelDensity)? changePixelDensity,
     TResult Function(int screenRefreshRate)? changeScreenRefreshRate,
     TResult Function(double screenDiagonal)? changeScreenDiagonal,
@@ -64,6 +68,8 @@ mixin _$CreateEditModelEvent {
     TResult Function(String screenResolution)? changeScreenResolution,
     TResult Function(OperatingSystem operatingSystem)? changeOperatingSystem,
     TResult Function(DisplayType displayType)? changeDisplayType,
+    TResult Function(String screenResolution)? changeWidth,
+    TResult Function(String screenResolution)? changeHeight,
     TResult Function()? createModel,
     TResult Function()? editModel,
     required TResult orElse(),
@@ -72,9 +78,9 @@ mixin _$CreateEditModelEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_SetModel value) setModel,
+    required TResult Function(_SetManufacturerId value) setManufacturerId,
     required TResult Function(_ChangeName value) changeName,
     required TResult Function(_ChangeDescription value) changeDescription,
-    required TResult Function(_ChangeManufacturerId value) changeManufacturerId,
     required TResult Function(_ChangePixelDensity value) changePixelDensity,
     required TResult Function(_ChangeScreenRefreshRate value)
         changeScreenRefreshRate,
@@ -85,6 +91,8 @@ mixin _$CreateEditModelEvent {
     required TResult Function(_ChangeOperatingSystem value)
         changeOperatingSystem,
     required TResult Function(_ChangeDisplayType value) changeDisplayType,
+    required TResult Function(_ChangeWidth value) changeWidth,
+    required TResult Function(_ChangeHeight value) changeHeight,
     required TResult Function(_CreateModel value) createModel,
     required TResult Function(_EditModel value) editModel,
   }) =>
@@ -92,9 +100,9 @@ mixin _$CreateEditModelEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SetModel value)? setModel,
+    TResult? Function(_SetManufacturerId value)? setManufacturerId,
     TResult? Function(_ChangeName value)? changeName,
     TResult? Function(_ChangeDescription value)? changeDescription,
-    TResult? Function(_ChangeManufacturerId value)? changeManufacturerId,
     TResult? Function(_ChangePixelDensity value)? changePixelDensity,
     TResult? Function(_ChangeScreenRefreshRate value)? changeScreenRefreshRate,
     TResult? Function(_ChangeScreenDiagonal value)? changeScreenDiagonal,
@@ -102,6 +110,8 @@ mixin _$CreateEditModelEvent {
     TResult? Function(_ChangeScreenResolution value)? changeScreenResolution,
     TResult? Function(_ChangeOperatingSystem value)? changeOperatingSystem,
     TResult? Function(_ChangeDisplayType value)? changeDisplayType,
+    TResult? Function(_ChangeWidth value)? changeWidth,
+    TResult? Function(_ChangeHeight value)? changeHeight,
     TResult? Function(_CreateModel value)? createModel,
     TResult? Function(_EditModel value)? editModel,
   }) =>
@@ -109,9 +119,9 @@ mixin _$CreateEditModelEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SetModel value)? setModel,
+    TResult Function(_SetManufacturerId value)? setManufacturerId,
     TResult Function(_ChangeName value)? changeName,
     TResult Function(_ChangeDescription value)? changeDescription,
-    TResult Function(_ChangeManufacturerId value)? changeManufacturerId,
     TResult Function(_ChangePixelDensity value)? changePixelDensity,
     TResult Function(_ChangeScreenRefreshRate value)? changeScreenRefreshRate,
     TResult Function(_ChangeScreenDiagonal value)? changeScreenDiagonal,
@@ -119,6 +129,8 @@ mixin _$CreateEditModelEvent {
     TResult Function(_ChangeScreenResolution value)? changeScreenResolution,
     TResult Function(_ChangeOperatingSystem value)? changeOperatingSystem,
     TResult Function(_ChangeDisplayType value)? changeDisplayType,
+    TResult Function(_ChangeWidth value)? changeWidth,
+    TResult Function(_ChangeHeight value)? changeHeight,
     TResult Function(_CreateModel value)? createModel,
     TResult Function(_EditModel value)? editModel,
     required TResult orElse(),
@@ -151,7 +163,7 @@ abstract class _$$_SetModelCopyWith<$Res> {
           _$_SetModel value, $Res Function(_$_SetModel) then) =
       __$$_SetModelCopyWithImpl<$Res>;
   @useResult
-  $Res call({Model model});
+  $Res call({Model? model});
 }
 
 /// @nodoc
@@ -165,13 +177,13 @@ class __$$_SetModelCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? model = null,
+    Object? model = freezed,
   }) {
     return _then(_$_SetModel(
-      null == model
+      freezed == model
           ? _value.model
           : model // ignore: cast_nullable_to_non_nullable
-              as Model,
+              as Model?,
     ));
   }
 }
@@ -182,7 +194,7 @@ class _$_SetModel implements _SetModel {
   const _$_SetModel(this.model);
 
   @override
-  final Model model;
+  final Model? model;
 
   @override
   String toString() {
@@ -209,10 +221,10 @@ class _$_SetModel implements _SetModel {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Model model) setModel,
+    required TResult Function(Model? model) setModel,
+    required TResult Function(String manufacturerId) setManufacturerId,
     required TResult Function(String name) changeName,
     required TResult Function(String description) changeDescription,
-    required TResult Function(String manufacturerId) changeManufacturerId,
     required TResult Function(int pixelDensity) changePixelDensity,
     required TResult Function(int screenRefreshRate) changeScreenRefreshRate,
     required TResult Function(double screenDiagonal) changeScreenDiagonal,
@@ -221,6 +233,8 @@ class _$_SetModel implements _SetModel {
     required TResult Function(OperatingSystem operatingSystem)
         changeOperatingSystem,
     required TResult Function(DisplayType displayType) changeDisplayType,
+    required TResult Function(String screenResolution) changeWidth,
+    required TResult Function(String screenResolution) changeHeight,
     required TResult Function() createModel,
     required TResult Function() editModel,
   }) {
@@ -230,10 +244,10 @@ class _$_SetModel implements _SetModel {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Model model)? setModel,
+    TResult? Function(Model? model)? setModel,
+    TResult? Function(String manufacturerId)? setManufacturerId,
     TResult? Function(String name)? changeName,
     TResult? Function(String description)? changeDescription,
-    TResult? Function(String manufacturerId)? changeManufacturerId,
     TResult? Function(int pixelDensity)? changePixelDensity,
     TResult? Function(int screenRefreshRate)? changeScreenRefreshRate,
     TResult? Function(double screenDiagonal)? changeScreenDiagonal,
@@ -241,6 +255,8 @@ class _$_SetModel implements _SetModel {
     TResult? Function(String screenResolution)? changeScreenResolution,
     TResult? Function(OperatingSystem operatingSystem)? changeOperatingSystem,
     TResult? Function(DisplayType displayType)? changeDisplayType,
+    TResult? Function(String screenResolution)? changeWidth,
+    TResult? Function(String screenResolution)? changeHeight,
     TResult? Function()? createModel,
     TResult? Function()? editModel,
   }) {
@@ -250,10 +266,10 @@ class _$_SetModel implements _SetModel {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Model model)? setModel,
+    TResult Function(Model? model)? setModel,
+    TResult Function(String manufacturerId)? setManufacturerId,
     TResult Function(String name)? changeName,
     TResult Function(String description)? changeDescription,
-    TResult Function(String manufacturerId)? changeManufacturerId,
     TResult Function(int pixelDensity)? changePixelDensity,
     TResult Function(int screenRefreshRate)? changeScreenRefreshRate,
     TResult Function(double screenDiagonal)? changeScreenDiagonal,
@@ -261,6 +277,8 @@ class _$_SetModel implements _SetModel {
     TResult Function(String screenResolution)? changeScreenResolution,
     TResult Function(OperatingSystem operatingSystem)? changeOperatingSystem,
     TResult Function(DisplayType displayType)? changeDisplayType,
+    TResult Function(String screenResolution)? changeWidth,
+    TResult Function(String screenResolution)? changeHeight,
     TResult Function()? createModel,
     TResult Function()? editModel,
     required TResult orElse(),
@@ -275,9 +293,9 @@ class _$_SetModel implements _SetModel {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_SetModel value) setModel,
+    required TResult Function(_SetManufacturerId value) setManufacturerId,
     required TResult Function(_ChangeName value) changeName,
     required TResult Function(_ChangeDescription value) changeDescription,
-    required TResult Function(_ChangeManufacturerId value) changeManufacturerId,
     required TResult Function(_ChangePixelDensity value) changePixelDensity,
     required TResult Function(_ChangeScreenRefreshRate value)
         changeScreenRefreshRate,
@@ -288,6 +306,8 @@ class _$_SetModel implements _SetModel {
     required TResult Function(_ChangeOperatingSystem value)
         changeOperatingSystem,
     required TResult Function(_ChangeDisplayType value) changeDisplayType,
+    required TResult Function(_ChangeWidth value) changeWidth,
+    required TResult Function(_ChangeHeight value) changeHeight,
     required TResult Function(_CreateModel value) createModel,
     required TResult Function(_EditModel value) editModel,
   }) {
@@ -298,9 +318,9 @@ class _$_SetModel implements _SetModel {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SetModel value)? setModel,
+    TResult? Function(_SetManufacturerId value)? setManufacturerId,
     TResult? Function(_ChangeName value)? changeName,
     TResult? Function(_ChangeDescription value)? changeDescription,
-    TResult? Function(_ChangeManufacturerId value)? changeManufacturerId,
     TResult? Function(_ChangePixelDensity value)? changePixelDensity,
     TResult? Function(_ChangeScreenRefreshRate value)? changeScreenRefreshRate,
     TResult? Function(_ChangeScreenDiagonal value)? changeScreenDiagonal,
@@ -308,6 +328,8 @@ class _$_SetModel implements _SetModel {
     TResult? Function(_ChangeScreenResolution value)? changeScreenResolution,
     TResult? Function(_ChangeOperatingSystem value)? changeOperatingSystem,
     TResult? Function(_ChangeDisplayType value)? changeDisplayType,
+    TResult? Function(_ChangeWidth value)? changeWidth,
+    TResult? Function(_ChangeHeight value)? changeHeight,
     TResult? Function(_CreateModel value)? createModel,
     TResult? Function(_EditModel value)? editModel,
   }) {
@@ -318,9 +340,9 @@ class _$_SetModel implements _SetModel {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SetModel value)? setModel,
+    TResult Function(_SetManufacturerId value)? setManufacturerId,
     TResult Function(_ChangeName value)? changeName,
     TResult Function(_ChangeDescription value)? changeDescription,
-    TResult Function(_ChangeManufacturerId value)? changeManufacturerId,
     TResult Function(_ChangePixelDensity value)? changePixelDensity,
     TResult Function(_ChangeScreenRefreshRate value)? changeScreenRefreshRate,
     TResult Function(_ChangeScreenDiagonal value)? changeScreenDiagonal,
@@ -328,6 +350,8 @@ class _$_SetModel implements _SetModel {
     TResult Function(_ChangeScreenResolution value)? changeScreenResolution,
     TResult Function(_ChangeOperatingSystem value)? changeOperatingSystem,
     TResult Function(_ChangeDisplayType value)? changeDisplayType,
+    TResult Function(_ChangeWidth value)? changeWidth,
+    TResult Function(_ChangeHeight value)? changeHeight,
     TResult Function(_CreateModel value)? createModel,
     TResult Function(_EditModel value)? editModel,
     required TResult orElse(),
@@ -340,11 +364,229 @@ class _$_SetModel implements _SetModel {
 }
 
 abstract class _SetModel implements CreateEditModelEvent {
-  const factory _SetModel(final Model model) = _$_SetModel;
+  const factory _SetModel(final Model? model) = _$_SetModel;
 
-  Model get model;
+  Model? get model;
   @JsonKey(ignore: true)
   _$$_SetModelCopyWith<_$_SetModel> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SetManufacturerIdCopyWith<$Res> {
+  factory _$$_SetManufacturerIdCopyWith(_$_SetManufacturerId value,
+          $Res Function(_$_SetManufacturerId) then) =
+      __$$_SetManufacturerIdCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String manufacturerId});
+}
+
+/// @nodoc
+class __$$_SetManufacturerIdCopyWithImpl<$Res>
+    extends _$CreateEditModelEventCopyWithImpl<$Res, _$_SetManufacturerId>
+    implements _$$_SetManufacturerIdCopyWith<$Res> {
+  __$$_SetManufacturerIdCopyWithImpl(
+      _$_SetManufacturerId _value, $Res Function(_$_SetManufacturerId) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? manufacturerId = null,
+  }) {
+    return _then(_$_SetManufacturerId(
+      null == manufacturerId
+          ? _value.manufacturerId
+          : manufacturerId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SetManufacturerId implements _SetManufacturerId {
+  const _$_SetManufacturerId(this.manufacturerId);
+
+  @override
+  final String manufacturerId;
+
+  @override
+  String toString() {
+    return 'CreateEditModelEvent.setManufacturerId(manufacturerId: $manufacturerId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SetManufacturerId &&
+            (identical(other.manufacturerId, manufacturerId) ||
+                other.manufacturerId == manufacturerId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, manufacturerId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SetManufacturerIdCopyWith<_$_SetManufacturerId> get copyWith =>
+      __$$_SetManufacturerIdCopyWithImpl<_$_SetManufacturerId>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Model? model) setModel,
+    required TResult Function(String manufacturerId) setManufacturerId,
+    required TResult Function(String name) changeName,
+    required TResult Function(String description) changeDescription,
+    required TResult Function(int pixelDensity) changePixelDensity,
+    required TResult Function(int screenRefreshRate) changeScreenRefreshRate,
+    required TResult Function(double screenDiagonal) changeScreenDiagonal,
+    required TResult Function(int weight) changeWeight,
+    required TResult Function(String screenResolution) changeScreenResolution,
+    required TResult Function(OperatingSystem operatingSystem)
+        changeOperatingSystem,
+    required TResult Function(DisplayType displayType) changeDisplayType,
+    required TResult Function(String screenResolution) changeWidth,
+    required TResult Function(String screenResolution) changeHeight,
+    required TResult Function() createModel,
+    required TResult Function() editModel,
+  }) {
+    return setManufacturerId(manufacturerId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Model? model)? setModel,
+    TResult? Function(String manufacturerId)? setManufacturerId,
+    TResult? Function(String name)? changeName,
+    TResult? Function(String description)? changeDescription,
+    TResult? Function(int pixelDensity)? changePixelDensity,
+    TResult? Function(int screenRefreshRate)? changeScreenRefreshRate,
+    TResult? Function(double screenDiagonal)? changeScreenDiagonal,
+    TResult? Function(int weight)? changeWeight,
+    TResult? Function(String screenResolution)? changeScreenResolution,
+    TResult? Function(OperatingSystem operatingSystem)? changeOperatingSystem,
+    TResult? Function(DisplayType displayType)? changeDisplayType,
+    TResult? Function(String screenResolution)? changeWidth,
+    TResult? Function(String screenResolution)? changeHeight,
+    TResult? Function()? createModel,
+    TResult? Function()? editModel,
+  }) {
+    return setManufacturerId?.call(manufacturerId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Model? model)? setModel,
+    TResult Function(String manufacturerId)? setManufacturerId,
+    TResult Function(String name)? changeName,
+    TResult Function(String description)? changeDescription,
+    TResult Function(int pixelDensity)? changePixelDensity,
+    TResult Function(int screenRefreshRate)? changeScreenRefreshRate,
+    TResult Function(double screenDiagonal)? changeScreenDiagonal,
+    TResult Function(int weight)? changeWeight,
+    TResult Function(String screenResolution)? changeScreenResolution,
+    TResult Function(OperatingSystem operatingSystem)? changeOperatingSystem,
+    TResult Function(DisplayType displayType)? changeDisplayType,
+    TResult Function(String screenResolution)? changeWidth,
+    TResult Function(String screenResolution)? changeHeight,
+    TResult Function()? createModel,
+    TResult Function()? editModel,
+    required TResult orElse(),
+  }) {
+    if (setManufacturerId != null) {
+      return setManufacturerId(manufacturerId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SetModel value) setModel,
+    required TResult Function(_SetManufacturerId value) setManufacturerId,
+    required TResult Function(_ChangeName value) changeName,
+    required TResult Function(_ChangeDescription value) changeDescription,
+    required TResult Function(_ChangePixelDensity value) changePixelDensity,
+    required TResult Function(_ChangeScreenRefreshRate value)
+        changeScreenRefreshRate,
+    required TResult Function(_ChangeScreenDiagonal value) changeScreenDiagonal,
+    required TResult Function(_ChangeWeight value) changeWeight,
+    required TResult Function(_ChangeScreenResolution value)
+        changeScreenResolution,
+    required TResult Function(_ChangeOperatingSystem value)
+        changeOperatingSystem,
+    required TResult Function(_ChangeDisplayType value) changeDisplayType,
+    required TResult Function(_ChangeWidth value) changeWidth,
+    required TResult Function(_ChangeHeight value) changeHeight,
+    required TResult Function(_CreateModel value) createModel,
+    required TResult Function(_EditModel value) editModel,
+  }) {
+    return setManufacturerId(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SetModel value)? setModel,
+    TResult? Function(_SetManufacturerId value)? setManufacturerId,
+    TResult? Function(_ChangeName value)? changeName,
+    TResult? Function(_ChangeDescription value)? changeDescription,
+    TResult? Function(_ChangePixelDensity value)? changePixelDensity,
+    TResult? Function(_ChangeScreenRefreshRate value)? changeScreenRefreshRate,
+    TResult? Function(_ChangeScreenDiagonal value)? changeScreenDiagonal,
+    TResult? Function(_ChangeWeight value)? changeWeight,
+    TResult? Function(_ChangeScreenResolution value)? changeScreenResolution,
+    TResult? Function(_ChangeOperatingSystem value)? changeOperatingSystem,
+    TResult? Function(_ChangeDisplayType value)? changeDisplayType,
+    TResult? Function(_ChangeWidth value)? changeWidth,
+    TResult? Function(_ChangeHeight value)? changeHeight,
+    TResult? Function(_CreateModel value)? createModel,
+    TResult? Function(_EditModel value)? editModel,
+  }) {
+    return setManufacturerId?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SetModel value)? setModel,
+    TResult Function(_SetManufacturerId value)? setManufacturerId,
+    TResult Function(_ChangeName value)? changeName,
+    TResult Function(_ChangeDescription value)? changeDescription,
+    TResult Function(_ChangePixelDensity value)? changePixelDensity,
+    TResult Function(_ChangeScreenRefreshRate value)? changeScreenRefreshRate,
+    TResult Function(_ChangeScreenDiagonal value)? changeScreenDiagonal,
+    TResult Function(_ChangeWeight value)? changeWeight,
+    TResult Function(_ChangeScreenResolution value)? changeScreenResolution,
+    TResult Function(_ChangeOperatingSystem value)? changeOperatingSystem,
+    TResult Function(_ChangeDisplayType value)? changeDisplayType,
+    TResult Function(_ChangeWidth value)? changeWidth,
+    TResult Function(_ChangeHeight value)? changeHeight,
+    TResult Function(_CreateModel value)? createModel,
+    TResult Function(_EditModel value)? editModel,
+    required TResult orElse(),
+  }) {
+    if (setManufacturerId != null) {
+      return setManufacturerId(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SetManufacturerId implements CreateEditModelEvent {
+  const factory _SetManufacturerId(final String manufacturerId) =
+      _$_SetManufacturerId;
+
+  String get manufacturerId;
+  @JsonKey(ignore: true)
+  _$$_SetManufacturerIdCopyWith<_$_SetManufacturerId> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -412,10 +654,10 @@ class _$_ChangeName implements _ChangeName {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Model model) setModel,
+    required TResult Function(Model? model) setModel,
+    required TResult Function(String manufacturerId) setManufacturerId,
     required TResult Function(String name) changeName,
     required TResult Function(String description) changeDescription,
-    required TResult Function(String manufacturerId) changeManufacturerId,
     required TResult Function(int pixelDensity) changePixelDensity,
     required TResult Function(int screenRefreshRate) changeScreenRefreshRate,
     required TResult Function(double screenDiagonal) changeScreenDiagonal,
@@ -424,6 +666,8 @@ class _$_ChangeName implements _ChangeName {
     required TResult Function(OperatingSystem operatingSystem)
         changeOperatingSystem,
     required TResult Function(DisplayType displayType) changeDisplayType,
+    required TResult Function(String screenResolution) changeWidth,
+    required TResult Function(String screenResolution) changeHeight,
     required TResult Function() createModel,
     required TResult Function() editModel,
   }) {
@@ -433,10 +677,10 @@ class _$_ChangeName implements _ChangeName {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Model model)? setModel,
+    TResult? Function(Model? model)? setModel,
+    TResult? Function(String manufacturerId)? setManufacturerId,
     TResult? Function(String name)? changeName,
     TResult? Function(String description)? changeDescription,
-    TResult? Function(String manufacturerId)? changeManufacturerId,
     TResult? Function(int pixelDensity)? changePixelDensity,
     TResult? Function(int screenRefreshRate)? changeScreenRefreshRate,
     TResult? Function(double screenDiagonal)? changeScreenDiagonal,
@@ -444,6 +688,8 @@ class _$_ChangeName implements _ChangeName {
     TResult? Function(String screenResolution)? changeScreenResolution,
     TResult? Function(OperatingSystem operatingSystem)? changeOperatingSystem,
     TResult? Function(DisplayType displayType)? changeDisplayType,
+    TResult? Function(String screenResolution)? changeWidth,
+    TResult? Function(String screenResolution)? changeHeight,
     TResult? Function()? createModel,
     TResult? Function()? editModel,
   }) {
@@ -453,10 +699,10 @@ class _$_ChangeName implements _ChangeName {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Model model)? setModel,
+    TResult Function(Model? model)? setModel,
+    TResult Function(String manufacturerId)? setManufacturerId,
     TResult Function(String name)? changeName,
     TResult Function(String description)? changeDescription,
-    TResult Function(String manufacturerId)? changeManufacturerId,
     TResult Function(int pixelDensity)? changePixelDensity,
     TResult Function(int screenRefreshRate)? changeScreenRefreshRate,
     TResult Function(double screenDiagonal)? changeScreenDiagonal,
@@ -464,6 +710,8 @@ class _$_ChangeName implements _ChangeName {
     TResult Function(String screenResolution)? changeScreenResolution,
     TResult Function(OperatingSystem operatingSystem)? changeOperatingSystem,
     TResult Function(DisplayType displayType)? changeDisplayType,
+    TResult Function(String screenResolution)? changeWidth,
+    TResult Function(String screenResolution)? changeHeight,
     TResult Function()? createModel,
     TResult Function()? editModel,
     required TResult orElse(),
@@ -478,9 +726,9 @@ class _$_ChangeName implements _ChangeName {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_SetModel value) setModel,
+    required TResult Function(_SetManufacturerId value) setManufacturerId,
     required TResult Function(_ChangeName value) changeName,
     required TResult Function(_ChangeDescription value) changeDescription,
-    required TResult Function(_ChangeManufacturerId value) changeManufacturerId,
     required TResult Function(_ChangePixelDensity value) changePixelDensity,
     required TResult Function(_ChangeScreenRefreshRate value)
         changeScreenRefreshRate,
@@ -491,6 +739,8 @@ class _$_ChangeName implements _ChangeName {
     required TResult Function(_ChangeOperatingSystem value)
         changeOperatingSystem,
     required TResult Function(_ChangeDisplayType value) changeDisplayType,
+    required TResult Function(_ChangeWidth value) changeWidth,
+    required TResult Function(_ChangeHeight value) changeHeight,
     required TResult Function(_CreateModel value) createModel,
     required TResult Function(_EditModel value) editModel,
   }) {
@@ -501,9 +751,9 @@ class _$_ChangeName implements _ChangeName {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SetModel value)? setModel,
+    TResult? Function(_SetManufacturerId value)? setManufacturerId,
     TResult? Function(_ChangeName value)? changeName,
     TResult? Function(_ChangeDescription value)? changeDescription,
-    TResult? Function(_ChangeManufacturerId value)? changeManufacturerId,
     TResult? Function(_ChangePixelDensity value)? changePixelDensity,
     TResult? Function(_ChangeScreenRefreshRate value)? changeScreenRefreshRate,
     TResult? Function(_ChangeScreenDiagonal value)? changeScreenDiagonal,
@@ -511,6 +761,8 @@ class _$_ChangeName implements _ChangeName {
     TResult? Function(_ChangeScreenResolution value)? changeScreenResolution,
     TResult? Function(_ChangeOperatingSystem value)? changeOperatingSystem,
     TResult? Function(_ChangeDisplayType value)? changeDisplayType,
+    TResult? Function(_ChangeWidth value)? changeWidth,
+    TResult? Function(_ChangeHeight value)? changeHeight,
     TResult? Function(_CreateModel value)? createModel,
     TResult? Function(_EditModel value)? editModel,
   }) {
@@ -521,9 +773,9 @@ class _$_ChangeName implements _ChangeName {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SetModel value)? setModel,
+    TResult Function(_SetManufacturerId value)? setManufacturerId,
     TResult Function(_ChangeName value)? changeName,
     TResult Function(_ChangeDescription value)? changeDescription,
-    TResult Function(_ChangeManufacturerId value)? changeManufacturerId,
     TResult Function(_ChangePixelDensity value)? changePixelDensity,
     TResult Function(_ChangeScreenRefreshRate value)? changeScreenRefreshRate,
     TResult Function(_ChangeScreenDiagonal value)? changeScreenDiagonal,
@@ -531,6 +783,8 @@ class _$_ChangeName implements _ChangeName {
     TResult Function(_ChangeScreenResolution value)? changeScreenResolution,
     TResult Function(_ChangeOperatingSystem value)? changeOperatingSystem,
     TResult Function(_ChangeDisplayType value)? changeDisplayType,
+    TResult Function(_ChangeWidth value)? changeWidth,
+    TResult Function(_ChangeHeight value)? changeHeight,
     TResult Function(_CreateModel value)? createModel,
     TResult Function(_EditModel value)? editModel,
     required TResult orElse(),
@@ -617,10 +871,10 @@ class _$_ChangeDescription implements _ChangeDescription {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Model model) setModel,
+    required TResult Function(Model? model) setModel,
+    required TResult Function(String manufacturerId) setManufacturerId,
     required TResult Function(String name) changeName,
     required TResult Function(String description) changeDescription,
-    required TResult Function(String manufacturerId) changeManufacturerId,
     required TResult Function(int pixelDensity) changePixelDensity,
     required TResult Function(int screenRefreshRate) changeScreenRefreshRate,
     required TResult Function(double screenDiagonal) changeScreenDiagonal,
@@ -629,6 +883,8 @@ class _$_ChangeDescription implements _ChangeDescription {
     required TResult Function(OperatingSystem operatingSystem)
         changeOperatingSystem,
     required TResult Function(DisplayType displayType) changeDisplayType,
+    required TResult Function(String screenResolution) changeWidth,
+    required TResult Function(String screenResolution) changeHeight,
     required TResult Function() createModel,
     required TResult Function() editModel,
   }) {
@@ -638,10 +894,10 @@ class _$_ChangeDescription implements _ChangeDescription {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Model model)? setModel,
+    TResult? Function(Model? model)? setModel,
+    TResult? Function(String manufacturerId)? setManufacturerId,
     TResult? Function(String name)? changeName,
     TResult? Function(String description)? changeDescription,
-    TResult? Function(String manufacturerId)? changeManufacturerId,
     TResult? Function(int pixelDensity)? changePixelDensity,
     TResult? Function(int screenRefreshRate)? changeScreenRefreshRate,
     TResult? Function(double screenDiagonal)? changeScreenDiagonal,
@@ -649,6 +905,8 @@ class _$_ChangeDescription implements _ChangeDescription {
     TResult? Function(String screenResolution)? changeScreenResolution,
     TResult? Function(OperatingSystem operatingSystem)? changeOperatingSystem,
     TResult? Function(DisplayType displayType)? changeDisplayType,
+    TResult? Function(String screenResolution)? changeWidth,
+    TResult? Function(String screenResolution)? changeHeight,
     TResult? Function()? createModel,
     TResult? Function()? editModel,
   }) {
@@ -658,10 +916,10 @@ class _$_ChangeDescription implements _ChangeDescription {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Model model)? setModel,
+    TResult Function(Model? model)? setModel,
+    TResult Function(String manufacturerId)? setManufacturerId,
     TResult Function(String name)? changeName,
     TResult Function(String description)? changeDescription,
-    TResult Function(String manufacturerId)? changeManufacturerId,
     TResult Function(int pixelDensity)? changePixelDensity,
     TResult Function(int screenRefreshRate)? changeScreenRefreshRate,
     TResult Function(double screenDiagonal)? changeScreenDiagonal,
@@ -669,6 +927,8 @@ class _$_ChangeDescription implements _ChangeDescription {
     TResult Function(String screenResolution)? changeScreenResolution,
     TResult Function(OperatingSystem operatingSystem)? changeOperatingSystem,
     TResult Function(DisplayType displayType)? changeDisplayType,
+    TResult Function(String screenResolution)? changeWidth,
+    TResult Function(String screenResolution)? changeHeight,
     TResult Function()? createModel,
     TResult Function()? editModel,
     required TResult orElse(),
@@ -683,9 +943,9 @@ class _$_ChangeDescription implements _ChangeDescription {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_SetModel value) setModel,
+    required TResult Function(_SetManufacturerId value) setManufacturerId,
     required TResult Function(_ChangeName value) changeName,
     required TResult Function(_ChangeDescription value) changeDescription,
-    required TResult Function(_ChangeManufacturerId value) changeManufacturerId,
     required TResult Function(_ChangePixelDensity value) changePixelDensity,
     required TResult Function(_ChangeScreenRefreshRate value)
         changeScreenRefreshRate,
@@ -696,6 +956,8 @@ class _$_ChangeDescription implements _ChangeDescription {
     required TResult Function(_ChangeOperatingSystem value)
         changeOperatingSystem,
     required TResult Function(_ChangeDisplayType value) changeDisplayType,
+    required TResult Function(_ChangeWidth value) changeWidth,
+    required TResult Function(_ChangeHeight value) changeHeight,
     required TResult Function(_CreateModel value) createModel,
     required TResult Function(_EditModel value) editModel,
   }) {
@@ -706,9 +968,9 @@ class _$_ChangeDescription implements _ChangeDescription {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SetModel value)? setModel,
+    TResult? Function(_SetManufacturerId value)? setManufacturerId,
     TResult? Function(_ChangeName value)? changeName,
     TResult? Function(_ChangeDescription value)? changeDescription,
-    TResult? Function(_ChangeManufacturerId value)? changeManufacturerId,
     TResult? Function(_ChangePixelDensity value)? changePixelDensity,
     TResult? Function(_ChangeScreenRefreshRate value)? changeScreenRefreshRate,
     TResult? Function(_ChangeScreenDiagonal value)? changeScreenDiagonal,
@@ -716,6 +978,8 @@ class _$_ChangeDescription implements _ChangeDescription {
     TResult? Function(_ChangeScreenResolution value)? changeScreenResolution,
     TResult? Function(_ChangeOperatingSystem value)? changeOperatingSystem,
     TResult? Function(_ChangeDisplayType value)? changeDisplayType,
+    TResult? Function(_ChangeWidth value)? changeWidth,
+    TResult? Function(_ChangeHeight value)? changeHeight,
     TResult? Function(_CreateModel value)? createModel,
     TResult? Function(_EditModel value)? editModel,
   }) {
@@ -726,9 +990,9 @@ class _$_ChangeDescription implements _ChangeDescription {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SetModel value)? setModel,
+    TResult Function(_SetManufacturerId value)? setManufacturerId,
     TResult Function(_ChangeName value)? changeName,
     TResult Function(_ChangeDescription value)? changeDescription,
-    TResult Function(_ChangeManufacturerId value)? changeManufacturerId,
     TResult Function(_ChangePixelDensity value)? changePixelDensity,
     TResult Function(_ChangeScreenRefreshRate value)? changeScreenRefreshRate,
     TResult Function(_ChangeScreenDiagonal value)? changeScreenDiagonal,
@@ -736,6 +1000,8 @@ class _$_ChangeDescription implements _ChangeDescription {
     TResult Function(_ChangeScreenResolution value)? changeScreenResolution,
     TResult Function(_ChangeOperatingSystem value)? changeOperatingSystem,
     TResult Function(_ChangeDisplayType value)? changeDisplayType,
+    TResult Function(_ChangeWidth value)? changeWidth,
+    TResult Function(_ChangeHeight value)? changeHeight,
     TResult Function(_CreateModel value)? createModel,
     TResult Function(_EditModel value)? editModel,
     required TResult orElse(),
@@ -754,212 +1020,6 @@ abstract class _ChangeDescription implements CreateEditModelEvent {
   String get description;
   @JsonKey(ignore: true)
   _$$_ChangeDescriptionCopyWith<_$_ChangeDescription> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$_ChangeManufacturerIdCopyWith<$Res> {
-  factory _$$_ChangeManufacturerIdCopyWith(_$_ChangeManufacturerId value,
-          $Res Function(_$_ChangeManufacturerId) then) =
-      __$$_ChangeManufacturerIdCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String manufacturerId});
-}
-
-/// @nodoc
-class __$$_ChangeManufacturerIdCopyWithImpl<$Res>
-    extends _$CreateEditModelEventCopyWithImpl<$Res, _$_ChangeManufacturerId>
-    implements _$$_ChangeManufacturerIdCopyWith<$Res> {
-  __$$_ChangeManufacturerIdCopyWithImpl(_$_ChangeManufacturerId _value,
-      $Res Function(_$_ChangeManufacturerId) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? manufacturerId = null,
-  }) {
-    return _then(_$_ChangeManufacturerId(
-      null == manufacturerId
-          ? _value.manufacturerId
-          : manufacturerId // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_ChangeManufacturerId implements _ChangeManufacturerId {
-  const _$_ChangeManufacturerId(this.manufacturerId);
-
-  @override
-  final String manufacturerId;
-
-  @override
-  String toString() {
-    return 'CreateEditModelEvent.changeManufacturerId(manufacturerId: $manufacturerId)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_ChangeManufacturerId &&
-            (identical(other.manufacturerId, manufacturerId) ||
-                other.manufacturerId == manufacturerId));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, manufacturerId);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_ChangeManufacturerIdCopyWith<_$_ChangeManufacturerId> get copyWith =>
-      __$$_ChangeManufacturerIdCopyWithImpl<_$_ChangeManufacturerId>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Model model) setModel,
-    required TResult Function(String name) changeName,
-    required TResult Function(String description) changeDescription,
-    required TResult Function(String manufacturerId) changeManufacturerId,
-    required TResult Function(int pixelDensity) changePixelDensity,
-    required TResult Function(int screenRefreshRate) changeScreenRefreshRate,
-    required TResult Function(double screenDiagonal) changeScreenDiagonal,
-    required TResult Function(int weight) changeWeight,
-    required TResult Function(String screenResolution) changeScreenResolution,
-    required TResult Function(OperatingSystem operatingSystem)
-        changeOperatingSystem,
-    required TResult Function(DisplayType displayType) changeDisplayType,
-    required TResult Function() createModel,
-    required TResult Function() editModel,
-  }) {
-    return changeManufacturerId(manufacturerId);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Model model)? setModel,
-    TResult? Function(String name)? changeName,
-    TResult? Function(String description)? changeDescription,
-    TResult? Function(String manufacturerId)? changeManufacturerId,
-    TResult? Function(int pixelDensity)? changePixelDensity,
-    TResult? Function(int screenRefreshRate)? changeScreenRefreshRate,
-    TResult? Function(double screenDiagonal)? changeScreenDiagonal,
-    TResult? Function(int weight)? changeWeight,
-    TResult? Function(String screenResolution)? changeScreenResolution,
-    TResult? Function(OperatingSystem operatingSystem)? changeOperatingSystem,
-    TResult? Function(DisplayType displayType)? changeDisplayType,
-    TResult? Function()? createModel,
-    TResult? Function()? editModel,
-  }) {
-    return changeManufacturerId?.call(manufacturerId);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Model model)? setModel,
-    TResult Function(String name)? changeName,
-    TResult Function(String description)? changeDescription,
-    TResult Function(String manufacturerId)? changeManufacturerId,
-    TResult Function(int pixelDensity)? changePixelDensity,
-    TResult Function(int screenRefreshRate)? changeScreenRefreshRate,
-    TResult Function(double screenDiagonal)? changeScreenDiagonal,
-    TResult Function(int weight)? changeWeight,
-    TResult Function(String screenResolution)? changeScreenResolution,
-    TResult Function(OperatingSystem operatingSystem)? changeOperatingSystem,
-    TResult Function(DisplayType displayType)? changeDisplayType,
-    TResult Function()? createModel,
-    TResult Function()? editModel,
-    required TResult orElse(),
-  }) {
-    if (changeManufacturerId != null) {
-      return changeManufacturerId(manufacturerId);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_SetModel value) setModel,
-    required TResult Function(_ChangeName value) changeName,
-    required TResult Function(_ChangeDescription value) changeDescription,
-    required TResult Function(_ChangeManufacturerId value) changeManufacturerId,
-    required TResult Function(_ChangePixelDensity value) changePixelDensity,
-    required TResult Function(_ChangeScreenRefreshRate value)
-        changeScreenRefreshRate,
-    required TResult Function(_ChangeScreenDiagonal value) changeScreenDiagonal,
-    required TResult Function(_ChangeWeight value) changeWeight,
-    required TResult Function(_ChangeScreenResolution value)
-        changeScreenResolution,
-    required TResult Function(_ChangeOperatingSystem value)
-        changeOperatingSystem,
-    required TResult Function(_ChangeDisplayType value) changeDisplayType,
-    required TResult Function(_CreateModel value) createModel,
-    required TResult Function(_EditModel value) editModel,
-  }) {
-    return changeManufacturerId(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_SetModel value)? setModel,
-    TResult? Function(_ChangeName value)? changeName,
-    TResult? Function(_ChangeDescription value)? changeDescription,
-    TResult? Function(_ChangeManufacturerId value)? changeManufacturerId,
-    TResult? Function(_ChangePixelDensity value)? changePixelDensity,
-    TResult? Function(_ChangeScreenRefreshRate value)? changeScreenRefreshRate,
-    TResult? Function(_ChangeScreenDiagonal value)? changeScreenDiagonal,
-    TResult? Function(_ChangeWeight value)? changeWeight,
-    TResult? Function(_ChangeScreenResolution value)? changeScreenResolution,
-    TResult? Function(_ChangeOperatingSystem value)? changeOperatingSystem,
-    TResult? Function(_ChangeDisplayType value)? changeDisplayType,
-    TResult? Function(_CreateModel value)? createModel,
-    TResult? Function(_EditModel value)? editModel,
-  }) {
-    return changeManufacturerId?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_SetModel value)? setModel,
-    TResult Function(_ChangeName value)? changeName,
-    TResult Function(_ChangeDescription value)? changeDescription,
-    TResult Function(_ChangeManufacturerId value)? changeManufacturerId,
-    TResult Function(_ChangePixelDensity value)? changePixelDensity,
-    TResult Function(_ChangeScreenRefreshRate value)? changeScreenRefreshRate,
-    TResult Function(_ChangeScreenDiagonal value)? changeScreenDiagonal,
-    TResult Function(_ChangeWeight value)? changeWeight,
-    TResult Function(_ChangeScreenResolution value)? changeScreenResolution,
-    TResult Function(_ChangeOperatingSystem value)? changeOperatingSystem,
-    TResult Function(_ChangeDisplayType value)? changeDisplayType,
-    TResult Function(_CreateModel value)? createModel,
-    TResult Function(_EditModel value)? editModel,
-    required TResult orElse(),
-  }) {
-    if (changeManufacturerId != null) {
-      return changeManufacturerId(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _ChangeManufacturerId implements CreateEditModelEvent {
-  const factory _ChangeManufacturerId(final String manufacturerId) =
-      _$_ChangeManufacturerId;
-
-  String get manufacturerId;
-  @JsonKey(ignore: true)
-  _$$_ChangeManufacturerIdCopyWith<_$_ChangeManufacturerId> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1029,10 +1089,10 @@ class _$_ChangePixelDensity implements _ChangePixelDensity {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Model model) setModel,
+    required TResult Function(Model? model) setModel,
+    required TResult Function(String manufacturerId) setManufacturerId,
     required TResult Function(String name) changeName,
     required TResult Function(String description) changeDescription,
-    required TResult Function(String manufacturerId) changeManufacturerId,
     required TResult Function(int pixelDensity) changePixelDensity,
     required TResult Function(int screenRefreshRate) changeScreenRefreshRate,
     required TResult Function(double screenDiagonal) changeScreenDiagonal,
@@ -1041,6 +1101,8 @@ class _$_ChangePixelDensity implements _ChangePixelDensity {
     required TResult Function(OperatingSystem operatingSystem)
         changeOperatingSystem,
     required TResult Function(DisplayType displayType) changeDisplayType,
+    required TResult Function(String screenResolution) changeWidth,
+    required TResult Function(String screenResolution) changeHeight,
     required TResult Function() createModel,
     required TResult Function() editModel,
   }) {
@@ -1050,10 +1112,10 @@ class _$_ChangePixelDensity implements _ChangePixelDensity {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Model model)? setModel,
+    TResult? Function(Model? model)? setModel,
+    TResult? Function(String manufacturerId)? setManufacturerId,
     TResult? Function(String name)? changeName,
     TResult? Function(String description)? changeDescription,
-    TResult? Function(String manufacturerId)? changeManufacturerId,
     TResult? Function(int pixelDensity)? changePixelDensity,
     TResult? Function(int screenRefreshRate)? changeScreenRefreshRate,
     TResult? Function(double screenDiagonal)? changeScreenDiagonal,
@@ -1061,6 +1123,8 @@ class _$_ChangePixelDensity implements _ChangePixelDensity {
     TResult? Function(String screenResolution)? changeScreenResolution,
     TResult? Function(OperatingSystem operatingSystem)? changeOperatingSystem,
     TResult? Function(DisplayType displayType)? changeDisplayType,
+    TResult? Function(String screenResolution)? changeWidth,
+    TResult? Function(String screenResolution)? changeHeight,
     TResult? Function()? createModel,
     TResult? Function()? editModel,
   }) {
@@ -1070,10 +1134,10 @@ class _$_ChangePixelDensity implements _ChangePixelDensity {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Model model)? setModel,
+    TResult Function(Model? model)? setModel,
+    TResult Function(String manufacturerId)? setManufacturerId,
     TResult Function(String name)? changeName,
     TResult Function(String description)? changeDescription,
-    TResult Function(String manufacturerId)? changeManufacturerId,
     TResult Function(int pixelDensity)? changePixelDensity,
     TResult Function(int screenRefreshRate)? changeScreenRefreshRate,
     TResult Function(double screenDiagonal)? changeScreenDiagonal,
@@ -1081,6 +1145,8 @@ class _$_ChangePixelDensity implements _ChangePixelDensity {
     TResult Function(String screenResolution)? changeScreenResolution,
     TResult Function(OperatingSystem operatingSystem)? changeOperatingSystem,
     TResult Function(DisplayType displayType)? changeDisplayType,
+    TResult Function(String screenResolution)? changeWidth,
+    TResult Function(String screenResolution)? changeHeight,
     TResult Function()? createModel,
     TResult Function()? editModel,
     required TResult orElse(),
@@ -1095,9 +1161,9 @@ class _$_ChangePixelDensity implements _ChangePixelDensity {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_SetModel value) setModel,
+    required TResult Function(_SetManufacturerId value) setManufacturerId,
     required TResult Function(_ChangeName value) changeName,
     required TResult Function(_ChangeDescription value) changeDescription,
-    required TResult Function(_ChangeManufacturerId value) changeManufacturerId,
     required TResult Function(_ChangePixelDensity value) changePixelDensity,
     required TResult Function(_ChangeScreenRefreshRate value)
         changeScreenRefreshRate,
@@ -1108,6 +1174,8 @@ class _$_ChangePixelDensity implements _ChangePixelDensity {
     required TResult Function(_ChangeOperatingSystem value)
         changeOperatingSystem,
     required TResult Function(_ChangeDisplayType value) changeDisplayType,
+    required TResult Function(_ChangeWidth value) changeWidth,
+    required TResult Function(_ChangeHeight value) changeHeight,
     required TResult Function(_CreateModel value) createModel,
     required TResult Function(_EditModel value) editModel,
   }) {
@@ -1118,9 +1186,9 @@ class _$_ChangePixelDensity implements _ChangePixelDensity {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SetModel value)? setModel,
+    TResult? Function(_SetManufacturerId value)? setManufacturerId,
     TResult? Function(_ChangeName value)? changeName,
     TResult? Function(_ChangeDescription value)? changeDescription,
-    TResult? Function(_ChangeManufacturerId value)? changeManufacturerId,
     TResult? Function(_ChangePixelDensity value)? changePixelDensity,
     TResult? Function(_ChangeScreenRefreshRate value)? changeScreenRefreshRate,
     TResult? Function(_ChangeScreenDiagonal value)? changeScreenDiagonal,
@@ -1128,6 +1196,8 @@ class _$_ChangePixelDensity implements _ChangePixelDensity {
     TResult? Function(_ChangeScreenResolution value)? changeScreenResolution,
     TResult? Function(_ChangeOperatingSystem value)? changeOperatingSystem,
     TResult? Function(_ChangeDisplayType value)? changeDisplayType,
+    TResult? Function(_ChangeWidth value)? changeWidth,
+    TResult? Function(_ChangeHeight value)? changeHeight,
     TResult? Function(_CreateModel value)? createModel,
     TResult? Function(_EditModel value)? editModel,
   }) {
@@ -1138,9 +1208,9 @@ class _$_ChangePixelDensity implements _ChangePixelDensity {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SetModel value)? setModel,
+    TResult Function(_SetManufacturerId value)? setManufacturerId,
     TResult Function(_ChangeName value)? changeName,
     TResult Function(_ChangeDescription value)? changeDescription,
-    TResult Function(_ChangeManufacturerId value)? changeManufacturerId,
     TResult Function(_ChangePixelDensity value)? changePixelDensity,
     TResult Function(_ChangeScreenRefreshRate value)? changeScreenRefreshRate,
     TResult Function(_ChangeScreenDiagonal value)? changeScreenDiagonal,
@@ -1148,6 +1218,8 @@ class _$_ChangePixelDensity implements _ChangePixelDensity {
     TResult Function(_ChangeScreenResolution value)? changeScreenResolution,
     TResult Function(_ChangeOperatingSystem value)? changeOperatingSystem,
     TResult Function(_ChangeDisplayType value)? changeDisplayType,
+    TResult Function(_ChangeWidth value)? changeWidth,
+    TResult Function(_ChangeHeight value)? changeHeight,
     TResult Function(_CreateModel value)? createModel,
     TResult Function(_EditModel value)? editModel,
     required TResult orElse(),
@@ -1236,10 +1308,10 @@ class _$_ChangeScreenRefreshRate implements _ChangeScreenRefreshRate {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Model model) setModel,
+    required TResult Function(Model? model) setModel,
+    required TResult Function(String manufacturerId) setManufacturerId,
     required TResult Function(String name) changeName,
     required TResult Function(String description) changeDescription,
-    required TResult Function(String manufacturerId) changeManufacturerId,
     required TResult Function(int pixelDensity) changePixelDensity,
     required TResult Function(int screenRefreshRate) changeScreenRefreshRate,
     required TResult Function(double screenDiagonal) changeScreenDiagonal,
@@ -1248,6 +1320,8 @@ class _$_ChangeScreenRefreshRate implements _ChangeScreenRefreshRate {
     required TResult Function(OperatingSystem operatingSystem)
         changeOperatingSystem,
     required TResult Function(DisplayType displayType) changeDisplayType,
+    required TResult Function(String screenResolution) changeWidth,
+    required TResult Function(String screenResolution) changeHeight,
     required TResult Function() createModel,
     required TResult Function() editModel,
   }) {
@@ -1257,10 +1331,10 @@ class _$_ChangeScreenRefreshRate implements _ChangeScreenRefreshRate {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Model model)? setModel,
+    TResult? Function(Model? model)? setModel,
+    TResult? Function(String manufacturerId)? setManufacturerId,
     TResult? Function(String name)? changeName,
     TResult? Function(String description)? changeDescription,
-    TResult? Function(String manufacturerId)? changeManufacturerId,
     TResult? Function(int pixelDensity)? changePixelDensity,
     TResult? Function(int screenRefreshRate)? changeScreenRefreshRate,
     TResult? Function(double screenDiagonal)? changeScreenDiagonal,
@@ -1268,6 +1342,8 @@ class _$_ChangeScreenRefreshRate implements _ChangeScreenRefreshRate {
     TResult? Function(String screenResolution)? changeScreenResolution,
     TResult? Function(OperatingSystem operatingSystem)? changeOperatingSystem,
     TResult? Function(DisplayType displayType)? changeDisplayType,
+    TResult? Function(String screenResolution)? changeWidth,
+    TResult? Function(String screenResolution)? changeHeight,
     TResult? Function()? createModel,
     TResult? Function()? editModel,
   }) {
@@ -1277,10 +1353,10 @@ class _$_ChangeScreenRefreshRate implements _ChangeScreenRefreshRate {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Model model)? setModel,
+    TResult Function(Model? model)? setModel,
+    TResult Function(String manufacturerId)? setManufacturerId,
     TResult Function(String name)? changeName,
     TResult Function(String description)? changeDescription,
-    TResult Function(String manufacturerId)? changeManufacturerId,
     TResult Function(int pixelDensity)? changePixelDensity,
     TResult Function(int screenRefreshRate)? changeScreenRefreshRate,
     TResult Function(double screenDiagonal)? changeScreenDiagonal,
@@ -1288,6 +1364,8 @@ class _$_ChangeScreenRefreshRate implements _ChangeScreenRefreshRate {
     TResult Function(String screenResolution)? changeScreenResolution,
     TResult Function(OperatingSystem operatingSystem)? changeOperatingSystem,
     TResult Function(DisplayType displayType)? changeDisplayType,
+    TResult Function(String screenResolution)? changeWidth,
+    TResult Function(String screenResolution)? changeHeight,
     TResult Function()? createModel,
     TResult Function()? editModel,
     required TResult orElse(),
@@ -1302,9 +1380,9 @@ class _$_ChangeScreenRefreshRate implements _ChangeScreenRefreshRate {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_SetModel value) setModel,
+    required TResult Function(_SetManufacturerId value) setManufacturerId,
     required TResult Function(_ChangeName value) changeName,
     required TResult Function(_ChangeDescription value) changeDescription,
-    required TResult Function(_ChangeManufacturerId value) changeManufacturerId,
     required TResult Function(_ChangePixelDensity value) changePixelDensity,
     required TResult Function(_ChangeScreenRefreshRate value)
         changeScreenRefreshRate,
@@ -1315,6 +1393,8 @@ class _$_ChangeScreenRefreshRate implements _ChangeScreenRefreshRate {
     required TResult Function(_ChangeOperatingSystem value)
         changeOperatingSystem,
     required TResult Function(_ChangeDisplayType value) changeDisplayType,
+    required TResult Function(_ChangeWidth value) changeWidth,
+    required TResult Function(_ChangeHeight value) changeHeight,
     required TResult Function(_CreateModel value) createModel,
     required TResult Function(_EditModel value) editModel,
   }) {
@@ -1325,9 +1405,9 @@ class _$_ChangeScreenRefreshRate implements _ChangeScreenRefreshRate {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SetModel value)? setModel,
+    TResult? Function(_SetManufacturerId value)? setManufacturerId,
     TResult? Function(_ChangeName value)? changeName,
     TResult? Function(_ChangeDescription value)? changeDescription,
-    TResult? Function(_ChangeManufacturerId value)? changeManufacturerId,
     TResult? Function(_ChangePixelDensity value)? changePixelDensity,
     TResult? Function(_ChangeScreenRefreshRate value)? changeScreenRefreshRate,
     TResult? Function(_ChangeScreenDiagonal value)? changeScreenDiagonal,
@@ -1335,6 +1415,8 @@ class _$_ChangeScreenRefreshRate implements _ChangeScreenRefreshRate {
     TResult? Function(_ChangeScreenResolution value)? changeScreenResolution,
     TResult? Function(_ChangeOperatingSystem value)? changeOperatingSystem,
     TResult? Function(_ChangeDisplayType value)? changeDisplayType,
+    TResult? Function(_ChangeWidth value)? changeWidth,
+    TResult? Function(_ChangeHeight value)? changeHeight,
     TResult? Function(_CreateModel value)? createModel,
     TResult? Function(_EditModel value)? editModel,
   }) {
@@ -1345,9 +1427,9 @@ class _$_ChangeScreenRefreshRate implements _ChangeScreenRefreshRate {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SetModel value)? setModel,
+    TResult Function(_SetManufacturerId value)? setManufacturerId,
     TResult Function(_ChangeName value)? changeName,
     TResult Function(_ChangeDescription value)? changeDescription,
-    TResult Function(_ChangeManufacturerId value)? changeManufacturerId,
     TResult Function(_ChangePixelDensity value)? changePixelDensity,
     TResult Function(_ChangeScreenRefreshRate value)? changeScreenRefreshRate,
     TResult Function(_ChangeScreenDiagonal value)? changeScreenDiagonal,
@@ -1355,6 +1437,8 @@ class _$_ChangeScreenRefreshRate implements _ChangeScreenRefreshRate {
     TResult Function(_ChangeScreenResolution value)? changeScreenResolution,
     TResult Function(_ChangeOperatingSystem value)? changeOperatingSystem,
     TResult Function(_ChangeDisplayType value)? changeDisplayType,
+    TResult Function(_ChangeWidth value)? changeWidth,
+    TResult Function(_ChangeHeight value)? changeHeight,
     TResult Function(_CreateModel value)? createModel,
     TResult Function(_EditModel value)? editModel,
     required TResult orElse(),
@@ -1442,10 +1526,10 @@ class _$_ChangeScreenDiagonal implements _ChangeScreenDiagonal {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Model model) setModel,
+    required TResult Function(Model? model) setModel,
+    required TResult Function(String manufacturerId) setManufacturerId,
     required TResult Function(String name) changeName,
     required TResult Function(String description) changeDescription,
-    required TResult Function(String manufacturerId) changeManufacturerId,
     required TResult Function(int pixelDensity) changePixelDensity,
     required TResult Function(int screenRefreshRate) changeScreenRefreshRate,
     required TResult Function(double screenDiagonal) changeScreenDiagonal,
@@ -1454,6 +1538,8 @@ class _$_ChangeScreenDiagonal implements _ChangeScreenDiagonal {
     required TResult Function(OperatingSystem operatingSystem)
         changeOperatingSystem,
     required TResult Function(DisplayType displayType) changeDisplayType,
+    required TResult Function(String screenResolution) changeWidth,
+    required TResult Function(String screenResolution) changeHeight,
     required TResult Function() createModel,
     required TResult Function() editModel,
   }) {
@@ -1463,10 +1549,10 @@ class _$_ChangeScreenDiagonal implements _ChangeScreenDiagonal {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Model model)? setModel,
+    TResult? Function(Model? model)? setModel,
+    TResult? Function(String manufacturerId)? setManufacturerId,
     TResult? Function(String name)? changeName,
     TResult? Function(String description)? changeDescription,
-    TResult? Function(String manufacturerId)? changeManufacturerId,
     TResult? Function(int pixelDensity)? changePixelDensity,
     TResult? Function(int screenRefreshRate)? changeScreenRefreshRate,
     TResult? Function(double screenDiagonal)? changeScreenDiagonal,
@@ -1474,6 +1560,8 @@ class _$_ChangeScreenDiagonal implements _ChangeScreenDiagonal {
     TResult? Function(String screenResolution)? changeScreenResolution,
     TResult? Function(OperatingSystem operatingSystem)? changeOperatingSystem,
     TResult? Function(DisplayType displayType)? changeDisplayType,
+    TResult? Function(String screenResolution)? changeWidth,
+    TResult? Function(String screenResolution)? changeHeight,
     TResult? Function()? createModel,
     TResult? Function()? editModel,
   }) {
@@ -1483,10 +1571,10 @@ class _$_ChangeScreenDiagonal implements _ChangeScreenDiagonal {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Model model)? setModel,
+    TResult Function(Model? model)? setModel,
+    TResult Function(String manufacturerId)? setManufacturerId,
     TResult Function(String name)? changeName,
     TResult Function(String description)? changeDescription,
-    TResult Function(String manufacturerId)? changeManufacturerId,
     TResult Function(int pixelDensity)? changePixelDensity,
     TResult Function(int screenRefreshRate)? changeScreenRefreshRate,
     TResult Function(double screenDiagonal)? changeScreenDiagonal,
@@ -1494,6 +1582,8 @@ class _$_ChangeScreenDiagonal implements _ChangeScreenDiagonal {
     TResult Function(String screenResolution)? changeScreenResolution,
     TResult Function(OperatingSystem operatingSystem)? changeOperatingSystem,
     TResult Function(DisplayType displayType)? changeDisplayType,
+    TResult Function(String screenResolution)? changeWidth,
+    TResult Function(String screenResolution)? changeHeight,
     TResult Function()? createModel,
     TResult Function()? editModel,
     required TResult orElse(),
@@ -1508,9 +1598,9 @@ class _$_ChangeScreenDiagonal implements _ChangeScreenDiagonal {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_SetModel value) setModel,
+    required TResult Function(_SetManufacturerId value) setManufacturerId,
     required TResult Function(_ChangeName value) changeName,
     required TResult Function(_ChangeDescription value) changeDescription,
-    required TResult Function(_ChangeManufacturerId value) changeManufacturerId,
     required TResult Function(_ChangePixelDensity value) changePixelDensity,
     required TResult Function(_ChangeScreenRefreshRate value)
         changeScreenRefreshRate,
@@ -1521,6 +1611,8 @@ class _$_ChangeScreenDiagonal implements _ChangeScreenDiagonal {
     required TResult Function(_ChangeOperatingSystem value)
         changeOperatingSystem,
     required TResult Function(_ChangeDisplayType value) changeDisplayType,
+    required TResult Function(_ChangeWidth value) changeWidth,
+    required TResult Function(_ChangeHeight value) changeHeight,
     required TResult Function(_CreateModel value) createModel,
     required TResult Function(_EditModel value) editModel,
   }) {
@@ -1531,9 +1623,9 @@ class _$_ChangeScreenDiagonal implements _ChangeScreenDiagonal {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SetModel value)? setModel,
+    TResult? Function(_SetManufacturerId value)? setManufacturerId,
     TResult? Function(_ChangeName value)? changeName,
     TResult? Function(_ChangeDescription value)? changeDescription,
-    TResult? Function(_ChangeManufacturerId value)? changeManufacturerId,
     TResult? Function(_ChangePixelDensity value)? changePixelDensity,
     TResult? Function(_ChangeScreenRefreshRate value)? changeScreenRefreshRate,
     TResult? Function(_ChangeScreenDiagonal value)? changeScreenDiagonal,
@@ -1541,6 +1633,8 @@ class _$_ChangeScreenDiagonal implements _ChangeScreenDiagonal {
     TResult? Function(_ChangeScreenResolution value)? changeScreenResolution,
     TResult? Function(_ChangeOperatingSystem value)? changeOperatingSystem,
     TResult? Function(_ChangeDisplayType value)? changeDisplayType,
+    TResult? Function(_ChangeWidth value)? changeWidth,
+    TResult? Function(_ChangeHeight value)? changeHeight,
     TResult? Function(_CreateModel value)? createModel,
     TResult? Function(_EditModel value)? editModel,
   }) {
@@ -1551,9 +1645,9 @@ class _$_ChangeScreenDiagonal implements _ChangeScreenDiagonal {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SetModel value)? setModel,
+    TResult Function(_SetManufacturerId value)? setManufacturerId,
     TResult Function(_ChangeName value)? changeName,
     TResult Function(_ChangeDescription value)? changeDescription,
-    TResult Function(_ChangeManufacturerId value)? changeManufacturerId,
     TResult Function(_ChangePixelDensity value)? changePixelDensity,
     TResult Function(_ChangeScreenRefreshRate value)? changeScreenRefreshRate,
     TResult Function(_ChangeScreenDiagonal value)? changeScreenDiagonal,
@@ -1561,6 +1655,8 @@ class _$_ChangeScreenDiagonal implements _ChangeScreenDiagonal {
     TResult Function(_ChangeScreenResolution value)? changeScreenResolution,
     TResult Function(_ChangeOperatingSystem value)? changeOperatingSystem,
     TResult Function(_ChangeDisplayType value)? changeDisplayType,
+    TResult Function(_ChangeWidth value)? changeWidth,
+    TResult Function(_ChangeHeight value)? changeHeight,
     TResult Function(_CreateModel value)? createModel,
     TResult Function(_EditModel value)? editModel,
     required TResult orElse(),
@@ -1646,10 +1742,10 @@ class _$_ChangeWeight implements _ChangeWeight {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Model model) setModel,
+    required TResult Function(Model? model) setModel,
+    required TResult Function(String manufacturerId) setManufacturerId,
     required TResult Function(String name) changeName,
     required TResult Function(String description) changeDescription,
-    required TResult Function(String manufacturerId) changeManufacturerId,
     required TResult Function(int pixelDensity) changePixelDensity,
     required TResult Function(int screenRefreshRate) changeScreenRefreshRate,
     required TResult Function(double screenDiagonal) changeScreenDiagonal,
@@ -1658,6 +1754,8 @@ class _$_ChangeWeight implements _ChangeWeight {
     required TResult Function(OperatingSystem operatingSystem)
         changeOperatingSystem,
     required TResult Function(DisplayType displayType) changeDisplayType,
+    required TResult Function(String screenResolution) changeWidth,
+    required TResult Function(String screenResolution) changeHeight,
     required TResult Function() createModel,
     required TResult Function() editModel,
   }) {
@@ -1667,10 +1765,10 @@ class _$_ChangeWeight implements _ChangeWeight {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Model model)? setModel,
+    TResult? Function(Model? model)? setModel,
+    TResult? Function(String manufacturerId)? setManufacturerId,
     TResult? Function(String name)? changeName,
     TResult? Function(String description)? changeDescription,
-    TResult? Function(String manufacturerId)? changeManufacturerId,
     TResult? Function(int pixelDensity)? changePixelDensity,
     TResult? Function(int screenRefreshRate)? changeScreenRefreshRate,
     TResult? Function(double screenDiagonal)? changeScreenDiagonal,
@@ -1678,6 +1776,8 @@ class _$_ChangeWeight implements _ChangeWeight {
     TResult? Function(String screenResolution)? changeScreenResolution,
     TResult? Function(OperatingSystem operatingSystem)? changeOperatingSystem,
     TResult? Function(DisplayType displayType)? changeDisplayType,
+    TResult? Function(String screenResolution)? changeWidth,
+    TResult? Function(String screenResolution)? changeHeight,
     TResult? Function()? createModel,
     TResult? Function()? editModel,
   }) {
@@ -1687,10 +1787,10 @@ class _$_ChangeWeight implements _ChangeWeight {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Model model)? setModel,
+    TResult Function(Model? model)? setModel,
+    TResult Function(String manufacturerId)? setManufacturerId,
     TResult Function(String name)? changeName,
     TResult Function(String description)? changeDescription,
-    TResult Function(String manufacturerId)? changeManufacturerId,
     TResult Function(int pixelDensity)? changePixelDensity,
     TResult Function(int screenRefreshRate)? changeScreenRefreshRate,
     TResult Function(double screenDiagonal)? changeScreenDiagonal,
@@ -1698,6 +1798,8 @@ class _$_ChangeWeight implements _ChangeWeight {
     TResult Function(String screenResolution)? changeScreenResolution,
     TResult Function(OperatingSystem operatingSystem)? changeOperatingSystem,
     TResult Function(DisplayType displayType)? changeDisplayType,
+    TResult Function(String screenResolution)? changeWidth,
+    TResult Function(String screenResolution)? changeHeight,
     TResult Function()? createModel,
     TResult Function()? editModel,
     required TResult orElse(),
@@ -1712,9 +1814,9 @@ class _$_ChangeWeight implements _ChangeWeight {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_SetModel value) setModel,
+    required TResult Function(_SetManufacturerId value) setManufacturerId,
     required TResult Function(_ChangeName value) changeName,
     required TResult Function(_ChangeDescription value) changeDescription,
-    required TResult Function(_ChangeManufacturerId value) changeManufacturerId,
     required TResult Function(_ChangePixelDensity value) changePixelDensity,
     required TResult Function(_ChangeScreenRefreshRate value)
         changeScreenRefreshRate,
@@ -1725,6 +1827,8 @@ class _$_ChangeWeight implements _ChangeWeight {
     required TResult Function(_ChangeOperatingSystem value)
         changeOperatingSystem,
     required TResult Function(_ChangeDisplayType value) changeDisplayType,
+    required TResult Function(_ChangeWidth value) changeWidth,
+    required TResult Function(_ChangeHeight value) changeHeight,
     required TResult Function(_CreateModel value) createModel,
     required TResult Function(_EditModel value) editModel,
   }) {
@@ -1735,9 +1839,9 @@ class _$_ChangeWeight implements _ChangeWeight {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SetModel value)? setModel,
+    TResult? Function(_SetManufacturerId value)? setManufacturerId,
     TResult? Function(_ChangeName value)? changeName,
     TResult? Function(_ChangeDescription value)? changeDescription,
-    TResult? Function(_ChangeManufacturerId value)? changeManufacturerId,
     TResult? Function(_ChangePixelDensity value)? changePixelDensity,
     TResult? Function(_ChangeScreenRefreshRate value)? changeScreenRefreshRate,
     TResult? Function(_ChangeScreenDiagonal value)? changeScreenDiagonal,
@@ -1745,6 +1849,8 @@ class _$_ChangeWeight implements _ChangeWeight {
     TResult? Function(_ChangeScreenResolution value)? changeScreenResolution,
     TResult? Function(_ChangeOperatingSystem value)? changeOperatingSystem,
     TResult? Function(_ChangeDisplayType value)? changeDisplayType,
+    TResult? Function(_ChangeWidth value)? changeWidth,
+    TResult? Function(_ChangeHeight value)? changeHeight,
     TResult? Function(_CreateModel value)? createModel,
     TResult? Function(_EditModel value)? editModel,
   }) {
@@ -1755,9 +1861,9 @@ class _$_ChangeWeight implements _ChangeWeight {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SetModel value)? setModel,
+    TResult Function(_SetManufacturerId value)? setManufacturerId,
     TResult Function(_ChangeName value)? changeName,
     TResult Function(_ChangeDescription value)? changeDescription,
-    TResult Function(_ChangeManufacturerId value)? changeManufacturerId,
     TResult Function(_ChangePixelDensity value)? changePixelDensity,
     TResult Function(_ChangeScreenRefreshRate value)? changeScreenRefreshRate,
     TResult Function(_ChangeScreenDiagonal value)? changeScreenDiagonal,
@@ -1765,6 +1871,8 @@ class _$_ChangeWeight implements _ChangeWeight {
     TResult Function(_ChangeScreenResolution value)? changeScreenResolution,
     TResult Function(_ChangeOperatingSystem value)? changeOperatingSystem,
     TResult Function(_ChangeDisplayType value)? changeDisplayType,
+    TResult Function(_ChangeWidth value)? changeWidth,
+    TResult Function(_ChangeHeight value)? changeHeight,
     TResult Function(_CreateModel value)? createModel,
     TResult Function(_EditModel value)? editModel,
     required TResult orElse(),
@@ -1851,10 +1959,10 @@ class _$_ChangeScreenResolution implements _ChangeScreenResolution {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Model model) setModel,
+    required TResult Function(Model? model) setModel,
+    required TResult Function(String manufacturerId) setManufacturerId,
     required TResult Function(String name) changeName,
     required TResult Function(String description) changeDescription,
-    required TResult Function(String manufacturerId) changeManufacturerId,
     required TResult Function(int pixelDensity) changePixelDensity,
     required TResult Function(int screenRefreshRate) changeScreenRefreshRate,
     required TResult Function(double screenDiagonal) changeScreenDiagonal,
@@ -1863,6 +1971,8 @@ class _$_ChangeScreenResolution implements _ChangeScreenResolution {
     required TResult Function(OperatingSystem operatingSystem)
         changeOperatingSystem,
     required TResult Function(DisplayType displayType) changeDisplayType,
+    required TResult Function(String screenResolution) changeWidth,
+    required TResult Function(String screenResolution) changeHeight,
     required TResult Function() createModel,
     required TResult Function() editModel,
   }) {
@@ -1872,10 +1982,10 @@ class _$_ChangeScreenResolution implements _ChangeScreenResolution {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Model model)? setModel,
+    TResult? Function(Model? model)? setModel,
+    TResult? Function(String manufacturerId)? setManufacturerId,
     TResult? Function(String name)? changeName,
     TResult? Function(String description)? changeDescription,
-    TResult? Function(String manufacturerId)? changeManufacturerId,
     TResult? Function(int pixelDensity)? changePixelDensity,
     TResult? Function(int screenRefreshRate)? changeScreenRefreshRate,
     TResult? Function(double screenDiagonal)? changeScreenDiagonal,
@@ -1883,6 +1993,8 @@ class _$_ChangeScreenResolution implements _ChangeScreenResolution {
     TResult? Function(String screenResolution)? changeScreenResolution,
     TResult? Function(OperatingSystem operatingSystem)? changeOperatingSystem,
     TResult? Function(DisplayType displayType)? changeDisplayType,
+    TResult? Function(String screenResolution)? changeWidth,
+    TResult? Function(String screenResolution)? changeHeight,
     TResult? Function()? createModel,
     TResult? Function()? editModel,
   }) {
@@ -1892,10 +2004,10 @@ class _$_ChangeScreenResolution implements _ChangeScreenResolution {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Model model)? setModel,
+    TResult Function(Model? model)? setModel,
+    TResult Function(String manufacturerId)? setManufacturerId,
     TResult Function(String name)? changeName,
     TResult Function(String description)? changeDescription,
-    TResult Function(String manufacturerId)? changeManufacturerId,
     TResult Function(int pixelDensity)? changePixelDensity,
     TResult Function(int screenRefreshRate)? changeScreenRefreshRate,
     TResult Function(double screenDiagonal)? changeScreenDiagonal,
@@ -1903,6 +2015,8 @@ class _$_ChangeScreenResolution implements _ChangeScreenResolution {
     TResult Function(String screenResolution)? changeScreenResolution,
     TResult Function(OperatingSystem operatingSystem)? changeOperatingSystem,
     TResult Function(DisplayType displayType)? changeDisplayType,
+    TResult Function(String screenResolution)? changeWidth,
+    TResult Function(String screenResolution)? changeHeight,
     TResult Function()? createModel,
     TResult Function()? editModel,
     required TResult orElse(),
@@ -1917,9 +2031,9 @@ class _$_ChangeScreenResolution implements _ChangeScreenResolution {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_SetModel value) setModel,
+    required TResult Function(_SetManufacturerId value) setManufacturerId,
     required TResult Function(_ChangeName value) changeName,
     required TResult Function(_ChangeDescription value) changeDescription,
-    required TResult Function(_ChangeManufacturerId value) changeManufacturerId,
     required TResult Function(_ChangePixelDensity value) changePixelDensity,
     required TResult Function(_ChangeScreenRefreshRate value)
         changeScreenRefreshRate,
@@ -1930,6 +2044,8 @@ class _$_ChangeScreenResolution implements _ChangeScreenResolution {
     required TResult Function(_ChangeOperatingSystem value)
         changeOperatingSystem,
     required TResult Function(_ChangeDisplayType value) changeDisplayType,
+    required TResult Function(_ChangeWidth value) changeWidth,
+    required TResult Function(_ChangeHeight value) changeHeight,
     required TResult Function(_CreateModel value) createModel,
     required TResult Function(_EditModel value) editModel,
   }) {
@@ -1940,9 +2056,9 @@ class _$_ChangeScreenResolution implements _ChangeScreenResolution {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SetModel value)? setModel,
+    TResult? Function(_SetManufacturerId value)? setManufacturerId,
     TResult? Function(_ChangeName value)? changeName,
     TResult? Function(_ChangeDescription value)? changeDescription,
-    TResult? Function(_ChangeManufacturerId value)? changeManufacturerId,
     TResult? Function(_ChangePixelDensity value)? changePixelDensity,
     TResult? Function(_ChangeScreenRefreshRate value)? changeScreenRefreshRate,
     TResult? Function(_ChangeScreenDiagonal value)? changeScreenDiagonal,
@@ -1950,6 +2066,8 @@ class _$_ChangeScreenResolution implements _ChangeScreenResolution {
     TResult? Function(_ChangeScreenResolution value)? changeScreenResolution,
     TResult? Function(_ChangeOperatingSystem value)? changeOperatingSystem,
     TResult? Function(_ChangeDisplayType value)? changeDisplayType,
+    TResult? Function(_ChangeWidth value)? changeWidth,
+    TResult? Function(_ChangeHeight value)? changeHeight,
     TResult? Function(_CreateModel value)? createModel,
     TResult? Function(_EditModel value)? editModel,
   }) {
@@ -1960,9 +2078,9 @@ class _$_ChangeScreenResolution implements _ChangeScreenResolution {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SetModel value)? setModel,
+    TResult Function(_SetManufacturerId value)? setManufacturerId,
     TResult Function(_ChangeName value)? changeName,
     TResult Function(_ChangeDescription value)? changeDescription,
-    TResult Function(_ChangeManufacturerId value)? changeManufacturerId,
     TResult Function(_ChangePixelDensity value)? changePixelDensity,
     TResult Function(_ChangeScreenRefreshRate value)? changeScreenRefreshRate,
     TResult Function(_ChangeScreenDiagonal value)? changeScreenDiagonal,
@@ -1970,6 +2088,8 @@ class _$_ChangeScreenResolution implements _ChangeScreenResolution {
     TResult Function(_ChangeScreenResolution value)? changeScreenResolution,
     TResult Function(_ChangeOperatingSystem value)? changeOperatingSystem,
     TResult Function(_ChangeDisplayType value)? changeDisplayType,
+    TResult Function(_ChangeWidth value)? changeWidth,
+    TResult Function(_ChangeHeight value)? changeHeight,
     TResult Function(_CreateModel value)? createModel,
     TResult Function(_EditModel value)? editModel,
     required TResult orElse(),
@@ -2057,10 +2177,10 @@ class _$_ChangeOperatingSystem implements _ChangeOperatingSystem {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Model model) setModel,
+    required TResult Function(Model? model) setModel,
+    required TResult Function(String manufacturerId) setManufacturerId,
     required TResult Function(String name) changeName,
     required TResult Function(String description) changeDescription,
-    required TResult Function(String manufacturerId) changeManufacturerId,
     required TResult Function(int pixelDensity) changePixelDensity,
     required TResult Function(int screenRefreshRate) changeScreenRefreshRate,
     required TResult Function(double screenDiagonal) changeScreenDiagonal,
@@ -2069,6 +2189,8 @@ class _$_ChangeOperatingSystem implements _ChangeOperatingSystem {
     required TResult Function(OperatingSystem operatingSystem)
         changeOperatingSystem,
     required TResult Function(DisplayType displayType) changeDisplayType,
+    required TResult Function(String screenResolution) changeWidth,
+    required TResult Function(String screenResolution) changeHeight,
     required TResult Function() createModel,
     required TResult Function() editModel,
   }) {
@@ -2078,10 +2200,10 @@ class _$_ChangeOperatingSystem implements _ChangeOperatingSystem {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Model model)? setModel,
+    TResult? Function(Model? model)? setModel,
+    TResult? Function(String manufacturerId)? setManufacturerId,
     TResult? Function(String name)? changeName,
     TResult? Function(String description)? changeDescription,
-    TResult? Function(String manufacturerId)? changeManufacturerId,
     TResult? Function(int pixelDensity)? changePixelDensity,
     TResult? Function(int screenRefreshRate)? changeScreenRefreshRate,
     TResult? Function(double screenDiagonal)? changeScreenDiagonal,
@@ -2089,6 +2211,8 @@ class _$_ChangeOperatingSystem implements _ChangeOperatingSystem {
     TResult? Function(String screenResolution)? changeScreenResolution,
     TResult? Function(OperatingSystem operatingSystem)? changeOperatingSystem,
     TResult? Function(DisplayType displayType)? changeDisplayType,
+    TResult? Function(String screenResolution)? changeWidth,
+    TResult? Function(String screenResolution)? changeHeight,
     TResult? Function()? createModel,
     TResult? Function()? editModel,
   }) {
@@ -2098,10 +2222,10 @@ class _$_ChangeOperatingSystem implements _ChangeOperatingSystem {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Model model)? setModel,
+    TResult Function(Model? model)? setModel,
+    TResult Function(String manufacturerId)? setManufacturerId,
     TResult Function(String name)? changeName,
     TResult Function(String description)? changeDescription,
-    TResult Function(String manufacturerId)? changeManufacturerId,
     TResult Function(int pixelDensity)? changePixelDensity,
     TResult Function(int screenRefreshRate)? changeScreenRefreshRate,
     TResult Function(double screenDiagonal)? changeScreenDiagonal,
@@ -2109,6 +2233,8 @@ class _$_ChangeOperatingSystem implements _ChangeOperatingSystem {
     TResult Function(String screenResolution)? changeScreenResolution,
     TResult Function(OperatingSystem operatingSystem)? changeOperatingSystem,
     TResult Function(DisplayType displayType)? changeDisplayType,
+    TResult Function(String screenResolution)? changeWidth,
+    TResult Function(String screenResolution)? changeHeight,
     TResult Function()? createModel,
     TResult Function()? editModel,
     required TResult orElse(),
@@ -2123,9 +2249,9 @@ class _$_ChangeOperatingSystem implements _ChangeOperatingSystem {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_SetModel value) setModel,
+    required TResult Function(_SetManufacturerId value) setManufacturerId,
     required TResult Function(_ChangeName value) changeName,
     required TResult Function(_ChangeDescription value) changeDescription,
-    required TResult Function(_ChangeManufacturerId value) changeManufacturerId,
     required TResult Function(_ChangePixelDensity value) changePixelDensity,
     required TResult Function(_ChangeScreenRefreshRate value)
         changeScreenRefreshRate,
@@ -2136,6 +2262,8 @@ class _$_ChangeOperatingSystem implements _ChangeOperatingSystem {
     required TResult Function(_ChangeOperatingSystem value)
         changeOperatingSystem,
     required TResult Function(_ChangeDisplayType value) changeDisplayType,
+    required TResult Function(_ChangeWidth value) changeWidth,
+    required TResult Function(_ChangeHeight value) changeHeight,
     required TResult Function(_CreateModel value) createModel,
     required TResult Function(_EditModel value) editModel,
   }) {
@@ -2146,9 +2274,9 @@ class _$_ChangeOperatingSystem implements _ChangeOperatingSystem {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SetModel value)? setModel,
+    TResult? Function(_SetManufacturerId value)? setManufacturerId,
     TResult? Function(_ChangeName value)? changeName,
     TResult? Function(_ChangeDescription value)? changeDescription,
-    TResult? Function(_ChangeManufacturerId value)? changeManufacturerId,
     TResult? Function(_ChangePixelDensity value)? changePixelDensity,
     TResult? Function(_ChangeScreenRefreshRate value)? changeScreenRefreshRate,
     TResult? Function(_ChangeScreenDiagonal value)? changeScreenDiagonal,
@@ -2156,6 +2284,8 @@ class _$_ChangeOperatingSystem implements _ChangeOperatingSystem {
     TResult? Function(_ChangeScreenResolution value)? changeScreenResolution,
     TResult? Function(_ChangeOperatingSystem value)? changeOperatingSystem,
     TResult? Function(_ChangeDisplayType value)? changeDisplayType,
+    TResult? Function(_ChangeWidth value)? changeWidth,
+    TResult? Function(_ChangeHeight value)? changeHeight,
     TResult? Function(_CreateModel value)? createModel,
     TResult? Function(_EditModel value)? editModel,
   }) {
@@ -2166,9 +2296,9 @@ class _$_ChangeOperatingSystem implements _ChangeOperatingSystem {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SetModel value)? setModel,
+    TResult Function(_SetManufacturerId value)? setManufacturerId,
     TResult Function(_ChangeName value)? changeName,
     TResult Function(_ChangeDescription value)? changeDescription,
-    TResult Function(_ChangeManufacturerId value)? changeManufacturerId,
     TResult Function(_ChangePixelDensity value)? changePixelDensity,
     TResult Function(_ChangeScreenRefreshRate value)? changeScreenRefreshRate,
     TResult Function(_ChangeScreenDiagonal value)? changeScreenDiagonal,
@@ -2176,6 +2306,8 @@ class _$_ChangeOperatingSystem implements _ChangeOperatingSystem {
     TResult Function(_ChangeScreenResolution value)? changeScreenResolution,
     TResult Function(_ChangeOperatingSystem value)? changeOperatingSystem,
     TResult Function(_ChangeDisplayType value)? changeDisplayType,
+    TResult Function(_ChangeWidth value)? changeWidth,
+    TResult Function(_ChangeHeight value)? changeHeight,
     TResult Function(_CreateModel value)? createModel,
     TResult Function(_EditModel value)? editModel,
     required TResult orElse(),
@@ -2263,10 +2395,10 @@ class _$_ChangeDisplayType implements _ChangeDisplayType {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Model model) setModel,
+    required TResult Function(Model? model) setModel,
+    required TResult Function(String manufacturerId) setManufacturerId,
     required TResult Function(String name) changeName,
     required TResult Function(String description) changeDescription,
-    required TResult Function(String manufacturerId) changeManufacturerId,
     required TResult Function(int pixelDensity) changePixelDensity,
     required TResult Function(int screenRefreshRate) changeScreenRefreshRate,
     required TResult Function(double screenDiagonal) changeScreenDiagonal,
@@ -2275,6 +2407,8 @@ class _$_ChangeDisplayType implements _ChangeDisplayType {
     required TResult Function(OperatingSystem operatingSystem)
         changeOperatingSystem,
     required TResult Function(DisplayType displayType) changeDisplayType,
+    required TResult Function(String screenResolution) changeWidth,
+    required TResult Function(String screenResolution) changeHeight,
     required TResult Function() createModel,
     required TResult Function() editModel,
   }) {
@@ -2284,10 +2418,10 @@ class _$_ChangeDisplayType implements _ChangeDisplayType {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Model model)? setModel,
+    TResult? Function(Model? model)? setModel,
+    TResult? Function(String manufacturerId)? setManufacturerId,
     TResult? Function(String name)? changeName,
     TResult? Function(String description)? changeDescription,
-    TResult? Function(String manufacturerId)? changeManufacturerId,
     TResult? Function(int pixelDensity)? changePixelDensity,
     TResult? Function(int screenRefreshRate)? changeScreenRefreshRate,
     TResult? Function(double screenDiagonal)? changeScreenDiagonal,
@@ -2295,6 +2429,8 @@ class _$_ChangeDisplayType implements _ChangeDisplayType {
     TResult? Function(String screenResolution)? changeScreenResolution,
     TResult? Function(OperatingSystem operatingSystem)? changeOperatingSystem,
     TResult? Function(DisplayType displayType)? changeDisplayType,
+    TResult? Function(String screenResolution)? changeWidth,
+    TResult? Function(String screenResolution)? changeHeight,
     TResult? Function()? createModel,
     TResult? Function()? editModel,
   }) {
@@ -2304,10 +2440,10 @@ class _$_ChangeDisplayType implements _ChangeDisplayType {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Model model)? setModel,
+    TResult Function(Model? model)? setModel,
+    TResult Function(String manufacturerId)? setManufacturerId,
     TResult Function(String name)? changeName,
     TResult Function(String description)? changeDescription,
-    TResult Function(String manufacturerId)? changeManufacturerId,
     TResult Function(int pixelDensity)? changePixelDensity,
     TResult Function(int screenRefreshRate)? changeScreenRefreshRate,
     TResult Function(double screenDiagonal)? changeScreenDiagonal,
@@ -2315,6 +2451,8 @@ class _$_ChangeDisplayType implements _ChangeDisplayType {
     TResult Function(String screenResolution)? changeScreenResolution,
     TResult Function(OperatingSystem operatingSystem)? changeOperatingSystem,
     TResult Function(DisplayType displayType)? changeDisplayType,
+    TResult Function(String screenResolution)? changeWidth,
+    TResult Function(String screenResolution)? changeHeight,
     TResult Function()? createModel,
     TResult Function()? editModel,
     required TResult orElse(),
@@ -2329,9 +2467,9 @@ class _$_ChangeDisplayType implements _ChangeDisplayType {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_SetModel value) setModel,
+    required TResult Function(_SetManufacturerId value) setManufacturerId,
     required TResult Function(_ChangeName value) changeName,
     required TResult Function(_ChangeDescription value) changeDescription,
-    required TResult Function(_ChangeManufacturerId value) changeManufacturerId,
     required TResult Function(_ChangePixelDensity value) changePixelDensity,
     required TResult Function(_ChangeScreenRefreshRate value)
         changeScreenRefreshRate,
@@ -2342,6 +2480,8 @@ class _$_ChangeDisplayType implements _ChangeDisplayType {
     required TResult Function(_ChangeOperatingSystem value)
         changeOperatingSystem,
     required TResult Function(_ChangeDisplayType value) changeDisplayType,
+    required TResult Function(_ChangeWidth value) changeWidth,
+    required TResult Function(_ChangeHeight value) changeHeight,
     required TResult Function(_CreateModel value) createModel,
     required TResult Function(_EditModel value) editModel,
   }) {
@@ -2352,9 +2492,9 @@ class _$_ChangeDisplayType implements _ChangeDisplayType {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SetModel value)? setModel,
+    TResult? Function(_SetManufacturerId value)? setManufacturerId,
     TResult? Function(_ChangeName value)? changeName,
     TResult? Function(_ChangeDescription value)? changeDescription,
-    TResult? Function(_ChangeManufacturerId value)? changeManufacturerId,
     TResult? Function(_ChangePixelDensity value)? changePixelDensity,
     TResult? Function(_ChangeScreenRefreshRate value)? changeScreenRefreshRate,
     TResult? Function(_ChangeScreenDiagonal value)? changeScreenDiagonal,
@@ -2362,6 +2502,8 @@ class _$_ChangeDisplayType implements _ChangeDisplayType {
     TResult? Function(_ChangeScreenResolution value)? changeScreenResolution,
     TResult? Function(_ChangeOperatingSystem value)? changeOperatingSystem,
     TResult? Function(_ChangeDisplayType value)? changeDisplayType,
+    TResult? Function(_ChangeWidth value)? changeWidth,
+    TResult? Function(_ChangeHeight value)? changeHeight,
     TResult? Function(_CreateModel value)? createModel,
     TResult? Function(_EditModel value)? editModel,
   }) {
@@ -2372,9 +2514,9 @@ class _$_ChangeDisplayType implements _ChangeDisplayType {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SetModel value)? setModel,
+    TResult Function(_SetManufacturerId value)? setManufacturerId,
     TResult Function(_ChangeName value)? changeName,
     TResult Function(_ChangeDescription value)? changeDescription,
-    TResult Function(_ChangeManufacturerId value)? changeManufacturerId,
     TResult Function(_ChangePixelDensity value)? changePixelDensity,
     TResult Function(_ChangeScreenRefreshRate value)? changeScreenRefreshRate,
     TResult Function(_ChangeScreenDiagonal value)? changeScreenDiagonal,
@@ -2382,6 +2524,8 @@ class _$_ChangeDisplayType implements _ChangeDisplayType {
     TResult Function(_ChangeScreenResolution value)? changeScreenResolution,
     TResult Function(_ChangeOperatingSystem value)? changeOperatingSystem,
     TResult Function(_ChangeDisplayType value)? changeDisplayType,
+    TResult Function(_ChangeWidth value)? changeWidth,
+    TResult Function(_ChangeHeight value)? changeHeight,
     TResult Function(_CreateModel value)? createModel,
     TResult Function(_EditModel value)? editModel,
     required TResult orElse(),
@@ -2400,6 +2544,438 @@ abstract class _ChangeDisplayType implements CreateEditModelEvent {
   DisplayType get displayType;
   @JsonKey(ignore: true)
   _$$_ChangeDisplayTypeCopyWith<_$_ChangeDisplayType> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_ChangeWidthCopyWith<$Res> {
+  factory _$$_ChangeWidthCopyWith(
+          _$_ChangeWidth value, $Res Function(_$_ChangeWidth) then) =
+      __$$_ChangeWidthCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String screenResolution});
+}
+
+/// @nodoc
+class __$$_ChangeWidthCopyWithImpl<$Res>
+    extends _$CreateEditModelEventCopyWithImpl<$Res, _$_ChangeWidth>
+    implements _$$_ChangeWidthCopyWith<$Res> {
+  __$$_ChangeWidthCopyWithImpl(
+      _$_ChangeWidth _value, $Res Function(_$_ChangeWidth) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? screenResolution = null,
+  }) {
+    return _then(_$_ChangeWidth(
+      null == screenResolution
+          ? _value.screenResolution
+          : screenResolution // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ChangeWidth implements _ChangeWidth {
+  const _$_ChangeWidth(this.screenResolution);
+
+  @override
+  final String screenResolution;
+
+  @override
+  String toString() {
+    return 'CreateEditModelEvent.changeWidth(screenResolution: $screenResolution)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeWidth &&
+            (identical(other.screenResolution, screenResolution) ||
+                other.screenResolution == screenResolution));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, screenResolution);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ChangeWidthCopyWith<_$_ChangeWidth> get copyWith =>
+      __$$_ChangeWidthCopyWithImpl<_$_ChangeWidth>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Model? model) setModel,
+    required TResult Function(String manufacturerId) setManufacturerId,
+    required TResult Function(String name) changeName,
+    required TResult Function(String description) changeDescription,
+    required TResult Function(int pixelDensity) changePixelDensity,
+    required TResult Function(int screenRefreshRate) changeScreenRefreshRate,
+    required TResult Function(double screenDiagonal) changeScreenDiagonal,
+    required TResult Function(int weight) changeWeight,
+    required TResult Function(String screenResolution) changeScreenResolution,
+    required TResult Function(OperatingSystem operatingSystem)
+        changeOperatingSystem,
+    required TResult Function(DisplayType displayType) changeDisplayType,
+    required TResult Function(String screenResolution) changeWidth,
+    required TResult Function(String screenResolution) changeHeight,
+    required TResult Function() createModel,
+    required TResult Function() editModel,
+  }) {
+    return changeWidth(screenResolution);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Model? model)? setModel,
+    TResult? Function(String manufacturerId)? setManufacturerId,
+    TResult? Function(String name)? changeName,
+    TResult? Function(String description)? changeDescription,
+    TResult? Function(int pixelDensity)? changePixelDensity,
+    TResult? Function(int screenRefreshRate)? changeScreenRefreshRate,
+    TResult? Function(double screenDiagonal)? changeScreenDiagonal,
+    TResult? Function(int weight)? changeWeight,
+    TResult? Function(String screenResolution)? changeScreenResolution,
+    TResult? Function(OperatingSystem operatingSystem)? changeOperatingSystem,
+    TResult? Function(DisplayType displayType)? changeDisplayType,
+    TResult? Function(String screenResolution)? changeWidth,
+    TResult? Function(String screenResolution)? changeHeight,
+    TResult? Function()? createModel,
+    TResult? Function()? editModel,
+  }) {
+    return changeWidth?.call(screenResolution);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Model? model)? setModel,
+    TResult Function(String manufacturerId)? setManufacturerId,
+    TResult Function(String name)? changeName,
+    TResult Function(String description)? changeDescription,
+    TResult Function(int pixelDensity)? changePixelDensity,
+    TResult Function(int screenRefreshRate)? changeScreenRefreshRate,
+    TResult Function(double screenDiagonal)? changeScreenDiagonal,
+    TResult Function(int weight)? changeWeight,
+    TResult Function(String screenResolution)? changeScreenResolution,
+    TResult Function(OperatingSystem operatingSystem)? changeOperatingSystem,
+    TResult Function(DisplayType displayType)? changeDisplayType,
+    TResult Function(String screenResolution)? changeWidth,
+    TResult Function(String screenResolution)? changeHeight,
+    TResult Function()? createModel,
+    TResult Function()? editModel,
+    required TResult orElse(),
+  }) {
+    if (changeWidth != null) {
+      return changeWidth(screenResolution);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SetModel value) setModel,
+    required TResult Function(_SetManufacturerId value) setManufacturerId,
+    required TResult Function(_ChangeName value) changeName,
+    required TResult Function(_ChangeDescription value) changeDescription,
+    required TResult Function(_ChangePixelDensity value) changePixelDensity,
+    required TResult Function(_ChangeScreenRefreshRate value)
+        changeScreenRefreshRate,
+    required TResult Function(_ChangeScreenDiagonal value) changeScreenDiagonal,
+    required TResult Function(_ChangeWeight value) changeWeight,
+    required TResult Function(_ChangeScreenResolution value)
+        changeScreenResolution,
+    required TResult Function(_ChangeOperatingSystem value)
+        changeOperatingSystem,
+    required TResult Function(_ChangeDisplayType value) changeDisplayType,
+    required TResult Function(_ChangeWidth value) changeWidth,
+    required TResult Function(_ChangeHeight value) changeHeight,
+    required TResult Function(_CreateModel value) createModel,
+    required TResult Function(_EditModel value) editModel,
+  }) {
+    return changeWidth(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SetModel value)? setModel,
+    TResult? Function(_SetManufacturerId value)? setManufacturerId,
+    TResult? Function(_ChangeName value)? changeName,
+    TResult? Function(_ChangeDescription value)? changeDescription,
+    TResult? Function(_ChangePixelDensity value)? changePixelDensity,
+    TResult? Function(_ChangeScreenRefreshRate value)? changeScreenRefreshRate,
+    TResult? Function(_ChangeScreenDiagonal value)? changeScreenDiagonal,
+    TResult? Function(_ChangeWeight value)? changeWeight,
+    TResult? Function(_ChangeScreenResolution value)? changeScreenResolution,
+    TResult? Function(_ChangeOperatingSystem value)? changeOperatingSystem,
+    TResult? Function(_ChangeDisplayType value)? changeDisplayType,
+    TResult? Function(_ChangeWidth value)? changeWidth,
+    TResult? Function(_ChangeHeight value)? changeHeight,
+    TResult? Function(_CreateModel value)? createModel,
+    TResult? Function(_EditModel value)? editModel,
+  }) {
+    return changeWidth?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SetModel value)? setModel,
+    TResult Function(_SetManufacturerId value)? setManufacturerId,
+    TResult Function(_ChangeName value)? changeName,
+    TResult Function(_ChangeDescription value)? changeDescription,
+    TResult Function(_ChangePixelDensity value)? changePixelDensity,
+    TResult Function(_ChangeScreenRefreshRate value)? changeScreenRefreshRate,
+    TResult Function(_ChangeScreenDiagonal value)? changeScreenDiagonal,
+    TResult Function(_ChangeWeight value)? changeWeight,
+    TResult Function(_ChangeScreenResolution value)? changeScreenResolution,
+    TResult Function(_ChangeOperatingSystem value)? changeOperatingSystem,
+    TResult Function(_ChangeDisplayType value)? changeDisplayType,
+    TResult Function(_ChangeWidth value)? changeWidth,
+    TResult Function(_ChangeHeight value)? changeHeight,
+    TResult Function(_CreateModel value)? createModel,
+    TResult Function(_EditModel value)? editModel,
+    required TResult orElse(),
+  }) {
+    if (changeWidth != null) {
+      return changeWidth(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangeWidth implements CreateEditModelEvent {
+  const factory _ChangeWidth(final String screenResolution) = _$_ChangeWidth;
+
+  String get screenResolution;
+  @JsonKey(ignore: true)
+  _$$_ChangeWidthCopyWith<_$_ChangeWidth> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_ChangeHeightCopyWith<$Res> {
+  factory _$$_ChangeHeightCopyWith(
+          _$_ChangeHeight value, $Res Function(_$_ChangeHeight) then) =
+      __$$_ChangeHeightCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String screenResolution});
+}
+
+/// @nodoc
+class __$$_ChangeHeightCopyWithImpl<$Res>
+    extends _$CreateEditModelEventCopyWithImpl<$Res, _$_ChangeHeight>
+    implements _$$_ChangeHeightCopyWith<$Res> {
+  __$$_ChangeHeightCopyWithImpl(
+      _$_ChangeHeight _value, $Res Function(_$_ChangeHeight) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? screenResolution = null,
+  }) {
+    return _then(_$_ChangeHeight(
+      null == screenResolution
+          ? _value.screenResolution
+          : screenResolution // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ChangeHeight implements _ChangeHeight {
+  const _$_ChangeHeight(this.screenResolution);
+
+  @override
+  final String screenResolution;
+
+  @override
+  String toString() {
+    return 'CreateEditModelEvent.changeHeight(screenResolution: $screenResolution)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeHeight &&
+            (identical(other.screenResolution, screenResolution) ||
+                other.screenResolution == screenResolution));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, screenResolution);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ChangeHeightCopyWith<_$_ChangeHeight> get copyWith =>
+      __$$_ChangeHeightCopyWithImpl<_$_ChangeHeight>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Model? model) setModel,
+    required TResult Function(String manufacturerId) setManufacturerId,
+    required TResult Function(String name) changeName,
+    required TResult Function(String description) changeDescription,
+    required TResult Function(int pixelDensity) changePixelDensity,
+    required TResult Function(int screenRefreshRate) changeScreenRefreshRate,
+    required TResult Function(double screenDiagonal) changeScreenDiagonal,
+    required TResult Function(int weight) changeWeight,
+    required TResult Function(String screenResolution) changeScreenResolution,
+    required TResult Function(OperatingSystem operatingSystem)
+        changeOperatingSystem,
+    required TResult Function(DisplayType displayType) changeDisplayType,
+    required TResult Function(String screenResolution) changeWidth,
+    required TResult Function(String screenResolution) changeHeight,
+    required TResult Function() createModel,
+    required TResult Function() editModel,
+  }) {
+    return changeHeight(screenResolution);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Model? model)? setModel,
+    TResult? Function(String manufacturerId)? setManufacturerId,
+    TResult? Function(String name)? changeName,
+    TResult? Function(String description)? changeDescription,
+    TResult? Function(int pixelDensity)? changePixelDensity,
+    TResult? Function(int screenRefreshRate)? changeScreenRefreshRate,
+    TResult? Function(double screenDiagonal)? changeScreenDiagonal,
+    TResult? Function(int weight)? changeWeight,
+    TResult? Function(String screenResolution)? changeScreenResolution,
+    TResult? Function(OperatingSystem operatingSystem)? changeOperatingSystem,
+    TResult? Function(DisplayType displayType)? changeDisplayType,
+    TResult? Function(String screenResolution)? changeWidth,
+    TResult? Function(String screenResolution)? changeHeight,
+    TResult? Function()? createModel,
+    TResult? Function()? editModel,
+  }) {
+    return changeHeight?.call(screenResolution);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Model? model)? setModel,
+    TResult Function(String manufacturerId)? setManufacturerId,
+    TResult Function(String name)? changeName,
+    TResult Function(String description)? changeDescription,
+    TResult Function(int pixelDensity)? changePixelDensity,
+    TResult Function(int screenRefreshRate)? changeScreenRefreshRate,
+    TResult Function(double screenDiagonal)? changeScreenDiagonal,
+    TResult Function(int weight)? changeWeight,
+    TResult Function(String screenResolution)? changeScreenResolution,
+    TResult Function(OperatingSystem operatingSystem)? changeOperatingSystem,
+    TResult Function(DisplayType displayType)? changeDisplayType,
+    TResult Function(String screenResolution)? changeWidth,
+    TResult Function(String screenResolution)? changeHeight,
+    TResult Function()? createModel,
+    TResult Function()? editModel,
+    required TResult orElse(),
+  }) {
+    if (changeHeight != null) {
+      return changeHeight(screenResolution);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SetModel value) setModel,
+    required TResult Function(_SetManufacturerId value) setManufacturerId,
+    required TResult Function(_ChangeName value) changeName,
+    required TResult Function(_ChangeDescription value) changeDescription,
+    required TResult Function(_ChangePixelDensity value) changePixelDensity,
+    required TResult Function(_ChangeScreenRefreshRate value)
+        changeScreenRefreshRate,
+    required TResult Function(_ChangeScreenDiagonal value) changeScreenDiagonal,
+    required TResult Function(_ChangeWeight value) changeWeight,
+    required TResult Function(_ChangeScreenResolution value)
+        changeScreenResolution,
+    required TResult Function(_ChangeOperatingSystem value)
+        changeOperatingSystem,
+    required TResult Function(_ChangeDisplayType value) changeDisplayType,
+    required TResult Function(_ChangeWidth value) changeWidth,
+    required TResult Function(_ChangeHeight value) changeHeight,
+    required TResult Function(_CreateModel value) createModel,
+    required TResult Function(_EditModel value) editModel,
+  }) {
+    return changeHeight(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SetModel value)? setModel,
+    TResult? Function(_SetManufacturerId value)? setManufacturerId,
+    TResult? Function(_ChangeName value)? changeName,
+    TResult? Function(_ChangeDescription value)? changeDescription,
+    TResult? Function(_ChangePixelDensity value)? changePixelDensity,
+    TResult? Function(_ChangeScreenRefreshRate value)? changeScreenRefreshRate,
+    TResult? Function(_ChangeScreenDiagonal value)? changeScreenDiagonal,
+    TResult? Function(_ChangeWeight value)? changeWeight,
+    TResult? Function(_ChangeScreenResolution value)? changeScreenResolution,
+    TResult? Function(_ChangeOperatingSystem value)? changeOperatingSystem,
+    TResult? Function(_ChangeDisplayType value)? changeDisplayType,
+    TResult? Function(_ChangeWidth value)? changeWidth,
+    TResult? Function(_ChangeHeight value)? changeHeight,
+    TResult? Function(_CreateModel value)? createModel,
+    TResult? Function(_EditModel value)? editModel,
+  }) {
+    return changeHeight?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SetModel value)? setModel,
+    TResult Function(_SetManufacturerId value)? setManufacturerId,
+    TResult Function(_ChangeName value)? changeName,
+    TResult Function(_ChangeDescription value)? changeDescription,
+    TResult Function(_ChangePixelDensity value)? changePixelDensity,
+    TResult Function(_ChangeScreenRefreshRate value)? changeScreenRefreshRate,
+    TResult Function(_ChangeScreenDiagonal value)? changeScreenDiagonal,
+    TResult Function(_ChangeWeight value)? changeWeight,
+    TResult Function(_ChangeScreenResolution value)? changeScreenResolution,
+    TResult Function(_ChangeOperatingSystem value)? changeOperatingSystem,
+    TResult Function(_ChangeDisplayType value)? changeDisplayType,
+    TResult Function(_ChangeWidth value)? changeWidth,
+    TResult Function(_ChangeHeight value)? changeHeight,
+    TResult Function(_CreateModel value)? createModel,
+    TResult Function(_EditModel value)? editModel,
+    required TResult orElse(),
+  }) {
+    if (changeHeight != null) {
+      return changeHeight(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangeHeight implements CreateEditModelEvent {
+  const factory _ChangeHeight(final String screenResolution) = _$_ChangeHeight;
+
+  String get screenResolution;
+  @JsonKey(ignore: true)
+  _$$_ChangeHeightCopyWith<_$_ChangeHeight> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -2441,10 +3017,10 @@ class _$_CreateModel implements _CreateModel {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Model model) setModel,
+    required TResult Function(Model? model) setModel,
+    required TResult Function(String manufacturerId) setManufacturerId,
     required TResult Function(String name) changeName,
     required TResult Function(String description) changeDescription,
-    required TResult Function(String manufacturerId) changeManufacturerId,
     required TResult Function(int pixelDensity) changePixelDensity,
     required TResult Function(int screenRefreshRate) changeScreenRefreshRate,
     required TResult Function(double screenDiagonal) changeScreenDiagonal,
@@ -2453,6 +3029,8 @@ class _$_CreateModel implements _CreateModel {
     required TResult Function(OperatingSystem operatingSystem)
         changeOperatingSystem,
     required TResult Function(DisplayType displayType) changeDisplayType,
+    required TResult Function(String screenResolution) changeWidth,
+    required TResult Function(String screenResolution) changeHeight,
     required TResult Function() createModel,
     required TResult Function() editModel,
   }) {
@@ -2462,10 +3040,10 @@ class _$_CreateModel implements _CreateModel {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Model model)? setModel,
+    TResult? Function(Model? model)? setModel,
+    TResult? Function(String manufacturerId)? setManufacturerId,
     TResult? Function(String name)? changeName,
     TResult? Function(String description)? changeDescription,
-    TResult? Function(String manufacturerId)? changeManufacturerId,
     TResult? Function(int pixelDensity)? changePixelDensity,
     TResult? Function(int screenRefreshRate)? changeScreenRefreshRate,
     TResult? Function(double screenDiagonal)? changeScreenDiagonal,
@@ -2473,6 +3051,8 @@ class _$_CreateModel implements _CreateModel {
     TResult? Function(String screenResolution)? changeScreenResolution,
     TResult? Function(OperatingSystem operatingSystem)? changeOperatingSystem,
     TResult? Function(DisplayType displayType)? changeDisplayType,
+    TResult? Function(String screenResolution)? changeWidth,
+    TResult? Function(String screenResolution)? changeHeight,
     TResult? Function()? createModel,
     TResult? Function()? editModel,
   }) {
@@ -2482,10 +3062,10 @@ class _$_CreateModel implements _CreateModel {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Model model)? setModel,
+    TResult Function(Model? model)? setModel,
+    TResult Function(String manufacturerId)? setManufacturerId,
     TResult Function(String name)? changeName,
     TResult Function(String description)? changeDescription,
-    TResult Function(String manufacturerId)? changeManufacturerId,
     TResult Function(int pixelDensity)? changePixelDensity,
     TResult Function(int screenRefreshRate)? changeScreenRefreshRate,
     TResult Function(double screenDiagonal)? changeScreenDiagonal,
@@ -2493,6 +3073,8 @@ class _$_CreateModel implements _CreateModel {
     TResult Function(String screenResolution)? changeScreenResolution,
     TResult Function(OperatingSystem operatingSystem)? changeOperatingSystem,
     TResult Function(DisplayType displayType)? changeDisplayType,
+    TResult Function(String screenResolution)? changeWidth,
+    TResult Function(String screenResolution)? changeHeight,
     TResult Function()? createModel,
     TResult Function()? editModel,
     required TResult orElse(),
@@ -2507,9 +3089,9 @@ class _$_CreateModel implements _CreateModel {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_SetModel value) setModel,
+    required TResult Function(_SetManufacturerId value) setManufacturerId,
     required TResult Function(_ChangeName value) changeName,
     required TResult Function(_ChangeDescription value) changeDescription,
-    required TResult Function(_ChangeManufacturerId value) changeManufacturerId,
     required TResult Function(_ChangePixelDensity value) changePixelDensity,
     required TResult Function(_ChangeScreenRefreshRate value)
         changeScreenRefreshRate,
@@ -2520,6 +3102,8 @@ class _$_CreateModel implements _CreateModel {
     required TResult Function(_ChangeOperatingSystem value)
         changeOperatingSystem,
     required TResult Function(_ChangeDisplayType value) changeDisplayType,
+    required TResult Function(_ChangeWidth value) changeWidth,
+    required TResult Function(_ChangeHeight value) changeHeight,
     required TResult Function(_CreateModel value) createModel,
     required TResult Function(_EditModel value) editModel,
   }) {
@@ -2530,9 +3114,9 @@ class _$_CreateModel implements _CreateModel {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SetModel value)? setModel,
+    TResult? Function(_SetManufacturerId value)? setManufacturerId,
     TResult? Function(_ChangeName value)? changeName,
     TResult? Function(_ChangeDescription value)? changeDescription,
-    TResult? Function(_ChangeManufacturerId value)? changeManufacturerId,
     TResult? Function(_ChangePixelDensity value)? changePixelDensity,
     TResult? Function(_ChangeScreenRefreshRate value)? changeScreenRefreshRate,
     TResult? Function(_ChangeScreenDiagonal value)? changeScreenDiagonal,
@@ -2540,6 +3124,8 @@ class _$_CreateModel implements _CreateModel {
     TResult? Function(_ChangeScreenResolution value)? changeScreenResolution,
     TResult? Function(_ChangeOperatingSystem value)? changeOperatingSystem,
     TResult? Function(_ChangeDisplayType value)? changeDisplayType,
+    TResult? Function(_ChangeWidth value)? changeWidth,
+    TResult? Function(_ChangeHeight value)? changeHeight,
     TResult? Function(_CreateModel value)? createModel,
     TResult? Function(_EditModel value)? editModel,
   }) {
@@ -2550,9 +3136,9 @@ class _$_CreateModel implements _CreateModel {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SetModel value)? setModel,
+    TResult Function(_SetManufacturerId value)? setManufacturerId,
     TResult Function(_ChangeName value)? changeName,
     TResult Function(_ChangeDescription value)? changeDescription,
-    TResult Function(_ChangeManufacturerId value)? changeManufacturerId,
     TResult Function(_ChangePixelDensity value)? changePixelDensity,
     TResult Function(_ChangeScreenRefreshRate value)? changeScreenRefreshRate,
     TResult Function(_ChangeScreenDiagonal value)? changeScreenDiagonal,
@@ -2560,6 +3146,8 @@ class _$_CreateModel implements _CreateModel {
     TResult Function(_ChangeScreenResolution value)? changeScreenResolution,
     TResult Function(_ChangeOperatingSystem value)? changeOperatingSystem,
     TResult Function(_ChangeDisplayType value)? changeDisplayType,
+    TResult Function(_ChangeWidth value)? changeWidth,
+    TResult Function(_ChangeHeight value)? changeHeight,
     TResult Function(_CreateModel value)? createModel,
     TResult Function(_EditModel value)? editModel,
     required TResult orElse(),
@@ -2613,10 +3201,10 @@ class _$_EditModel implements _EditModel {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Model model) setModel,
+    required TResult Function(Model? model) setModel,
+    required TResult Function(String manufacturerId) setManufacturerId,
     required TResult Function(String name) changeName,
     required TResult Function(String description) changeDescription,
-    required TResult Function(String manufacturerId) changeManufacturerId,
     required TResult Function(int pixelDensity) changePixelDensity,
     required TResult Function(int screenRefreshRate) changeScreenRefreshRate,
     required TResult Function(double screenDiagonal) changeScreenDiagonal,
@@ -2625,6 +3213,8 @@ class _$_EditModel implements _EditModel {
     required TResult Function(OperatingSystem operatingSystem)
         changeOperatingSystem,
     required TResult Function(DisplayType displayType) changeDisplayType,
+    required TResult Function(String screenResolution) changeWidth,
+    required TResult Function(String screenResolution) changeHeight,
     required TResult Function() createModel,
     required TResult Function() editModel,
   }) {
@@ -2634,10 +3224,10 @@ class _$_EditModel implements _EditModel {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Model model)? setModel,
+    TResult? Function(Model? model)? setModel,
+    TResult? Function(String manufacturerId)? setManufacturerId,
     TResult? Function(String name)? changeName,
     TResult? Function(String description)? changeDescription,
-    TResult? Function(String manufacturerId)? changeManufacturerId,
     TResult? Function(int pixelDensity)? changePixelDensity,
     TResult? Function(int screenRefreshRate)? changeScreenRefreshRate,
     TResult? Function(double screenDiagonal)? changeScreenDiagonal,
@@ -2645,6 +3235,8 @@ class _$_EditModel implements _EditModel {
     TResult? Function(String screenResolution)? changeScreenResolution,
     TResult? Function(OperatingSystem operatingSystem)? changeOperatingSystem,
     TResult? Function(DisplayType displayType)? changeDisplayType,
+    TResult? Function(String screenResolution)? changeWidth,
+    TResult? Function(String screenResolution)? changeHeight,
     TResult? Function()? createModel,
     TResult? Function()? editModel,
   }) {
@@ -2654,10 +3246,10 @@ class _$_EditModel implements _EditModel {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Model model)? setModel,
+    TResult Function(Model? model)? setModel,
+    TResult Function(String manufacturerId)? setManufacturerId,
     TResult Function(String name)? changeName,
     TResult Function(String description)? changeDescription,
-    TResult Function(String manufacturerId)? changeManufacturerId,
     TResult Function(int pixelDensity)? changePixelDensity,
     TResult Function(int screenRefreshRate)? changeScreenRefreshRate,
     TResult Function(double screenDiagonal)? changeScreenDiagonal,
@@ -2665,6 +3257,8 @@ class _$_EditModel implements _EditModel {
     TResult Function(String screenResolution)? changeScreenResolution,
     TResult Function(OperatingSystem operatingSystem)? changeOperatingSystem,
     TResult Function(DisplayType displayType)? changeDisplayType,
+    TResult Function(String screenResolution)? changeWidth,
+    TResult Function(String screenResolution)? changeHeight,
     TResult Function()? createModel,
     TResult Function()? editModel,
     required TResult orElse(),
@@ -2679,9 +3273,9 @@ class _$_EditModel implements _EditModel {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_SetModel value) setModel,
+    required TResult Function(_SetManufacturerId value) setManufacturerId,
     required TResult Function(_ChangeName value) changeName,
     required TResult Function(_ChangeDescription value) changeDescription,
-    required TResult Function(_ChangeManufacturerId value) changeManufacturerId,
     required TResult Function(_ChangePixelDensity value) changePixelDensity,
     required TResult Function(_ChangeScreenRefreshRate value)
         changeScreenRefreshRate,
@@ -2692,6 +3286,8 @@ class _$_EditModel implements _EditModel {
     required TResult Function(_ChangeOperatingSystem value)
         changeOperatingSystem,
     required TResult Function(_ChangeDisplayType value) changeDisplayType,
+    required TResult Function(_ChangeWidth value) changeWidth,
+    required TResult Function(_ChangeHeight value) changeHeight,
     required TResult Function(_CreateModel value) createModel,
     required TResult Function(_EditModel value) editModel,
   }) {
@@ -2702,9 +3298,9 @@ class _$_EditModel implements _EditModel {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SetModel value)? setModel,
+    TResult? Function(_SetManufacturerId value)? setManufacturerId,
     TResult? Function(_ChangeName value)? changeName,
     TResult? Function(_ChangeDescription value)? changeDescription,
-    TResult? Function(_ChangeManufacturerId value)? changeManufacturerId,
     TResult? Function(_ChangePixelDensity value)? changePixelDensity,
     TResult? Function(_ChangeScreenRefreshRate value)? changeScreenRefreshRate,
     TResult? Function(_ChangeScreenDiagonal value)? changeScreenDiagonal,
@@ -2712,6 +3308,8 @@ class _$_EditModel implements _EditModel {
     TResult? Function(_ChangeScreenResolution value)? changeScreenResolution,
     TResult? Function(_ChangeOperatingSystem value)? changeOperatingSystem,
     TResult? Function(_ChangeDisplayType value)? changeDisplayType,
+    TResult? Function(_ChangeWidth value)? changeWidth,
+    TResult? Function(_ChangeHeight value)? changeHeight,
     TResult? Function(_CreateModel value)? createModel,
     TResult? Function(_EditModel value)? editModel,
   }) {
@@ -2722,9 +3320,9 @@ class _$_EditModel implements _EditModel {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SetModel value)? setModel,
+    TResult Function(_SetManufacturerId value)? setManufacturerId,
     TResult Function(_ChangeName value)? changeName,
     TResult Function(_ChangeDescription value)? changeDescription,
-    TResult Function(_ChangeManufacturerId value)? changeManufacturerId,
     TResult Function(_ChangePixelDensity value)? changePixelDensity,
     TResult Function(_ChangeScreenRefreshRate value)? changeScreenRefreshRate,
     TResult Function(_ChangeScreenDiagonal value)? changeScreenDiagonal,
@@ -2732,6 +3330,8 @@ class _$_EditModel implements _EditModel {
     TResult Function(_ChangeScreenResolution value)? changeScreenResolution,
     TResult Function(_ChangeOperatingSystem value)? changeOperatingSystem,
     TResult Function(_ChangeDisplayType value)? changeDisplayType,
+    TResult Function(_ChangeWidth value)? changeWidth,
+    TResult Function(_ChangeHeight value)? changeHeight,
     TResult Function(_CreateModel value)? createModel,
     TResult Function(_EditModel value)? editModel,
     required TResult orElse(),
@@ -2751,11 +3351,10 @@ abstract class _EditModel implements CreateEditModelEvent {
 mixin _$CreateEditModelState {
   String get name => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
-  String get manufacturerId => throw _privateConstructorUsedError;
-  int? get pixelDensity => throw _privateConstructorUsedError;
-  int? get screenRefreshRate => throw _privateConstructorUsedError;
-  double? get screenDiagonal => throw _privateConstructorUsedError;
-  int? get weight => throw _privateConstructorUsedError;
+  int get pixelDensity => throw _privateConstructorUsedError;
+  int get screenRefreshRate => throw _privateConstructorUsedError;
+  double get screenDiagonal => throw _privateConstructorUsedError;
+  int get weight => throw _privateConstructorUsedError;
   String get screenResolution => throw _privateConstructorUsedError;
   OperatingSystem get operatingSystem => throw _privateConstructorUsedError;
   DisplayType get displayType => throw _privateConstructorUsedError;
@@ -2763,6 +3362,7 @@ mixin _$CreateEditModelState {
   Failure get failure => throw _privateConstructorUsedError;
   File? get image => throw _privateConstructorUsedError;
   Model? get model => throw _privateConstructorUsedError;
+  String? get manufacturerId => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CreateEditModelStateCopyWith<CreateEditModelState> get copyWith =>
@@ -2778,18 +3378,18 @@ abstract class $CreateEditModelStateCopyWith<$Res> {
   $Res call(
       {String name,
       String description,
-      String manufacturerId,
-      int? pixelDensity,
-      int? screenRefreshRate,
-      double? screenDiagonal,
-      int? weight,
+      int pixelDensity,
+      int screenRefreshRate,
+      double screenDiagonal,
+      int weight,
       String screenResolution,
       OperatingSystem operatingSystem,
       DisplayType displayType,
       CreateEditModelStatus status,
       Failure failure,
       File? image,
-      Model? model});
+      Model? model,
+      String? manufacturerId});
 
   $FailureCopyWith<$Res> get failure;
 }
@@ -2810,11 +3410,10 @@ class _$CreateEditModelStateCopyWithImpl<$Res,
   $Res call({
     Object? name = null,
     Object? description = null,
-    Object? manufacturerId = null,
-    Object? pixelDensity = freezed,
-    Object? screenRefreshRate = freezed,
-    Object? screenDiagonal = freezed,
-    Object? weight = freezed,
+    Object? pixelDensity = null,
+    Object? screenRefreshRate = null,
+    Object? screenDiagonal = null,
+    Object? weight = null,
     Object? screenResolution = null,
     Object? operatingSystem = null,
     Object? displayType = null,
@@ -2822,6 +3421,7 @@ class _$CreateEditModelStateCopyWithImpl<$Res,
     Object? failure = null,
     Object? image = freezed,
     Object? model = freezed,
+    Object? manufacturerId = freezed,
   }) {
     return _then(_value.copyWith(
       name: null == name
@@ -2832,26 +3432,22 @@ class _$CreateEditModelStateCopyWithImpl<$Res,
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      manufacturerId: null == manufacturerId
-          ? _value.manufacturerId
-          : manufacturerId // ignore: cast_nullable_to_non_nullable
-              as String,
-      pixelDensity: freezed == pixelDensity
+      pixelDensity: null == pixelDensity
           ? _value.pixelDensity
           : pixelDensity // ignore: cast_nullable_to_non_nullable
-              as int?,
-      screenRefreshRate: freezed == screenRefreshRate
+              as int,
+      screenRefreshRate: null == screenRefreshRate
           ? _value.screenRefreshRate
           : screenRefreshRate // ignore: cast_nullable_to_non_nullable
-              as int?,
-      screenDiagonal: freezed == screenDiagonal
+              as int,
+      screenDiagonal: null == screenDiagonal
           ? _value.screenDiagonal
           : screenDiagonal // ignore: cast_nullable_to_non_nullable
-              as double?,
-      weight: freezed == weight
+              as double,
+      weight: null == weight
           ? _value.weight
           : weight // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       screenResolution: null == screenResolution
           ? _value.screenResolution
           : screenResolution // ignore: cast_nullable_to_non_nullable
@@ -2880,6 +3476,10 @@ class _$CreateEditModelStateCopyWithImpl<$Res,
           ? _value.model
           : model // ignore: cast_nullable_to_non_nullable
               as Model?,
+      manufacturerId: freezed == manufacturerId
+          ? _value.manufacturerId
+          : manufacturerId // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 
@@ -2903,18 +3503,18 @@ abstract class _$$_CreateEditModelStateCopyWith<$Res>
   $Res call(
       {String name,
       String description,
-      String manufacturerId,
-      int? pixelDensity,
-      int? screenRefreshRate,
-      double? screenDiagonal,
-      int? weight,
+      int pixelDensity,
+      int screenRefreshRate,
+      double screenDiagonal,
+      int weight,
       String screenResolution,
       OperatingSystem operatingSystem,
       DisplayType displayType,
       CreateEditModelStatus status,
       Failure failure,
       File? image,
-      Model? model});
+      Model? model,
+      String? manufacturerId});
 
   @override
   $FailureCopyWith<$Res> get failure;
@@ -2933,11 +3533,10 @@ class __$$_CreateEditModelStateCopyWithImpl<$Res>
   $Res call({
     Object? name = null,
     Object? description = null,
-    Object? manufacturerId = null,
-    Object? pixelDensity = freezed,
-    Object? screenRefreshRate = freezed,
-    Object? screenDiagonal = freezed,
-    Object? weight = freezed,
+    Object? pixelDensity = null,
+    Object? screenRefreshRate = null,
+    Object? screenDiagonal = null,
+    Object? weight = null,
     Object? screenResolution = null,
     Object? operatingSystem = null,
     Object? displayType = null,
@@ -2945,6 +3544,7 @@ class __$$_CreateEditModelStateCopyWithImpl<$Res>
     Object? failure = null,
     Object? image = freezed,
     Object? model = freezed,
+    Object? manufacturerId = freezed,
   }) {
     return _then(_$_CreateEditModelState(
       name: null == name
@@ -2955,26 +3555,22 @@ class __$$_CreateEditModelStateCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      manufacturerId: null == manufacturerId
-          ? _value.manufacturerId
-          : manufacturerId // ignore: cast_nullable_to_non_nullable
-              as String,
-      pixelDensity: freezed == pixelDensity
+      pixelDensity: null == pixelDensity
           ? _value.pixelDensity
           : pixelDensity // ignore: cast_nullable_to_non_nullable
-              as int?,
-      screenRefreshRate: freezed == screenRefreshRate
+              as int,
+      screenRefreshRate: null == screenRefreshRate
           ? _value.screenRefreshRate
           : screenRefreshRate // ignore: cast_nullable_to_non_nullable
-              as int?,
-      screenDiagonal: freezed == screenDiagonal
+              as int,
+      screenDiagonal: null == screenDiagonal
           ? _value.screenDiagonal
           : screenDiagonal // ignore: cast_nullable_to_non_nullable
-              as double?,
-      weight: freezed == weight
+              as double,
+      weight: null == weight
           ? _value.weight
           : weight // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       screenResolution: null == screenResolution
           ? _value.screenResolution
           : screenResolution // ignore: cast_nullable_to_non_nullable
@@ -3003,6 +3599,10 @@ class __$$_CreateEditModelStateCopyWithImpl<$Res>
           ? _value.model
           : model // ignore: cast_nullable_to_non_nullable
               as Model?,
+      manufacturerId: freezed == manufacturerId
+          ? _value.manufacturerId
+          : manufacturerId // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -3013,18 +3613,18 @@ class _$_CreateEditModelState extends _CreateEditModelState {
   const _$_CreateEditModelState(
       {this.name = '',
       this.description = '',
-      this.manufacturerId = '',
-      this.pixelDensity,
-      this.screenRefreshRate,
-      this.screenDiagonal,
-      this.weight,
+      this.pixelDensity = 0,
+      this.screenRefreshRate = 0,
+      this.screenDiagonal = 0.0,
+      this.weight = 0,
       this.screenResolution = '',
       this.operatingSystem = OperatingSystem.ANDROID,
       this.displayType = DisplayType.AMOLED,
       this.status = CreateEditModelStatus.initial,
       this.failure = const CasualFailure(),
       this.image,
-      this.model})
+      this.model,
+      this.manufacturerId})
       : super._();
 
   @override
@@ -3035,15 +3635,16 @@ class _$_CreateEditModelState extends _CreateEditModelState {
   final String description;
   @override
   @JsonKey()
-  final String manufacturerId;
+  final int pixelDensity;
   @override
-  final int? pixelDensity;
+  @JsonKey()
+  final int screenRefreshRate;
   @override
-  final int? screenRefreshRate;
+  @JsonKey()
+  final double screenDiagonal;
   @override
-  final double? screenDiagonal;
-  @override
-  final int? weight;
+  @JsonKey()
+  final int weight;
   @override
   @JsonKey()
   final String screenResolution;
@@ -3063,10 +3664,12 @@ class _$_CreateEditModelState extends _CreateEditModelState {
   final File? image;
   @override
   final Model? model;
+  @override
+  final String? manufacturerId;
 
   @override
   String toString() {
-    return 'CreateEditModelState(name: $name, description: $description, manufacturerId: $manufacturerId, pixelDensity: $pixelDensity, screenRefreshRate: $screenRefreshRate, screenDiagonal: $screenDiagonal, weight: $weight, screenResolution: $screenResolution, operatingSystem: $operatingSystem, displayType: $displayType, status: $status, failure: $failure, image: $image, model: $model)';
+    return 'CreateEditModelState(name: $name, description: $description, pixelDensity: $pixelDensity, screenRefreshRate: $screenRefreshRate, screenDiagonal: $screenDiagonal, weight: $weight, screenResolution: $screenResolution, operatingSystem: $operatingSystem, displayType: $displayType, status: $status, failure: $failure, image: $image, model: $model, manufacturerId: $manufacturerId)';
   }
 
   @override
@@ -3077,8 +3680,6 @@ class _$_CreateEditModelState extends _CreateEditModelState {
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
                 other.description == description) &&
-            (identical(other.manufacturerId, manufacturerId) ||
-                other.manufacturerId == manufacturerId) &&
             (identical(other.pixelDensity, pixelDensity) ||
                 other.pixelDensity == pixelDensity) &&
             (identical(other.screenRefreshRate, screenRefreshRate) ||
@@ -3095,7 +3696,9 @@ class _$_CreateEditModelState extends _CreateEditModelState {
             (identical(other.status, status) || other.status == status) &&
             (identical(other.failure, failure) || other.failure == failure) &&
             (identical(other.image, image) || other.image == image) &&
-            (identical(other.model, model) || other.model == model));
+            (identical(other.model, model) || other.model == model) &&
+            (identical(other.manufacturerId, manufacturerId) ||
+                other.manufacturerId == manufacturerId));
   }
 
   @override
@@ -3103,7 +3706,6 @@ class _$_CreateEditModelState extends _CreateEditModelState {
       runtimeType,
       name,
       description,
-      manufacturerId,
       pixelDensity,
       screenRefreshRate,
       screenDiagonal,
@@ -3114,7 +3716,8 @@ class _$_CreateEditModelState extends _CreateEditModelState {
       status,
       failure,
       image,
-      model);
+      model,
+      manufacturerId);
 
   @JsonKey(ignore: true)
   @override
@@ -3128,18 +3731,18 @@ abstract class _CreateEditModelState extends CreateEditModelState {
   const factory _CreateEditModelState(
       {final String name,
       final String description,
-      final String manufacturerId,
-      final int? pixelDensity,
-      final int? screenRefreshRate,
-      final double? screenDiagonal,
-      final int? weight,
+      final int pixelDensity,
+      final int screenRefreshRate,
+      final double screenDiagonal,
+      final int weight,
       final String screenResolution,
       final OperatingSystem operatingSystem,
       final DisplayType displayType,
       final CreateEditModelStatus status,
       final Failure failure,
       final File? image,
-      final Model? model}) = _$_CreateEditModelState;
+      final Model? model,
+      final String? manufacturerId}) = _$_CreateEditModelState;
   const _CreateEditModelState._() : super._();
 
   @override
@@ -3147,15 +3750,13 @@ abstract class _CreateEditModelState extends CreateEditModelState {
   @override
   String get description;
   @override
-  String get manufacturerId;
+  int get pixelDensity;
   @override
-  int? get pixelDensity;
+  int get screenRefreshRate;
   @override
-  int? get screenRefreshRate;
+  double get screenDiagonal;
   @override
-  double? get screenDiagonal;
-  @override
-  int? get weight;
+  int get weight;
   @override
   String get screenResolution;
   @override
@@ -3170,6 +3771,8 @@ abstract class _CreateEditModelState extends CreateEditModelState {
   File? get image;
   @override
   Model? get model;
+  @override
+  String? get manufacturerId;
   @override
   @JsonKey(ignore: true)
   _$$_CreateEditModelStateCopyWith<_$_CreateEditModelState> get copyWith =>
