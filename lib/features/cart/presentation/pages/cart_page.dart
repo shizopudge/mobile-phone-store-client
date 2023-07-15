@@ -9,7 +9,7 @@ import '../../../../core/presentation/widgets/bottom_sheets/products_filter/prod
 import '../../../../core/presentation/widgets/cards/rectangle_product_card.dart';
 import '../../../../core/presentation/widgets/cards/square_product_card.dart';
 import '../../../../core/presentation/widgets/other/casual_dismissible.dart';
-import '../../../../core/presentation/widgets/pages/search_page.dart';
+import '../../../../core/presentation/widgets/pages/browse_page.dart';
 import '../../../../core/presentation/widgets/scrollable/sliver_grid_view.dart';
 import '../../../../core/styles/colors.dart';
 import '../../../../core/utils/size_config.dart';
@@ -35,7 +35,7 @@ class CartPage extends StatelessWidget {
         return Column(
           children: [
             Expanded(
-              child: SearchPage<CartBloc, CartEvent, CartState>(
+              child: BrowsePage<CartBloc, CartEvent, CartState>(
                 onSearch: (query) => context.read<CartBloc>().add(
                       CartEvent.searchProducts(
                         query,

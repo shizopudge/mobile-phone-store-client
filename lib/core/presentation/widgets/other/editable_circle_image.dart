@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -26,11 +27,17 @@ class EditableCircleImage extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: pickedImage != null
-          ? CircleAvatar(
-              backgroundImage: FileImage(pickedImage!),
-              backgroundColor: kLightWhite,
-              radius: radius,
-            )
+          ? kIsWeb
+              ? CircleAvatar(
+                  backgroundImage: NetworkImage(pickedImage!.path),
+                  backgroundColor: kLightWhite,
+                  radius: radius,
+                )
+              : CircleAvatar(
+                  backgroundImage: FileImage(pickedImage!),
+                  backgroundColor: kLightWhite,
+                  radius: radius,
+                )
           : image != null
               ? CachedNetworkImage(
                   imageUrl: '${ApiConstants.imagesUrl}/$image',

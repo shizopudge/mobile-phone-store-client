@@ -26,7 +26,9 @@ class _HomeBodyState extends State<HomeBody> with TickerProviderStateMixin {
   late final TabController _tabController = TabController(
       length: widget.pages.length,
       vsync: this,
-      initialIndex: context.read<HomeCubit>().state.page)
+      initialIndex: widget.pages.length > context.read<HomeCubit>().state.page
+          ? context.read<HomeCubit>().state.page
+          : 0)
     ..addListener(
         () => context.read<HomeCubit>().changePage(_tabController.index));
 

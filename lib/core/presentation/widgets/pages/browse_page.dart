@@ -14,11 +14,12 @@ import '../../../../core/utils/debouncer.dart';
 import '../../../../core/utils/size_config.dart';
 import '../../../domain/entities/info.dart';
 
-class SearchPage<B extends Bloc<E, S>, E, S> extends StatefulWidget {
+class BrowsePage<B extends Bloc<E, S>, E, S> extends StatefulWidget {
   final void Function(String query) onSearch;
   final VoidCallback? onFilterTap;
   final VoidCallback onPagination;
   final VoidCallback onRefresh;
+  final Widget? header;
   final Widget child;
   final List<BlocListener> listeners;
   final String query;
@@ -29,7 +30,7 @@ class SearchPage<B extends Bloc<E, S>, E, S> extends StatefulWidget {
   final bool isLoading;
   final bool isLastPage;
   final bool isNothingFound;
-  const SearchPage({
+  const BrowsePage({
     super.key,
     required this.onSearch,
     required this.onFilterTap,
@@ -45,13 +46,14 @@ class SearchPage<B extends Bloc<E, S>, E, S> extends StatefulWidget {
     required this.isLoading,
     required this.isLastPage,
     required this.isNothingFound,
+    this.header,
   });
 
   @override
-  State<SearchPage> createState() => _SearchPageState();
+  State<BrowsePage> createState() => _BrowsePageState();
 }
 
-class _SearchPageState extends State<SearchPage> {
+class _BrowsePageState extends State<BrowsePage> {
   late final TextEditingController _searchController =
       TextEditingController(text: widget.query)..addListener(_searchListener);
   late final ScrollController _scrollController = ScrollController()
@@ -138,6 +140,9 @@ class _SearchPageState extends State<SearchPage> {
                   physics: const AlwaysScrollableScrollPhysics(
                       parent: ClampingScrollPhysics()),
                   slivers: [
+                    SliverToBoxAdapter(
+                      child: widget.header,
+                    ),
                     SliverPadding(
                       padding: EdgeInsets.symmetric(
                           vertical: SizeConfig.setPadding(20)),

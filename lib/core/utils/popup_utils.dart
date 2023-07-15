@@ -15,23 +15,19 @@ class PopupUtils {
         SnackBar(
           elevation: 8,
           backgroundColor: kDarkBlue,
-          shape: RoundedRectangleBorder(
-              borderRadius:
-                  BorderRadius.circular(SizeConfig.borderRadiusSmall)),
-          duration: const Duration(milliseconds: 10000),
-          behavior: SnackBarBehavior.floating,
+          duration: const Duration(milliseconds: 5000),
           content: Row(
             children: [
               Icon(Icons.error_outline,
-                  size: SizeConfig.iconMedium, color: kRed),
+                  size: SizeConfig.iconLarge, color: kRed),
               const SizedBox(width: 10),
               Flexible(
                 child: AutoSizeText(
                   message,
                   maxLines: 4,
                   overflow: TextOverflow.ellipsis,
-                  style: kRegular.copyWith(color: kWhite, fontSize: 16),
-                  minFontSize: 14,
+                  style: kSemiBold.copyWith(
+                      color: kLightWhite, fontSize: SizeConfig.body1),
                 ),
               ),
             ],

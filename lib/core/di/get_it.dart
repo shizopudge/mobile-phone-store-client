@@ -2,12 +2,7 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
-import '../../features/models/domain/usecases/delete_model.dart';
-import '../../features/manufacturers/data/datasources/manufacturers_remote_data_source.dart';
-import '../../features/manufacturers/data/repositories/manufacturers_repository_impl.dart';
-import '../../features/models/data/datasources/models_remote_data_source.dart';
-import '../../features/models/domain/usecases/get_models.dart';
-import '../../features/models/presentation/bloc/models_bloc.dart';
+import '../../features/create_edit_product/domain/usecases/delete_product.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../features/auth/data/datasources/auth_local_data_source.dart';
@@ -18,6 +13,10 @@ import '../../features/auth/domain/usecases/get_login_type.dart';
 import '../../features/auth/domain/usecases/logout.dart';
 import '../../features/auth/domain/usecases/refresh_tokens.dart';
 import '../../features/auth/presentation/bloc/auth_bloc.dart';
+import '../../features/browse_products/data/datasources/browse_products_remote_data_source.dart';
+import '../../features/browse_products/data/repositories/browse_products_repository_impl.dart';
+import '../../features/browse_products/domain/usecases/browse_products.dart';
+import '../../features/browse_products/presentation/bloc/browse_products_bloc.dart';
 import '../../features/cart/data/datasources/cart_remote_data_source.dart';
 import '../../features/cart/data/repositories/cart_repository_impl.dart';
 import '../../features/cart/domain/usecases/get_cart.dart';
@@ -34,6 +33,13 @@ import '../../features/create_edit_model/data/repositories/create_edit_model_rep
 import '../../features/create_edit_model/domain/usecases/create_model.dart';
 import '../../features/create_edit_model/domain/usecases/edit_model.dart';
 import '../../features/create_edit_model/presentation/bloc/create_edit_model_bloc.dart';
+import '../../features/create_edit_product/data/datasources/create_edit_product_remote_data_source.dart';
+import '../../features/create_edit_product/data/repositories/create_edit_product_repository_impl.dart';
+import '../../features/create_edit_product/domain/usecases/create_product.dart';
+import '../../features/create_edit_product/domain/usecases/delete_image.dart';
+import '../../features/create_edit_product/domain/usecases/edit_product.dart';
+import '../../features/create_edit_product/domain/usecases/upload_images.dart';
+import '../../features/create_edit_product/presentation/bloc/create_edit_product_bloc.dart';
 import '../../features/detailed_product/data/datasources/detailed_product_remote_data_source.dart';
 import '../../features/detailed_product/data/repositories/detailed_product_repository_impl.dart';
 import '../../features/detailed_product/domain/usecases/change_color.dart';
@@ -44,14 +50,16 @@ import '../../features/home/cubit/home_cubit.dart';
 import '../../features/login/data/datasources/login_local_data_source.dart';
 import '../../features/login/data/datasources/login_remote_data_source.dart';
 import '../../features/login/data/repositories/login_repository_impl.dart';
+import '../../features/manufacturers/data/datasources/manufacturers_remote_data_source.dart';
+import '../../features/manufacturers/data/repositories/manufacturers_repository_impl.dart';
 import '../../features/manufacturers/domain/usecases/delete_manufacturer.dart';
 import '../../features/manufacturers/domain/usecases/get_manufacturers.dart';
 import '../../features/manufacturers/presentation/bloc/manufacturers_bloc.dart';
+import '../../features/models/data/datasources/models_remote_data_source.dart';
 import '../../features/models/data/repositories/models_repository_impl.dart';
-import '../../features/products/data/datasources/browse_products_remote_data_source.dart';
-import '../../features/products/data/repositories/browse_products_repository_impl.dart';
-import '../../features/products/domain/usecases/get_many_products.dart';
-import '../../features/products/presentation/bloc/browse_products_bloc.dart';
+import '../../features/models/domain/usecases/delete_model.dart';
+import '../../features/models/domain/usecases/get_models.dart';
+import '../../features/models/presentation/bloc/models_bloc.dart';
 import '../../features/profile/data/datasources/profile_remote_data_source.dart';
 import '../../features/profile/data/repositories/profile_repository_impl.dart';
 import '../../features/wishlist/data/datasources/wishlist_remote_data_source.dart';
@@ -65,6 +73,7 @@ import '../data/datasources/products/products_remote_data_source.dart';
 import '../data/repositories/image/image_repository_impl.dart';
 import '../data/repositories/products/products_repository_impl.dart';
 import '../domain/usecases/image/pick_image.dart';
+import '../domain/usecases/image/pick_images.dart';
 import '../domain/usecases/products/toggle_cart.dart';
 import '../domain/usecases/products/toggle_wishlist.dart';
 import '../utils/app_router.dart';
@@ -112,6 +121,9 @@ Future<void> appSetup() async {
   getIt.registerSingleton(CreateEditModelRepositoryImpl(
       remoteDataSource:
           CreateEditModelRemoteDataSourceImpl(getIt<DioClient>())));
+  getIt.registerSingleton(CreateEditProductRepositoryImpl(
+      remoteDataSource:
+          CreateEditProductRemoteDataSourceImpl(getIt<DioClient>())));
   getIt.registerSingleton(ManufacturersRepositoryImpl(
       remoteDataSource: ManufacturersRemoteDataSourceImpl(getIt<DioClient>())));
   getIt.registerSingleton(ModelsRepositoryImpl(
@@ -130,8 +142,10 @@ Future<void> appSetup() async {
   /// Blocs
   getIt.registerSingleton(HomeCubit());
   getIt.registerSingleton(BrowseProductsBloc(
-    getManyProductsUsecase: GetProduct(getIt<BrowseProductsRepositoryImpl>()),
+    getManyProductsUsecase:
+        BrowseProducts(getIt<BrowseProductsRepositoryImpl>()),
   ));
+
   getIt.registerSingleton(WishlistBloc(
       getWishlistUsecase: GetWishlist(getIt<WishlistRepositoryImpl>()),
       toggleWishlistUsecase: ToggleWishlist(getIt<ProductsRepositoryImpl>())));
@@ -140,6 +154,18 @@ Future<void> appSetup() async {
         getIt<CartRepositoryImpl>(),
       ),
       toggleCartUsecase: ToggleCart(getIt<ProductsRepositoryImpl>())));
+  getIt.registerSingleton(DetailedProductBloc(
+    cartBloc: getIt<CartBloc>(),
+    wishlistBloc: getIt<WishlistBloc>(),
+    browseProductsBloc: getIt<BrowseProductsBloc>(),
+    getOneProductUsecase: GetOneProduct(getIt<DetailedProductRepositoryImpl>()),
+    changeColorUsecase: ChangeColor(
+      getIt<DetailedProductRepositoryImpl>(),
+    ),
+    changeStorageUsecase: ChangeStorage(
+      getIt<DetailedProductRepositoryImpl>(),
+    ),
+  ));
   getIt.registerSingleton(ManufacturersBloc(
       getManufacturersUsecase:
           GetManufacturers(getIt<ManufacturersRepositoryImpl>()),
@@ -163,18 +189,20 @@ Future<void> appSetup() async {
       modelsBloc: getIt<ModelsBloc>(),
       createModelUsecase: CreateModel(getIt<CreateEditModelRepositoryImpl>()),
       editModelUsecase: EditModel((getIt<CreateEditModelRepositoryImpl>()))));
-  getIt.registerSingleton(DetailedProductBloc(
-    cartBloc: getIt<CartBloc>(),
-    wishlistBloc: getIt<WishlistBloc>(),
-    browseProductsBloc: getIt<BrowseProductsBloc>(),
-    getOneProductUsecase: GetOneProduct(getIt<DetailedProductRepositoryImpl>()),
-    changeColorUsecase: ChangeColor(
-      getIt<DetailedProductRepositoryImpl>(),
-    ),
-    changeStorageUsecase: ChangeStorage(
-      getIt<DetailedProductRepositoryImpl>(),
-    ),
-  ));
+  getIt.registerSingleton(CreateEditProductBloc(
+      modelsBloc: getIt<ModelsBloc>(),
+      detailedProductBloc: getIt<DetailedProductBloc>(),
+      browseProductsBloc: getIt<BrowseProductsBloc>(),
+      createProductUsecase:
+          CreateProduct(getIt<CreateEditProductRepositoryImpl>()),
+      editProduct: EditProduct(getIt<CreateEditProductRepositoryImpl>()),
+      pickImagesUsecase: PickImages(getIt<ImageRepositoryImpl>()),
+      uploadProductImagesUsecase:
+          UploadProductImages(getIt<CreateEditProductRepositoryImpl>()),
+      deleteProductImageUsecase:
+          DeleteProductImage(getIt<CreateEditProductRepositoryImpl>()),
+      deleteProductUsecase:
+          DeleteProduct(getIt<CreateEditProductRepositoryImpl>())));
 
   /// Global blocs
   getIt.registerSingleton(AuthBloc(

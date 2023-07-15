@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$CreateEditModelEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Model? model) setModel,
+    required TResult Function(Model model) setModel,
     required TResult Function(String manufacturerId) setManufacturerId,
     required TResult Function(String name) changeName,
     required TResult Function(String description) changeDescription,
@@ -34,11 +34,12 @@ mixin _$CreateEditModelEvent {
     required TResult Function(String screenResolution) changeHeight,
     required TResult Function() createModel,
     required TResult Function() editModel,
+    required TResult Function() reset,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Model? model)? setModel,
+    TResult? Function(Model model)? setModel,
     TResult? Function(String manufacturerId)? setManufacturerId,
     TResult? Function(String name)? changeName,
     TResult? Function(String description)? changeDescription,
@@ -53,11 +54,12 @@ mixin _$CreateEditModelEvent {
     TResult? Function(String screenResolution)? changeHeight,
     TResult? Function()? createModel,
     TResult? Function()? editModel,
+    TResult? Function()? reset,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Model? model)? setModel,
+    TResult Function(Model model)? setModel,
     TResult Function(String manufacturerId)? setManufacturerId,
     TResult Function(String name)? changeName,
     TResult Function(String description)? changeDescription,
@@ -72,6 +74,7 @@ mixin _$CreateEditModelEvent {
     TResult Function(String screenResolution)? changeHeight,
     TResult Function()? createModel,
     TResult Function()? editModel,
+    TResult Function()? reset,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -95,6 +98,7 @@ mixin _$CreateEditModelEvent {
     required TResult Function(_ChangeHeight value) changeHeight,
     required TResult Function(_CreateModel value) createModel,
     required TResult Function(_EditModel value) editModel,
+    required TResult Function(_Reset value) reset,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -114,6 +118,7 @@ mixin _$CreateEditModelEvent {
     TResult? Function(_ChangeHeight value)? changeHeight,
     TResult? Function(_CreateModel value)? createModel,
     TResult? Function(_EditModel value)? editModel,
+    TResult? Function(_Reset value)? reset,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -133,6 +138,7 @@ mixin _$CreateEditModelEvent {
     TResult Function(_ChangeHeight value)? changeHeight,
     TResult Function(_CreateModel value)? createModel,
     TResult Function(_EditModel value)? editModel,
+    TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -163,7 +169,7 @@ abstract class _$$_SetModelCopyWith<$Res> {
           _$_SetModel value, $Res Function(_$_SetModel) then) =
       __$$_SetModelCopyWithImpl<$Res>;
   @useResult
-  $Res call({Model? model});
+  $Res call({Model model});
 }
 
 /// @nodoc
@@ -177,13 +183,13 @@ class __$$_SetModelCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? model = freezed,
+    Object? model = null,
   }) {
     return _then(_$_SetModel(
-      freezed == model
+      null == model
           ? _value.model
           : model // ignore: cast_nullable_to_non_nullable
-              as Model?,
+              as Model,
     ));
   }
 }
@@ -194,7 +200,7 @@ class _$_SetModel implements _SetModel {
   const _$_SetModel(this.model);
 
   @override
-  final Model? model;
+  final Model model;
 
   @override
   String toString() {
@@ -221,7 +227,7 @@ class _$_SetModel implements _SetModel {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Model? model) setModel,
+    required TResult Function(Model model) setModel,
     required TResult Function(String manufacturerId) setManufacturerId,
     required TResult Function(String name) changeName,
     required TResult Function(String description) changeDescription,
@@ -237,6 +243,7 @@ class _$_SetModel implements _SetModel {
     required TResult Function(String screenResolution) changeHeight,
     required TResult Function() createModel,
     required TResult Function() editModel,
+    required TResult Function() reset,
   }) {
     return setModel(model);
   }
@@ -244,7 +251,7 @@ class _$_SetModel implements _SetModel {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Model? model)? setModel,
+    TResult? Function(Model model)? setModel,
     TResult? Function(String manufacturerId)? setManufacturerId,
     TResult? Function(String name)? changeName,
     TResult? Function(String description)? changeDescription,
@@ -259,6 +266,7 @@ class _$_SetModel implements _SetModel {
     TResult? Function(String screenResolution)? changeHeight,
     TResult? Function()? createModel,
     TResult? Function()? editModel,
+    TResult? Function()? reset,
   }) {
     return setModel?.call(model);
   }
@@ -266,7 +274,7 @@ class _$_SetModel implements _SetModel {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Model? model)? setModel,
+    TResult Function(Model model)? setModel,
     TResult Function(String manufacturerId)? setManufacturerId,
     TResult Function(String name)? changeName,
     TResult Function(String description)? changeDescription,
@@ -281,6 +289,7 @@ class _$_SetModel implements _SetModel {
     TResult Function(String screenResolution)? changeHeight,
     TResult Function()? createModel,
     TResult Function()? editModel,
+    TResult Function()? reset,
     required TResult orElse(),
   }) {
     if (setModel != null) {
@@ -310,6 +319,7 @@ class _$_SetModel implements _SetModel {
     required TResult Function(_ChangeHeight value) changeHeight,
     required TResult Function(_CreateModel value) createModel,
     required TResult Function(_EditModel value) editModel,
+    required TResult Function(_Reset value) reset,
   }) {
     return setModel(this);
   }
@@ -332,6 +342,7 @@ class _$_SetModel implements _SetModel {
     TResult? Function(_ChangeHeight value)? changeHeight,
     TResult? Function(_CreateModel value)? createModel,
     TResult? Function(_EditModel value)? editModel,
+    TResult? Function(_Reset value)? reset,
   }) {
     return setModel?.call(this);
   }
@@ -354,6 +365,7 @@ class _$_SetModel implements _SetModel {
     TResult Function(_ChangeHeight value)? changeHeight,
     TResult Function(_CreateModel value)? createModel,
     TResult Function(_EditModel value)? editModel,
+    TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) {
     if (setModel != null) {
@@ -364,9 +376,9 @@ class _$_SetModel implements _SetModel {
 }
 
 abstract class _SetModel implements CreateEditModelEvent {
-  const factory _SetModel(final Model? model) = _$_SetModel;
+  const factory _SetModel(final Model model) = _$_SetModel;
 
-  Model? get model;
+  Model get model;
   @JsonKey(ignore: true)
   _$$_SetModelCopyWith<_$_SetModel> get copyWith =>
       throw _privateConstructorUsedError;
@@ -438,7 +450,7 @@ class _$_SetManufacturerId implements _SetManufacturerId {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Model? model) setModel,
+    required TResult Function(Model model) setModel,
     required TResult Function(String manufacturerId) setManufacturerId,
     required TResult Function(String name) changeName,
     required TResult Function(String description) changeDescription,
@@ -454,6 +466,7 @@ class _$_SetManufacturerId implements _SetManufacturerId {
     required TResult Function(String screenResolution) changeHeight,
     required TResult Function() createModel,
     required TResult Function() editModel,
+    required TResult Function() reset,
   }) {
     return setManufacturerId(manufacturerId);
   }
@@ -461,7 +474,7 @@ class _$_SetManufacturerId implements _SetManufacturerId {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Model? model)? setModel,
+    TResult? Function(Model model)? setModel,
     TResult? Function(String manufacturerId)? setManufacturerId,
     TResult? Function(String name)? changeName,
     TResult? Function(String description)? changeDescription,
@@ -476,6 +489,7 @@ class _$_SetManufacturerId implements _SetManufacturerId {
     TResult? Function(String screenResolution)? changeHeight,
     TResult? Function()? createModel,
     TResult? Function()? editModel,
+    TResult? Function()? reset,
   }) {
     return setManufacturerId?.call(manufacturerId);
   }
@@ -483,7 +497,7 @@ class _$_SetManufacturerId implements _SetManufacturerId {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Model? model)? setModel,
+    TResult Function(Model model)? setModel,
     TResult Function(String manufacturerId)? setManufacturerId,
     TResult Function(String name)? changeName,
     TResult Function(String description)? changeDescription,
@@ -498,6 +512,7 @@ class _$_SetManufacturerId implements _SetManufacturerId {
     TResult Function(String screenResolution)? changeHeight,
     TResult Function()? createModel,
     TResult Function()? editModel,
+    TResult Function()? reset,
     required TResult orElse(),
   }) {
     if (setManufacturerId != null) {
@@ -527,6 +542,7 @@ class _$_SetManufacturerId implements _SetManufacturerId {
     required TResult Function(_ChangeHeight value) changeHeight,
     required TResult Function(_CreateModel value) createModel,
     required TResult Function(_EditModel value) editModel,
+    required TResult Function(_Reset value) reset,
   }) {
     return setManufacturerId(this);
   }
@@ -549,6 +565,7 @@ class _$_SetManufacturerId implements _SetManufacturerId {
     TResult? Function(_ChangeHeight value)? changeHeight,
     TResult? Function(_CreateModel value)? createModel,
     TResult? Function(_EditModel value)? editModel,
+    TResult? Function(_Reset value)? reset,
   }) {
     return setManufacturerId?.call(this);
   }
@@ -571,6 +588,7 @@ class _$_SetManufacturerId implements _SetManufacturerId {
     TResult Function(_ChangeHeight value)? changeHeight,
     TResult Function(_CreateModel value)? createModel,
     TResult Function(_EditModel value)? editModel,
+    TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) {
     if (setManufacturerId != null) {
@@ -654,7 +672,7 @@ class _$_ChangeName implements _ChangeName {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Model? model) setModel,
+    required TResult Function(Model model) setModel,
     required TResult Function(String manufacturerId) setManufacturerId,
     required TResult Function(String name) changeName,
     required TResult Function(String description) changeDescription,
@@ -670,6 +688,7 @@ class _$_ChangeName implements _ChangeName {
     required TResult Function(String screenResolution) changeHeight,
     required TResult Function() createModel,
     required TResult Function() editModel,
+    required TResult Function() reset,
   }) {
     return changeName(name);
   }
@@ -677,7 +696,7 @@ class _$_ChangeName implements _ChangeName {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Model? model)? setModel,
+    TResult? Function(Model model)? setModel,
     TResult? Function(String manufacturerId)? setManufacturerId,
     TResult? Function(String name)? changeName,
     TResult? Function(String description)? changeDescription,
@@ -692,6 +711,7 @@ class _$_ChangeName implements _ChangeName {
     TResult? Function(String screenResolution)? changeHeight,
     TResult? Function()? createModel,
     TResult? Function()? editModel,
+    TResult? Function()? reset,
   }) {
     return changeName?.call(name);
   }
@@ -699,7 +719,7 @@ class _$_ChangeName implements _ChangeName {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Model? model)? setModel,
+    TResult Function(Model model)? setModel,
     TResult Function(String manufacturerId)? setManufacturerId,
     TResult Function(String name)? changeName,
     TResult Function(String description)? changeDescription,
@@ -714,6 +734,7 @@ class _$_ChangeName implements _ChangeName {
     TResult Function(String screenResolution)? changeHeight,
     TResult Function()? createModel,
     TResult Function()? editModel,
+    TResult Function()? reset,
     required TResult orElse(),
   }) {
     if (changeName != null) {
@@ -743,6 +764,7 @@ class _$_ChangeName implements _ChangeName {
     required TResult Function(_ChangeHeight value) changeHeight,
     required TResult Function(_CreateModel value) createModel,
     required TResult Function(_EditModel value) editModel,
+    required TResult Function(_Reset value) reset,
   }) {
     return changeName(this);
   }
@@ -765,6 +787,7 @@ class _$_ChangeName implements _ChangeName {
     TResult? Function(_ChangeHeight value)? changeHeight,
     TResult? Function(_CreateModel value)? createModel,
     TResult? Function(_EditModel value)? editModel,
+    TResult? Function(_Reset value)? reset,
   }) {
     return changeName?.call(this);
   }
@@ -787,6 +810,7 @@ class _$_ChangeName implements _ChangeName {
     TResult Function(_ChangeHeight value)? changeHeight,
     TResult Function(_CreateModel value)? createModel,
     TResult Function(_EditModel value)? editModel,
+    TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) {
     if (changeName != null) {
@@ -871,7 +895,7 @@ class _$_ChangeDescription implements _ChangeDescription {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Model? model) setModel,
+    required TResult Function(Model model) setModel,
     required TResult Function(String manufacturerId) setManufacturerId,
     required TResult Function(String name) changeName,
     required TResult Function(String description) changeDescription,
@@ -887,6 +911,7 @@ class _$_ChangeDescription implements _ChangeDescription {
     required TResult Function(String screenResolution) changeHeight,
     required TResult Function() createModel,
     required TResult Function() editModel,
+    required TResult Function() reset,
   }) {
     return changeDescription(description);
   }
@@ -894,7 +919,7 @@ class _$_ChangeDescription implements _ChangeDescription {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Model? model)? setModel,
+    TResult? Function(Model model)? setModel,
     TResult? Function(String manufacturerId)? setManufacturerId,
     TResult? Function(String name)? changeName,
     TResult? Function(String description)? changeDescription,
@@ -909,6 +934,7 @@ class _$_ChangeDescription implements _ChangeDescription {
     TResult? Function(String screenResolution)? changeHeight,
     TResult? Function()? createModel,
     TResult? Function()? editModel,
+    TResult? Function()? reset,
   }) {
     return changeDescription?.call(description);
   }
@@ -916,7 +942,7 @@ class _$_ChangeDescription implements _ChangeDescription {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Model? model)? setModel,
+    TResult Function(Model model)? setModel,
     TResult Function(String manufacturerId)? setManufacturerId,
     TResult Function(String name)? changeName,
     TResult Function(String description)? changeDescription,
@@ -931,6 +957,7 @@ class _$_ChangeDescription implements _ChangeDescription {
     TResult Function(String screenResolution)? changeHeight,
     TResult Function()? createModel,
     TResult Function()? editModel,
+    TResult Function()? reset,
     required TResult orElse(),
   }) {
     if (changeDescription != null) {
@@ -960,6 +987,7 @@ class _$_ChangeDescription implements _ChangeDescription {
     required TResult Function(_ChangeHeight value) changeHeight,
     required TResult Function(_CreateModel value) createModel,
     required TResult Function(_EditModel value) editModel,
+    required TResult Function(_Reset value) reset,
   }) {
     return changeDescription(this);
   }
@@ -982,6 +1010,7 @@ class _$_ChangeDescription implements _ChangeDescription {
     TResult? Function(_ChangeHeight value)? changeHeight,
     TResult? Function(_CreateModel value)? createModel,
     TResult? Function(_EditModel value)? editModel,
+    TResult? Function(_Reset value)? reset,
   }) {
     return changeDescription?.call(this);
   }
@@ -1004,6 +1033,7 @@ class _$_ChangeDescription implements _ChangeDescription {
     TResult Function(_ChangeHeight value)? changeHeight,
     TResult Function(_CreateModel value)? createModel,
     TResult Function(_EditModel value)? editModel,
+    TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) {
     if (changeDescription != null) {
@@ -1089,7 +1119,7 @@ class _$_ChangePixelDensity implements _ChangePixelDensity {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Model? model) setModel,
+    required TResult Function(Model model) setModel,
     required TResult Function(String manufacturerId) setManufacturerId,
     required TResult Function(String name) changeName,
     required TResult Function(String description) changeDescription,
@@ -1105,6 +1135,7 @@ class _$_ChangePixelDensity implements _ChangePixelDensity {
     required TResult Function(String screenResolution) changeHeight,
     required TResult Function() createModel,
     required TResult Function() editModel,
+    required TResult Function() reset,
   }) {
     return changePixelDensity(pixelDensity);
   }
@@ -1112,7 +1143,7 @@ class _$_ChangePixelDensity implements _ChangePixelDensity {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Model? model)? setModel,
+    TResult? Function(Model model)? setModel,
     TResult? Function(String manufacturerId)? setManufacturerId,
     TResult? Function(String name)? changeName,
     TResult? Function(String description)? changeDescription,
@@ -1127,6 +1158,7 @@ class _$_ChangePixelDensity implements _ChangePixelDensity {
     TResult? Function(String screenResolution)? changeHeight,
     TResult? Function()? createModel,
     TResult? Function()? editModel,
+    TResult? Function()? reset,
   }) {
     return changePixelDensity?.call(pixelDensity);
   }
@@ -1134,7 +1166,7 @@ class _$_ChangePixelDensity implements _ChangePixelDensity {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Model? model)? setModel,
+    TResult Function(Model model)? setModel,
     TResult Function(String manufacturerId)? setManufacturerId,
     TResult Function(String name)? changeName,
     TResult Function(String description)? changeDescription,
@@ -1149,6 +1181,7 @@ class _$_ChangePixelDensity implements _ChangePixelDensity {
     TResult Function(String screenResolution)? changeHeight,
     TResult Function()? createModel,
     TResult Function()? editModel,
+    TResult Function()? reset,
     required TResult orElse(),
   }) {
     if (changePixelDensity != null) {
@@ -1178,6 +1211,7 @@ class _$_ChangePixelDensity implements _ChangePixelDensity {
     required TResult Function(_ChangeHeight value) changeHeight,
     required TResult Function(_CreateModel value) createModel,
     required TResult Function(_EditModel value) editModel,
+    required TResult Function(_Reset value) reset,
   }) {
     return changePixelDensity(this);
   }
@@ -1200,6 +1234,7 @@ class _$_ChangePixelDensity implements _ChangePixelDensity {
     TResult? Function(_ChangeHeight value)? changeHeight,
     TResult? Function(_CreateModel value)? createModel,
     TResult? Function(_EditModel value)? editModel,
+    TResult? Function(_Reset value)? reset,
   }) {
     return changePixelDensity?.call(this);
   }
@@ -1222,6 +1257,7 @@ class _$_ChangePixelDensity implements _ChangePixelDensity {
     TResult Function(_ChangeHeight value)? changeHeight,
     TResult Function(_CreateModel value)? createModel,
     TResult Function(_EditModel value)? editModel,
+    TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) {
     if (changePixelDensity != null) {
@@ -1308,7 +1344,7 @@ class _$_ChangeScreenRefreshRate implements _ChangeScreenRefreshRate {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Model? model) setModel,
+    required TResult Function(Model model) setModel,
     required TResult Function(String manufacturerId) setManufacturerId,
     required TResult Function(String name) changeName,
     required TResult Function(String description) changeDescription,
@@ -1324,6 +1360,7 @@ class _$_ChangeScreenRefreshRate implements _ChangeScreenRefreshRate {
     required TResult Function(String screenResolution) changeHeight,
     required TResult Function() createModel,
     required TResult Function() editModel,
+    required TResult Function() reset,
   }) {
     return changeScreenRefreshRate(screenRefreshRate);
   }
@@ -1331,7 +1368,7 @@ class _$_ChangeScreenRefreshRate implements _ChangeScreenRefreshRate {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Model? model)? setModel,
+    TResult? Function(Model model)? setModel,
     TResult? Function(String manufacturerId)? setManufacturerId,
     TResult? Function(String name)? changeName,
     TResult? Function(String description)? changeDescription,
@@ -1346,6 +1383,7 @@ class _$_ChangeScreenRefreshRate implements _ChangeScreenRefreshRate {
     TResult? Function(String screenResolution)? changeHeight,
     TResult? Function()? createModel,
     TResult? Function()? editModel,
+    TResult? Function()? reset,
   }) {
     return changeScreenRefreshRate?.call(screenRefreshRate);
   }
@@ -1353,7 +1391,7 @@ class _$_ChangeScreenRefreshRate implements _ChangeScreenRefreshRate {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Model? model)? setModel,
+    TResult Function(Model model)? setModel,
     TResult Function(String manufacturerId)? setManufacturerId,
     TResult Function(String name)? changeName,
     TResult Function(String description)? changeDescription,
@@ -1368,6 +1406,7 @@ class _$_ChangeScreenRefreshRate implements _ChangeScreenRefreshRate {
     TResult Function(String screenResolution)? changeHeight,
     TResult Function()? createModel,
     TResult Function()? editModel,
+    TResult Function()? reset,
     required TResult orElse(),
   }) {
     if (changeScreenRefreshRate != null) {
@@ -1397,6 +1436,7 @@ class _$_ChangeScreenRefreshRate implements _ChangeScreenRefreshRate {
     required TResult Function(_ChangeHeight value) changeHeight,
     required TResult Function(_CreateModel value) createModel,
     required TResult Function(_EditModel value) editModel,
+    required TResult Function(_Reset value) reset,
   }) {
     return changeScreenRefreshRate(this);
   }
@@ -1419,6 +1459,7 @@ class _$_ChangeScreenRefreshRate implements _ChangeScreenRefreshRate {
     TResult? Function(_ChangeHeight value)? changeHeight,
     TResult? Function(_CreateModel value)? createModel,
     TResult? Function(_EditModel value)? editModel,
+    TResult? Function(_Reset value)? reset,
   }) {
     return changeScreenRefreshRate?.call(this);
   }
@@ -1441,6 +1482,7 @@ class _$_ChangeScreenRefreshRate implements _ChangeScreenRefreshRate {
     TResult Function(_ChangeHeight value)? changeHeight,
     TResult Function(_CreateModel value)? createModel,
     TResult Function(_EditModel value)? editModel,
+    TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) {
     if (changeScreenRefreshRate != null) {
@@ -1526,7 +1568,7 @@ class _$_ChangeScreenDiagonal implements _ChangeScreenDiagonal {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Model? model) setModel,
+    required TResult Function(Model model) setModel,
     required TResult Function(String manufacturerId) setManufacturerId,
     required TResult Function(String name) changeName,
     required TResult Function(String description) changeDescription,
@@ -1542,6 +1584,7 @@ class _$_ChangeScreenDiagonal implements _ChangeScreenDiagonal {
     required TResult Function(String screenResolution) changeHeight,
     required TResult Function() createModel,
     required TResult Function() editModel,
+    required TResult Function() reset,
   }) {
     return changeScreenDiagonal(screenDiagonal);
   }
@@ -1549,7 +1592,7 @@ class _$_ChangeScreenDiagonal implements _ChangeScreenDiagonal {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Model? model)? setModel,
+    TResult? Function(Model model)? setModel,
     TResult? Function(String manufacturerId)? setManufacturerId,
     TResult? Function(String name)? changeName,
     TResult? Function(String description)? changeDescription,
@@ -1564,6 +1607,7 @@ class _$_ChangeScreenDiagonal implements _ChangeScreenDiagonal {
     TResult? Function(String screenResolution)? changeHeight,
     TResult? Function()? createModel,
     TResult? Function()? editModel,
+    TResult? Function()? reset,
   }) {
     return changeScreenDiagonal?.call(screenDiagonal);
   }
@@ -1571,7 +1615,7 @@ class _$_ChangeScreenDiagonal implements _ChangeScreenDiagonal {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Model? model)? setModel,
+    TResult Function(Model model)? setModel,
     TResult Function(String manufacturerId)? setManufacturerId,
     TResult Function(String name)? changeName,
     TResult Function(String description)? changeDescription,
@@ -1586,6 +1630,7 @@ class _$_ChangeScreenDiagonal implements _ChangeScreenDiagonal {
     TResult Function(String screenResolution)? changeHeight,
     TResult Function()? createModel,
     TResult Function()? editModel,
+    TResult Function()? reset,
     required TResult orElse(),
   }) {
     if (changeScreenDiagonal != null) {
@@ -1615,6 +1660,7 @@ class _$_ChangeScreenDiagonal implements _ChangeScreenDiagonal {
     required TResult Function(_ChangeHeight value) changeHeight,
     required TResult Function(_CreateModel value) createModel,
     required TResult Function(_EditModel value) editModel,
+    required TResult Function(_Reset value) reset,
   }) {
     return changeScreenDiagonal(this);
   }
@@ -1637,6 +1683,7 @@ class _$_ChangeScreenDiagonal implements _ChangeScreenDiagonal {
     TResult? Function(_ChangeHeight value)? changeHeight,
     TResult? Function(_CreateModel value)? createModel,
     TResult? Function(_EditModel value)? editModel,
+    TResult? Function(_Reset value)? reset,
   }) {
     return changeScreenDiagonal?.call(this);
   }
@@ -1659,6 +1706,7 @@ class _$_ChangeScreenDiagonal implements _ChangeScreenDiagonal {
     TResult Function(_ChangeHeight value)? changeHeight,
     TResult Function(_CreateModel value)? createModel,
     TResult Function(_EditModel value)? editModel,
+    TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) {
     if (changeScreenDiagonal != null) {
@@ -1742,7 +1790,7 @@ class _$_ChangeWeight implements _ChangeWeight {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Model? model) setModel,
+    required TResult Function(Model model) setModel,
     required TResult Function(String manufacturerId) setManufacturerId,
     required TResult Function(String name) changeName,
     required TResult Function(String description) changeDescription,
@@ -1758,6 +1806,7 @@ class _$_ChangeWeight implements _ChangeWeight {
     required TResult Function(String screenResolution) changeHeight,
     required TResult Function() createModel,
     required TResult Function() editModel,
+    required TResult Function() reset,
   }) {
     return changeWeight(weight);
   }
@@ -1765,7 +1814,7 @@ class _$_ChangeWeight implements _ChangeWeight {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Model? model)? setModel,
+    TResult? Function(Model model)? setModel,
     TResult? Function(String manufacturerId)? setManufacturerId,
     TResult? Function(String name)? changeName,
     TResult? Function(String description)? changeDescription,
@@ -1780,6 +1829,7 @@ class _$_ChangeWeight implements _ChangeWeight {
     TResult? Function(String screenResolution)? changeHeight,
     TResult? Function()? createModel,
     TResult? Function()? editModel,
+    TResult? Function()? reset,
   }) {
     return changeWeight?.call(weight);
   }
@@ -1787,7 +1837,7 @@ class _$_ChangeWeight implements _ChangeWeight {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Model? model)? setModel,
+    TResult Function(Model model)? setModel,
     TResult Function(String manufacturerId)? setManufacturerId,
     TResult Function(String name)? changeName,
     TResult Function(String description)? changeDescription,
@@ -1802,6 +1852,7 @@ class _$_ChangeWeight implements _ChangeWeight {
     TResult Function(String screenResolution)? changeHeight,
     TResult Function()? createModel,
     TResult Function()? editModel,
+    TResult Function()? reset,
     required TResult orElse(),
   }) {
     if (changeWeight != null) {
@@ -1831,6 +1882,7 @@ class _$_ChangeWeight implements _ChangeWeight {
     required TResult Function(_ChangeHeight value) changeHeight,
     required TResult Function(_CreateModel value) createModel,
     required TResult Function(_EditModel value) editModel,
+    required TResult Function(_Reset value) reset,
   }) {
     return changeWeight(this);
   }
@@ -1853,6 +1905,7 @@ class _$_ChangeWeight implements _ChangeWeight {
     TResult? Function(_ChangeHeight value)? changeHeight,
     TResult? Function(_CreateModel value)? createModel,
     TResult? Function(_EditModel value)? editModel,
+    TResult? Function(_Reset value)? reset,
   }) {
     return changeWeight?.call(this);
   }
@@ -1875,6 +1928,7 @@ class _$_ChangeWeight implements _ChangeWeight {
     TResult Function(_ChangeHeight value)? changeHeight,
     TResult Function(_CreateModel value)? createModel,
     TResult Function(_EditModel value)? editModel,
+    TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) {
     if (changeWeight != null) {
@@ -1959,7 +2013,7 @@ class _$_ChangeScreenResolution implements _ChangeScreenResolution {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Model? model) setModel,
+    required TResult Function(Model model) setModel,
     required TResult Function(String manufacturerId) setManufacturerId,
     required TResult Function(String name) changeName,
     required TResult Function(String description) changeDescription,
@@ -1975,6 +2029,7 @@ class _$_ChangeScreenResolution implements _ChangeScreenResolution {
     required TResult Function(String screenResolution) changeHeight,
     required TResult Function() createModel,
     required TResult Function() editModel,
+    required TResult Function() reset,
   }) {
     return changeScreenResolution(screenResolution);
   }
@@ -1982,7 +2037,7 @@ class _$_ChangeScreenResolution implements _ChangeScreenResolution {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Model? model)? setModel,
+    TResult? Function(Model model)? setModel,
     TResult? Function(String manufacturerId)? setManufacturerId,
     TResult? Function(String name)? changeName,
     TResult? Function(String description)? changeDescription,
@@ -1997,6 +2052,7 @@ class _$_ChangeScreenResolution implements _ChangeScreenResolution {
     TResult? Function(String screenResolution)? changeHeight,
     TResult? Function()? createModel,
     TResult? Function()? editModel,
+    TResult? Function()? reset,
   }) {
     return changeScreenResolution?.call(screenResolution);
   }
@@ -2004,7 +2060,7 @@ class _$_ChangeScreenResolution implements _ChangeScreenResolution {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Model? model)? setModel,
+    TResult Function(Model model)? setModel,
     TResult Function(String manufacturerId)? setManufacturerId,
     TResult Function(String name)? changeName,
     TResult Function(String description)? changeDescription,
@@ -2019,6 +2075,7 @@ class _$_ChangeScreenResolution implements _ChangeScreenResolution {
     TResult Function(String screenResolution)? changeHeight,
     TResult Function()? createModel,
     TResult Function()? editModel,
+    TResult Function()? reset,
     required TResult orElse(),
   }) {
     if (changeScreenResolution != null) {
@@ -2048,6 +2105,7 @@ class _$_ChangeScreenResolution implements _ChangeScreenResolution {
     required TResult Function(_ChangeHeight value) changeHeight,
     required TResult Function(_CreateModel value) createModel,
     required TResult Function(_EditModel value) editModel,
+    required TResult Function(_Reset value) reset,
   }) {
     return changeScreenResolution(this);
   }
@@ -2070,6 +2128,7 @@ class _$_ChangeScreenResolution implements _ChangeScreenResolution {
     TResult? Function(_ChangeHeight value)? changeHeight,
     TResult? Function(_CreateModel value)? createModel,
     TResult? Function(_EditModel value)? editModel,
+    TResult? Function(_Reset value)? reset,
   }) {
     return changeScreenResolution?.call(this);
   }
@@ -2092,6 +2151,7 @@ class _$_ChangeScreenResolution implements _ChangeScreenResolution {
     TResult Function(_ChangeHeight value)? changeHeight,
     TResult Function(_CreateModel value)? createModel,
     TResult Function(_EditModel value)? editModel,
+    TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) {
     if (changeScreenResolution != null) {
@@ -2177,7 +2237,7 @@ class _$_ChangeOperatingSystem implements _ChangeOperatingSystem {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Model? model) setModel,
+    required TResult Function(Model model) setModel,
     required TResult Function(String manufacturerId) setManufacturerId,
     required TResult Function(String name) changeName,
     required TResult Function(String description) changeDescription,
@@ -2193,6 +2253,7 @@ class _$_ChangeOperatingSystem implements _ChangeOperatingSystem {
     required TResult Function(String screenResolution) changeHeight,
     required TResult Function() createModel,
     required TResult Function() editModel,
+    required TResult Function() reset,
   }) {
     return changeOperatingSystem(operatingSystem);
   }
@@ -2200,7 +2261,7 @@ class _$_ChangeOperatingSystem implements _ChangeOperatingSystem {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Model? model)? setModel,
+    TResult? Function(Model model)? setModel,
     TResult? Function(String manufacturerId)? setManufacturerId,
     TResult? Function(String name)? changeName,
     TResult? Function(String description)? changeDescription,
@@ -2215,6 +2276,7 @@ class _$_ChangeOperatingSystem implements _ChangeOperatingSystem {
     TResult? Function(String screenResolution)? changeHeight,
     TResult? Function()? createModel,
     TResult? Function()? editModel,
+    TResult? Function()? reset,
   }) {
     return changeOperatingSystem?.call(operatingSystem);
   }
@@ -2222,7 +2284,7 @@ class _$_ChangeOperatingSystem implements _ChangeOperatingSystem {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Model? model)? setModel,
+    TResult Function(Model model)? setModel,
     TResult Function(String manufacturerId)? setManufacturerId,
     TResult Function(String name)? changeName,
     TResult Function(String description)? changeDescription,
@@ -2237,6 +2299,7 @@ class _$_ChangeOperatingSystem implements _ChangeOperatingSystem {
     TResult Function(String screenResolution)? changeHeight,
     TResult Function()? createModel,
     TResult Function()? editModel,
+    TResult Function()? reset,
     required TResult orElse(),
   }) {
     if (changeOperatingSystem != null) {
@@ -2266,6 +2329,7 @@ class _$_ChangeOperatingSystem implements _ChangeOperatingSystem {
     required TResult Function(_ChangeHeight value) changeHeight,
     required TResult Function(_CreateModel value) createModel,
     required TResult Function(_EditModel value) editModel,
+    required TResult Function(_Reset value) reset,
   }) {
     return changeOperatingSystem(this);
   }
@@ -2288,6 +2352,7 @@ class _$_ChangeOperatingSystem implements _ChangeOperatingSystem {
     TResult? Function(_ChangeHeight value)? changeHeight,
     TResult? Function(_CreateModel value)? createModel,
     TResult? Function(_EditModel value)? editModel,
+    TResult? Function(_Reset value)? reset,
   }) {
     return changeOperatingSystem?.call(this);
   }
@@ -2310,6 +2375,7 @@ class _$_ChangeOperatingSystem implements _ChangeOperatingSystem {
     TResult Function(_ChangeHeight value)? changeHeight,
     TResult Function(_CreateModel value)? createModel,
     TResult Function(_EditModel value)? editModel,
+    TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) {
     if (changeOperatingSystem != null) {
@@ -2395,7 +2461,7 @@ class _$_ChangeDisplayType implements _ChangeDisplayType {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Model? model) setModel,
+    required TResult Function(Model model) setModel,
     required TResult Function(String manufacturerId) setManufacturerId,
     required TResult Function(String name) changeName,
     required TResult Function(String description) changeDescription,
@@ -2411,6 +2477,7 @@ class _$_ChangeDisplayType implements _ChangeDisplayType {
     required TResult Function(String screenResolution) changeHeight,
     required TResult Function() createModel,
     required TResult Function() editModel,
+    required TResult Function() reset,
   }) {
     return changeDisplayType(displayType);
   }
@@ -2418,7 +2485,7 @@ class _$_ChangeDisplayType implements _ChangeDisplayType {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Model? model)? setModel,
+    TResult? Function(Model model)? setModel,
     TResult? Function(String manufacturerId)? setManufacturerId,
     TResult? Function(String name)? changeName,
     TResult? Function(String description)? changeDescription,
@@ -2433,6 +2500,7 @@ class _$_ChangeDisplayType implements _ChangeDisplayType {
     TResult? Function(String screenResolution)? changeHeight,
     TResult? Function()? createModel,
     TResult? Function()? editModel,
+    TResult? Function()? reset,
   }) {
     return changeDisplayType?.call(displayType);
   }
@@ -2440,7 +2508,7 @@ class _$_ChangeDisplayType implements _ChangeDisplayType {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Model? model)? setModel,
+    TResult Function(Model model)? setModel,
     TResult Function(String manufacturerId)? setManufacturerId,
     TResult Function(String name)? changeName,
     TResult Function(String description)? changeDescription,
@@ -2455,6 +2523,7 @@ class _$_ChangeDisplayType implements _ChangeDisplayType {
     TResult Function(String screenResolution)? changeHeight,
     TResult Function()? createModel,
     TResult Function()? editModel,
+    TResult Function()? reset,
     required TResult orElse(),
   }) {
     if (changeDisplayType != null) {
@@ -2484,6 +2553,7 @@ class _$_ChangeDisplayType implements _ChangeDisplayType {
     required TResult Function(_ChangeHeight value) changeHeight,
     required TResult Function(_CreateModel value) createModel,
     required TResult Function(_EditModel value) editModel,
+    required TResult Function(_Reset value) reset,
   }) {
     return changeDisplayType(this);
   }
@@ -2506,6 +2576,7 @@ class _$_ChangeDisplayType implements _ChangeDisplayType {
     TResult? Function(_ChangeHeight value)? changeHeight,
     TResult? Function(_CreateModel value)? createModel,
     TResult? Function(_EditModel value)? editModel,
+    TResult? Function(_Reset value)? reset,
   }) {
     return changeDisplayType?.call(this);
   }
@@ -2528,6 +2599,7 @@ class _$_ChangeDisplayType implements _ChangeDisplayType {
     TResult Function(_ChangeHeight value)? changeHeight,
     TResult Function(_CreateModel value)? createModel,
     TResult Function(_EditModel value)? editModel,
+    TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) {
     if (changeDisplayType != null) {
@@ -2612,7 +2684,7 @@ class _$_ChangeWidth implements _ChangeWidth {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Model? model) setModel,
+    required TResult Function(Model model) setModel,
     required TResult Function(String manufacturerId) setManufacturerId,
     required TResult Function(String name) changeName,
     required TResult Function(String description) changeDescription,
@@ -2628,6 +2700,7 @@ class _$_ChangeWidth implements _ChangeWidth {
     required TResult Function(String screenResolution) changeHeight,
     required TResult Function() createModel,
     required TResult Function() editModel,
+    required TResult Function() reset,
   }) {
     return changeWidth(screenResolution);
   }
@@ -2635,7 +2708,7 @@ class _$_ChangeWidth implements _ChangeWidth {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Model? model)? setModel,
+    TResult? Function(Model model)? setModel,
     TResult? Function(String manufacturerId)? setManufacturerId,
     TResult? Function(String name)? changeName,
     TResult? Function(String description)? changeDescription,
@@ -2650,6 +2723,7 @@ class _$_ChangeWidth implements _ChangeWidth {
     TResult? Function(String screenResolution)? changeHeight,
     TResult? Function()? createModel,
     TResult? Function()? editModel,
+    TResult? Function()? reset,
   }) {
     return changeWidth?.call(screenResolution);
   }
@@ -2657,7 +2731,7 @@ class _$_ChangeWidth implements _ChangeWidth {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Model? model)? setModel,
+    TResult Function(Model model)? setModel,
     TResult Function(String manufacturerId)? setManufacturerId,
     TResult Function(String name)? changeName,
     TResult Function(String description)? changeDescription,
@@ -2672,6 +2746,7 @@ class _$_ChangeWidth implements _ChangeWidth {
     TResult Function(String screenResolution)? changeHeight,
     TResult Function()? createModel,
     TResult Function()? editModel,
+    TResult Function()? reset,
     required TResult orElse(),
   }) {
     if (changeWidth != null) {
@@ -2701,6 +2776,7 @@ class _$_ChangeWidth implements _ChangeWidth {
     required TResult Function(_ChangeHeight value) changeHeight,
     required TResult Function(_CreateModel value) createModel,
     required TResult Function(_EditModel value) editModel,
+    required TResult Function(_Reset value) reset,
   }) {
     return changeWidth(this);
   }
@@ -2723,6 +2799,7 @@ class _$_ChangeWidth implements _ChangeWidth {
     TResult? Function(_ChangeHeight value)? changeHeight,
     TResult? Function(_CreateModel value)? createModel,
     TResult? Function(_EditModel value)? editModel,
+    TResult? Function(_Reset value)? reset,
   }) {
     return changeWidth?.call(this);
   }
@@ -2745,6 +2822,7 @@ class _$_ChangeWidth implements _ChangeWidth {
     TResult Function(_ChangeHeight value)? changeHeight,
     TResult Function(_CreateModel value)? createModel,
     TResult Function(_EditModel value)? editModel,
+    TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) {
     if (changeWidth != null) {
@@ -2828,7 +2906,7 @@ class _$_ChangeHeight implements _ChangeHeight {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Model? model) setModel,
+    required TResult Function(Model model) setModel,
     required TResult Function(String manufacturerId) setManufacturerId,
     required TResult Function(String name) changeName,
     required TResult Function(String description) changeDescription,
@@ -2844,6 +2922,7 @@ class _$_ChangeHeight implements _ChangeHeight {
     required TResult Function(String screenResolution) changeHeight,
     required TResult Function() createModel,
     required TResult Function() editModel,
+    required TResult Function() reset,
   }) {
     return changeHeight(screenResolution);
   }
@@ -2851,7 +2930,7 @@ class _$_ChangeHeight implements _ChangeHeight {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Model? model)? setModel,
+    TResult? Function(Model model)? setModel,
     TResult? Function(String manufacturerId)? setManufacturerId,
     TResult? Function(String name)? changeName,
     TResult? Function(String description)? changeDescription,
@@ -2866,6 +2945,7 @@ class _$_ChangeHeight implements _ChangeHeight {
     TResult? Function(String screenResolution)? changeHeight,
     TResult? Function()? createModel,
     TResult? Function()? editModel,
+    TResult? Function()? reset,
   }) {
     return changeHeight?.call(screenResolution);
   }
@@ -2873,7 +2953,7 @@ class _$_ChangeHeight implements _ChangeHeight {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Model? model)? setModel,
+    TResult Function(Model model)? setModel,
     TResult Function(String manufacturerId)? setManufacturerId,
     TResult Function(String name)? changeName,
     TResult Function(String description)? changeDescription,
@@ -2888,6 +2968,7 @@ class _$_ChangeHeight implements _ChangeHeight {
     TResult Function(String screenResolution)? changeHeight,
     TResult Function()? createModel,
     TResult Function()? editModel,
+    TResult Function()? reset,
     required TResult orElse(),
   }) {
     if (changeHeight != null) {
@@ -2917,6 +2998,7 @@ class _$_ChangeHeight implements _ChangeHeight {
     required TResult Function(_ChangeHeight value) changeHeight,
     required TResult Function(_CreateModel value) createModel,
     required TResult Function(_EditModel value) editModel,
+    required TResult Function(_Reset value) reset,
   }) {
     return changeHeight(this);
   }
@@ -2939,6 +3021,7 @@ class _$_ChangeHeight implements _ChangeHeight {
     TResult? Function(_ChangeHeight value)? changeHeight,
     TResult? Function(_CreateModel value)? createModel,
     TResult? Function(_EditModel value)? editModel,
+    TResult? Function(_Reset value)? reset,
   }) {
     return changeHeight?.call(this);
   }
@@ -2961,6 +3044,7 @@ class _$_ChangeHeight implements _ChangeHeight {
     TResult Function(_ChangeHeight value)? changeHeight,
     TResult Function(_CreateModel value)? createModel,
     TResult Function(_EditModel value)? editModel,
+    TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) {
     if (changeHeight != null) {
@@ -3017,7 +3101,7 @@ class _$_CreateModel implements _CreateModel {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Model? model) setModel,
+    required TResult Function(Model model) setModel,
     required TResult Function(String manufacturerId) setManufacturerId,
     required TResult Function(String name) changeName,
     required TResult Function(String description) changeDescription,
@@ -3033,6 +3117,7 @@ class _$_CreateModel implements _CreateModel {
     required TResult Function(String screenResolution) changeHeight,
     required TResult Function() createModel,
     required TResult Function() editModel,
+    required TResult Function() reset,
   }) {
     return createModel();
   }
@@ -3040,7 +3125,7 @@ class _$_CreateModel implements _CreateModel {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Model? model)? setModel,
+    TResult? Function(Model model)? setModel,
     TResult? Function(String manufacturerId)? setManufacturerId,
     TResult? Function(String name)? changeName,
     TResult? Function(String description)? changeDescription,
@@ -3055,6 +3140,7 @@ class _$_CreateModel implements _CreateModel {
     TResult? Function(String screenResolution)? changeHeight,
     TResult? Function()? createModel,
     TResult? Function()? editModel,
+    TResult? Function()? reset,
   }) {
     return createModel?.call();
   }
@@ -3062,7 +3148,7 @@ class _$_CreateModel implements _CreateModel {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Model? model)? setModel,
+    TResult Function(Model model)? setModel,
     TResult Function(String manufacturerId)? setManufacturerId,
     TResult Function(String name)? changeName,
     TResult Function(String description)? changeDescription,
@@ -3077,6 +3163,7 @@ class _$_CreateModel implements _CreateModel {
     TResult Function(String screenResolution)? changeHeight,
     TResult Function()? createModel,
     TResult Function()? editModel,
+    TResult Function()? reset,
     required TResult orElse(),
   }) {
     if (createModel != null) {
@@ -3106,6 +3193,7 @@ class _$_CreateModel implements _CreateModel {
     required TResult Function(_ChangeHeight value) changeHeight,
     required TResult Function(_CreateModel value) createModel,
     required TResult Function(_EditModel value) editModel,
+    required TResult Function(_Reset value) reset,
   }) {
     return createModel(this);
   }
@@ -3128,6 +3216,7 @@ class _$_CreateModel implements _CreateModel {
     TResult? Function(_ChangeHeight value)? changeHeight,
     TResult? Function(_CreateModel value)? createModel,
     TResult? Function(_EditModel value)? editModel,
+    TResult? Function(_Reset value)? reset,
   }) {
     return createModel?.call(this);
   }
@@ -3150,6 +3239,7 @@ class _$_CreateModel implements _CreateModel {
     TResult Function(_ChangeHeight value)? changeHeight,
     TResult Function(_CreateModel value)? createModel,
     TResult Function(_EditModel value)? editModel,
+    TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) {
     if (createModel != null) {
@@ -3201,7 +3291,7 @@ class _$_EditModel implements _EditModel {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Model? model) setModel,
+    required TResult Function(Model model) setModel,
     required TResult Function(String manufacturerId) setManufacturerId,
     required TResult Function(String name) changeName,
     required TResult Function(String description) changeDescription,
@@ -3217,6 +3307,7 @@ class _$_EditModel implements _EditModel {
     required TResult Function(String screenResolution) changeHeight,
     required TResult Function() createModel,
     required TResult Function() editModel,
+    required TResult Function() reset,
   }) {
     return editModel();
   }
@@ -3224,7 +3315,7 @@ class _$_EditModel implements _EditModel {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Model? model)? setModel,
+    TResult? Function(Model model)? setModel,
     TResult? Function(String manufacturerId)? setManufacturerId,
     TResult? Function(String name)? changeName,
     TResult? Function(String description)? changeDescription,
@@ -3239,6 +3330,7 @@ class _$_EditModel implements _EditModel {
     TResult? Function(String screenResolution)? changeHeight,
     TResult? Function()? createModel,
     TResult? Function()? editModel,
+    TResult? Function()? reset,
   }) {
     return editModel?.call();
   }
@@ -3246,7 +3338,7 @@ class _$_EditModel implements _EditModel {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Model? model)? setModel,
+    TResult Function(Model model)? setModel,
     TResult Function(String manufacturerId)? setManufacturerId,
     TResult Function(String name)? changeName,
     TResult Function(String description)? changeDescription,
@@ -3261,6 +3353,7 @@ class _$_EditModel implements _EditModel {
     TResult Function(String screenResolution)? changeHeight,
     TResult Function()? createModel,
     TResult Function()? editModel,
+    TResult Function()? reset,
     required TResult orElse(),
   }) {
     if (editModel != null) {
@@ -3290,6 +3383,7 @@ class _$_EditModel implements _EditModel {
     required TResult Function(_ChangeHeight value) changeHeight,
     required TResult Function(_CreateModel value) createModel,
     required TResult Function(_EditModel value) editModel,
+    required TResult Function(_Reset value) reset,
   }) {
     return editModel(this);
   }
@@ -3312,6 +3406,7 @@ class _$_EditModel implements _EditModel {
     TResult? Function(_ChangeHeight value)? changeHeight,
     TResult? Function(_CreateModel value)? createModel,
     TResult? Function(_EditModel value)? editModel,
+    TResult? Function(_Reset value)? reset,
   }) {
     return editModel?.call(this);
   }
@@ -3334,6 +3429,7 @@ class _$_EditModel implements _EditModel {
     TResult Function(_ChangeHeight value)? changeHeight,
     TResult Function(_CreateModel value)? createModel,
     TResult Function(_EditModel value)? editModel,
+    TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) {
     if (editModel != null) {
@@ -3345,6 +3441,194 @@ class _$_EditModel implements _EditModel {
 
 abstract class _EditModel implements CreateEditModelEvent {
   const factory _EditModel() = _$_EditModel;
+}
+
+/// @nodoc
+abstract class _$$_ResetCopyWith<$Res> {
+  factory _$$_ResetCopyWith(_$_Reset value, $Res Function(_$_Reset) then) =
+      __$$_ResetCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_ResetCopyWithImpl<$Res>
+    extends _$CreateEditModelEventCopyWithImpl<$Res, _$_Reset>
+    implements _$$_ResetCopyWith<$Res> {
+  __$$_ResetCopyWithImpl(_$_Reset _value, $Res Function(_$_Reset) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_Reset implements _Reset {
+  const _$_Reset();
+
+  @override
+  String toString() {
+    return 'CreateEditModelEvent.reset()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Reset);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Model model) setModel,
+    required TResult Function(String manufacturerId) setManufacturerId,
+    required TResult Function(String name) changeName,
+    required TResult Function(String description) changeDescription,
+    required TResult Function(int pixelDensity) changePixelDensity,
+    required TResult Function(int screenRefreshRate) changeScreenRefreshRate,
+    required TResult Function(double screenDiagonal) changeScreenDiagonal,
+    required TResult Function(int weight) changeWeight,
+    required TResult Function(String screenResolution) changeScreenResolution,
+    required TResult Function(OperatingSystem operatingSystem)
+        changeOperatingSystem,
+    required TResult Function(DisplayType displayType) changeDisplayType,
+    required TResult Function(String screenResolution) changeWidth,
+    required TResult Function(String screenResolution) changeHeight,
+    required TResult Function() createModel,
+    required TResult Function() editModel,
+    required TResult Function() reset,
+  }) {
+    return reset();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Model model)? setModel,
+    TResult? Function(String manufacturerId)? setManufacturerId,
+    TResult? Function(String name)? changeName,
+    TResult? Function(String description)? changeDescription,
+    TResult? Function(int pixelDensity)? changePixelDensity,
+    TResult? Function(int screenRefreshRate)? changeScreenRefreshRate,
+    TResult? Function(double screenDiagonal)? changeScreenDiagonal,
+    TResult? Function(int weight)? changeWeight,
+    TResult? Function(String screenResolution)? changeScreenResolution,
+    TResult? Function(OperatingSystem operatingSystem)? changeOperatingSystem,
+    TResult? Function(DisplayType displayType)? changeDisplayType,
+    TResult? Function(String screenResolution)? changeWidth,
+    TResult? Function(String screenResolution)? changeHeight,
+    TResult? Function()? createModel,
+    TResult? Function()? editModel,
+    TResult? Function()? reset,
+  }) {
+    return reset?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Model model)? setModel,
+    TResult Function(String manufacturerId)? setManufacturerId,
+    TResult Function(String name)? changeName,
+    TResult Function(String description)? changeDescription,
+    TResult Function(int pixelDensity)? changePixelDensity,
+    TResult Function(int screenRefreshRate)? changeScreenRefreshRate,
+    TResult Function(double screenDiagonal)? changeScreenDiagonal,
+    TResult Function(int weight)? changeWeight,
+    TResult Function(String screenResolution)? changeScreenResolution,
+    TResult Function(OperatingSystem operatingSystem)? changeOperatingSystem,
+    TResult Function(DisplayType displayType)? changeDisplayType,
+    TResult Function(String screenResolution)? changeWidth,
+    TResult Function(String screenResolution)? changeHeight,
+    TResult Function()? createModel,
+    TResult Function()? editModel,
+    TResult Function()? reset,
+    required TResult orElse(),
+  }) {
+    if (reset != null) {
+      return reset();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SetModel value) setModel,
+    required TResult Function(_SetManufacturerId value) setManufacturerId,
+    required TResult Function(_ChangeName value) changeName,
+    required TResult Function(_ChangeDescription value) changeDescription,
+    required TResult Function(_ChangePixelDensity value) changePixelDensity,
+    required TResult Function(_ChangeScreenRefreshRate value)
+        changeScreenRefreshRate,
+    required TResult Function(_ChangeScreenDiagonal value) changeScreenDiagonal,
+    required TResult Function(_ChangeWeight value) changeWeight,
+    required TResult Function(_ChangeScreenResolution value)
+        changeScreenResolution,
+    required TResult Function(_ChangeOperatingSystem value)
+        changeOperatingSystem,
+    required TResult Function(_ChangeDisplayType value) changeDisplayType,
+    required TResult Function(_ChangeWidth value) changeWidth,
+    required TResult Function(_ChangeHeight value) changeHeight,
+    required TResult Function(_CreateModel value) createModel,
+    required TResult Function(_EditModel value) editModel,
+    required TResult Function(_Reset value) reset,
+  }) {
+    return reset(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SetModel value)? setModel,
+    TResult? Function(_SetManufacturerId value)? setManufacturerId,
+    TResult? Function(_ChangeName value)? changeName,
+    TResult? Function(_ChangeDescription value)? changeDescription,
+    TResult? Function(_ChangePixelDensity value)? changePixelDensity,
+    TResult? Function(_ChangeScreenRefreshRate value)? changeScreenRefreshRate,
+    TResult? Function(_ChangeScreenDiagonal value)? changeScreenDiagonal,
+    TResult? Function(_ChangeWeight value)? changeWeight,
+    TResult? Function(_ChangeScreenResolution value)? changeScreenResolution,
+    TResult? Function(_ChangeOperatingSystem value)? changeOperatingSystem,
+    TResult? Function(_ChangeDisplayType value)? changeDisplayType,
+    TResult? Function(_ChangeWidth value)? changeWidth,
+    TResult? Function(_ChangeHeight value)? changeHeight,
+    TResult? Function(_CreateModel value)? createModel,
+    TResult? Function(_EditModel value)? editModel,
+    TResult? Function(_Reset value)? reset,
+  }) {
+    return reset?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SetModel value)? setModel,
+    TResult Function(_SetManufacturerId value)? setManufacturerId,
+    TResult Function(_ChangeName value)? changeName,
+    TResult Function(_ChangeDescription value)? changeDescription,
+    TResult Function(_ChangePixelDensity value)? changePixelDensity,
+    TResult Function(_ChangeScreenRefreshRate value)? changeScreenRefreshRate,
+    TResult Function(_ChangeScreenDiagonal value)? changeScreenDiagonal,
+    TResult Function(_ChangeWeight value)? changeWeight,
+    TResult Function(_ChangeScreenResolution value)? changeScreenResolution,
+    TResult Function(_ChangeOperatingSystem value)? changeOperatingSystem,
+    TResult Function(_ChangeDisplayType value)? changeDisplayType,
+    TResult Function(_ChangeWidth value)? changeWidth,
+    TResult Function(_ChangeHeight value)? changeHeight,
+    TResult Function(_CreateModel value)? createModel,
+    TResult Function(_EditModel value)? editModel,
+    TResult Function(_Reset value)? reset,
+    required TResult orElse(),
+  }) {
+    if (reset != null) {
+      return reset(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Reset implements CreateEditModelEvent {
+  const factory _Reset() = _$_Reset;
 }
 
 /// @nodoc

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../core/presentation/widgets/other/access_listener.dart';
 
 import '../../../../core/presentation/widgets/buttons/casual_button.dart';
 import '../../../../core/presentation/widgets/loading/stack_loading.dart';
+import '../../../../core/presentation/widgets/other/access_listener.dart';
 import '../../../../core/presentation/widgets/other/casual_app_bar.dart';
 import '../../../../core/styles/styles.dart';
 import '../../../../core/utils/size_config.dart';
@@ -114,6 +114,12 @@ class _CreateEditModelPageState extends State<CreateEditModelPage> {
           '${_widthController.text.trim()}x${_heightController.text.trim()}'));
 
   @override
+  void deactivate() {
+    context.read<CreateEditModelBloc>().add(const CreateEditModelEvent.reset());
+    super.deactivate();
+  }
+
+  @override
   void dispose() {
     _nameController.dispose();
     _descriptionController.dispose();
@@ -133,19 +139,14 @@ class _CreateEditModelPageState extends State<CreateEditModelPage> {
         onWillPop: () async {
           context
               .read<CreateEditModelBloc>()
-              .add(const CreateEditModelEvent.setModel(null));
+              .add(const CreateEditModelEvent.reset());
           return true;
         },
         child: BlocConsumer<CreateEditModelBloc, CreateEditModelState>(
           listenWhen: (previous, current) =>
               current.status.isSuccess || current.status.isFailure,
           listener: (context, state) => state.callWhen(
-            success: () {
-              context
-                  .read<CreateEditModelBloc>()
-                  .add(const CreateEditModelEvent.setModel(null));
-              Navigator.of(context).pop();
-            },
+            success: () => Navigator.of(context).pop(),
             failure: () => state.failure.call(context),
           ),
           builder: (context, state) {
@@ -155,9 +156,7 @@ class _CreateEditModelPageState extends State<CreateEditModelPage> {
                   backgroundColor: kWhite,
                   appBar: CasualAppBar(
                     title: state.model != null ? 'Edit Model' : 'Create Model',
-                    onPop: () => context
-                        .read<CreateEditModelBloc>()
-                        .add(const CreateEditModelEvent.setModel(null)),
+                    canGoBack: true,
                   ),
                   body: Column(
                     children: [

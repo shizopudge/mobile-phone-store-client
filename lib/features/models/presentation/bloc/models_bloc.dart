@@ -35,6 +35,7 @@ class ModelsBloc extends Bloc<ModelsEvent, ModelsState> {
     on<_UpdateModelInList>(_updateModelInList);
     on<_SetManufacturer>(_setManufacturer);
     on<_DeleteModel>(_deleteModel);
+    on<_Reset>(_reset);
   }
 
   final GetModels _getModelsUsecase;
@@ -112,15 +113,8 @@ class ModelsBloc extends Bloc<ModelsEvent, ModelsState> {
     }
   }
 
-  void _setManufacturer(
-      _SetManufacturer event, Emitter<ModelsState> emit) async {
-    if (event.manufacturer == null) {
-      await Future.delayed(const Duration(milliseconds: 300));
-      emit(const ModelsState());
-    } else {
+  void _setManufacturer(_SetManufacturer event, Emitter<ModelsState> emit) =>
       emit(state.copyWith(manufacturer: event.manufacturer));
-    }
-  }
 
   FutureOr<void> _deleteModel(
       _DeleteModel event, Emitter<ModelsState> emit) async {
@@ -136,6 +130,9 @@ class ModelsBloc extends Bloc<ModelsEvent, ModelsState> {
       _throwFailure(emit, failure);
     }, (r) => null);
   }
+
+  void _reset(_Reset event, Emitter<ModelsState> emit) =>
+      emit(const ModelsState());
 
   FutureEither<ModelsResponse> _getModels() async =>
       await _getModelsUsecase.call(GetModelsParams(

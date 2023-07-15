@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../features/auth/presentation/bloc/auth_bloc.dart';
+import '../../features/browse_products/presentation/bloc/browse_products_bloc.dart';
 import '../../features/cart/presentation/bloc/cart_bloc.dart';
 import '../../features/create_edit_manufacturer/presentation/bloc/create_edit_manufacturer_bloc.dart';
 import '../../features/create_edit_manufacturer/presentation/pages/create_edit_manufacturer_page.dart';
 import '../../features/create_edit_model/presentation/bloc/create_edit_model_bloc.dart';
 import '../../features/create_edit_model/presentation/pages/create_edit_model_page.dart';
+import '../../features/create_edit_product/presentation/bloc/create_edit_product_bloc.dart';
+import '../../features/create_edit_product/presentation/pages/create_edit_product_page.dart';
 import '../../features/detailed_product/presentation/bloc/detailed_product_bloc.dart';
 import '../../features/detailed_product/presentation/pages/detailed_product_page.dart';
 import '../../features/home/cubit/home_cubit.dart';
@@ -17,7 +20,6 @@ import '../../features/login/domain/usecases/login_as_guest.dart';
 import '../../features/login/domain/usecases/register.dart';
 import '../../features/login/presentation/bloc/login_bloc.dart';
 import '../../features/login/presentation/pages/login_page.dart';
-import '../../features/products/presentation/bloc/browse_products_bloc.dart';
 import '../../features/profile/data/repositories/profile_repository_impl.dart';
 import '../../features/profile/domain/usecases/delete_user_image.dart';
 import '../../features/profile/domain/usecases/edit_profile.dart';
@@ -97,6 +99,9 @@ class AppRouter {
               BlocProvider.value(
                 value: getIt<CartBloc>(),
               ),
+              BlocProvider.value(
+                value: getIt<CreateEditProductBloc>(),
+              ),
             ],
             child: const DetailedProductPage(),
           ),
@@ -116,6 +121,14 @@ class AppRouter {
           page: BlocProvider.value(
             value: getIt<CreateEditModelBloc>(),
             child: const CreateEditModelPage(),
+          ),
+          duration: const Duration(milliseconds: 500),
+        );
+      case CreateEditProductPage.path:
+        return PageTransitionUtil.go(
+          page: BlocProvider.value(
+            value: getIt<CreateEditProductBloc>(),
+            child: const CreateEditProductPage(),
           ),
           duration: const Duration(milliseconds: 500),
         );

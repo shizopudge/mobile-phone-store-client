@@ -19,34 +19,37 @@ mixin _$CreateEditManufacturerEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(Manufacturer? manufacturer) setManufacturer,
+    required TResult Function(Manufacturer manufacturer) setManufacturer,
     required TResult Function(String name) changeName,
     required TResult Function() createManufacturer,
     required TResult Function() editManufacturer,
     required TResult Function() pickImage,
     required TResult Function() deleteImage,
+    required TResult Function() reset,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(Manufacturer? manufacturer)? setManufacturer,
+    TResult? Function(Manufacturer manufacturer)? setManufacturer,
     TResult? Function(String name)? changeName,
     TResult? Function()? createManufacturer,
     TResult? Function()? editManufacturer,
     TResult? Function()? pickImage,
     TResult? Function()? deleteImage,
+    TResult? Function()? reset,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(Manufacturer? manufacturer)? setManufacturer,
+    TResult Function(Manufacturer manufacturer)? setManufacturer,
     TResult Function(String name)? changeName,
     TResult Function()? createManufacturer,
     TResult Function()? editManufacturer,
     TResult Function()? pickImage,
     TResult Function()? deleteImage,
+    TResult Function()? reset,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -59,6 +62,7 @@ mixin _$CreateEditManufacturerEvent {
     required TResult Function(_EditManufacturer value) editManufacturer,
     required TResult Function(_PickImage value) pickImage,
     required TResult Function(_DeleteImage value) deleteImage,
+    required TResult Function(_Reset value) reset,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -70,6 +74,7 @@ mixin _$CreateEditManufacturerEvent {
     TResult? Function(_EditManufacturer value)? editManufacturer,
     TResult? Function(_PickImage value)? pickImage,
     TResult? Function(_DeleteImage value)? deleteImage,
+    TResult? Function(_Reset value)? reset,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -81,6 +86,7 @@ mixin _$CreateEditManufacturerEvent {
     TResult Function(_EditManufacturer value)? editManufacturer,
     TResult Function(_PickImage value)? pickImage,
     TResult Function(_DeleteImage value)? deleteImage,
+    TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -145,12 +151,13 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(Manufacturer? manufacturer) setManufacturer,
+    required TResult Function(Manufacturer manufacturer) setManufacturer,
     required TResult Function(String name) changeName,
     required TResult Function() createManufacturer,
     required TResult Function() editManufacturer,
     required TResult Function() pickImage,
     required TResult Function() deleteImage,
+    required TResult Function() reset,
   }) {
     return initial();
   }
@@ -159,12 +166,13 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(Manufacturer? manufacturer)? setManufacturer,
+    TResult? Function(Manufacturer manufacturer)? setManufacturer,
     TResult? Function(String name)? changeName,
     TResult? Function()? createManufacturer,
     TResult? Function()? editManufacturer,
     TResult? Function()? pickImage,
     TResult? Function()? deleteImage,
+    TResult? Function()? reset,
   }) {
     return initial?.call();
   }
@@ -173,12 +181,13 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(Manufacturer? manufacturer)? setManufacturer,
+    TResult Function(Manufacturer manufacturer)? setManufacturer,
     TResult Function(String name)? changeName,
     TResult Function()? createManufacturer,
     TResult Function()? editManufacturer,
     TResult Function()? pickImage,
     TResult Function()? deleteImage,
+    TResult Function()? reset,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -197,6 +206,7 @@ class _$_Initial implements _Initial {
     required TResult Function(_EditManufacturer value) editManufacturer,
     required TResult Function(_PickImage value) pickImage,
     required TResult Function(_DeleteImage value) deleteImage,
+    required TResult Function(_Reset value) reset,
   }) {
     return initial(this);
   }
@@ -211,6 +221,7 @@ class _$_Initial implements _Initial {
     TResult? Function(_EditManufacturer value)? editManufacturer,
     TResult? Function(_PickImage value)? pickImage,
     TResult? Function(_DeleteImage value)? deleteImage,
+    TResult? Function(_Reset value)? reset,
   }) {
     return initial?.call(this);
   }
@@ -225,6 +236,7 @@ class _$_Initial implements _Initial {
     TResult Function(_EditManufacturer value)? editManufacturer,
     TResult Function(_PickImage value)? pickImage,
     TResult Function(_DeleteImage value)? deleteImage,
+    TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -244,7 +256,7 @@ abstract class _$$_SetManufacturerCopyWith<$Res> {
           _$_SetManufacturer value, $Res Function(_$_SetManufacturer) then) =
       __$$_SetManufacturerCopyWithImpl<$Res>;
   @useResult
-  $Res call({Manufacturer? manufacturer});
+  $Res call({Manufacturer manufacturer});
 }
 
 /// @nodoc
@@ -258,13 +270,13 @@ class __$$_SetManufacturerCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? manufacturer = freezed,
+    Object? manufacturer = null,
   }) {
     return _then(_$_SetManufacturer(
-      freezed == manufacturer
+      null == manufacturer
           ? _value.manufacturer
           : manufacturer // ignore: cast_nullable_to_non_nullable
-              as Manufacturer?,
+              as Manufacturer,
     ));
   }
 }
@@ -275,7 +287,7 @@ class _$_SetManufacturer implements _SetManufacturer {
   const _$_SetManufacturer(this.manufacturer);
 
   @override
-  final Manufacturer? manufacturer;
+  final Manufacturer manufacturer;
 
   @override
   String toString() {
@@ -304,12 +316,13 @@ class _$_SetManufacturer implements _SetManufacturer {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(Manufacturer? manufacturer) setManufacturer,
+    required TResult Function(Manufacturer manufacturer) setManufacturer,
     required TResult Function(String name) changeName,
     required TResult Function() createManufacturer,
     required TResult Function() editManufacturer,
     required TResult Function() pickImage,
     required TResult Function() deleteImage,
+    required TResult Function() reset,
   }) {
     return setManufacturer(manufacturer);
   }
@@ -318,12 +331,13 @@ class _$_SetManufacturer implements _SetManufacturer {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(Manufacturer? manufacturer)? setManufacturer,
+    TResult? Function(Manufacturer manufacturer)? setManufacturer,
     TResult? Function(String name)? changeName,
     TResult? Function()? createManufacturer,
     TResult? Function()? editManufacturer,
     TResult? Function()? pickImage,
     TResult? Function()? deleteImage,
+    TResult? Function()? reset,
   }) {
     return setManufacturer?.call(manufacturer);
   }
@@ -332,12 +346,13 @@ class _$_SetManufacturer implements _SetManufacturer {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(Manufacturer? manufacturer)? setManufacturer,
+    TResult Function(Manufacturer manufacturer)? setManufacturer,
     TResult Function(String name)? changeName,
     TResult Function()? createManufacturer,
     TResult Function()? editManufacturer,
     TResult Function()? pickImage,
     TResult Function()? deleteImage,
+    TResult Function()? reset,
     required TResult orElse(),
   }) {
     if (setManufacturer != null) {
@@ -356,6 +371,7 @@ class _$_SetManufacturer implements _SetManufacturer {
     required TResult Function(_EditManufacturer value) editManufacturer,
     required TResult Function(_PickImage value) pickImage,
     required TResult Function(_DeleteImage value) deleteImage,
+    required TResult Function(_Reset value) reset,
   }) {
     return setManufacturer(this);
   }
@@ -370,6 +386,7 @@ class _$_SetManufacturer implements _SetManufacturer {
     TResult? Function(_EditManufacturer value)? editManufacturer,
     TResult? Function(_PickImage value)? pickImage,
     TResult? Function(_DeleteImage value)? deleteImage,
+    TResult? Function(_Reset value)? reset,
   }) {
     return setManufacturer?.call(this);
   }
@@ -384,6 +401,7 @@ class _$_SetManufacturer implements _SetManufacturer {
     TResult Function(_EditManufacturer value)? editManufacturer,
     TResult Function(_PickImage value)? pickImage,
     TResult Function(_DeleteImage value)? deleteImage,
+    TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) {
     if (setManufacturer != null) {
@@ -394,10 +412,10 @@ class _$_SetManufacturer implements _SetManufacturer {
 }
 
 abstract class _SetManufacturer implements CreateEditManufacturerEvent {
-  const factory _SetManufacturer(final Manufacturer? manufacturer) =
+  const factory _SetManufacturer(final Manufacturer manufacturer) =
       _$_SetManufacturer;
 
-  Manufacturer? get manufacturer;
+  Manufacturer get manufacturer;
   @JsonKey(ignore: true)
   _$$_SetManufacturerCopyWith<_$_SetManufacturer> get copyWith =>
       throw _privateConstructorUsedError;
@@ -468,12 +486,13 @@ class _$_ChangeName implements _ChangeName {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(Manufacturer? manufacturer) setManufacturer,
+    required TResult Function(Manufacturer manufacturer) setManufacturer,
     required TResult Function(String name) changeName,
     required TResult Function() createManufacturer,
     required TResult Function() editManufacturer,
     required TResult Function() pickImage,
     required TResult Function() deleteImage,
+    required TResult Function() reset,
   }) {
     return changeName(name);
   }
@@ -482,12 +501,13 @@ class _$_ChangeName implements _ChangeName {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(Manufacturer? manufacturer)? setManufacturer,
+    TResult? Function(Manufacturer manufacturer)? setManufacturer,
     TResult? Function(String name)? changeName,
     TResult? Function()? createManufacturer,
     TResult? Function()? editManufacturer,
     TResult? Function()? pickImage,
     TResult? Function()? deleteImage,
+    TResult? Function()? reset,
   }) {
     return changeName?.call(name);
   }
@@ -496,12 +516,13 @@ class _$_ChangeName implements _ChangeName {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(Manufacturer? manufacturer)? setManufacturer,
+    TResult Function(Manufacturer manufacturer)? setManufacturer,
     TResult Function(String name)? changeName,
     TResult Function()? createManufacturer,
     TResult Function()? editManufacturer,
     TResult Function()? pickImage,
     TResult Function()? deleteImage,
+    TResult Function()? reset,
     required TResult orElse(),
   }) {
     if (changeName != null) {
@@ -520,6 +541,7 @@ class _$_ChangeName implements _ChangeName {
     required TResult Function(_EditManufacturer value) editManufacturer,
     required TResult Function(_PickImage value) pickImage,
     required TResult Function(_DeleteImage value) deleteImage,
+    required TResult Function(_Reset value) reset,
   }) {
     return changeName(this);
   }
@@ -534,6 +556,7 @@ class _$_ChangeName implements _ChangeName {
     TResult? Function(_EditManufacturer value)? editManufacturer,
     TResult? Function(_PickImage value)? pickImage,
     TResult? Function(_DeleteImage value)? deleteImage,
+    TResult? Function(_Reset value)? reset,
   }) {
     return changeName?.call(this);
   }
@@ -548,6 +571,7 @@ class _$_ChangeName implements _ChangeName {
     TResult Function(_EditManufacturer value)? editManufacturer,
     TResult Function(_PickImage value)? pickImage,
     TResult Function(_DeleteImage value)? deleteImage,
+    TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) {
     if (changeName != null) {
@@ -605,12 +629,13 @@ class _$_CreateManufacturer implements _CreateManufacturer {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(Manufacturer? manufacturer) setManufacturer,
+    required TResult Function(Manufacturer manufacturer) setManufacturer,
     required TResult Function(String name) changeName,
     required TResult Function() createManufacturer,
     required TResult Function() editManufacturer,
     required TResult Function() pickImage,
     required TResult Function() deleteImage,
+    required TResult Function() reset,
   }) {
     return createManufacturer();
   }
@@ -619,12 +644,13 @@ class _$_CreateManufacturer implements _CreateManufacturer {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(Manufacturer? manufacturer)? setManufacturer,
+    TResult? Function(Manufacturer manufacturer)? setManufacturer,
     TResult? Function(String name)? changeName,
     TResult? Function()? createManufacturer,
     TResult? Function()? editManufacturer,
     TResult? Function()? pickImage,
     TResult? Function()? deleteImage,
+    TResult? Function()? reset,
   }) {
     return createManufacturer?.call();
   }
@@ -633,12 +659,13 @@ class _$_CreateManufacturer implements _CreateManufacturer {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(Manufacturer? manufacturer)? setManufacturer,
+    TResult Function(Manufacturer manufacturer)? setManufacturer,
     TResult Function(String name)? changeName,
     TResult Function()? createManufacturer,
     TResult Function()? editManufacturer,
     TResult Function()? pickImage,
     TResult Function()? deleteImage,
+    TResult Function()? reset,
     required TResult orElse(),
   }) {
     if (createManufacturer != null) {
@@ -657,6 +684,7 @@ class _$_CreateManufacturer implements _CreateManufacturer {
     required TResult Function(_EditManufacturer value) editManufacturer,
     required TResult Function(_PickImage value) pickImage,
     required TResult Function(_DeleteImage value) deleteImage,
+    required TResult Function(_Reset value) reset,
   }) {
     return createManufacturer(this);
   }
@@ -671,6 +699,7 @@ class _$_CreateManufacturer implements _CreateManufacturer {
     TResult? Function(_EditManufacturer value)? editManufacturer,
     TResult? Function(_PickImage value)? pickImage,
     TResult? Function(_DeleteImage value)? deleteImage,
+    TResult? Function(_Reset value)? reset,
   }) {
     return createManufacturer?.call(this);
   }
@@ -685,6 +714,7 @@ class _$_CreateManufacturer implements _CreateManufacturer {
     TResult Function(_EditManufacturer value)? editManufacturer,
     TResult Function(_PickImage value)? pickImage,
     TResult Function(_DeleteImage value)? deleteImage,
+    TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) {
     if (createManufacturer != null) {
@@ -737,12 +767,13 @@ class _$_EditManufacturer implements _EditManufacturer {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(Manufacturer? manufacturer) setManufacturer,
+    required TResult Function(Manufacturer manufacturer) setManufacturer,
     required TResult Function(String name) changeName,
     required TResult Function() createManufacturer,
     required TResult Function() editManufacturer,
     required TResult Function() pickImage,
     required TResult Function() deleteImage,
+    required TResult Function() reset,
   }) {
     return editManufacturer();
   }
@@ -751,12 +782,13 @@ class _$_EditManufacturer implements _EditManufacturer {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(Manufacturer? manufacturer)? setManufacturer,
+    TResult? Function(Manufacturer manufacturer)? setManufacturer,
     TResult? Function(String name)? changeName,
     TResult? Function()? createManufacturer,
     TResult? Function()? editManufacturer,
     TResult? Function()? pickImage,
     TResult? Function()? deleteImage,
+    TResult? Function()? reset,
   }) {
     return editManufacturer?.call();
   }
@@ -765,12 +797,13 @@ class _$_EditManufacturer implements _EditManufacturer {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(Manufacturer? manufacturer)? setManufacturer,
+    TResult Function(Manufacturer manufacturer)? setManufacturer,
     TResult Function(String name)? changeName,
     TResult Function()? createManufacturer,
     TResult Function()? editManufacturer,
     TResult Function()? pickImage,
     TResult Function()? deleteImage,
+    TResult Function()? reset,
     required TResult orElse(),
   }) {
     if (editManufacturer != null) {
@@ -789,6 +822,7 @@ class _$_EditManufacturer implements _EditManufacturer {
     required TResult Function(_EditManufacturer value) editManufacturer,
     required TResult Function(_PickImage value) pickImage,
     required TResult Function(_DeleteImage value) deleteImage,
+    required TResult Function(_Reset value) reset,
   }) {
     return editManufacturer(this);
   }
@@ -803,6 +837,7 @@ class _$_EditManufacturer implements _EditManufacturer {
     TResult? Function(_EditManufacturer value)? editManufacturer,
     TResult? Function(_PickImage value)? pickImage,
     TResult? Function(_DeleteImage value)? deleteImage,
+    TResult? Function(_Reset value)? reset,
   }) {
     return editManufacturer?.call(this);
   }
@@ -817,6 +852,7 @@ class _$_EditManufacturer implements _EditManufacturer {
     TResult Function(_EditManufacturer value)? editManufacturer,
     TResult Function(_PickImage value)? pickImage,
     TResult Function(_DeleteImage value)? deleteImage,
+    TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) {
     if (editManufacturer != null) {
@@ -869,12 +905,13 @@ class _$_PickImage implements _PickImage {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(Manufacturer? manufacturer) setManufacturer,
+    required TResult Function(Manufacturer manufacturer) setManufacturer,
     required TResult Function(String name) changeName,
     required TResult Function() createManufacturer,
     required TResult Function() editManufacturer,
     required TResult Function() pickImage,
     required TResult Function() deleteImage,
+    required TResult Function() reset,
   }) {
     return pickImage();
   }
@@ -883,12 +920,13 @@ class _$_PickImage implements _PickImage {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(Manufacturer? manufacturer)? setManufacturer,
+    TResult? Function(Manufacturer manufacturer)? setManufacturer,
     TResult? Function(String name)? changeName,
     TResult? Function()? createManufacturer,
     TResult? Function()? editManufacturer,
     TResult? Function()? pickImage,
     TResult? Function()? deleteImage,
+    TResult? Function()? reset,
   }) {
     return pickImage?.call();
   }
@@ -897,12 +935,13 @@ class _$_PickImage implements _PickImage {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(Manufacturer? manufacturer)? setManufacturer,
+    TResult Function(Manufacturer manufacturer)? setManufacturer,
     TResult Function(String name)? changeName,
     TResult Function()? createManufacturer,
     TResult Function()? editManufacturer,
     TResult Function()? pickImage,
     TResult Function()? deleteImage,
+    TResult Function()? reset,
     required TResult orElse(),
   }) {
     if (pickImage != null) {
@@ -921,6 +960,7 @@ class _$_PickImage implements _PickImage {
     required TResult Function(_EditManufacturer value) editManufacturer,
     required TResult Function(_PickImage value) pickImage,
     required TResult Function(_DeleteImage value) deleteImage,
+    required TResult Function(_Reset value) reset,
   }) {
     return pickImage(this);
   }
@@ -935,6 +975,7 @@ class _$_PickImage implements _PickImage {
     TResult? Function(_EditManufacturer value)? editManufacturer,
     TResult? Function(_PickImage value)? pickImage,
     TResult? Function(_DeleteImage value)? deleteImage,
+    TResult? Function(_Reset value)? reset,
   }) {
     return pickImage?.call(this);
   }
@@ -949,6 +990,7 @@ class _$_PickImage implements _PickImage {
     TResult Function(_EditManufacturer value)? editManufacturer,
     TResult Function(_PickImage value)? pickImage,
     TResult Function(_DeleteImage value)? deleteImage,
+    TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) {
     if (pickImage != null) {
@@ -1001,12 +1043,13 @@ class _$_DeleteImage implements _DeleteImage {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(Manufacturer? manufacturer) setManufacturer,
+    required TResult Function(Manufacturer manufacturer) setManufacturer,
     required TResult Function(String name) changeName,
     required TResult Function() createManufacturer,
     required TResult Function() editManufacturer,
     required TResult Function() pickImage,
     required TResult Function() deleteImage,
+    required TResult Function() reset,
   }) {
     return deleteImage();
   }
@@ -1015,12 +1058,13 @@ class _$_DeleteImage implements _DeleteImage {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(Manufacturer? manufacturer)? setManufacturer,
+    TResult? Function(Manufacturer manufacturer)? setManufacturer,
     TResult? Function(String name)? changeName,
     TResult? Function()? createManufacturer,
     TResult? Function()? editManufacturer,
     TResult? Function()? pickImage,
     TResult? Function()? deleteImage,
+    TResult? Function()? reset,
   }) {
     return deleteImage?.call();
   }
@@ -1029,12 +1073,13 @@ class _$_DeleteImage implements _DeleteImage {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(Manufacturer? manufacturer)? setManufacturer,
+    TResult Function(Manufacturer manufacturer)? setManufacturer,
     TResult Function(String name)? changeName,
     TResult Function()? createManufacturer,
     TResult Function()? editManufacturer,
     TResult Function()? pickImage,
     TResult Function()? deleteImage,
+    TResult Function()? reset,
     required TResult orElse(),
   }) {
     if (deleteImage != null) {
@@ -1053,6 +1098,7 @@ class _$_DeleteImage implements _DeleteImage {
     required TResult Function(_EditManufacturer value) editManufacturer,
     required TResult Function(_PickImage value) pickImage,
     required TResult Function(_DeleteImage value) deleteImage,
+    required TResult Function(_Reset value) reset,
   }) {
     return deleteImage(this);
   }
@@ -1067,6 +1113,7 @@ class _$_DeleteImage implements _DeleteImage {
     TResult? Function(_EditManufacturer value)? editManufacturer,
     TResult? Function(_PickImage value)? pickImage,
     TResult? Function(_DeleteImage value)? deleteImage,
+    TResult? Function(_Reset value)? reset,
   }) {
     return deleteImage?.call(this);
   }
@@ -1081,6 +1128,7 @@ class _$_DeleteImage implements _DeleteImage {
     TResult Function(_EditManufacturer value)? editManufacturer,
     TResult Function(_PickImage value)? pickImage,
     TResult Function(_DeleteImage value)? deleteImage,
+    TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) {
     if (deleteImage != null) {
@@ -1092,6 +1140,142 @@ class _$_DeleteImage implements _DeleteImage {
 
 abstract class _DeleteImage implements CreateEditManufacturerEvent {
   const factory _DeleteImage() = _$_DeleteImage;
+}
+
+/// @nodoc
+abstract class _$$_ResetCopyWith<$Res> {
+  factory _$$_ResetCopyWith(_$_Reset value, $Res Function(_$_Reset) then) =
+      __$$_ResetCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_ResetCopyWithImpl<$Res>
+    extends _$CreateEditManufacturerEventCopyWithImpl<$Res, _$_Reset>
+    implements _$$_ResetCopyWith<$Res> {
+  __$$_ResetCopyWithImpl(_$_Reset _value, $Res Function(_$_Reset) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_Reset implements _Reset {
+  const _$_Reset();
+
+  @override
+  String toString() {
+    return 'CreateEditManufacturerEvent.reset()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Reset);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(Manufacturer manufacturer) setManufacturer,
+    required TResult Function(String name) changeName,
+    required TResult Function() createManufacturer,
+    required TResult Function() editManufacturer,
+    required TResult Function() pickImage,
+    required TResult Function() deleteImage,
+    required TResult Function() reset,
+  }) {
+    return reset();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(Manufacturer manufacturer)? setManufacturer,
+    TResult? Function(String name)? changeName,
+    TResult? Function()? createManufacturer,
+    TResult? Function()? editManufacturer,
+    TResult? Function()? pickImage,
+    TResult? Function()? deleteImage,
+    TResult? Function()? reset,
+  }) {
+    return reset?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(Manufacturer manufacturer)? setManufacturer,
+    TResult Function(String name)? changeName,
+    TResult Function()? createManufacturer,
+    TResult Function()? editManufacturer,
+    TResult Function()? pickImage,
+    TResult Function()? deleteImage,
+    TResult Function()? reset,
+    required TResult orElse(),
+  }) {
+    if (reset != null) {
+      return reset();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_SetManufacturer value) setManufacturer,
+    required TResult Function(_ChangeName value) changeName,
+    required TResult Function(_CreateManufacturer value) createManufacturer,
+    required TResult Function(_EditManufacturer value) editManufacturer,
+    required TResult Function(_PickImage value) pickImage,
+    required TResult Function(_DeleteImage value) deleteImage,
+    required TResult Function(_Reset value) reset,
+  }) {
+    return reset(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_SetManufacturer value)? setManufacturer,
+    TResult? Function(_ChangeName value)? changeName,
+    TResult? Function(_CreateManufacturer value)? createManufacturer,
+    TResult? Function(_EditManufacturer value)? editManufacturer,
+    TResult? Function(_PickImage value)? pickImage,
+    TResult? Function(_DeleteImage value)? deleteImage,
+    TResult? Function(_Reset value)? reset,
+  }) {
+    return reset?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_SetManufacturer value)? setManufacturer,
+    TResult Function(_ChangeName value)? changeName,
+    TResult Function(_CreateManufacturer value)? createManufacturer,
+    TResult Function(_EditManufacturer value)? editManufacturer,
+    TResult Function(_PickImage value)? pickImage,
+    TResult Function(_DeleteImage value)? deleteImage,
+    TResult Function(_Reset value)? reset,
+    required TResult orElse(),
+  }) {
+    if (reset != null) {
+      return reset(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Reset implements CreateEditManufacturerEvent {
+  const factory _Reset() = _$_Reset;
 }
 
 /// @nodoc

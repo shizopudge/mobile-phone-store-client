@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../core/presentation/widgets/pages/unauthorized_page.dart';
-import '../../products/presentation/pages/browse_products_page.dart';
+import '../../browse_products/presentation/pages/browse_products_page.dart';
 import 'home_body.dart';
 
 class GuestUI extends StatelessWidget {

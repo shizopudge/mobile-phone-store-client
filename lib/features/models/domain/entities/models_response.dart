@@ -1,8 +1,8 @@
 import 'package:equatable/equatable.dart';
-import '../../../../core/data/models/model/model_model.dart';
-import '../../../../core/domain/entities/model.dart';
 
+import '../../../../core/data/models/model/model_model.dart';
 import '../../../../core/domain/entities/info.dart';
+import '../../../../core/domain/entities/model.dart';
 import '../../data/models/models_response_model.dart';
 
 class ModelsResponse extends Equatable {

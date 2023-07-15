@@ -34,6 +34,7 @@ class PasswordVerifyDialog extends StatelessWidget {
             text: 'Next',
             onTap: onTap,
             fontSize: SizeConfig.body2,
+            borderRadius: SizeConfig.borderRadiusSmall,
           ),
         ],
       ),

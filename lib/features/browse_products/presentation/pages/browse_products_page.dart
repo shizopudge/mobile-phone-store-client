@@ -6,7 +6,7 @@ import '../../../../core/domain/entities/product.dart';
 import '../../../../core/presentation/animations/fade_animation_x.dart';
 import '../../../../core/presentation/widgets/bottom_sheets/products_filter/products_filter_bottom_sheet.dart';
 import '../../../../core/presentation/widgets/cards/square_product_card.dart';
-import '../../../../core/presentation/widgets/pages/search_page.dart';
+import '../../../../core/presentation/widgets/pages/browse_page.dart';
 import '../../../../core/presentation/widgets/scrollable/sliver_grid_view.dart';
 import '../../../../core/styles/styles.dart';
 import '../../../../core/utils/size_config.dart';
@@ -28,7 +28,7 @@ class BrowseProductsPage extends StatelessWidget {
         }
       },
       builder: (context, state) {
-        return SearchPage<BrowseProductsBloc, BrowseProductsEvent,
+        return BrowsePage<BrowseProductsBloc, BrowseProductsEvent,
             BrowseProductsState>(
           onSearch: (query) => context.read<BrowseProductsBloc>().add(
                 BrowseProductsEvent.searchProducts(

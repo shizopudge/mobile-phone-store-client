@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'dart:ui';
 
-import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
 
 import '../../../../../core/failure/failure.dart';
 import '../../../../core/domain/entities/current_user.dart';
@@ -60,17 +60,22 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   void _setState(_SetState event, Emitter<AuthState> emit) => emit(event.state);
 
   void _kickUnauthorizedUser(
-          _KickUnauthorizedUser event, Emitter<AuthState> emit) =>
-      emit(state.copyWith(status: AuthStatus.unauthorized));
+      _KickUnauthorizedUser event, Emitter<AuthState> emit) async {
+    await HydratedBloc.storage.clear();
+    emit(state.copyWith(status: AuthStatus.unauthorized));
+  }
 
   FutureOr<void> _logout(_Logout event, Emitter<AuthState> emit) async {
     emit(state.copyWith(status: AuthStatus.loading));
     final res = await _logoutUsecase.call(NoParams());
-    res.fold(
+    await res.fold(
       (failure) {
         emit(state.copyWith(status: AuthStatus.failure, failure: failure));
       },
-      (r) => emit(state.copyWith(status: AuthStatus.unauthorized)),
+      (r) async {
+        await HydratedBloc.storage.clear();
+        emit(state.copyWith(status: AuthStatus.unauthorized));
+      },
     );
   }
 }

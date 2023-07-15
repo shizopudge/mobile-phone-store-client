@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'dart:io';
-import 'dart:ui';
 
 import 'package:bloc/bloc.dart';
+import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../../core/domain/entities/manufacturer.dart';
@@ -42,6 +42,7 @@ class CreateEditManufacturerBloc
     on<_EditManufacturer>(_editManufacturer);
     on<_SetManufacturer>(_setManufacturer);
     on<_Initial>(_initial);
+    on<_Reset>(_reset);
   }
 
   final ManufacturersBloc _manufacturersBloc;
@@ -63,7 +64,6 @@ class CreateEditManufacturerBloc
 
   FutureOr<void> _pickImage(
       _PickImage event, Emitter<CreateEditManufacturerState> emit) async {
-    emit(state.copyWith(status: CreateEditManufacturerStatus.loading));
     final res = await _pickImageUsecase.call(NoParams());
     res.fold((failure) {
       _throwFailure(emit, failure);
@@ -151,15 +151,12 @@ class CreateEditManufacturerBloc
   }
 
   void _setManufacturer(
-      _SetManufacturer event, Emitter<CreateEditManufacturerState> emit) async {
-    if (event.manufacturer == null) {
-      await Future.delayed(const Duration(milliseconds: 300));
-      emit(const CreateEditManufacturerState());
-    } else {
+          _SetManufacturer event, Emitter<CreateEditManufacturerState> emit) =>
       emit(state.copyWith(
-          name: event.manufacturer!.name, manufacturer: event.manufacturer));
-    }
-  }
+          name: event.manufacturer.name, manufacturer: event.manufacturer));
+
+  void _reset(_Reset event, Emitter<CreateEditManufacturerState> emit) =>
+      emit(const CreateEditManufacturerState());
 
   void _throwFailure(
       Emitter<CreateEditManufacturerState> emit, Failure failure) {

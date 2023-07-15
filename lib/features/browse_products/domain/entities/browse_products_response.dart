@@ -3,7 +3,7 @@ import 'package:equatable/equatable.dart';
 import '../../../../core/data/models/product/product_model.dart';
 import '../../../../core/domain/entities/info.dart';
 import '../../../../core/domain/entities/product.dart';
-import '../../data/models/search_products_response/browse_products_response_model.dart';
+import '../../data/models/browse_products_response/browse_products_response_model.dart';
 
 class BrowseProductsResponse extends Equatable {
   final Info info;

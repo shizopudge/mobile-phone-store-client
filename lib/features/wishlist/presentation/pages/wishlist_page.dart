@@ -8,7 +8,7 @@ import '../../../../core/presentation/widgets/bottom_sheets/products_filter/prod
 import '../../../../core/presentation/widgets/cards/rectangle_product_card.dart';
 import '../../../../core/presentation/widgets/cards/square_product_card.dart';
 import '../../../../core/presentation/widgets/other/casual_dismissible.dart';
-import '../../../../core/presentation/widgets/pages/search_page.dart';
+import '../../../../core/presentation/widgets/pages/browse_page.dart';
 import '../../../../core/presentation/widgets/scrollable/sliver_grid_view.dart';
 import '../../../../core/styles/styles.dart';
 import '../../../../core/utils/size_config.dart';
@@ -30,7 +30,7 @@ class WishlistPage extends StatelessWidget {
         }
       },
       builder: (context, state) {
-        return SearchPage<WishlistBloc, WishlistEvent, WishlistState>(
+        return BrowsePage<WishlistBloc, WishlistEvent, WishlistState>(
           onSearch: (query) => context.read<WishlistBloc>().add(
                 WishlistEvent.searchProducts(
                   query,

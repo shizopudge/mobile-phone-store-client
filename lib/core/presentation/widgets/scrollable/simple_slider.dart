@@ -38,10 +38,7 @@ class _SimpleSliderState extends State<SimpleSlider> {
   late final ValueNotifier<int> _pageNotifer =
       ValueNotifier(widget.initialPage);
 
-  void _pageListener() {
-    _cancelTimer();
-    _pageNotifer.value = _pageController.page?.ceil() ?? 0;
-  }
+  void _pageListener() => _cancelTimer();
 
   void _changePage(int page) => _pageController.animateToPage(page,
       duration: const Duration(milliseconds: 200), curve: Curves.easeOut);
@@ -90,6 +87,7 @@ class _SimpleSliderState extends State<SimpleSlider> {
           Expanded(
             child: PageView(
               controller: _pageController,
+              onPageChanged: (int page) => _pageNotifer.value = page,
               scrollDirection: Axis.horizontal,
               children: List.generate(
                 widget.itemCount,

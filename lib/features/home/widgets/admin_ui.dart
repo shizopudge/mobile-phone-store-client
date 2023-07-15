@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../admin_panel/admin_panel.dart';
-import '../../products/presentation/pages/browse_products_page.dart';
+import '../../browse_products/presentation/pages/browse_products_page.dart';
 import '../../profile/presentation/pages/profile_page.dart';
 import 'home_body.dart';
 

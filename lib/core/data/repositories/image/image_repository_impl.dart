@@ -20,4 +20,14 @@ class ImageRepositoryImpl implements ImageRepository {
       return Left(CasualFailure(message: e.toString()));
     }
   }
+
+  @override
+  FutureEither<List<File>> pickImages() async {
+    try {
+      final res = await localDataSource.pickImages();
+      return Right(res);
+    } on Exception catch (e) {
+      return Left(CasualFailure(message: e.toString()));
+    }
+  }
 }

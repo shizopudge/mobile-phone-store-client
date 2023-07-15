@@ -39,10 +39,17 @@ class CreateEditManufacturerBody extends StatelessWidget {
                   SizedBox(
                     height: SizeConfig.setPadding(20),
                   ),
-                  EditableImage(
-                    image: currImage,
-                    pickedImage: pickedImage,
-                    onTap: () => onImageTap(currImage),
+                  SizedBox(
+                    height: SizeConfig.isMobile
+                        ? SizeConfig.screenWidth! * .5
+                        : SizeConfig.isTablet
+                            ? SizeConfig.screenWidth! * .5
+                            : SizeConfig.screenWidth! * .25,
+                    child: EditableImage(
+                      image: currImage,
+                      pickedImage: pickedImage,
+                      onTap: () => onImageTap(currImage),
+                    ),
                   ),
                   SizedBox(
                     height: SizeConfig.setPadding(20),

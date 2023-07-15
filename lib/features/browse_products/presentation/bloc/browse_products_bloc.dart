@@ -9,7 +9,7 @@ import '../../../../core/domain/entities/product.dart';
 import '../../../../core/domain/entities/filters.dart';
 import '../../../../core/failure/failure.dart';
 import '../../domain/entities/browse_products_response.dart';
-import '../../domain/usecases/get_many_products.dart';
+import '../../domain/usecases/browse_products.dart';
 
 part 'browse_products_bloc.freezed.dart';
 part 'browse_products_bloc.g.dart';
@@ -18,7 +18,7 @@ part 'browse_products_state.dart';
 
 class BrowseProductsBloc extends Bloc<BrowseProductsEvent, BrowseProductsState>
     with HydratedMixin {
-  BrowseProductsBloc({required GetProduct getManyProductsUsecase})
+  BrowseProductsBloc({required BrowseProducts getManyProductsUsecase})
       : _getManyProductsUsecase = getManyProductsUsecase,
         super(const BrowseProductsState()) {
     on<_Initial>(_initial);
@@ -29,7 +29,7 @@ class BrowseProductsBloc extends Bloc<BrowseProductsEvent, BrowseProductsState>
     on<_ChangeFilter>(_changeFilter);
   }
 
-  final GetProduct _getManyProductsUsecase;
+  final BrowseProducts _getManyProductsUsecase;
 
   FutureOr<void> _initial(
       _Initial event, Emitter<BrowseProductsState> emit) async {

@@ -31,7 +31,7 @@ class CasualDialog extends StatelessWidget {
           backgroundColor: kLightWhite,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(
-              SizeConfig.borderRadiusDefault,
+              SizeConfig.borderRadiusSmall,
             ),
           ),
           insetPadding: EdgeInsets.all(

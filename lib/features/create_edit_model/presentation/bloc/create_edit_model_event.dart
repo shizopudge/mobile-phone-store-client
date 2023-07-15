@@ -2,7 +2,7 @@ part of 'create_edit_model_bloc.dart';
 
 @freezed
 class CreateEditModelEvent with _$CreateEditModelEvent {
-  const factory CreateEditModelEvent.setModel(Model? model) = _SetModel;
+  const factory CreateEditModelEvent.setModel(Model model) = _SetModel;
   const factory CreateEditModelEvent.setManufacturerId(String manufacturerId) =
       _SetManufacturerId;
   const factory CreateEditModelEvent.changeName(String name) = _ChangeName;
@@ -27,4 +27,5 @@ class CreateEditModelEvent with _$CreateEditModelEvent {
       _ChangeHeight;
   const factory CreateEditModelEvent.createModel() = _CreateModel;
   const factory CreateEditModelEvent.editModel() = _EditModel;
+  const factory CreateEditModelEvent.reset() = _Reset;
 }

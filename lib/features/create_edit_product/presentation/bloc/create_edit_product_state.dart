@@ -30,14 +30,15 @@ class CreateEditProductState with _$CreateEditProductState {
   const factory CreateEditProductState({
     @Default('') String color,
     @Default('') String colorCode,
-    @Default('') String modelId,
-    double? cost,
-    int? storage,
-    int? screenRefreshRate,
+    @Default(0.0) double cost,
+    @Default(0) int storage,
+    @Default([]) List<File> images,
+    @Default(0) int inStockCount,
+    @Default(0) int discount,
     @Default(CreateEditProductStatus.initial) CreateEditProductStatus status,
     @Default(CasualFailure()) Failure failure,
-    List<File>? images,
-    Product? model,
+    String? modelId,
+    Product? product,
   }) = _CreateEditProductState;
 
   void callWhen({
@@ -50,8 +51,25 @@ class CreateEditProductState with _$CreateEditProductState {
       );
 
   bool _isAvailable() {
-    if (model != null) {
-    } else {}
+    if (product != null) {
+      if ((color.isNotEmpty && color != product!.color) ||
+          (colorCode.isNotEmpty && colorCode != product!.colorCode) ||
+          (cost != 0.0 && cost != product!.cost) ||
+          (storage != 0 && storage != product!.storage) ||
+          (inStockCount != product!.inStockCount) ||
+          ((discount == 0 ? null : discount) != product!.discount) ||
+          images.isNotEmpty) {
+        return true;
+      }
+      return false;
+    } else {
+      if (color.isNotEmpty &&
+          colorCode.isNotEmpty &&
+          cost != 0.0 &&
+          storage != 0) {
+        return true;
+      }
+    }
     return false;
   }
 
@@ -60,4 +78,10 @@ class CreateEditProductState with _$CreateEditProductState {
   bool get isLoading => status.isLoading;
   bool get isSuccess => status.isSuccess;
   bool get isFailure => status.isFailure;
+
+  bool get hasImages => (images.length + (product?.images.length ?? 0)) > 0;
+
+  int get productImagesLength => product?.images.length ?? 0;
+
+  int get uploadedImagesLength => images.length;
 }

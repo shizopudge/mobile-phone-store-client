@@ -34,7 +34,7 @@ class ProfilePage extends StatelessWidget {
                   if (currentUser?.image != null)
                     Hero(
                       tag: 'user_image',
-                      child: CasualImage(
+                      child: CasualRoundedNetworkImage(
                         image: currentUser?.image,
                         radius: SizeConfig.radiusMedium,
                       ),

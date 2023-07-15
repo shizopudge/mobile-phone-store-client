@@ -5,13 +5,14 @@ import '../../../../core/domain/usecases/usecase.dart';
 import '../entities/browse_products_response.dart';
 import '../repositories/browse_products_repository.dart';
 
-class GetProduct implements UseCase<BrowseProductsResponse, GetProductsParams> {
+class BrowseProducts
+    implements UseCase<BrowseProductsResponse, GetProductsParams> {
   final BrowseProductsRepository repository;
 
-  GetProduct(this.repository);
+  BrowseProducts(this.repository);
   @override
   FutureEither<BrowseProductsResponse> call(params) async =>
-      await repository.getManyProducts(
+      await repository.browseProducts(
         page: params.page,
         limit: params.limit,
         query: params.query,

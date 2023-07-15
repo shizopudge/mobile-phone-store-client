@@ -51,7 +51,6 @@ class _CreateEditManufacturerPageState
                 Navigator.of(dialogContext).pop();
               },
               enabledBgColor: kDarkBlue,
-              height: 45,
               fontSize: SizeConfig.body2,
             ),
             CasualButton(
@@ -63,13 +62,20 @@ class _CreateEditManufacturerPageState
                 Navigator.of(dialogContext).pop();
               },
               enabledBgColor: kRed,
-              height: 45,
               fontSize: SizeConfig.body2,
             ),
           ],
         ),
       );
     }
+  }
+
+  @override
+  void deactivate() {
+    context
+        .read<CreateEditManufacturerBloc>()
+        .add(const CreateEditManufacturerEvent.reset());
+    super.deactivate();
   }
 
   @override
@@ -85,7 +91,7 @@ class _CreateEditManufacturerPageState
         onWillPop: () async {
           context
               .read<CreateEditManufacturerBloc>()
-              .add(const CreateEditManufacturerEvent.setManufacturer(null));
+              .add(const CreateEditManufacturerEvent.reset());
           return true;
         },
         child: BlocConsumer<CreateEditManufacturerBloc,
@@ -93,12 +99,7 @@ class _CreateEditManufacturerPageState
           listenWhen: (previous, current) =>
               current.status.isSuccess || current.status.isFailure,
           listener: (context, state) => state.callWhen(
-            success: () {
-              context
-                  .read<CreateEditManufacturerBloc>()
-                  .add(const CreateEditManufacturerEvent.setManufacturer(null));
-              Navigator.of(context).pop();
-            },
+            success: () => Navigator.of(context).pop(),
             failure: () => state.failure.call(context),
           ),
           builder: (context, state) {
@@ -110,9 +111,7 @@ class _CreateEditManufacturerPageState
                     title: state.manufacturer != null
                         ? 'Edit Manufacturer'
                         : 'Create Manufacturer',
-                    onPop: () => context.read<CreateEditManufacturerBloc>().add(
-                        const CreateEditManufacturerEvent.setManufacturer(
-                            null)),
+                    canGoBack: true,
                   ),
                   body: Column(
                     children: [

@@ -23,8 +23,9 @@ mixin _$ModelsEvent {
     required TResult Function(String query) searchModels,
     required TResult Function(Model model) updateModelInList,
     required TResult Function() getNextModels,
-    required TResult Function(Manufacturer? manufacturer) setManufacturer,
+    required TResult Function(Manufacturer manufacturer) setManufacturer,
     required TResult Function(Model model) deleteModel,
+    required TResult Function() reset,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -34,8 +35,9 @@ mixin _$ModelsEvent {
     TResult? Function(String query)? searchModels,
     TResult? Function(Model model)? updateModelInList,
     TResult? Function()? getNextModels,
-    TResult? Function(Manufacturer? manufacturer)? setManufacturer,
+    TResult? Function(Manufacturer manufacturer)? setManufacturer,
     TResult? Function(Model model)? deleteModel,
+    TResult? Function()? reset,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -45,8 +47,9 @@ mixin _$ModelsEvent {
     TResult Function(String query)? searchModels,
     TResult Function(Model model)? updateModelInList,
     TResult Function()? getNextModels,
-    TResult Function(Manufacturer? manufacturer)? setManufacturer,
+    TResult Function(Manufacturer manufacturer)? setManufacturer,
     TResult Function(Model model)? deleteModel,
+    TResult Function()? reset,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -59,6 +62,7 @@ mixin _$ModelsEvent {
     required TResult Function(_GetNextModels value) getNextModels,
     required TResult Function(_SetManufacturer value) setManufacturer,
     required TResult Function(_DeleteModel value) deleteModel,
+    required TResult Function(_Reset value) reset,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -70,6 +74,7 @@ mixin _$ModelsEvent {
     TResult? Function(_GetNextModels value)? getNextModels,
     TResult? Function(_SetManufacturer value)? setManufacturer,
     TResult? Function(_DeleteModel value)? deleteModel,
+    TResult? Function(_Reset value)? reset,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -81,6 +86,7 @@ mixin _$ModelsEvent {
     TResult Function(_GetNextModels value)? getNextModels,
     TResult Function(_SetManufacturer value)? setManufacturer,
     TResult Function(_DeleteModel value)? deleteModel,
+    TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -146,8 +152,9 @@ class _$_Initial implements _Initial {
     required TResult Function(String query) searchModels,
     required TResult Function(Model model) updateModelInList,
     required TResult Function() getNextModels,
-    required TResult Function(Manufacturer? manufacturer) setManufacturer,
+    required TResult Function(Manufacturer manufacturer) setManufacturer,
     required TResult Function(Model model) deleteModel,
+    required TResult Function() reset,
   }) {
     return initial();
   }
@@ -160,8 +167,9 @@ class _$_Initial implements _Initial {
     TResult? Function(String query)? searchModels,
     TResult? Function(Model model)? updateModelInList,
     TResult? Function()? getNextModels,
-    TResult? Function(Manufacturer? manufacturer)? setManufacturer,
+    TResult? Function(Manufacturer manufacturer)? setManufacturer,
     TResult? Function(Model model)? deleteModel,
+    TResult? Function()? reset,
   }) {
     return initial?.call();
   }
@@ -174,8 +182,9 @@ class _$_Initial implements _Initial {
     TResult Function(String query)? searchModels,
     TResult Function(Model model)? updateModelInList,
     TResult Function()? getNextModels,
-    TResult Function(Manufacturer? manufacturer)? setManufacturer,
+    TResult Function(Manufacturer manufacturer)? setManufacturer,
     TResult Function(Model model)? deleteModel,
+    TResult Function()? reset,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -194,6 +203,7 @@ class _$_Initial implements _Initial {
     required TResult Function(_GetNextModels value) getNextModels,
     required TResult Function(_SetManufacturer value) setManufacturer,
     required TResult Function(_DeleteModel value) deleteModel,
+    required TResult Function(_Reset value) reset,
   }) {
     return initial(this);
   }
@@ -208,6 +218,7 @@ class _$_Initial implements _Initial {
     TResult? Function(_GetNextModels value)? getNextModels,
     TResult? Function(_SetManufacturer value)? setManufacturer,
     TResult? Function(_DeleteModel value)? deleteModel,
+    TResult? Function(_Reset value)? reset,
   }) {
     return initial?.call(this);
   }
@@ -222,6 +233,7 @@ class _$_Initial implements _Initial {
     TResult Function(_GetNextModels value)? getNextModels,
     TResult Function(_SetManufacturer value)? setManufacturer,
     TResult Function(_DeleteModel value)? deleteModel,
+    TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -277,8 +289,9 @@ class _$_Refresh implements _Refresh {
     required TResult Function(String query) searchModels,
     required TResult Function(Model model) updateModelInList,
     required TResult Function() getNextModels,
-    required TResult Function(Manufacturer? manufacturer) setManufacturer,
+    required TResult Function(Manufacturer manufacturer) setManufacturer,
     required TResult Function(Model model) deleteModel,
+    required TResult Function() reset,
   }) {
     return refresh();
   }
@@ -291,8 +304,9 @@ class _$_Refresh implements _Refresh {
     TResult? Function(String query)? searchModels,
     TResult? Function(Model model)? updateModelInList,
     TResult? Function()? getNextModels,
-    TResult? Function(Manufacturer? manufacturer)? setManufacturer,
+    TResult? Function(Manufacturer manufacturer)? setManufacturer,
     TResult? Function(Model model)? deleteModel,
+    TResult? Function()? reset,
   }) {
     return refresh?.call();
   }
@@ -305,8 +319,9 @@ class _$_Refresh implements _Refresh {
     TResult Function(String query)? searchModels,
     TResult Function(Model model)? updateModelInList,
     TResult Function()? getNextModels,
-    TResult Function(Manufacturer? manufacturer)? setManufacturer,
+    TResult Function(Manufacturer manufacturer)? setManufacturer,
     TResult Function(Model model)? deleteModel,
+    TResult Function()? reset,
     required TResult orElse(),
   }) {
     if (refresh != null) {
@@ -325,6 +340,7 @@ class _$_Refresh implements _Refresh {
     required TResult Function(_GetNextModels value) getNextModels,
     required TResult Function(_SetManufacturer value) setManufacturer,
     required TResult Function(_DeleteModel value) deleteModel,
+    required TResult Function(_Reset value) reset,
   }) {
     return refresh(this);
   }
@@ -339,6 +355,7 @@ class _$_Refresh implements _Refresh {
     TResult? Function(_GetNextModels value)? getNextModels,
     TResult? Function(_SetManufacturer value)? setManufacturer,
     TResult? Function(_DeleteModel value)? deleteModel,
+    TResult? Function(_Reset value)? reset,
   }) {
     return refresh?.call(this);
   }
@@ -353,6 +370,7 @@ class _$_Refresh implements _Refresh {
     TResult Function(_GetNextModels value)? getNextModels,
     TResult Function(_SetManufacturer value)? setManufacturer,
     TResult Function(_DeleteModel value)? deleteModel,
+    TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) {
     if (refresh != null) {
@@ -435,8 +453,9 @@ class _$_SearchModels implements _SearchModels {
     required TResult Function(String query) searchModels,
     required TResult Function(Model model) updateModelInList,
     required TResult Function() getNextModels,
-    required TResult Function(Manufacturer? manufacturer) setManufacturer,
+    required TResult Function(Manufacturer manufacturer) setManufacturer,
     required TResult Function(Model model) deleteModel,
+    required TResult Function() reset,
   }) {
     return searchModels(query);
   }
@@ -449,8 +468,9 @@ class _$_SearchModels implements _SearchModels {
     TResult? Function(String query)? searchModels,
     TResult? Function(Model model)? updateModelInList,
     TResult? Function()? getNextModels,
-    TResult? Function(Manufacturer? manufacturer)? setManufacturer,
+    TResult? Function(Manufacturer manufacturer)? setManufacturer,
     TResult? Function(Model model)? deleteModel,
+    TResult? Function()? reset,
   }) {
     return searchModels?.call(query);
   }
@@ -463,8 +483,9 @@ class _$_SearchModels implements _SearchModels {
     TResult Function(String query)? searchModels,
     TResult Function(Model model)? updateModelInList,
     TResult Function()? getNextModels,
-    TResult Function(Manufacturer? manufacturer)? setManufacturer,
+    TResult Function(Manufacturer manufacturer)? setManufacturer,
     TResult Function(Model model)? deleteModel,
+    TResult Function()? reset,
     required TResult orElse(),
   }) {
     if (searchModels != null) {
@@ -483,6 +504,7 @@ class _$_SearchModels implements _SearchModels {
     required TResult Function(_GetNextModels value) getNextModels,
     required TResult Function(_SetManufacturer value) setManufacturer,
     required TResult Function(_DeleteModel value) deleteModel,
+    required TResult Function(_Reset value) reset,
   }) {
     return searchModels(this);
   }
@@ -497,6 +519,7 @@ class _$_SearchModels implements _SearchModels {
     TResult? Function(_GetNextModels value)? getNextModels,
     TResult? Function(_SetManufacturer value)? setManufacturer,
     TResult? Function(_DeleteModel value)? deleteModel,
+    TResult? Function(_Reset value)? reset,
   }) {
     return searchModels?.call(this);
   }
@@ -511,6 +534,7 @@ class _$_SearchModels implements _SearchModels {
     TResult Function(_GetNextModels value)? getNextModels,
     TResult Function(_SetManufacturer value)? setManufacturer,
     TResult Function(_DeleteModel value)? deleteModel,
+    TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) {
     if (searchModels != null) {
@@ -599,8 +623,9 @@ class _$_UpdateModelInList implements _UpdateModelInList {
     required TResult Function(String query) searchModels,
     required TResult Function(Model model) updateModelInList,
     required TResult Function() getNextModels,
-    required TResult Function(Manufacturer? manufacturer) setManufacturer,
+    required TResult Function(Manufacturer manufacturer) setManufacturer,
     required TResult Function(Model model) deleteModel,
+    required TResult Function() reset,
   }) {
     return updateModelInList(model);
   }
@@ -613,8 +638,9 @@ class _$_UpdateModelInList implements _UpdateModelInList {
     TResult? Function(String query)? searchModels,
     TResult? Function(Model model)? updateModelInList,
     TResult? Function()? getNextModels,
-    TResult? Function(Manufacturer? manufacturer)? setManufacturer,
+    TResult? Function(Manufacturer manufacturer)? setManufacturer,
     TResult? Function(Model model)? deleteModel,
+    TResult? Function()? reset,
   }) {
     return updateModelInList?.call(model);
   }
@@ -627,8 +653,9 @@ class _$_UpdateModelInList implements _UpdateModelInList {
     TResult Function(String query)? searchModels,
     TResult Function(Model model)? updateModelInList,
     TResult Function()? getNextModels,
-    TResult Function(Manufacturer? manufacturer)? setManufacturer,
+    TResult Function(Manufacturer manufacturer)? setManufacturer,
     TResult Function(Model model)? deleteModel,
+    TResult Function()? reset,
     required TResult orElse(),
   }) {
     if (updateModelInList != null) {
@@ -647,6 +674,7 @@ class _$_UpdateModelInList implements _UpdateModelInList {
     required TResult Function(_GetNextModels value) getNextModels,
     required TResult Function(_SetManufacturer value) setManufacturer,
     required TResult Function(_DeleteModel value) deleteModel,
+    required TResult Function(_Reset value) reset,
   }) {
     return updateModelInList(this);
   }
@@ -661,6 +689,7 @@ class _$_UpdateModelInList implements _UpdateModelInList {
     TResult? Function(_GetNextModels value)? getNextModels,
     TResult? Function(_SetManufacturer value)? setManufacturer,
     TResult? Function(_DeleteModel value)? deleteModel,
+    TResult? Function(_Reset value)? reset,
   }) {
     return updateModelInList?.call(this);
   }
@@ -675,6 +704,7 @@ class _$_UpdateModelInList implements _UpdateModelInList {
     TResult Function(_GetNextModels value)? getNextModels,
     TResult Function(_SetManufacturer value)? setManufacturer,
     TResult Function(_DeleteModel value)? deleteModel,
+    TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) {
     if (updateModelInList != null) {
@@ -736,8 +766,9 @@ class _$_GetNextModels implements _GetNextModels {
     required TResult Function(String query) searchModels,
     required TResult Function(Model model) updateModelInList,
     required TResult Function() getNextModels,
-    required TResult Function(Manufacturer? manufacturer) setManufacturer,
+    required TResult Function(Manufacturer manufacturer) setManufacturer,
     required TResult Function(Model model) deleteModel,
+    required TResult Function() reset,
   }) {
     return getNextModels();
   }
@@ -750,8 +781,9 @@ class _$_GetNextModels implements _GetNextModels {
     TResult? Function(String query)? searchModels,
     TResult? Function(Model model)? updateModelInList,
     TResult? Function()? getNextModels,
-    TResult? Function(Manufacturer? manufacturer)? setManufacturer,
+    TResult? Function(Manufacturer manufacturer)? setManufacturer,
     TResult? Function(Model model)? deleteModel,
+    TResult? Function()? reset,
   }) {
     return getNextModels?.call();
   }
@@ -764,8 +796,9 @@ class _$_GetNextModels implements _GetNextModels {
     TResult Function(String query)? searchModels,
     TResult Function(Model model)? updateModelInList,
     TResult Function()? getNextModels,
-    TResult Function(Manufacturer? manufacturer)? setManufacturer,
+    TResult Function(Manufacturer manufacturer)? setManufacturer,
     TResult Function(Model model)? deleteModel,
+    TResult Function()? reset,
     required TResult orElse(),
   }) {
     if (getNextModels != null) {
@@ -784,6 +817,7 @@ class _$_GetNextModels implements _GetNextModels {
     required TResult Function(_GetNextModels value) getNextModels,
     required TResult Function(_SetManufacturer value) setManufacturer,
     required TResult Function(_DeleteModel value) deleteModel,
+    required TResult Function(_Reset value) reset,
   }) {
     return getNextModels(this);
   }
@@ -798,6 +832,7 @@ class _$_GetNextModels implements _GetNextModels {
     TResult? Function(_GetNextModels value)? getNextModels,
     TResult? Function(_SetManufacturer value)? setManufacturer,
     TResult? Function(_DeleteModel value)? deleteModel,
+    TResult? Function(_Reset value)? reset,
   }) {
     return getNextModels?.call(this);
   }
@@ -812,6 +847,7 @@ class _$_GetNextModels implements _GetNextModels {
     TResult Function(_GetNextModels value)? getNextModels,
     TResult Function(_SetManufacturer value)? setManufacturer,
     TResult Function(_DeleteModel value)? deleteModel,
+    TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) {
     if (getNextModels != null) {
@@ -831,7 +867,7 @@ abstract class _$$_SetManufacturerCopyWith<$Res> {
           _$_SetManufacturer value, $Res Function(_$_SetManufacturer) then) =
       __$$_SetManufacturerCopyWithImpl<$Res>;
   @useResult
-  $Res call({Manufacturer? manufacturer});
+  $Res call({Manufacturer manufacturer});
 }
 
 /// @nodoc
@@ -845,13 +881,13 @@ class __$$_SetManufacturerCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? manufacturer = freezed,
+    Object? manufacturer = null,
   }) {
     return _then(_$_SetManufacturer(
-      freezed == manufacturer
+      null == manufacturer
           ? _value.manufacturer
           : manufacturer // ignore: cast_nullable_to_non_nullable
-              as Manufacturer?,
+              as Manufacturer,
     ));
   }
 }
@@ -862,7 +898,7 @@ class _$_SetManufacturer implements _SetManufacturer {
   const _$_SetManufacturer(this.manufacturer);
 
   @override
-  final Manufacturer? manufacturer;
+  final Manufacturer manufacturer;
 
   @override
   String toString() {
@@ -895,8 +931,9 @@ class _$_SetManufacturer implements _SetManufacturer {
     required TResult Function(String query) searchModels,
     required TResult Function(Model model) updateModelInList,
     required TResult Function() getNextModels,
-    required TResult Function(Manufacturer? manufacturer) setManufacturer,
+    required TResult Function(Manufacturer manufacturer) setManufacturer,
     required TResult Function(Model model) deleteModel,
+    required TResult Function() reset,
   }) {
     return setManufacturer(manufacturer);
   }
@@ -909,8 +946,9 @@ class _$_SetManufacturer implements _SetManufacturer {
     TResult? Function(String query)? searchModels,
     TResult? Function(Model model)? updateModelInList,
     TResult? Function()? getNextModels,
-    TResult? Function(Manufacturer? manufacturer)? setManufacturer,
+    TResult? Function(Manufacturer manufacturer)? setManufacturer,
     TResult? Function(Model model)? deleteModel,
+    TResult? Function()? reset,
   }) {
     return setManufacturer?.call(manufacturer);
   }
@@ -923,8 +961,9 @@ class _$_SetManufacturer implements _SetManufacturer {
     TResult Function(String query)? searchModels,
     TResult Function(Model model)? updateModelInList,
     TResult Function()? getNextModels,
-    TResult Function(Manufacturer? manufacturer)? setManufacturer,
+    TResult Function(Manufacturer manufacturer)? setManufacturer,
     TResult Function(Model model)? deleteModel,
+    TResult Function()? reset,
     required TResult orElse(),
   }) {
     if (setManufacturer != null) {
@@ -943,6 +982,7 @@ class _$_SetManufacturer implements _SetManufacturer {
     required TResult Function(_GetNextModels value) getNextModels,
     required TResult Function(_SetManufacturer value) setManufacturer,
     required TResult Function(_DeleteModel value) deleteModel,
+    required TResult Function(_Reset value) reset,
   }) {
     return setManufacturer(this);
   }
@@ -957,6 +997,7 @@ class _$_SetManufacturer implements _SetManufacturer {
     TResult? Function(_GetNextModels value)? getNextModels,
     TResult? Function(_SetManufacturer value)? setManufacturer,
     TResult? Function(_DeleteModel value)? deleteModel,
+    TResult? Function(_Reset value)? reset,
   }) {
     return setManufacturer?.call(this);
   }
@@ -971,6 +1012,7 @@ class _$_SetManufacturer implements _SetManufacturer {
     TResult Function(_GetNextModels value)? getNextModels,
     TResult Function(_SetManufacturer value)? setManufacturer,
     TResult Function(_DeleteModel value)? deleteModel,
+    TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) {
     if (setManufacturer != null) {
@@ -981,10 +1023,10 @@ class _$_SetManufacturer implements _SetManufacturer {
 }
 
 abstract class _SetManufacturer implements ModelsEvent {
-  const factory _SetManufacturer(final Manufacturer? manufacturer) =
+  const factory _SetManufacturer(final Manufacturer manufacturer) =
       _$_SetManufacturer;
 
-  Manufacturer? get manufacturer;
+  Manufacturer get manufacturer;
   @JsonKey(ignore: true)
   _$$_SetManufacturerCopyWith<_$_SetManufacturer> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1059,8 +1101,9 @@ class _$_DeleteModel implements _DeleteModel {
     required TResult Function(String query) searchModels,
     required TResult Function(Model model) updateModelInList,
     required TResult Function() getNextModels,
-    required TResult Function(Manufacturer? manufacturer) setManufacturer,
+    required TResult Function(Manufacturer manufacturer) setManufacturer,
     required TResult Function(Model model) deleteModel,
+    required TResult Function() reset,
   }) {
     return deleteModel(model);
   }
@@ -1073,8 +1116,9 @@ class _$_DeleteModel implements _DeleteModel {
     TResult? Function(String query)? searchModels,
     TResult? Function(Model model)? updateModelInList,
     TResult? Function()? getNextModels,
-    TResult? Function(Manufacturer? manufacturer)? setManufacturer,
+    TResult? Function(Manufacturer manufacturer)? setManufacturer,
     TResult? Function(Model model)? deleteModel,
+    TResult? Function()? reset,
   }) {
     return deleteModel?.call(model);
   }
@@ -1087,8 +1131,9 @@ class _$_DeleteModel implements _DeleteModel {
     TResult Function(String query)? searchModels,
     TResult Function(Model model)? updateModelInList,
     TResult Function()? getNextModels,
-    TResult Function(Manufacturer? manufacturer)? setManufacturer,
+    TResult Function(Manufacturer manufacturer)? setManufacturer,
     TResult Function(Model model)? deleteModel,
+    TResult Function()? reset,
     required TResult orElse(),
   }) {
     if (deleteModel != null) {
@@ -1107,6 +1152,7 @@ class _$_DeleteModel implements _DeleteModel {
     required TResult Function(_GetNextModels value) getNextModels,
     required TResult Function(_SetManufacturer value) setManufacturer,
     required TResult Function(_DeleteModel value) deleteModel,
+    required TResult Function(_Reset value) reset,
   }) {
     return deleteModel(this);
   }
@@ -1121,6 +1167,7 @@ class _$_DeleteModel implements _DeleteModel {
     TResult? Function(_GetNextModels value)? getNextModels,
     TResult? Function(_SetManufacturer value)? setManufacturer,
     TResult? Function(_DeleteModel value)? deleteModel,
+    TResult? Function(_Reset value)? reset,
   }) {
     return deleteModel?.call(this);
   }
@@ -1135,6 +1182,7 @@ class _$_DeleteModel implements _DeleteModel {
     TResult Function(_GetNextModels value)? getNextModels,
     TResult Function(_SetManufacturer value)? setManufacturer,
     TResult Function(_DeleteModel value)? deleteModel,
+    TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) {
     if (deleteModel != null) {
@@ -1151,6 +1199,142 @@ abstract class _DeleteModel implements ModelsEvent {
   @JsonKey(ignore: true)
   _$$_DeleteModelCopyWith<_$_DeleteModel> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_ResetCopyWith<$Res> {
+  factory _$$_ResetCopyWith(_$_Reset value, $Res Function(_$_Reset) then) =
+      __$$_ResetCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_ResetCopyWithImpl<$Res>
+    extends _$ModelsEventCopyWithImpl<$Res, _$_Reset>
+    implements _$$_ResetCopyWith<$Res> {
+  __$$_ResetCopyWithImpl(_$_Reset _value, $Res Function(_$_Reset) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_Reset implements _Reset {
+  const _$_Reset();
+
+  @override
+  String toString() {
+    return 'ModelsEvent.reset()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Reset);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() refresh,
+    required TResult Function(String query) searchModels,
+    required TResult Function(Model model) updateModelInList,
+    required TResult Function() getNextModels,
+    required TResult Function(Manufacturer manufacturer) setManufacturer,
+    required TResult Function(Model model) deleteModel,
+    required TResult Function() reset,
+  }) {
+    return reset();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? refresh,
+    TResult? Function(String query)? searchModels,
+    TResult? Function(Model model)? updateModelInList,
+    TResult? Function()? getNextModels,
+    TResult? Function(Manufacturer manufacturer)? setManufacturer,
+    TResult? Function(Model model)? deleteModel,
+    TResult? Function()? reset,
+  }) {
+    return reset?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? refresh,
+    TResult Function(String query)? searchModels,
+    TResult Function(Model model)? updateModelInList,
+    TResult Function()? getNextModels,
+    TResult Function(Manufacturer manufacturer)? setManufacturer,
+    TResult Function(Model model)? deleteModel,
+    TResult Function()? reset,
+    required TResult orElse(),
+  }) {
+    if (reset != null) {
+      return reset();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Refresh value) refresh,
+    required TResult Function(_SearchModels value) searchModels,
+    required TResult Function(_UpdateModelInList value) updateModelInList,
+    required TResult Function(_GetNextModels value) getNextModels,
+    required TResult Function(_SetManufacturer value) setManufacturer,
+    required TResult Function(_DeleteModel value) deleteModel,
+    required TResult Function(_Reset value) reset,
+  }) {
+    return reset(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Refresh value)? refresh,
+    TResult? Function(_SearchModels value)? searchModels,
+    TResult? Function(_UpdateModelInList value)? updateModelInList,
+    TResult? Function(_GetNextModels value)? getNextModels,
+    TResult? Function(_SetManufacturer value)? setManufacturer,
+    TResult? Function(_DeleteModel value)? deleteModel,
+    TResult? Function(_Reset value)? reset,
+  }) {
+    return reset?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Refresh value)? refresh,
+    TResult Function(_SearchModels value)? searchModels,
+    TResult Function(_UpdateModelInList value)? updateModelInList,
+    TResult Function(_GetNextModels value)? getNextModels,
+    TResult Function(_SetManufacturer value)? setManufacturer,
+    TResult Function(_DeleteModel value)? deleteModel,
+    TResult Function(_Reset value)? reset,
+    required TResult orElse(),
+  }) {
+    if (reset != null) {
+      return reset(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Reset implements ModelsEvent {
+  const factory _Reset() = _$_Reset;
 }
 
 /// @nodoc

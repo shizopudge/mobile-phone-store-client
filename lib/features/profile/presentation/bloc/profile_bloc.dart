@@ -1,10 +1,10 @@
 import 'dart:async';
 import 'dart:io';
-import 'dart:ui';
 
 import 'package:bloc/bloc.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../../core/constants/extensions.dart';
@@ -142,7 +142,6 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
 
   FutureOr<void> _pickImage(
       _PickImage event, Emitter<ProfileState> emit) async {
-    emit(state.copyWith(status: ProfileStatus.loading));
     final res = await _pickImageUsecase.call(NoParams());
     res.fold((failure) {
       _throwFailure(emit, failure);

@@ -7,7 +7,8 @@ class ModelsEvent with _$ModelsEvent {
   const factory ModelsEvent.searchModels(String query) = _SearchModels;
   const factory ModelsEvent.updateModelInList(Model model) = _UpdateModelInList;
   const factory ModelsEvent.getNextModels() = _GetNextModels;
-  const factory ModelsEvent.setManufacturer(Manufacturer? manufacturer) =
+  const factory ModelsEvent.setManufacturer(Manufacturer manufacturer) =
       _SetManufacturer;
   const factory ModelsEvent.deleteModel(Model model) = _DeleteModel;
+  const factory ModelsEvent.reset() = _Reset;
 }

@@ -8,8 +8,8 @@ import '../../../../core/presentation/widgets/buttons/rounded_icon_button.dart';
 import '../../../../core/styles/styles.dart';
 import '../../../../core/utils/size_config.dart';
 import '../../../auth/presentation/bloc/auth_bloc.dart';
+import '../../../create_edit_product/presentation/bloc/create_edit_product_bloc.dart';
 import '../../../wishlist/presentation/bloc/wishlist_bloc.dart';
-import '../bloc/detailed_product_bloc.dart';
 
 class DetailedProductHeader extends StatelessWidget {
   final Product product;
@@ -30,12 +30,7 @@ class DetailedProductHeader extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           RoundedIconButton(
-            onTap: () {
-              Navigator.of(context).pop();
-              context
-                  .read<DetailedProductBloc>()
-                  .add(const DetailedProductEvent.changeProduct(null));
-            },
+            onTap: () => Navigator.of(context).pop(),
             child: Icon(
               Icons.arrow_back_rounded,
               color: kDarkBlue,
@@ -52,6 +47,17 @@ class DetailedProductHeader extends StatelessWidget {
                   product.isInWishlist(wishlist)
                       ? Icons.favorite_rounded
                       : Icons.favorite_outline_rounded,
+                  color: kDarkBlue,
+                  size: SizeConfig.iconMedium,
+                ),
+              )
+            else
+              RoundedIconButton(
+                onTap: () => context
+                    .read<CreateEditProductBloc>()
+                    .add(CreateEditProductEvent.setProduct(product)),
+                child: Icon(
+                  Icons.edit_rounded,
                   color: kDarkBlue,
                   size: SizeConfig.iconMedium,
                 ),

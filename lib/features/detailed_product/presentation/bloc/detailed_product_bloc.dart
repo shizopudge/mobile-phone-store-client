@@ -3,11 +3,12 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
-import '../../../wishlist/presentation/bloc/wishlist_bloc.dart';
+
 import '../../../../core/domain/entities/product.dart';
 import '../../../../core/failure/failure.dart';
+import '../../../browse_products/presentation/bloc/browse_products_bloc.dart';
 import '../../../cart/presentation/bloc/cart_bloc.dart';
-import '../../../products/presentation/bloc/browse_products_bloc.dart';
+import '../../../wishlist/presentation/bloc/wishlist_bloc.dart';
 import '../../domain/usecases/change_color.dart';
 import '../../domain/usecases/change_storage.dart';
 import '../../domain/usecases/get_one_product.dart';
@@ -38,6 +39,7 @@ class DetailedProductBloc
     on<_ChangeProduct>(_changeProduct);
     on<_ChangeColor>(_changeColor);
     on<_ChangeStorage>(_changeStorage);
+    on<_Reset>(_reset);
   }
 
   final CartBloc _cartBloc;
@@ -63,12 +65,8 @@ class DetailedProductBloc
   }
 
   void _changeProduct(
-      _ChangeProduct event, Emitter<DetailedProductState> emit) async {
-    if (event.product == null) {
-      await Future.delayed(const Duration(milliseconds: 500));
-    }
-    emit(state.copyWith(product: event.product));
-  }
+          _ChangeProduct event, Emitter<DetailedProductState> emit) async =>
+      emit(state.copyWith(product: event.product));
 
   void _changeColor(
       _ChangeColor event, Emitter<DetailedProductState> emit) async {
@@ -103,6 +101,9 @@ class DetailedProductBloc
       }
     }
   }
+
+  void _reset(_Reset event, Emitter<DetailedProductState> emit) =>
+      emit(const DetailedProductState());
 
   void _throwFailure(Emitter<DetailedProductState> emit, Failure failure) {
     emit(state.copyWith(

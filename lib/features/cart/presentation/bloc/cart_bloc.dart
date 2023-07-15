@@ -6,9 +6,9 @@ import 'package:rxdart/rxdart.dart';
 
 import '../../../../core/constants/type_defs.dart';
 import '../../../../core/domain/entities/cart_wishlist_response.dart';
+import '../../../../core/domain/entities/filters.dart';
 import '../../../../core/domain/entities/info.dart';
 import '../../../../core/domain/entities/product.dart';
-import '../../../../core/domain/entities/filters.dart';
 import '../../../../core/domain/usecases/products/toggle_cart.dart';
 import '../../../../core/failure/failure.dart';
 import '../../domain/usecases/get_cart.dart';

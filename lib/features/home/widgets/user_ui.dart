@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../core/di/get_it.dart';
-import '../../cart/presentation/bloc/cart_bloc.dart';
-import '../../wishlist/presentation/bloc/wishlist_bloc.dart';
 
+import '../../../core/di/get_it.dart';
+import '../../browse_products/presentation/pages/browse_products_page.dart';
+import '../../cart/presentation/bloc/cart_bloc.dart';
 import '../../cart/presentation/pages/cart_page.dart';
-import '../../products/presentation/pages/browse_products_page.dart';
 import '../../profile/presentation/pages/profile_page.dart';
+import '../../wishlist/presentation/bloc/wishlist_bloc.dart';
 import '../../wishlist/presentation/pages/wishlist_page.dart';
 import 'home_body.dart';
 

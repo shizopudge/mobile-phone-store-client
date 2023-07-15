@@ -123,9 +123,9 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
           isLoading: state.status.isLoading,
           child: Scaffold(
             backgroundColor: kWhite,
-            appBar: CasualAppBar(
+            appBar: const CasualAppBar(
               title: 'Edit profile',
-              onPop: () {},
+              canGoBack: true,
             ),
             body: Column(
               children: [

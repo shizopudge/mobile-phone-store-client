@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../../../utils/size_config.dart';
@@ -23,12 +24,13 @@ class EditableImage extends StatelessWidget {
       child: pickedImage != null
           ? ClipRRect(
               borderRadius: BorderRadius.circular(SizeConfig.borderRadiusSmall),
-              child: SizedBox(
-                height: SizeConfig.screenWidth! * .5,
-                child: Image(
-                  image: FileImage(pickedImage!),
-                ),
-              ),
+              child: kIsWeb
+                  ? Image(
+                      image: NetworkImage(pickedImage!.path),
+                    )
+                  : Image(
+                      image: FileImage(pickedImage!),
+                    ),
             )
           : image != null
               ? CasualNetworkImage(
@@ -36,39 +38,27 @@ class EditableImage extends StatelessWidget {
                   imageBuilder: (context, imageProvider) => ClipRRect(
                     borderRadius:
                         BorderRadius.circular(SizeConfig.borderRadiusSmall),
-                    child: SizedBox(
-                      height: SizeConfig.screenWidth! * .5,
-                      child: Image(
-                        image: imageProvider,
-                      ),
+                    child: Image(
+                      image: imageProvider,
                     ),
                   ),
-                  placeholder: SizedBox(
-                    height: SizeConfig.screenWidth! * .5,
-                    child: const FittedBox(
-                      fit: BoxFit.cover,
-                      child: Icon(
-                        Icons.image,
-                      ),
+                  placeholder: const FittedBox(
+                    fit: BoxFit.cover,
+                    child: Icon(
+                      Icons.image,
                     ),
                   ),
-                  error: SizedBox(
-                    height: SizeConfig.screenWidth! * .5,
-                    child: const FittedBox(
-                      fit: BoxFit.cover,
-                      child: Icon(
-                        Icons.image,
-                      ),
+                  error: const FittedBox(
+                    fit: BoxFit.cover,
+                    child: Icon(
+                      Icons.image,
                     ),
                   ),
                 )
-              : SizedBox(
-                  height: SizeConfig.screenWidth! * .25,
-                  child: const FittedBox(
-                    fit: BoxFit.cover,
-                    child: Icon(
-                      Icons.upload_rounded,
-                    ),
+              : const FittedBox(
+                  fit: BoxFit.cover,
+                  child: Icon(
+                    Icons.upload_rounded,
                   ),
                 ),
     );

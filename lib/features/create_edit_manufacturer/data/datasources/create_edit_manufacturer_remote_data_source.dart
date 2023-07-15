@@ -1,6 +1,8 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../../../../core/api/api_constants.dart';
 import '../../../../core/api/dio_client.dart';
@@ -66,7 +68,10 @@ class CreateEditManufacturerRemoteDataSourceImpl
       final res = await dioClient.dio.patch(
         '${ApiConstants.manufacturers}/image/$id',
         data: FormData.fromMap({
-          'image': await MultipartFile.fromFile(image.path, filename: fileName)
+          'image': kIsWeb
+              ? MultipartFile.fromBytes(await XFile(image.path).readAsBytes(),
+                  filename: fileName)
+              : await MultipartFile.fromFile(image.path, filename: fileName)
         }),
       );
       return res.data['image'];

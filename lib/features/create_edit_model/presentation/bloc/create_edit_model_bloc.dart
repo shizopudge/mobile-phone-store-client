@@ -41,34 +41,28 @@ class CreateEditModelBloc
     on<_ChangeHeight>(_changeHeight);
     on<_CreateModel>(_createModel);
     on<_EditModel>(_editModel);
+    on<_Reset>(_reset);
   }
 
   final ModelsBloc _modelsBloc;
   final CreateModel _createModelUsecase;
   final EditModel _editModelUsecase;
 
-  void _setModel(_SetModel event, Emitter<CreateEditModelState> emit) async {
-    if (event.model == null) {
-      await Future.delayed(const Duration(milliseconds: 300));
-      emit(const CreateEditModelState());
-    } else {
-      emit(
+  void _setModel(_SetModel event, Emitter<CreateEditModelState> emit) => emit(
         state.copyWith(
-          name: event.model!.name,
-          description: event.model!.description,
-          manufacturerId: event.model!.manufacturer.id,
-          pixelDensity: event.model!.pixelDensity,
-          screenRefreshRate: event.model!.screenRefreshRate,
-          screenDiagonal: event.model!.screenDiagonal,
-          weight: event.model!.weight,
-          screenResolution: event.model!.screenResolution,
-          operatingSystem: event.model!.operatingSystem,
-          displayType: event.model!.displayType,
+          name: event.model.name,
+          description: event.model.description,
+          manufacturerId: event.model.manufacturer.id,
+          pixelDensity: event.model.pixelDensity,
+          screenRefreshRate: event.model.screenRefreshRate,
+          screenDiagonal: event.model.screenDiagonal,
+          weight: event.model.weight,
+          screenResolution: event.model.screenResolution,
+          operatingSystem: event.model.operatingSystem,
+          displayType: event.model.displayType,
           model: event.model,
         ),
       );
-    }
-  }
 
   void _setManufacturerId(
           _SetManufacturerId event, Emitter<CreateEditModelState> emit) =>
@@ -152,6 +146,13 @@ class CreateEditModelBloc
       _EditModel event, Emitter<CreateEditModelState> emit) async {
     emit(state.copyWith(status: CreateEditModelStatus.loading));
     if (state.model != null) {
+      if (state.name.isNotEmpty &&
+          state.manufacturerId != null &&
+          state.pixelDensity != 0 &&
+          state.screenRefreshRate != 0 &&
+          state.screenDiagonal != 0.0 &&
+          state.weight != 0 &&
+          state.screenResolution.isNotEmpty) {}
       final res = await _editModelUsecase.call(EditModelParams(
           id: state.model!.id,
           name: state.name,
@@ -174,6 +175,9 @@ class CreateEditModelBloc
       });
     }
   }
+
+  void _reset(_Reset event, Emitter<CreateEditModelState> emit) =>
+      emit(const CreateEditModelState());
 
   void _throwFailure(Emitter<CreateEditModelState> emit, Failure failure) {
     emit(state.copyWith(
