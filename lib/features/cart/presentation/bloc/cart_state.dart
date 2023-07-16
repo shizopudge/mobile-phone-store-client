@@ -31,7 +31,7 @@ class CartState with _$CartState {
   double _getTotalCost() {
     double totalCost = 0.0;
     for (Product product in products) {
-      totalCost += product.cost;
+      totalCost += product.discountCost;
     }
     return totalCost;
   }

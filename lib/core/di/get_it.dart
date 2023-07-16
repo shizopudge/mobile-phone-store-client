@@ -1,8 +1,7 @@
-import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
-import '../../features/create_edit_product/domain/usecases/delete_product.dart';
+import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../features/auth/data/datasources/auth_local_data_source.dart';
@@ -37,6 +36,7 @@ import '../../features/create_edit_product/data/datasources/create_edit_product_
 import '../../features/create_edit_product/data/repositories/create_edit_product_repository_impl.dart';
 import '../../features/create_edit_product/domain/usecases/create_product.dart';
 import '../../features/create_edit_product/domain/usecases/delete_image.dart';
+import '../../features/create_edit_product/domain/usecases/delete_product.dart';
 import '../../features/create_edit_product/domain/usecases/edit_product.dart';
 import '../../features/create_edit_product/domain/usecases/upload_images.dart';
 import '../../features/create_edit_product/presentation/bloc/create_edit_product_bloc.dart';
@@ -77,6 +77,7 @@ import '../domain/usecases/image/pick_images.dart';
 import '../domain/usecases/products/toggle_cart.dart';
 import '../domain/usecases/products/toggle_wishlist.dart';
 import '../utils/app_router.dart';
+import '../utils/internet_connection_check/internet_connection_check_cubit.dart';
 
 final getIt = GetIt.instance;
 
@@ -84,7 +85,7 @@ Future<void> appSetup() async {
   /// Other
   getIt.registerSingleton(Dio());
   getIt.registerSingleton(DioClient(getIt<Dio>()));
-  getIt.registerSingleton(Connectivity());
+  getIt.registerSingleton(InternetConnection());
   getIt.registerSingleton(const FlutterSecureStorage());
   getIt.registerSingleton(await SharedPreferences.getInstance());
 
@@ -205,6 +206,8 @@ Future<void> appSetup() async {
           DeleteProduct(getIt<CreateEditProductRepositoryImpl>())));
 
   /// Global blocs
+  getIt.registerSingleton(InternetConnectionCheckCubit(
+      internetConnection: getIt<InternetConnection>()));
   getIt.registerSingleton(AuthBloc(
       getCurrentUserUsecase: GetCurrentUser(getIt<AuthRepositoryImpl>()),
       getLoginTypeUsecase: GetLoginType(getIt<AuthRepositoryImpl>()),

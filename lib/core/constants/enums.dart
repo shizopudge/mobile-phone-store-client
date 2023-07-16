@@ -79,3 +79,17 @@ enum SortBy {
     return SortBy.desc;
   }
 }
+
+enum PurchaseStatus {
+  PENDING,
+  PAID,
+  SHIPPED,
+  DELIVERED,
+  CANCELLED;
+
+  bool get isPending => this == PurchaseStatus.PENDING;
+  bool get isPaid => this == PurchaseStatus.PAID;
+  bool get isShipped => this == PurchaseStatus.SHIPPED;
+  bool get isDelivered => this == PurchaseStatus.DELIVERED;
+  bool get isCancelled => this == PurchaseStatus.CANCELLED;
+}

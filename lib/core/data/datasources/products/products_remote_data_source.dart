@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 import '../../../../core/api/api_constants.dart';
 import '../../../../core/api/dio_client.dart';
 import '../../../../core/failure/failure.dart';
-import '../../models/toggle_cart_wishlist/toggle_cart_wishlist_response_model.dart';
+import '../../models/model/toggle_cart_wishlist/toggle_cart_wishlist_response_model.dart';
 
 abstract interface class ProductsRemoteDataSource {
   Future<ToggleCartWishlistResponseModel> toggleCart(String id);

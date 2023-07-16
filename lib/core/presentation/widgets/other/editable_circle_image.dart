@@ -42,7 +42,7 @@ class EditableCircleImage extends StatelessWidget {
               ? CachedNetworkImage(
                   imageUrl: '${ApiConstants.imagesUrl}/$image',
                   imageBuilder: (context, imageProvider) => Hero(
-                    tag: image!,
+                    tag: image ?? 'user_image',
                     child: CircleAvatar(
                       backgroundImage: imageProvider,
                       backgroundColor: kLightWhite,

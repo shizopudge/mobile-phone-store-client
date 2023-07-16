@@ -213,8 +213,8 @@ class SquareProductCard extends StatelessWidget {
               ),
               if (product.isDiscounted)
                 Positioned(
-                  top: -constraints.maxWidth * .06,
-                  right: -constraints.maxWidth * .055,
+                  top: -constraints.maxWidth * .075,
+                  right: -constraints.maxWidth * .07,
                   child: Discount(
                     discount: product.discount,
                     fontSize: constraints.maxWidth * .1,

@@ -51,9 +51,12 @@ class ManufacturerCard extends StatelessWidget {
                     ),
                     child: CasualNetworkImage(
                       imageName: manufacturer.image!,
-                      imageBuilder: (context, imageProvider) => Image(
-                        image: imageProvider,
-                        fit: BoxFit.contain,
+                      imageBuilder: (context, imageProvider) => Hero(
+                        tag: manufacturer.image!,
+                        child: Image(
+                          image: imageProvider,
+                          fit: BoxFit.contain,
+                        ),
                       ),
                       placeholder: Container(
                         padding: const EdgeInsets.all(5),

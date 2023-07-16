@@ -135,22 +135,20 @@ class CartBloc extends Bloc<CartEvent, CartState> with HydratedMixin {
   }
 
   void _searchProducts(_SearchProducts event, Emitter<CartState> emit) async {
-    if (event.query != state.filter.query) {
-      emit(state.copyWith(
-          filter: state.filter.copyWith(query: event.query, page: 1),
-          status: CartStatus.refreshing));
-      final res = await _getProducts();
-      res.fold(
-        (failure) => _throwFailure(emit, failure),
-        (r) => emit(
-          state.copyWith(
-            status: CartStatus.success,
-            info: r.info,
-            products: r.products,
-          ),
+    emit(state.copyWith(
+        filter: state.filter.copyWith(query: event.query, page: 1),
+        status: CartStatus.refreshing));
+    final res = await _getProducts();
+    res.fold(
+      (failure) => _throwFailure(emit, failure),
+      (r) => emit(
+        state.copyWith(
+          status: CartStatus.success,
+          info: r.info,
+          products: r.products,
         ),
-      );
-    }
+      ),
+    );
   }
 
   void _updateProductInList(

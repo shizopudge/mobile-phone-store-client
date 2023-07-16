@@ -68,22 +68,20 @@ class ManufacturersBloc extends Bloc<ManufacturersEvent, ManufacturersState>
 
   void _searchManufacturers(
       _SearchManufacturers event, Emitter<ManufacturersState> emit) async {
-    if (event.query != state.filter.query) {
-      emit(state.copyWith(
-          filter: state.filter.copyWith(query: event.query, page: 1),
-          status: ManufacturersStatus.refreshing));
-      final res = await _getManufacturers();
-      res.fold(
-        (failure) => _throwFailure(emit, failure),
-        (r) => emit(
-          state.copyWith(
-            status: ManufacturersStatus.success,
-            info: r.info,
-            manufacturers: r.manufacturers,
-          ),
+    emit(state.copyWith(
+        filter: state.filter.copyWith(query: event.query, page: 1),
+        status: ManufacturersStatus.refreshing));
+    final res = await _getManufacturers();
+    res.fold(
+      (failure) => _throwFailure(emit, failure),
+      (r) => emit(
+        state.copyWith(
+          status: ManufacturersStatus.success,
+          info: r.info,
+          manufacturers: r.manufacturers,
         ),
-      );
-    }
+      ),
+    );
   }
 
   FutureOr<void> _getNextManufacturers(

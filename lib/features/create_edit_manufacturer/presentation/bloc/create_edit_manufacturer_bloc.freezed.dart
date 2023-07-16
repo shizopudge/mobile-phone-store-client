@@ -130,12 +130,19 @@ class __$$_InitialCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
+class _$_Initial with DiagnosticableTreeMixin implements _Initial {
   const _$_Initial();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'CreateEditManufacturerEvent.initial()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(
+        DiagnosticsProperty('type', 'CreateEditManufacturerEvent.initial'));
   }
 
   @override
@@ -283,15 +290,26 @@ class __$$_SetManufacturerCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_SetManufacturer implements _SetManufacturer {
+class _$_SetManufacturer
+    with DiagnosticableTreeMixin
+    implements _SetManufacturer {
   const _$_SetManufacturer(this.manufacturer);
 
   @override
   final Manufacturer manufacturer;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'CreateEditManufacturerEvent.setManufacturer(manufacturer: $manufacturer)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'CreateEditManufacturerEvent.setManufacturer'))
+      ..add(DiagnosticsProperty('manufacturer', manufacturer));
   }
 
   @override
@@ -454,15 +472,24 @@ class __$$_ChangeNameCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ChangeName implements _ChangeName {
+class _$_ChangeName with DiagnosticableTreeMixin implements _ChangeName {
   const _$_ChangeName(this.name);
 
   @override
   final String name;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'CreateEditManufacturerEvent.changeName(name: $name)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(
+          DiagnosticsProperty('type', 'CreateEditManufacturerEvent.changeName'))
+      ..add(DiagnosticsProperty('name', name));
   }
 
   @override
@@ -608,12 +635,21 @@ class __$$_CreateManufacturerCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_CreateManufacturer implements _CreateManufacturer {
+class _$_CreateManufacturer
+    with DiagnosticableTreeMixin
+    implements _CreateManufacturer {
   const _$_CreateManufacturer();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'CreateEditManufacturerEvent.createManufacturer()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty(
+        'type', 'CreateEditManufacturerEvent.createManufacturer'));
   }
 
   @override
@@ -746,12 +782,21 @@ class __$$_EditManufacturerCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_EditManufacturer implements _EditManufacturer {
+class _$_EditManufacturer
+    with DiagnosticableTreeMixin
+    implements _EditManufacturer {
   const _$_EditManufacturer();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'CreateEditManufacturerEvent.editManufacturer()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty(
+        'type', 'CreateEditManufacturerEvent.editManufacturer'));
   }
 
   @override
@@ -884,12 +929,19 @@ class __$$_PickImageCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_PickImage implements _PickImage {
+class _$_PickImage with DiagnosticableTreeMixin implements _PickImage {
   const _$_PickImage();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'CreateEditManufacturerEvent.pickImage()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(
+        DiagnosticsProperty('type', 'CreateEditManufacturerEvent.pickImage'));
   }
 
   @override
@@ -1022,12 +1074,19 @@ class __$$_DeleteImageCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DeleteImage implements _DeleteImage {
+class _$_DeleteImage with DiagnosticableTreeMixin implements _DeleteImage {
   const _$_DeleteImage();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'CreateEditManufacturerEvent.deleteImage()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(
+        DiagnosticsProperty('type', 'CreateEditManufacturerEvent.deleteImage'));
   }
 
   @override
@@ -1158,12 +1217,19 @@ class __$$_ResetCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Reset implements _Reset {
+class _$_Reset with DiagnosticableTreeMixin implements _Reset {
   const _$_Reset();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'CreateEditManufacturerEvent.reset()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+        .add(DiagnosticsProperty('type', 'CreateEditManufacturerEvent.reset'));
   }
 
   @override
@@ -1428,7 +1494,8 @@ class __$$_CreateEditManufacturerStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_CreateEditManufacturerState extends _CreateEditManufacturerState {
+class _$_CreateEditManufacturerState extends _CreateEditManufacturerState
+    with DiagnosticableTreeMixin {
   const _$_CreateEditManufacturerState(
       {this.name = '',
       this.status = CreateEditManufacturerStatus.initial,
@@ -1452,8 +1519,20 @@ class _$_CreateEditManufacturerState extends _CreateEditManufacturerState {
   final Manufacturer? manufacturer;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'CreateEditManufacturerState(name: $name, status: $status, failure: $failure, image: $image, manufacturer: $manufacturer)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'CreateEditManufacturerState'))
+      ..add(DiagnosticsProperty('name', name))
+      ..add(DiagnosticsProperty('status', status))
+      ..add(DiagnosticsProperty('failure', failure))
+      ..add(DiagnosticsProperty('image', image))
+      ..add(DiagnosticsProperty('manufacturer', manufacturer));
   }
 
   @override

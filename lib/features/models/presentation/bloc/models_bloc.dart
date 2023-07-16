@@ -63,22 +63,20 @@ class ModelsBloc extends Bloc<ModelsEvent, ModelsState> {
   }
 
   void _searchModels(_SearchModels event, Emitter<ModelsState> emit) async {
-    if (event.query != state.filter.query) {
-      emit(state.copyWith(
-          filter: state.filter.copyWith(query: event.query, page: 1),
-          status: ModelsStatus.refreshing));
-      final res = await _getModels();
-      res.fold(
-        (failure) => _throwFailure(emit, failure),
-        (r) => emit(
-          state.copyWith(
-            status: ModelsStatus.success,
-            info: r.info,
-            models: r.models,
-          ),
+    emit(state.copyWith(
+        filter: state.filter.copyWith(query: event.query, page: 1),
+        status: ModelsStatus.refreshing));
+    final res = await _getModels();
+    res.fold(
+      (failure) => _throwFailure(emit, failure),
+      (r) => emit(
+        state.copyWith(
+          status: ModelsStatus.success,
+          info: r.info,
+          models: r.models,
         ),
-      );
-    }
+      ),
+    );
   }
 
   FutureOr<void> _getNextModels(

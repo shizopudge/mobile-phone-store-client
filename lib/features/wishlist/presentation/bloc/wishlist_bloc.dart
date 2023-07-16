@@ -138,22 +138,20 @@ class WishlistBloc extends Bloc<WishlistEvent, WishlistState>
 
   void _searchProducts(
       _SearchProducts event, Emitter<WishlistState> emit) async {
-    if (event.query != state.filter.query) {
-      emit(state.copyWith(
-          filter: state.filter.copyWith(query: event.query, page: 1),
-          status: WishlistStatus.refreshing));
-      final res = await _getProducts();
-      res.fold(
-        (failure) => _throwFailure(emit, failure),
-        (r) => emit(
-          state.copyWith(
-            status: WishlistStatus.success,
-            info: r.info,
-            products: r.products,
-          ),
+    emit(state.copyWith(
+        filter: state.filter.copyWith(query: event.query, page: 1),
+        status: WishlistStatus.refreshing));
+    final res = await _getProducts();
+    res.fold(
+      (failure) => _throwFailure(emit, failure),
+      (r) => emit(
+        state.copyWith(
+          status: WishlistStatus.success,
+          info: r.info,
+          products: r.products,
         ),
-      );
-    }
+      ),
+    );
   }
 
   void _updateProductInList(

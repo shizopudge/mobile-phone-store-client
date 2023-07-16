@@ -59,7 +59,7 @@ class CreateEditProductBody extends StatelessWidget {
                   if (state.hasImages)
                     SizedBox(
                       height: SizeConfig.isMobile
-                          ? SizeConfig.screenWidth! * .5
+                          ? SizeConfig.screenWidth! * .75
                           : SizeConfig.isTablet
                               ? SizeConfig.screenWidth! * .5
                               : SizeConfig.screenWidth! * .25,

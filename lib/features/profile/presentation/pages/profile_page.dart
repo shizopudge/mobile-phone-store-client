@@ -33,7 +33,7 @@ class ProfilePage extends StatelessWidget {
                 children: [
                   if (currentUser?.image != null)
                     Hero(
-                      tag: 'user_image',
+                      tag: currentUser?.image ?? 'user_image',
                       child: CasualRoundedNetworkImage(
                         image: currentUser?.image,
                         radius: SizeConfig.radiusMedium,
@@ -78,8 +78,8 @@ class ProfilePage extends StatelessWidget {
               children: [
                 CasualListTile(
                   onTap: () {},
-                  title: 'My orders',
-                  subtitle: 'Already have 0 orders',
+                  title: 'My purchases',
+                  subtitle: 'Already have 0 purchases',
                 ),
                 CasualListTile(
                   onTap: () {},

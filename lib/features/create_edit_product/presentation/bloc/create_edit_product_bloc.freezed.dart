@@ -186,15 +186,23 @@ class __$$_SetProductCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_SetProduct implements _SetProduct {
+class _$_SetProduct with DiagnosticableTreeMixin implements _SetProduct {
   const _$_SetProduct(this.product);
 
   @override
   final Product product;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'CreateEditProductEvent.setProduct(product: $product)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'CreateEditProductEvent.setProduct'))
+      ..add(DiagnosticsProperty('product', product));
   }
 
   @override
@@ -397,15 +405,23 @@ class __$$_SetModelIdCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_SetModelId implements _SetModelId {
+class _$_SetModelId with DiagnosticableTreeMixin implements _SetModelId {
   const _$_SetModelId(this.modelId);
 
   @override
   final String modelId;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'CreateEditProductEvent.setModelId(modelId: $modelId)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'CreateEditProductEvent.setModelId'))
+      ..add(DiagnosticsProperty('modelId', modelId));
   }
 
   @override
@@ -608,15 +624,23 @@ class __$$_ChangeCostCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ChangeCost implements _ChangeCost {
+class _$_ChangeCost with DiagnosticableTreeMixin implements _ChangeCost {
   const _$_ChangeCost(this.cost);
 
   @override
   final double cost;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'CreateEditProductEvent.changeCost(cost: $cost)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'CreateEditProductEvent.changeCost'))
+      ..add(DiagnosticsProperty('cost', cost));
   }
 
   @override
@@ -819,15 +843,23 @@ class __$$_ChangeColorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ChangeColor implements _ChangeColor {
+class _$_ChangeColor with DiagnosticableTreeMixin implements _ChangeColor {
   const _$_ChangeColor(this.name);
 
   @override
   final String name;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'CreateEditProductEvent.changeColor(name: $name)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'CreateEditProductEvent.changeColor'))
+      ..add(DiagnosticsProperty('name', name));
   }
 
   @override
@@ -1030,15 +1062,26 @@ class __$$_ChangeColorCodeCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ChangeColorCode implements _ChangeColorCode {
+class _$_ChangeColorCode
+    with DiagnosticableTreeMixin
+    implements _ChangeColorCode {
   const _$_ChangeColorCode(this.code);
 
   @override
   final String code;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'CreateEditProductEvent.changeColorCode(code: $code)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(
+          DiagnosticsProperty('type', 'CreateEditProductEvent.changeColorCode'))
+      ..add(DiagnosticsProperty('code', code));
   }
 
   @override
@@ -1241,15 +1284,23 @@ class __$$_ChangeStorageCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ChangeStorage implements _ChangeStorage {
+class _$_ChangeStorage with DiagnosticableTreeMixin implements _ChangeStorage {
   const _$_ChangeStorage(this.storage);
 
   @override
   final int storage;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'CreateEditProductEvent.changeStorage(storage: $storage)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'CreateEditProductEvent.changeStorage'))
+      ..add(DiagnosticsProperty('storage', storage));
   }
 
   @override
@@ -1452,15 +1503,26 @@ class __$$_ChangeInStockCountCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ChangeInStockCount implements _ChangeInStockCount {
+class _$_ChangeInStockCount
+    with DiagnosticableTreeMixin
+    implements _ChangeInStockCount {
   const _$_ChangeInStockCount(this.inStockCount);
 
   @override
   final int inStockCount;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'CreateEditProductEvent.changeInStockCount(inStockCount: $inStockCount)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'CreateEditProductEvent.changeInStockCount'))
+      ..add(DiagnosticsProperty('inStockCount', inStockCount));
   }
 
   @override
@@ -1666,15 +1728,26 @@ class __$$_ChangeDiscountCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ChangeDiscount implements _ChangeDiscount {
+class _$_ChangeDiscount
+    with DiagnosticableTreeMixin
+    implements _ChangeDiscount {
   const _$_ChangeDiscount(this.discount);
 
   @override
   final int discount;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'CreateEditProductEvent.changeDiscount(discount: $discount)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(
+          DiagnosticsProperty('type', 'CreateEditProductEvent.changeDiscount'))
+      ..add(DiagnosticsProperty('discount', discount));
   }
 
   @override
@@ -1863,12 +1936,19 @@ class __$$_PickImagesCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_PickImages implements _PickImages {
+class _$_PickImages with DiagnosticableTreeMixin implements _PickImages {
   const _$_PickImages();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'CreateEditProductEvent.pickImages()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+        .add(DiagnosticsProperty('type', 'CreateEditProductEvent.pickImages'));
   }
 
   @override
@@ -2058,15 +2138,26 @@ class __$$_RemovePickedImageCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_RemovePickedImage implements _RemovePickedImage {
+class _$_RemovePickedImage
+    with DiagnosticableTreeMixin
+    implements _RemovePickedImage {
   const _$_RemovePickedImage(this.image);
 
   @override
   final File image;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'CreateEditProductEvent.removePickedImage(image: $image)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'CreateEditProductEvent.removePickedImage'))
+      ..add(DiagnosticsProperty('image', image));
   }
 
   @override
@@ -2270,15 +2361,23 @@ class __$$_DeleteImageCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DeleteImage implements _DeleteImage {
+class _$_DeleteImage with DiagnosticableTreeMixin implements _DeleteImage {
   const _$_DeleteImage(this.imageLink);
 
   @override
   final String imageLink;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'CreateEditProductEvent.deleteImage(imageLink: $imageLink)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'CreateEditProductEvent.deleteImage'))
+      ..add(DiagnosticsProperty('imageLink', imageLink));
   }
 
   @override
@@ -2467,12 +2566,19 @@ class __$$_CreateProductCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_CreateProduct implements _CreateProduct {
+class _$_CreateProduct with DiagnosticableTreeMixin implements _CreateProduct {
   const _$_CreateProduct();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'CreateEditProductEvent.createProduct()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(
+        DiagnosticsProperty('type', 'CreateEditProductEvent.createProduct'));
   }
 
   @override
@@ -2647,12 +2753,19 @@ class __$$_EditProductCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_EditProduct implements _EditProduct {
+class _$_EditProduct with DiagnosticableTreeMixin implements _EditProduct {
   const _$_EditProduct();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'CreateEditProductEvent.editProduct()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+        .add(DiagnosticsProperty('type', 'CreateEditProductEvent.editProduct'));
   }
 
   @override
@@ -2827,12 +2940,19 @@ class __$$_DeleteProductCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DeleteProduct implements _DeleteProduct {
+class _$_DeleteProduct with DiagnosticableTreeMixin implements _DeleteProduct {
   const _$_DeleteProduct();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'CreateEditProductEvent.deleteProduct()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(
+        DiagnosticsProperty('type', 'CreateEditProductEvent.deleteProduct'));
   }
 
   @override
@@ -3005,12 +3125,18 @@ class __$$_ResetCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Reset implements _Reset {
+class _$_Reset with DiagnosticableTreeMixin implements _Reset {
   const _$_Reset();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'CreateEditProductEvent.reset()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'CreateEditProductEvent.reset'));
   }
 
   @override
@@ -3391,7 +3517,8 @@ class __$$_CreateEditProductStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_CreateEditProductState extends _CreateEditProductState {
+class _$_CreateEditProductState extends _CreateEditProductState
+    with DiagnosticableTreeMixin {
   const _$_CreateEditProductState(
       {this.color = '',
       this.colorCode = '',
@@ -3446,8 +3573,26 @@ class _$_CreateEditProductState extends _CreateEditProductState {
   final Product? product;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'CreateEditProductState(color: $color, colorCode: $colorCode, cost: $cost, storage: $storage, images: $images, inStockCount: $inStockCount, discount: $discount, status: $status, failure: $failure, modelId: $modelId, product: $product)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'CreateEditProductState'))
+      ..add(DiagnosticsProperty('color', color))
+      ..add(DiagnosticsProperty('colorCode', colorCode))
+      ..add(DiagnosticsProperty('cost', cost))
+      ..add(DiagnosticsProperty('storage', storage))
+      ..add(DiagnosticsProperty('images', images))
+      ..add(DiagnosticsProperty('inStockCount', inStockCount))
+      ..add(DiagnosticsProperty('discount', discount))
+      ..add(DiagnosticsProperty('status', status))
+      ..add(DiagnosticsProperty('failure', failure))
+      ..add(DiagnosticsProperty('modelId', modelId))
+      ..add(DiagnosticsProperty('product', product));
   }
 
   @override

@@ -133,12 +133,18 @@ class __$$_InitialCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
+class _$_Initial with DiagnosticableTreeMixin implements _Initial {
   const _$_Initial();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ProfileEvent.initial()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'ProfileEvent.initial'));
   }
 
   @override
@@ -292,15 +298,23 @@ class __$$_ChangeEmailCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ChangeEmail implements _ChangeEmail {
+class _$_ChangeEmail with DiagnosticableTreeMixin implements _ChangeEmail {
   const _$_ChangeEmail(this.email);
 
   @override
   final String email;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ProfileEvent.changeEmail(email: $email)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ProfileEvent.changeEmail'))
+      ..add(DiagnosticsProperty('email', email));
   }
 
   @override
@@ -467,15 +481,25 @@ class __$$_ChangeUsernameCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ChangeUsername implements _ChangeUsername {
+class _$_ChangeUsername
+    with DiagnosticableTreeMixin
+    implements _ChangeUsername {
   const _$_ChangeUsername(this.username);
 
   @override
   final String username;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ProfileEvent.changeUsername(username: $username)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ProfileEvent.changeUsername'))
+      ..add(DiagnosticsProperty('username', username));
   }
 
   @override
@@ -643,15 +667,25 @@ class __$$_ChangePasswordCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ChangePassword implements _ChangePassword {
+class _$_ChangePassword
+    with DiagnosticableTreeMixin
+    implements _ChangePassword {
   const _$_ChangePassword(this.password);
 
   @override
   final String password;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ProfileEvent.changePassword(password: $password)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ProfileEvent.changePassword'))
+      ..add(DiagnosticsProperty('password', password));
   }
 
   @override
@@ -819,15 +853,25 @@ class __$$_ChangeNewPasswordCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ChangeNewPassword implements _ChangeNewPassword {
+class _$_ChangeNewPassword
+    with DiagnosticableTreeMixin
+    implements _ChangeNewPassword {
   const _$_ChangeNewPassword(this.newPassword);
 
   @override
   final String newPassword;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ProfileEvent.changeNewPassword(newPassword: $newPassword)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ProfileEvent.changeNewPassword'))
+      ..add(DiagnosticsProperty('newPassword', newPassword));
   }
 
   @override
@@ -982,12 +1026,21 @@ class __$$_ToggleEditPasswordCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ToggleEditPassword implements _ToggleEditPassword {
+class _$_ToggleEditPassword
+    with DiagnosticableTreeMixin
+    implements _ToggleEditPassword {
   const _$_ToggleEditPassword();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ProfileEvent.toggleEditPassword()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+        .add(DiagnosticsProperty('type', 'ProfileEvent.toggleEditPassword'));
   }
 
   @override
@@ -1126,12 +1179,18 @@ class __$$_EditProfileCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_EditProfile implements _EditProfile {
+class _$_EditProfile with DiagnosticableTreeMixin implements _EditProfile {
   const _$_EditProfile();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ProfileEvent.editProfile()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'ProfileEvent.editProfile'));
   }
 
   @override
@@ -1270,12 +1329,18 @@ class __$$_PickImageCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_PickImage implements _PickImage {
+class _$_PickImage with DiagnosticableTreeMixin implements _PickImage {
   const _$_PickImage();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ProfileEvent.pickImage()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'ProfileEvent.pickImage'));
   }
 
   @override
@@ -1414,12 +1479,18 @@ class __$$_DeleteImageCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DeleteImage implements _DeleteImage {
+class _$_DeleteImage with DiagnosticableTreeMixin implements _DeleteImage {
   const _$_DeleteImage();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ProfileEvent.deleteImage()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'ProfileEvent.deleteImage'));
   }
 
   @override
@@ -1736,7 +1807,8 @@ class __$$_ProfileEditStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ProfileEditState extends _ProfileEditState {
+class _$_ProfileEditState extends _ProfileEditState
+    with DiagnosticableTreeMixin {
   const _$_ProfileEditState(
       {this.email = '',
       this.username = '',
@@ -1775,8 +1847,24 @@ class _$_ProfileEditState extends _ProfileEditState {
   final String? newPassword;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ProfileState(email: $email, username: $username, password: $password, validation: $validation, status: $status, failure: $failure, image: $image, currentUser: $currentUser, newPassword: $newPassword)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ProfileState'))
+      ..add(DiagnosticsProperty('email', email))
+      ..add(DiagnosticsProperty('username', username))
+      ..add(DiagnosticsProperty('password', password))
+      ..add(DiagnosticsProperty('validation', validation))
+      ..add(DiagnosticsProperty('status', status))
+      ..add(DiagnosticsProperty('failure', failure))
+      ..add(DiagnosticsProperty('image', image))
+      ..add(DiagnosticsProperty('currentUser', currentUser))
+      ..add(DiagnosticsProperty('newPassword', newPassword));
   }
 
   @override

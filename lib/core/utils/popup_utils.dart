@@ -14,12 +14,12 @@ class PopupUtils {
       ..showSnackBar(
         SnackBar(
           elevation: 8,
-          backgroundColor: kDarkBlue,
+          backgroundColor: kBlack,
           duration: const Duration(milliseconds: 5000),
           content: Row(
             children: [
               Icon(Icons.error_outline,
-                  size: SizeConfig.iconLarge, color: kRed),
+                  size: SizeConfig.iconMedium, color: kRed),
               const SizedBox(width: 10),
               Flexible(
                 child: AutoSizeText(

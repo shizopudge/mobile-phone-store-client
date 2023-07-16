@@ -41,7 +41,7 @@ class CreateEditManufacturerBody extends StatelessWidget {
                   ),
                   SizedBox(
                     height: SizeConfig.isMobile
-                        ? SizeConfig.screenWidth! * .5
+                        ? SizeConfig.screenWidth! * .7
                         : SizeConfig.isTablet
                             ? SizeConfig.screenWidth! * .5
                             : SizeConfig.screenWidth! * .25,

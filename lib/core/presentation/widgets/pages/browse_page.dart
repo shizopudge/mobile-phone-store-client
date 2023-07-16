@@ -10,7 +10,6 @@ import '../../../../core/presentation/widgets/other/products_not_found.dart';
 import '../../../../core/presentation/widgets/other/search_result.dart';
 import '../../../../core/presentation/widgets/text_fields/search_field.dart';
 import '../../../../core/styles/styles.dart';
-import '../../../../core/utils/debouncer.dart';
 import '../../../../core/utils/size_config.dart';
 import '../../../domain/entities/info.dart';
 
@@ -61,10 +60,12 @@ class _BrowsePageState extends State<BrowsePage> {
   final ValueNotifier<bool> _isScrolled = ValueNotifier<bool>(false);
   final ValueNotifier<bool> _showNextButton = ValueNotifier<bool>(true);
   final ValueNotifier<bool> _showSearchResult = ValueNotifier<bool>(false);
-  final Debouncer _debouncer = Debouncer(milliseconds: 300);
 
-  void _searchListener() =>
-      _debouncer.call(() => widget.onSearch(_searchController.text.trim()));
+  void _searchListener() {
+    if (_searchController.text.trim() != widget.query) {
+      widget.onSearch(_searchController.text.trim());
+    }
+  }
 
   void _scrollListener() {
     if (_scrollController.position.atEdge) {
@@ -99,7 +100,6 @@ class _BrowsePageState extends State<BrowsePage> {
     _isScrolled.dispose();
     _showNextButton.dispose();
     _showSearchResult.dispose();
-    _debouncer.dispose();
     super.dispose();
   }
 

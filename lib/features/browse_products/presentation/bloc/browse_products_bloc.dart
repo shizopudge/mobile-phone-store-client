@@ -90,22 +90,20 @@ class BrowseProductsBloc extends Bloc<BrowseProductsEvent, BrowseProductsState>
 
   void _searchProducts(
       _SearchProducts event, Emitter<BrowseProductsState> emit) async {
-    if (event.query != state.filter.query) {
-      emit(state.copyWith(
-          filter: state.filter.copyWith(query: event.query, page: 1),
-          status: BrowseProductsStatus.refreshing));
-      final res = await _getProducts();
-      res.fold(
-        (failure) => _throwFailure(emit, failure),
-        (r) => emit(
-          state.copyWith(
-            status: BrowseProductsStatus.success,
-            info: r.info,
-            products: r.products,
-          ),
+    emit(state.copyWith(
+        filter: state.filter.copyWith(query: event.query, page: 1),
+        status: BrowseProductsStatus.refreshing));
+    final res = await _getProducts();
+    res.fold(
+      (failure) => _throwFailure(emit, failure),
+      (r) => emit(
+        state.copyWith(
+          status: BrowseProductsStatus.success,
+          info: r.info,
+          products: r.products,
         ),
-      );
-    }
+      ),
+    );
   }
 
   void _updateProductInList(

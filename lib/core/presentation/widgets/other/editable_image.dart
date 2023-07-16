@@ -38,8 +38,11 @@ class EditableImage extends StatelessWidget {
                   imageBuilder: (context, imageProvider) => ClipRRect(
                     borderRadius:
                         BorderRadius.circular(SizeConfig.borderRadiusSmall),
-                    child: Image(
-                      image: imageProvider,
+                    child: Hero(
+                      tag: image!,
+                      child: Image(
+                        image: imageProvider,
+                      ),
                     ),
                   ),
                   placeholder: const FittedBox(

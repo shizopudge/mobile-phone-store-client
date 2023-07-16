@@ -16,33 +16,37 @@ class ModelCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(bottom: SizeConfig.setPadding(12)),
-      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 12),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 18),
       width: double.infinity,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(SizeConfig.borderRadiusSmall),
-          border: Border.all(
-            color: kGrey,
-            width: 1.2,
-          ),
-          color: kLightWhite),
+          color: kDarkBlue,
+          boxShadow: const [
+            BoxShadow(
+              color: kGrey,
+              blurRadius: 8,
+              spreadRadius: 2,
+            ),
+          ]),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            model.name,
-            maxLines: 2,
+            model.name +
+                (model.name.contains('14')
+                    ? ' Max Limited Edititon Plus Exclusive'
+                    : ''),
             overflow: TextOverflow.ellipsis,
             style: kBold.copyWith(
-              color: kDarkBlue,
-              fontSize: SizeConfig.h1,
+              color: kLightWhite,
+              fontSize: SizeConfig.h2,
             ),
           ),
           Text(
             'Products count: ${model.products.length}',
-            maxLines: 1,
             overflow: TextOverflow.ellipsis,
-            style: kBold.copyWith(
-              color: kDarkBlue,
+            style: kMedium.copyWith(
+              color: kGrey,
               fontSize: SizeConfig.body1,
             ),
           ),

@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
+import '../../data/models/model/toggle_cart_wishlist/toggle_cart_wishlist_response_model.dart';
 import '../../data/models/product/product_model.dart';
-import '../../data/models/toggle_cart_wishlist/toggle_cart_wishlist_response_model.dart';
 import 'product.dart';
 
 class ToggleCartWishlistResponse extends Equatable {
