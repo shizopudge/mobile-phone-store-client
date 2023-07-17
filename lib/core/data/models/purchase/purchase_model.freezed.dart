@@ -25,7 +25,6 @@ mixin _$PurchaseModel {
   String get updatedAt => throw _privateConstructorUsedError;
   PurchaseStatus get status => throw _privateConstructorUsedError;
   String get userId => throw _privateConstructorUsedError;
-  String get productId => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -44,8 +43,7 @@ abstract class $PurchaseModelCopyWith<$Res> {
       String createdAt,
       String updatedAt,
       PurchaseStatus status,
-      String userId,
-      String productId});
+      String userId});
 }
 
 /// @nodoc
@@ -66,7 +64,6 @@ class _$PurchaseModelCopyWithImpl<$Res, $Val extends PurchaseModel>
     Object? updatedAt = null,
     Object? status = null,
     Object? userId = null,
-    Object? productId = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -89,10 +86,6 @@ class _$PurchaseModelCopyWithImpl<$Res, $Val extends PurchaseModel>
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
               as String,
-      productId: null == productId
-          ? _value.productId
-          : productId // ignore: cast_nullable_to_non_nullable
-              as String,
     ) as $Val);
   }
 }
@@ -110,8 +103,7 @@ abstract class _$$_PurchaseModelCopyWith<$Res>
       String createdAt,
       String updatedAt,
       PurchaseStatus status,
-      String userId,
-      String productId});
+      String userId});
 }
 
 /// @nodoc
@@ -130,7 +122,6 @@ class __$$_PurchaseModelCopyWithImpl<$Res>
     Object? updatedAt = null,
     Object? status = null,
     Object? userId = null,
-    Object? productId = null,
   }) {
     return _then(_$_PurchaseModel(
       id: null == id
@@ -153,10 +144,6 @@ class __$$_PurchaseModelCopyWithImpl<$Res>
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
               as String,
-      productId: null == productId
-          ? _value.productId
-          : productId // ignore: cast_nullable_to_non_nullable
-              as String,
     ));
   }
 }
@@ -169,8 +156,7 @@ class _$_PurchaseModel implements _PurchaseModel {
       required this.createdAt,
       required this.updatedAt,
       required this.status,
-      required this.userId,
-      required this.productId});
+      required this.userId});
 
   factory _$_PurchaseModel.fromJson(Map<String, dynamic> json) =>
       _$$_PurchaseModelFromJson(json);
@@ -185,12 +171,10 @@ class _$_PurchaseModel implements _PurchaseModel {
   final PurchaseStatus status;
   @override
   final String userId;
-  @override
-  final String productId;
 
   @override
   String toString() {
-    return 'PurchaseModel(id: $id, createdAt: $createdAt, updatedAt: $updatedAt, status: $status, userId: $userId, productId: $productId)';
+    return 'PurchaseModel(id: $id, createdAt: $createdAt, updatedAt: $updatedAt, status: $status, userId: $userId)';
   }
 
   @override
@@ -204,15 +188,13 @@ class _$_PurchaseModel implements _PurchaseModel {
             (identical(other.updatedAt, updatedAt) ||
                 other.updatedAt == updatedAt) &&
             (identical(other.status, status) || other.status == status) &&
-            (identical(other.userId, userId) || other.userId == userId) &&
-            (identical(other.productId, productId) ||
-                other.productId == productId));
+            (identical(other.userId, userId) || other.userId == userId));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, id, createdAt, updatedAt, status, userId, productId);
+  int get hashCode =>
+      Object.hash(runtimeType, id, createdAt, updatedAt, status, userId);
 
   @JsonKey(ignore: true)
   @override
@@ -234,8 +216,7 @@ abstract class _PurchaseModel implements PurchaseModel {
       required final String createdAt,
       required final String updatedAt,
       required final PurchaseStatus status,
-      required final String userId,
-      required final String productId}) = _$_PurchaseModel;
+      required final String userId}) = _$_PurchaseModel;
 
   factory _PurchaseModel.fromJson(Map<String, dynamic> json) =
       _$_PurchaseModel.fromJson;
@@ -250,8 +231,6 @@ abstract class _PurchaseModel implements PurchaseModel {
   PurchaseStatus get status;
   @override
   String get userId;
-  @override
-  String get productId;
   @override
   @JsonKey(ignore: true)
   _$$_PurchaseModelCopyWith<_$_PurchaseModel> get copyWith =>

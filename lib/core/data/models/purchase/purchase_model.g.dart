@@ -13,7 +13,6 @@ _$_PurchaseModel _$$_PurchaseModelFromJson(Map<String, dynamic> json) =>
       updatedAt: json['updatedAt'] as String,
       status: $enumDecode(_$PurchaseStatusEnumMap, json['status']),
       userId: json['userId'] as String,
-      productId: json['productId'] as String,
     );
 
 Map<String, dynamic> _$$_PurchaseModelToJson(_$_PurchaseModel instance) =>
@@ -23,7 +22,6 @@ Map<String, dynamic> _$$_PurchaseModelToJson(_$_PurchaseModel instance) =>
       'updatedAt': instance.updatedAt,
       'status': _$PurchaseStatusEnumMap[instance.status]!,
       'userId': instance.userId,
-      'productId': instance.productId,
     };
 
 const _$PurchaseStatusEnumMap = {

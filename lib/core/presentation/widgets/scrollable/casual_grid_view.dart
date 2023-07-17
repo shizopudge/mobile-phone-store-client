@@ -41,9 +41,21 @@ class CasualGridView<T> extends StatelessWidget {
                   return child(item);
                 },
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: SizeConfig.isMobile ? 2 : 4,
-                  crossAxisSpacing: SizeConfig.isMobile ? 10 : 20,
-                  mainAxisSpacing: SizeConfig.isMobile ? 10 : 20,
+                  crossAxisCount: SizeConfig.isMobile
+                      ? 2
+                      : SizeConfig.isTablet
+                          ? 3
+                          : 6,
+                  crossAxisSpacing: SizeConfig.isMobile
+                      ? SizeConfig.setPadding(10)
+                      : SizeConfig.isTablet
+                          ? SizeConfig.setPadding(12)
+                          : SizeConfig.setPadding(15),
+                  mainAxisSpacing: SizeConfig.isMobile
+                      ? SizeConfig.setPadding(10)
+                      : SizeConfig.isTablet
+                          ? SizeConfig.setPadding(12)
+                          : SizeConfig.setPadding(15),
                   childAspectRatio: .7,
                 ),
               ),

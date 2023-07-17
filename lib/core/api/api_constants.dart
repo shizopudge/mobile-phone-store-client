@@ -18,4 +18,6 @@ class ApiConstants {
   static const String manufacturers = '/manufacturers';
 
   static const String models = '/models';
+
+  static const String purchases = '/purchases';
 }

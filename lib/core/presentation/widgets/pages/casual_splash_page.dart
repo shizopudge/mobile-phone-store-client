@@ -9,6 +9,7 @@ class CasualSplashPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig.init(context);
     return Scaffold(
       backgroundColor: kWhite,
       body: Center(

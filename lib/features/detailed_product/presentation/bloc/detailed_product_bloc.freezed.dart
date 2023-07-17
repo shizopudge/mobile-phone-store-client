@@ -22,6 +22,8 @@ mixin _$DetailedProductEvent {
     required TResult Function(Product product) changeProduct,
     required TResult Function(String? newColorCode) changeColor,
     required TResult Function(int? newStorage) changeStorage,
+    required TResult Function() createPurchase,
+    required TResult Function() openUrl,
     required TResult Function() reset,
   }) =>
       throw _privateConstructorUsedError;
@@ -31,6 +33,8 @@ mixin _$DetailedProductEvent {
     TResult? Function(Product product)? changeProduct,
     TResult? Function(String? newColorCode)? changeColor,
     TResult? Function(int? newStorage)? changeStorage,
+    TResult? Function()? createPurchase,
+    TResult? Function()? openUrl,
     TResult? Function()? reset,
   }) =>
       throw _privateConstructorUsedError;
@@ -40,6 +44,8 @@ mixin _$DetailedProductEvent {
     TResult Function(Product product)? changeProduct,
     TResult Function(String? newColorCode)? changeColor,
     TResult Function(int? newStorage)? changeStorage,
+    TResult Function()? createPurchase,
+    TResult Function()? openUrl,
     TResult Function()? reset,
     required TResult orElse(),
   }) =>
@@ -50,6 +56,8 @@ mixin _$DetailedProductEvent {
     required TResult Function(_ChangeProduct value) changeProduct,
     required TResult Function(_ChangeColor value) changeColor,
     required TResult Function(_ChangeStorage value) changeStorage,
+    required TResult Function(_CreatePurchase value) createPurchase,
+    required TResult Function(_OpenUrl value) openUrl,
     required TResult Function(_Reset value) reset,
   }) =>
       throw _privateConstructorUsedError;
@@ -59,6 +67,8 @@ mixin _$DetailedProductEvent {
     TResult? Function(_ChangeProduct value)? changeProduct,
     TResult? Function(_ChangeColor value)? changeColor,
     TResult? Function(_ChangeStorage value)? changeStorage,
+    TResult? Function(_CreatePurchase value)? createPurchase,
+    TResult? Function(_OpenUrl value)? openUrl,
     TResult? Function(_Reset value)? reset,
   }) =>
       throw _privateConstructorUsedError;
@@ -68,6 +78,8 @@ mixin _$DetailedProductEvent {
     TResult Function(_ChangeProduct value)? changeProduct,
     TResult Function(_ChangeColor value)? changeColor,
     TResult Function(_ChangeStorage value)? changeStorage,
+    TResult Function(_CreatePurchase value)? createPurchase,
+    TResult Function(_OpenUrl value)? openUrl,
     TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) =>
@@ -180,6 +192,8 @@ class _$_GetOneProduct with DiagnosticableTreeMixin implements _GetOneProduct {
     required TResult Function(Product product) changeProduct,
     required TResult Function(String? newColorCode) changeColor,
     required TResult Function(int? newStorage) changeStorage,
+    required TResult Function() createPurchase,
+    required TResult Function() openUrl,
     required TResult Function() reset,
   }) {
     return getOneProduct(id, isInitial);
@@ -192,6 +206,8 @@ class _$_GetOneProduct with DiagnosticableTreeMixin implements _GetOneProduct {
     TResult? Function(Product product)? changeProduct,
     TResult? Function(String? newColorCode)? changeColor,
     TResult? Function(int? newStorage)? changeStorage,
+    TResult? Function()? createPurchase,
+    TResult? Function()? openUrl,
     TResult? Function()? reset,
   }) {
     return getOneProduct?.call(id, isInitial);
@@ -204,6 +220,8 @@ class _$_GetOneProduct with DiagnosticableTreeMixin implements _GetOneProduct {
     TResult Function(Product product)? changeProduct,
     TResult Function(String? newColorCode)? changeColor,
     TResult Function(int? newStorage)? changeStorage,
+    TResult Function()? createPurchase,
+    TResult Function()? openUrl,
     TResult Function()? reset,
     required TResult orElse(),
   }) {
@@ -220,6 +238,8 @@ class _$_GetOneProduct with DiagnosticableTreeMixin implements _GetOneProduct {
     required TResult Function(_ChangeProduct value) changeProduct,
     required TResult Function(_ChangeColor value) changeColor,
     required TResult Function(_ChangeStorage value) changeStorage,
+    required TResult Function(_CreatePurchase value) createPurchase,
+    required TResult Function(_OpenUrl value) openUrl,
     required TResult Function(_Reset value) reset,
   }) {
     return getOneProduct(this);
@@ -232,6 +252,8 @@ class _$_GetOneProduct with DiagnosticableTreeMixin implements _GetOneProduct {
     TResult? Function(_ChangeProduct value)? changeProduct,
     TResult? Function(_ChangeColor value)? changeColor,
     TResult? Function(_ChangeStorage value)? changeStorage,
+    TResult? Function(_CreatePurchase value)? createPurchase,
+    TResult? Function(_OpenUrl value)? openUrl,
     TResult? Function(_Reset value)? reset,
   }) {
     return getOneProduct?.call(this);
@@ -244,6 +266,8 @@ class _$_GetOneProduct with DiagnosticableTreeMixin implements _GetOneProduct {
     TResult Function(_ChangeProduct value)? changeProduct,
     TResult Function(_ChangeColor value)? changeColor,
     TResult Function(_ChangeStorage value)? changeStorage,
+    TResult Function(_CreatePurchase value)? createPurchase,
+    TResult Function(_OpenUrl value)? openUrl,
     TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) {
@@ -341,6 +365,8 @@ class _$_ChangeProduct with DiagnosticableTreeMixin implements _ChangeProduct {
     required TResult Function(Product product) changeProduct,
     required TResult Function(String? newColorCode) changeColor,
     required TResult Function(int? newStorage) changeStorage,
+    required TResult Function() createPurchase,
+    required TResult Function() openUrl,
     required TResult Function() reset,
   }) {
     return changeProduct(product);
@@ -353,6 +379,8 @@ class _$_ChangeProduct with DiagnosticableTreeMixin implements _ChangeProduct {
     TResult? Function(Product product)? changeProduct,
     TResult? Function(String? newColorCode)? changeColor,
     TResult? Function(int? newStorage)? changeStorage,
+    TResult? Function()? createPurchase,
+    TResult? Function()? openUrl,
     TResult? Function()? reset,
   }) {
     return changeProduct?.call(product);
@@ -365,6 +393,8 @@ class _$_ChangeProduct with DiagnosticableTreeMixin implements _ChangeProduct {
     TResult Function(Product product)? changeProduct,
     TResult Function(String? newColorCode)? changeColor,
     TResult Function(int? newStorage)? changeStorage,
+    TResult Function()? createPurchase,
+    TResult Function()? openUrl,
     TResult Function()? reset,
     required TResult orElse(),
   }) {
@@ -381,6 +411,8 @@ class _$_ChangeProduct with DiagnosticableTreeMixin implements _ChangeProduct {
     required TResult Function(_ChangeProduct value) changeProduct,
     required TResult Function(_ChangeColor value) changeColor,
     required TResult Function(_ChangeStorage value) changeStorage,
+    required TResult Function(_CreatePurchase value) createPurchase,
+    required TResult Function(_OpenUrl value) openUrl,
     required TResult Function(_Reset value) reset,
   }) {
     return changeProduct(this);
@@ -393,6 +425,8 @@ class _$_ChangeProduct with DiagnosticableTreeMixin implements _ChangeProduct {
     TResult? Function(_ChangeProduct value)? changeProduct,
     TResult? Function(_ChangeColor value)? changeColor,
     TResult? Function(_ChangeStorage value)? changeStorage,
+    TResult? Function(_CreatePurchase value)? createPurchase,
+    TResult? Function(_OpenUrl value)? openUrl,
     TResult? Function(_Reset value)? reset,
   }) {
     return changeProduct?.call(this);
@@ -405,6 +439,8 @@ class _$_ChangeProduct with DiagnosticableTreeMixin implements _ChangeProduct {
     TResult Function(_ChangeProduct value)? changeProduct,
     TResult Function(_ChangeColor value)? changeColor,
     TResult Function(_ChangeStorage value)? changeStorage,
+    TResult Function(_CreatePurchase value)? createPurchase,
+    TResult Function(_OpenUrl value)? openUrl,
     TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) {
@@ -501,6 +537,8 @@ class _$_ChangeColor with DiagnosticableTreeMixin implements _ChangeColor {
     required TResult Function(Product product) changeProduct,
     required TResult Function(String? newColorCode) changeColor,
     required TResult Function(int? newStorage) changeStorage,
+    required TResult Function() createPurchase,
+    required TResult Function() openUrl,
     required TResult Function() reset,
   }) {
     return changeColor(newColorCode);
@@ -513,6 +551,8 @@ class _$_ChangeColor with DiagnosticableTreeMixin implements _ChangeColor {
     TResult? Function(Product product)? changeProduct,
     TResult? Function(String? newColorCode)? changeColor,
     TResult? Function(int? newStorage)? changeStorage,
+    TResult? Function()? createPurchase,
+    TResult? Function()? openUrl,
     TResult? Function()? reset,
   }) {
     return changeColor?.call(newColorCode);
@@ -525,6 +565,8 @@ class _$_ChangeColor with DiagnosticableTreeMixin implements _ChangeColor {
     TResult Function(Product product)? changeProduct,
     TResult Function(String? newColorCode)? changeColor,
     TResult Function(int? newStorage)? changeStorage,
+    TResult Function()? createPurchase,
+    TResult Function()? openUrl,
     TResult Function()? reset,
     required TResult orElse(),
   }) {
@@ -541,6 +583,8 @@ class _$_ChangeColor with DiagnosticableTreeMixin implements _ChangeColor {
     required TResult Function(_ChangeProduct value) changeProduct,
     required TResult Function(_ChangeColor value) changeColor,
     required TResult Function(_ChangeStorage value) changeStorage,
+    required TResult Function(_CreatePurchase value) createPurchase,
+    required TResult Function(_OpenUrl value) openUrl,
     required TResult Function(_Reset value) reset,
   }) {
     return changeColor(this);
@@ -553,6 +597,8 @@ class _$_ChangeColor with DiagnosticableTreeMixin implements _ChangeColor {
     TResult? Function(_ChangeProduct value)? changeProduct,
     TResult? Function(_ChangeColor value)? changeColor,
     TResult? Function(_ChangeStorage value)? changeStorage,
+    TResult? Function(_CreatePurchase value)? createPurchase,
+    TResult? Function(_OpenUrl value)? openUrl,
     TResult? Function(_Reset value)? reset,
   }) {
     return changeColor?.call(this);
@@ -565,6 +611,8 @@ class _$_ChangeColor with DiagnosticableTreeMixin implements _ChangeColor {
     TResult Function(_ChangeProduct value)? changeProduct,
     TResult Function(_ChangeColor value)? changeColor,
     TResult Function(_ChangeStorage value)? changeStorage,
+    TResult Function(_CreatePurchase value)? createPurchase,
+    TResult Function(_OpenUrl value)? openUrl,
     TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) {
@@ -661,6 +709,8 @@ class _$_ChangeStorage with DiagnosticableTreeMixin implements _ChangeStorage {
     required TResult Function(Product product) changeProduct,
     required TResult Function(String? newColorCode) changeColor,
     required TResult Function(int? newStorage) changeStorage,
+    required TResult Function() createPurchase,
+    required TResult Function() openUrl,
     required TResult Function() reset,
   }) {
     return changeStorage(newStorage);
@@ -673,6 +723,8 @@ class _$_ChangeStorage with DiagnosticableTreeMixin implements _ChangeStorage {
     TResult? Function(Product product)? changeProduct,
     TResult? Function(String? newColorCode)? changeColor,
     TResult? Function(int? newStorage)? changeStorage,
+    TResult? Function()? createPurchase,
+    TResult? Function()? openUrl,
     TResult? Function()? reset,
   }) {
     return changeStorage?.call(newStorage);
@@ -685,6 +737,8 @@ class _$_ChangeStorage with DiagnosticableTreeMixin implements _ChangeStorage {
     TResult Function(Product product)? changeProduct,
     TResult Function(String? newColorCode)? changeColor,
     TResult Function(int? newStorage)? changeStorage,
+    TResult Function()? createPurchase,
+    TResult Function()? openUrl,
     TResult Function()? reset,
     required TResult orElse(),
   }) {
@@ -701,6 +755,8 @@ class _$_ChangeStorage with DiagnosticableTreeMixin implements _ChangeStorage {
     required TResult Function(_ChangeProduct value) changeProduct,
     required TResult Function(_ChangeColor value) changeColor,
     required TResult Function(_ChangeStorage value) changeStorage,
+    required TResult Function(_CreatePurchase value) createPurchase,
+    required TResult Function(_OpenUrl value) openUrl,
     required TResult Function(_Reset value) reset,
   }) {
     return changeStorage(this);
@@ -713,6 +769,8 @@ class _$_ChangeStorage with DiagnosticableTreeMixin implements _ChangeStorage {
     TResult? Function(_ChangeProduct value)? changeProduct,
     TResult? Function(_ChangeColor value)? changeColor,
     TResult? Function(_ChangeStorage value)? changeStorage,
+    TResult? Function(_CreatePurchase value)? createPurchase,
+    TResult? Function(_OpenUrl value)? openUrl,
     TResult? Function(_Reset value)? reset,
   }) {
     return changeStorage?.call(this);
@@ -725,6 +783,8 @@ class _$_ChangeStorage with DiagnosticableTreeMixin implements _ChangeStorage {
     TResult Function(_ChangeProduct value)? changeProduct,
     TResult Function(_ChangeColor value)? changeColor,
     TResult Function(_ChangeStorage value)? changeStorage,
+    TResult Function(_CreatePurchase value)? createPurchase,
+    TResult Function(_OpenUrl value)? openUrl,
     TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) {
@@ -742,6 +802,284 @@ abstract class _ChangeStorage implements DetailedProductEvent {
   @JsonKey(ignore: true)
   _$$_ChangeStorageCopyWith<_$_ChangeStorage> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_CreatePurchaseCopyWith<$Res> {
+  factory _$$_CreatePurchaseCopyWith(
+          _$_CreatePurchase value, $Res Function(_$_CreatePurchase) then) =
+      __$$_CreatePurchaseCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_CreatePurchaseCopyWithImpl<$Res>
+    extends _$DetailedProductEventCopyWithImpl<$Res, _$_CreatePurchase>
+    implements _$$_CreatePurchaseCopyWith<$Res> {
+  __$$_CreatePurchaseCopyWithImpl(
+      _$_CreatePurchase _value, $Res Function(_$_CreatePurchase) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_CreatePurchase
+    with DiagnosticableTreeMixin
+    implements _CreatePurchase {
+  const _$_CreatePurchase();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'DetailedProductEvent.createPurchase()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(
+        DiagnosticsProperty('type', 'DetailedProductEvent.createPurchase'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_CreatePurchase);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String id, bool isInitial) getOneProduct,
+    required TResult Function(Product product) changeProduct,
+    required TResult Function(String? newColorCode) changeColor,
+    required TResult Function(int? newStorage) changeStorage,
+    required TResult Function() createPurchase,
+    required TResult Function() openUrl,
+    required TResult Function() reset,
+  }) {
+    return createPurchase();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String id, bool isInitial)? getOneProduct,
+    TResult? Function(Product product)? changeProduct,
+    TResult? Function(String? newColorCode)? changeColor,
+    TResult? Function(int? newStorage)? changeStorage,
+    TResult? Function()? createPurchase,
+    TResult? Function()? openUrl,
+    TResult? Function()? reset,
+  }) {
+    return createPurchase?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String id, bool isInitial)? getOneProduct,
+    TResult Function(Product product)? changeProduct,
+    TResult Function(String? newColorCode)? changeColor,
+    TResult Function(int? newStorage)? changeStorage,
+    TResult Function()? createPurchase,
+    TResult Function()? openUrl,
+    TResult Function()? reset,
+    required TResult orElse(),
+  }) {
+    if (createPurchase != null) {
+      return createPurchase();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetOneProduct value) getOneProduct,
+    required TResult Function(_ChangeProduct value) changeProduct,
+    required TResult Function(_ChangeColor value) changeColor,
+    required TResult Function(_ChangeStorage value) changeStorage,
+    required TResult Function(_CreatePurchase value) createPurchase,
+    required TResult Function(_OpenUrl value) openUrl,
+    required TResult Function(_Reset value) reset,
+  }) {
+    return createPurchase(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetOneProduct value)? getOneProduct,
+    TResult? Function(_ChangeProduct value)? changeProduct,
+    TResult? Function(_ChangeColor value)? changeColor,
+    TResult? Function(_ChangeStorage value)? changeStorage,
+    TResult? Function(_CreatePurchase value)? createPurchase,
+    TResult? Function(_OpenUrl value)? openUrl,
+    TResult? Function(_Reset value)? reset,
+  }) {
+    return createPurchase?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetOneProduct value)? getOneProduct,
+    TResult Function(_ChangeProduct value)? changeProduct,
+    TResult Function(_ChangeColor value)? changeColor,
+    TResult Function(_ChangeStorage value)? changeStorage,
+    TResult Function(_CreatePurchase value)? createPurchase,
+    TResult Function(_OpenUrl value)? openUrl,
+    TResult Function(_Reset value)? reset,
+    required TResult orElse(),
+  }) {
+    if (createPurchase != null) {
+      return createPurchase(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CreatePurchase implements DetailedProductEvent {
+  const factory _CreatePurchase() = _$_CreatePurchase;
+}
+
+/// @nodoc
+abstract class _$$_OpenUrlCopyWith<$Res> {
+  factory _$$_OpenUrlCopyWith(
+          _$_OpenUrl value, $Res Function(_$_OpenUrl) then) =
+      __$$_OpenUrlCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_OpenUrlCopyWithImpl<$Res>
+    extends _$DetailedProductEventCopyWithImpl<$Res, _$_OpenUrl>
+    implements _$$_OpenUrlCopyWith<$Res> {
+  __$$_OpenUrlCopyWithImpl(_$_OpenUrl _value, $Res Function(_$_OpenUrl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_OpenUrl with DiagnosticableTreeMixin implements _OpenUrl {
+  const _$_OpenUrl();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'DetailedProductEvent.openUrl()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'DetailedProductEvent.openUrl'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_OpenUrl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String id, bool isInitial) getOneProduct,
+    required TResult Function(Product product) changeProduct,
+    required TResult Function(String? newColorCode) changeColor,
+    required TResult Function(int? newStorage) changeStorage,
+    required TResult Function() createPurchase,
+    required TResult Function() openUrl,
+    required TResult Function() reset,
+  }) {
+    return openUrl();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String id, bool isInitial)? getOneProduct,
+    TResult? Function(Product product)? changeProduct,
+    TResult? Function(String? newColorCode)? changeColor,
+    TResult? Function(int? newStorage)? changeStorage,
+    TResult? Function()? createPurchase,
+    TResult? Function()? openUrl,
+    TResult? Function()? reset,
+  }) {
+    return openUrl?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String id, bool isInitial)? getOneProduct,
+    TResult Function(Product product)? changeProduct,
+    TResult Function(String? newColorCode)? changeColor,
+    TResult Function(int? newStorage)? changeStorage,
+    TResult Function()? createPurchase,
+    TResult Function()? openUrl,
+    TResult Function()? reset,
+    required TResult orElse(),
+  }) {
+    if (openUrl != null) {
+      return openUrl();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetOneProduct value) getOneProduct,
+    required TResult Function(_ChangeProduct value) changeProduct,
+    required TResult Function(_ChangeColor value) changeColor,
+    required TResult Function(_ChangeStorage value) changeStorage,
+    required TResult Function(_CreatePurchase value) createPurchase,
+    required TResult Function(_OpenUrl value) openUrl,
+    required TResult Function(_Reset value) reset,
+  }) {
+    return openUrl(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetOneProduct value)? getOneProduct,
+    TResult? Function(_ChangeProduct value)? changeProduct,
+    TResult? Function(_ChangeColor value)? changeColor,
+    TResult? Function(_ChangeStorage value)? changeStorage,
+    TResult? Function(_CreatePurchase value)? createPurchase,
+    TResult? Function(_OpenUrl value)? openUrl,
+    TResult? Function(_Reset value)? reset,
+  }) {
+    return openUrl?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetOneProduct value)? getOneProduct,
+    TResult Function(_ChangeProduct value)? changeProduct,
+    TResult Function(_ChangeColor value)? changeColor,
+    TResult Function(_ChangeStorage value)? changeStorage,
+    TResult Function(_CreatePurchase value)? createPurchase,
+    TResult Function(_OpenUrl value)? openUrl,
+    TResult Function(_Reset value)? reset,
+    required TResult orElse(),
+  }) {
+    if (openUrl != null) {
+      return openUrl(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _OpenUrl implements DetailedProductEvent {
+  const factory _OpenUrl() = _$_OpenUrl;
 }
 
 /// @nodoc
@@ -790,6 +1128,8 @@ class _$_Reset with DiagnosticableTreeMixin implements _Reset {
     required TResult Function(Product product) changeProduct,
     required TResult Function(String? newColorCode) changeColor,
     required TResult Function(int? newStorage) changeStorage,
+    required TResult Function() createPurchase,
+    required TResult Function() openUrl,
     required TResult Function() reset,
   }) {
     return reset();
@@ -802,6 +1142,8 @@ class _$_Reset with DiagnosticableTreeMixin implements _Reset {
     TResult? Function(Product product)? changeProduct,
     TResult? Function(String? newColorCode)? changeColor,
     TResult? Function(int? newStorage)? changeStorage,
+    TResult? Function()? createPurchase,
+    TResult? Function()? openUrl,
     TResult? Function()? reset,
   }) {
     return reset?.call();
@@ -814,6 +1156,8 @@ class _$_Reset with DiagnosticableTreeMixin implements _Reset {
     TResult Function(Product product)? changeProduct,
     TResult Function(String? newColorCode)? changeColor,
     TResult Function(int? newStorage)? changeStorage,
+    TResult Function()? createPurchase,
+    TResult Function()? openUrl,
     TResult Function()? reset,
     required TResult orElse(),
   }) {
@@ -830,6 +1174,8 @@ class _$_Reset with DiagnosticableTreeMixin implements _Reset {
     required TResult Function(_ChangeProduct value) changeProduct,
     required TResult Function(_ChangeColor value) changeColor,
     required TResult Function(_ChangeStorage value) changeStorage,
+    required TResult Function(_CreatePurchase value) createPurchase,
+    required TResult Function(_OpenUrl value) openUrl,
     required TResult Function(_Reset value) reset,
   }) {
     return reset(this);
@@ -842,6 +1188,8 @@ class _$_Reset with DiagnosticableTreeMixin implements _Reset {
     TResult? Function(_ChangeProduct value)? changeProduct,
     TResult? Function(_ChangeColor value)? changeColor,
     TResult? Function(_ChangeStorage value)? changeStorage,
+    TResult? Function(_CreatePurchase value)? createPurchase,
+    TResult? Function(_OpenUrl value)? openUrl,
     TResult? Function(_Reset value)? reset,
   }) {
     return reset?.call(this);
@@ -854,6 +1202,8 @@ class _$_Reset with DiagnosticableTreeMixin implements _Reset {
     TResult Function(_ChangeProduct value)? changeProduct,
     TResult Function(_ChangeColor value)? changeColor,
     TResult Function(_ChangeStorage value)? changeStorage,
+    TResult Function(_CreatePurchase value)? createPurchase,
+    TResult Function(_OpenUrl value)? openUrl,
     TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) {
@@ -875,6 +1225,7 @@ DetailedProductState _$DetailedProductStateFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$DetailedProductState {
   Product? get product => throw _privateConstructorUsedError;
+  CreatePurchaseResponse? get purchase => throw _privateConstructorUsedError;
   DetailedProductStatus get status => throw _privateConstructorUsedError;
   Failure get failure => throw _privateConstructorUsedError;
 
@@ -890,7 +1241,11 @@ abstract class $DetailedProductStateCopyWith<$Res> {
           $Res Function(DetailedProductState) then) =
       _$DetailedProductStateCopyWithImpl<$Res, DetailedProductState>;
   @useResult
-  $Res call({Product? product, DetailedProductStatus status, Failure failure});
+  $Res call(
+      {Product? product,
+      CreatePurchaseResponse? purchase,
+      DetailedProductStatus status,
+      Failure failure});
 
   $FailureCopyWith<$Res> get failure;
 }
@@ -910,6 +1265,7 @@ class _$DetailedProductStateCopyWithImpl<$Res,
   @override
   $Res call({
     Object? product = freezed,
+    Object? purchase = freezed,
     Object? status = null,
     Object? failure = null,
   }) {
@@ -918,6 +1274,10 @@ class _$DetailedProductStateCopyWithImpl<$Res,
           ? _value.product
           : product // ignore: cast_nullable_to_non_nullable
               as Product?,
+      purchase: freezed == purchase
+          ? _value.purchase
+          : purchase // ignore: cast_nullable_to_non_nullable
+              as CreatePurchaseResponse?,
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -946,7 +1306,11 @@ abstract class _$$_DetailedProductStateCopyWith<$Res>
       __$$_DetailedProductStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Product? product, DetailedProductStatus status, Failure failure});
+  $Res call(
+      {Product? product,
+      CreatePurchaseResponse? purchase,
+      DetailedProductStatus status,
+      Failure failure});
 
   @override
   $FailureCopyWith<$Res> get failure;
@@ -964,6 +1328,7 @@ class __$$_DetailedProductStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? product = freezed,
+    Object? purchase = freezed,
     Object? status = null,
     Object? failure = null,
   }) {
@@ -972,6 +1337,10 @@ class __$$_DetailedProductStateCopyWithImpl<$Res>
           ? _value.product
           : product // ignore: cast_nullable_to_non_nullable
               as Product?,
+      purchase: freezed == purchase
+          ? _value.purchase
+          : purchase // ignore: cast_nullable_to_non_nullable
+              as CreatePurchaseResponse?,
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -990,6 +1359,7 @@ class _$_DetailedProductState extends _DetailedProductState
     with DiagnosticableTreeMixin {
   const _$_DetailedProductState(
       {this.product,
+      this.purchase,
       this.status = DetailedProductStatus.initial,
       this.failure = const CasualFailure()})
       : super._();
@@ -1000,6 +1370,8 @@ class _$_DetailedProductState extends _DetailedProductState
   @override
   final Product? product;
   @override
+  final CreatePurchaseResponse? purchase;
+  @override
   @JsonKey()
   final DetailedProductStatus status;
   @override
@@ -1008,7 +1380,7 @@ class _$_DetailedProductState extends _DetailedProductState
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'DetailedProductState(product: $product, status: $status, failure: $failure)';
+    return 'DetailedProductState(product: $product, purchase: $purchase, status: $status, failure: $failure)';
   }
 
   @override
@@ -1017,6 +1389,7 @@ class _$_DetailedProductState extends _DetailedProductState
     properties
       ..add(DiagnosticsProperty('type', 'DetailedProductState'))
       ..add(DiagnosticsProperty('product', product))
+      ..add(DiagnosticsProperty('purchase', purchase))
       ..add(DiagnosticsProperty('status', status))
       ..add(DiagnosticsProperty('failure', failure));
   }
@@ -1027,13 +1400,16 @@ class _$_DetailedProductState extends _DetailedProductState
         (other.runtimeType == runtimeType &&
             other is _$_DetailedProductState &&
             (identical(other.product, product) || other.product == product) &&
+            (identical(other.purchase, purchase) ||
+                other.purchase == purchase) &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.failure, failure) || other.failure == failure));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, product, status, failure);
+  int get hashCode =>
+      Object.hash(runtimeType, product, purchase, status, failure);
 
   @JsonKey(ignore: true)
   @override
@@ -1053,6 +1429,7 @@ class _$_DetailedProductState extends _DetailedProductState
 abstract class _DetailedProductState extends DetailedProductState {
   const factory _DetailedProductState(
       {final Product? product,
+      final CreatePurchaseResponse? purchase,
       final DetailedProductStatus status,
       final Failure failure}) = _$_DetailedProductState;
   const _DetailedProductState._() : super._();
@@ -1062,6 +1439,8 @@ abstract class _DetailedProductState extends DetailedProductState {
 
   @override
   Product? get product;
+  @override
+  CreatePurchaseResponse? get purchase;
   @override
   DetailedProductStatus get status;
   @override

@@ -92,4 +92,39 @@ enum PurchaseStatus {
   bool get isShipped => this == PurchaseStatus.SHIPPED;
   bool get isDelivered => this == PurchaseStatus.DELIVERED;
   bool get isCancelled => this == PurchaseStatus.CANCELLED;
+
+  @override
+  String toString() {
+    switch (this) {
+      case PurchaseStatus.PENDING:
+        return 'PENDING';
+      case PurchaseStatus.PAID:
+        return 'PAID';
+      case PurchaseStatus.SHIPPED:
+        return 'SHIPPED';
+      case PurchaseStatus.DELIVERED:
+        return 'DELIVERED';
+      case PurchaseStatus.CANCELLED:
+        return 'CANCELLED';
+      default:
+        return 'PurchaseStatus';
+    }
+  }
+
+  static PurchaseStatus fromString(String string) {
+    switch (string) {
+      case 'PENDING':
+        return PurchaseStatus.PENDING;
+      case 'PAID':
+        return PurchaseStatus.PAID;
+      case 'SHIPPED':
+        return PurchaseStatus.SHIPPED;
+      case 'DELIVERED':
+        return PurchaseStatus.DELIVERED;
+      case 'CANCELLED':
+        return PurchaseStatus.CANCELLED;
+      default:
+        return PurchaseStatus.PENDING;
+    }
+  }
 }

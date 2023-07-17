@@ -2,6 +2,10 @@ import 'package:dio/dio.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
+import '../data/datasources/purchases/purchases_local_data_source.dart';
+import '../domain/usecases/purchases/open_url.dart';
+import '../data/datasources/purchases/purchases_remote_data_source.dart';
+import '../domain/usecases/purchases/create_purchase.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../features/auth/data/datasources/auth_local_data_source.dart';
@@ -72,6 +76,7 @@ import '../data/datasources/image/image_local_data_source.dart';
 import '../data/datasources/products/products_remote_data_source.dart';
 import '../data/repositories/image/image_repository_impl.dart';
 import '../data/repositories/products/products_repository_impl.dart';
+import '../data/repositories/purchases/purchases_repository_impl.dart';
 import '../domain/usecases/image/pick_image.dart';
 import '../domain/usecases/image/pick_images.dart';
 import '../domain/usecases/products/toggle_cart.dart';
@@ -129,6 +134,9 @@ Future<void> appSetup() async {
       remoteDataSource: ManufacturersRemoteDataSourceImpl(getIt<DioClient>())));
   getIt.registerSingleton(ModelsRepositoryImpl(
       remoteDataSource: ModelsRemoteDataSourceImpl(getIt<DioClient>())));
+  getIt.registerSingleton(PurchaseRepositoryImpl(
+      remoteDataSource: PurchasesRemoteDataSourceImpl(getIt<DioClient>()),
+      localDataSource: PurchasesLocalDataSourceImpl()));
 
   /// Interceptors initialization
   getIt<DioClient>().dio.interceptors.addAll({
@@ -156,17 +164,19 @@ Future<void> appSetup() async {
       ),
       toggleCartUsecase: ToggleCart(getIt<ProductsRepositoryImpl>())));
   getIt.registerSingleton(DetailedProductBloc(
-    cartBloc: getIt<CartBloc>(),
-    wishlistBloc: getIt<WishlistBloc>(),
-    browseProductsBloc: getIt<BrowseProductsBloc>(),
-    getOneProductUsecase: GetOneProduct(getIt<DetailedProductRepositoryImpl>()),
-    changeColorUsecase: ChangeColor(
-      getIt<DetailedProductRepositoryImpl>(),
-    ),
-    changeStorageUsecase: ChangeStorage(
-      getIt<DetailedProductRepositoryImpl>(),
-    ),
-  ));
+      cartBloc: getIt<CartBloc>(),
+      wishlistBloc: getIt<WishlistBloc>(),
+      browseProductsBloc: getIt<BrowseProductsBloc>(),
+      getOneProductUsecase:
+          GetOneProduct(getIt<DetailedProductRepositoryImpl>()),
+      changeColorUsecase: ChangeColor(
+        getIt<DetailedProductRepositoryImpl>(),
+      ),
+      changeStorageUsecase: ChangeStorage(
+        getIt<DetailedProductRepositoryImpl>(),
+      ),
+      createPurchaseUsecase: CreatePurchase(getIt<PurchaseRepositoryImpl>()),
+      openUrlUsecase: OpenUrl(getIt<PurchaseRepositoryImpl>())));
   getIt.registerSingleton(ManufacturersBloc(
       getManufacturersUsecase:
           GetManufacturers(getIt<ManufacturersRepositoryImpl>()),

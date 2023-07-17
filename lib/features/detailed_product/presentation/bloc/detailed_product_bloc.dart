@@ -3,8 +3,11 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
+import '../../../../core/domain/entities/create_purchase_response.dart';
 
 import '../../../../core/domain/entities/product.dart';
+import '../../../../core/domain/usecases/purchases/create_purchase.dart';
+import '../../../../core/domain/usecases/purchases/open_url.dart';
 import '../../../../core/failure/failure.dart';
 import '../../../browse_products/presentation/bloc/browse_products_bloc.dart';
 import '../../../cart/presentation/bloc/cart_bloc.dart';
@@ -28,17 +31,23 @@ class DetailedProductBloc
     required GetOneProduct getOneProductUsecase,
     required ChangeColor changeColorUsecase,
     required ChangeStorage changeStorageUsecase,
+    required CreatePurchase createPurchaseUsecase,
+    required OpenUrl openUrlUsecase,
   })  : _cartBloc = cartBloc,
         _wishlistBloc = wishlistBloc,
         _productsBloc = browseProductsBloc,
         _getOneProductUsecase = getOneProductUsecase,
         _changeColorUsecase = changeColorUsecase,
         _changeStorageUsecase = changeStorageUsecase,
+        _createPurchaseUsecase = createPurchaseUsecase,
+        _openUrlUsecase = openUrlUsecase,
         super(const _DetailedProductState()) {
     on<_GetOneProduct>(_getOneProduct);
     on<_ChangeProduct>(_changeProduct);
     on<_ChangeColor>(_changeColor);
     on<_ChangeStorage>(_changeStorage);
+    on<_CreatePurchase>(_createPurchase);
+    on<_OpenUrl>(_openUrl);
     on<_Reset>(_reset);
   }
 
@@ -48,6 +57,8 @@ class DetailedProductBloc
   final GetOneProduct _getOneProductUsecase;
   final ChangeColor _changeColorUsecase;
   final ChangeStorage _changeStorageUsecase;
+  final CreatePurchase _createPurchaseUsecase;
+  final OpenUrl _openUrlUsecase;
 
   FutureOr<void> _getOneProduct(
       _GetOneProduct event, Emitter<DetailedProductState> emit) async {
@@ -99,6 +110,27 @@ class DetailedProductBloc
                 status: DetailedProductStatus.success,
                 product: newProduct.copyWith(model: product.model))));
       }
+    }
+  }
+
+  FutureOr<void> _createPurchase(
+      _CreatePurchase event, Emitter<DetailedProductState> emit) async {
+    if (state.product != null) {
+      emit(state.copyWith(status: DetailedProductStatus.creatingPurchase));
+      final res = await _createPurchaseUsecase
+          .call(CreatePurchaseParams(productIds: [state.product!.id]));
+      res.fold(
+          (failure) => _throwFailure(emit, failure),
+          (purchase) => emit(state.copyWith(
+              status: DetailedProductStatus.success, purchase: purchase)));
+    }
+  }
+
+  FutureOr<void> _openUrl(event, Emitter<DetailedProductState> emit) async {
+    if (state.purchase != null) {
+      final res = await _openUrlUsecase
+          .call(OpenUrlParams(url: state.purchase!.payment.url));
+      res.fold((failure) => _throwFailure(emit, failure), (r) => null);
     }
   }
 

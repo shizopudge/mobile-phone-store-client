@@ -10,5 +10,7 @@ class DetailedProductEvent with _$DetailedProductEvent {
       _ChangeColor;
   const factory DetailedProductEvent.changeStorage(int? newStorage) =
       _ChangeStorage;
+  const factory DetailedProductEvent.createPurchase() = _CreatePurchase;
+  const factory DetailedProductEvent.openUrl() = _OpenUrl;
   const factory DetailedProductEvent.reset() = _Reset;
 }

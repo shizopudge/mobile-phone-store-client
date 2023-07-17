@@ -12,6 +12,9 @@ _$_DetailedProductState _$$_DetailedProductStateFromJson(
       product: json['product'] == null
           ? null
           : Product.fromJson(json['product'] as Map<String, dynamic>),
+      purchase: json['purchase'] == null
+          ? null
+          : CreatePurchaseResponse.fromJson(json['purchase'] as String),
       status:
           $enumDecodeNullable(_$DetailedProductStatusEnumMap, json['status']) ??
               DetailedProductStatus.initial,
@@ -24,6 +27,7 @@ Map<String, dynamic> _$$_DetailedProductStateToJson(
         _$_DetailedProductState instance) =>
     <String, dynamic>{
       'product': instance.product,
+      'purchase': instance.purchase,
       'status': _$DetailedProductStatusEnumMap[instance.status]!,
       'failure': instance.failure,
     };
@@ -31,6 +35,7 @@ Map<String, dynamic> _$$_DetailedProductStateToJson(
 const _$DetailedProductStatusEnumMap = {
   DetailedProductStatus.initial: 'initial',
   DetailedProductStatus.loading: 'loading',
+  DetailedProductStatus.creatingPurchase: 'creatingPurchase',
   DetailedProductStatus.success: 'success',
   DetailedProductStatus.failure: 'failure',
 };

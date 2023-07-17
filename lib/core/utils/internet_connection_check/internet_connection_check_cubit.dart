@@ -19,12 +19,13 @@ class InternetConnectionCheckCubit extends Cubit<InternetConnectionCheckState> {
 
   void _monitorInternetConnection() {
     connectivityStreamSubscription =
-        _internetConnection.onStatusChange.listen((connectivityResult) {
+        _internetConnection.onStatusChange.listen((connectivityResult) async {
       if (connectivityResult == InternetStatus.connected) {
         emit(const InternetConnectionCheckState.connected());
       } else {
         emit(const InternetConnectionCheckState.disconnected());
       }
+      print(connectivityResult);
     });
   }
 

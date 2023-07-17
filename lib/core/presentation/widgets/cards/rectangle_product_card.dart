@@ -9,12 +9,12 @@ import '../other/discount.dart';
 import '../other/tag.dart';
 
 class RectangleProductCard extends StatelessWidget {
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
   final Product product;
   const RectangleProductCard({
     super.key,
     required this.product,
-    required this.onTap,
+    this.onTap,
   });
 
   @override

@@ -11,6 +11,7 @@ import '../../../../core/styles/styles.dart';
 import '../../../../core/utils/size_config.dart';
 import '../../../auth/presentation/bloc/auth_bloc.dart';
 import '../../../cart/presentation/bloc/cart_bloc.dart';
+import '../bloc/detailed_product_bloc.dart';
 
 class DetailedProductBottom extends StatelessWidget {
   final Product product;
@@ -95,7 +96,9 @@ class DetailedProductBottom extends StatelessWidget {
                 if (user != null && !user.isAdmin)
                   Expanded(
                     child: CasualButton(
-                      onTap: () {},
+                      onTap: () => context
+                          .read<DetailedProductBloc>()
+                          .add(const DetailedProductEvent.createPurchase()),
                       borderRadius: SizeConfig.borderRadiusSmall,
                       text: product.isDiscounted
                           ? 'Checkout \$${product.discountCost}'
