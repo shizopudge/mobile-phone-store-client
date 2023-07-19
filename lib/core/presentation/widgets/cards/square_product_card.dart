@@ -9,12 +9,12 @@ import '../other/discount.dart';
 import '../other/tag.dart';
 
 class SquareProductCard extends StatelessWidget {
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
   final Product product;
   final bool withHero;
   const SquareProductCard({
     super.key,
-    required this.onTap,
+    this.onTap,
     required this.product,
     this.withHero = true,
   });

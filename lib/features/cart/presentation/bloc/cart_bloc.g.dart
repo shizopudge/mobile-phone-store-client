@@ -22,6 +22,9 @@ _$_CartState _$$_CartStateFromJson(Map<String, dynamic> json) => _$_CartState(
       failure: json['failure'] == null
           ? const CasualFailure()
           : Failure.fromJson(json['failure'] as Map<String, dynamic>),
+      purchase: json['purchase'] == null
+          ? null
+          : CreatePurchaseResponse.fromJson(json['purchase'] as String),
     );
 
 Map<String, dynamic> _$$_CartStateToJson(_$_CartState instance) =>
@@ -31,12 +34,14 @@ Map<String, dynamic> _$$_CartStateToJson(_$_CartState instance) =>
       'filter': instance.filter,
       'status': _$CartStatusEnumMap[instance.status]!,
       'failure': instance.failure,
+      'purchase': instance.purchase,
     };
 
 const _$CartStatusEnumMap = {
   CartStatus.initial: 'initial',
   CartStatus.loading: 'loading',
   CartStatus.refreshing: 'refreshing',
+  CartStatus.creatingPurchase: 'creatingPurchase',
   CartStatus.success: 'success',
   CartStatus.failure: 'failure',
 };

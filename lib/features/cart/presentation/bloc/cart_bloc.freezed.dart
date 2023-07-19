@@ -27,6 +27,9 @@ mixin _$CartEvent {
     required TResult Function() getNextProducts,
     required TResult Function(String query) searchProducts,
     required TResult Function(ProductsFilter filter) changeFilter,
+    required TResult Function() createPurchase,
+    required TResult Function() removePurchase,
+    required TResult Function() openUrl,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -39,6 +42,9 @@ mixin _$CartEvent {
     TResult? Function()? getNextProducts,
     TResult? Function(String query)? searchProducts,
     TResult? Function(ProductsFilter filter)? changeFilter,
+    TResult? Function()? createPurchase,
+    TResult? Function()? removePurchase,
+    TResult? Function()? openUrl,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -51,6 +57,9 @@ mixin _$CartEvent {
     TResult Function()? getNextProducts,
     TResult Function(String query)? searchProducts,
     TResult Function(ProductsFilter filter)? changeFilter,
+    TResult Function()? createPurchase,
+    TResult Function()? removePurchase,
+    TResult Function()? openUrl,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -64,6 +73,9 @@ mixin _$CartEvent {
     required TResult Function(_GetNextProducts value) getNextProducts,
     required TResult Function(_SearchProducts value) searchProducts,
     required TResult Function(_ChangeFilter value) changeFilter,
+    required TResult Function(_CreatePurchase value) createPurchase,
+    required TResult Function(_RemovePurchase value) removePurchase,
+    required TResult Function(_OpenUrl value) openUrl,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -76,6 +88,9 @@ mixin _$CartEvent {
     TResult? Function(_GetNextProducts value)? getNextProducts,
     TResult? Function(_SearchProducts value)? searchProducts,
     TResult? Function(_ChangeFilter value)? changeFilter,
+    TResult? Function(_CreatePurchase value)? createPurchase,
+    TResult? Function(_RemovePurchase value)? removePurchase,
+    TResult? Function(_OpenUrl value)? openUrl,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -88,6 +103,9 @@ mixin _$CartEvent {
     TResult Function(_GetNextProducts value)? getNextProducts,
     TResult Function(_SearchProducts value)? searchProducts,
     TResult Function(_ChangeFilter value)? changeFilter,
+    TResult Function(_CreatePurchase value)? createPurchase,
+    TResult Function(_RemovePurchase value)? removePurchase,
+    TResult Function(_OpenUrl value)? openUrl,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -156,6 +174,9 @@ class _$_Initial implements _Initial {
     required TResult Function() getNextProducts,
     required TResult Function(String query) searchProducts,
     required TResult Function(ProductsFilter filter) changeFilter,
+    required TResult Function() createPurchase,
+    required TResult Function() removePurchase,
+    required TResult Function() openUrl,
   }) {
     return initial();
   }
@@ -171,6 +192,9 @@ class _$_Initial implements _Initial {
     TResult? Function()? getNextProducts,
     TResult? Function(String query)? searchProducts,
     TResult? Function(ProductsFilter filter)? changeFilter,
+    TResult? Function()? createPurchase,
+    TResult? Function()? removePurchase,
+    TResult? Function()? openUrl,
   }) {
     return initial?.call();
   }
@@ -186,6 +210,9 @@ class _$_Initial implements _Initial {
     TResult Function()? getNextProducts,
     TResult Function(String query)? searchProducts,
     TResult Function(ProductsFilter filter)? changeFilter,
+    TResult Function()? createPurchase,
+    TResult Function()? removePurchase,
+    TResult Function()? openUrl,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -205,6 +232,9 @@ class _$_Initial implements _Initial {
     required TResult Function(_GetNextProducts value) getNextProducts,
     required TResult Function(_SearchProducts value) searchProducts,
     required TResult Function(_ChangeFilter value) changeFilter,
+    required TResult Function(_CreatePurchase value) createPurchase,
+    required TResult Function(_RemovePurchase value) removePurchase,
+    required TResult Function(_OpenUrl value) openUrl,
   }) {
     return initial(this);
   }
@@ -220,6 +250,9 @@ class _$_Initial implements _Initial {
     TResult? Function(_GetNextProducts value)? getNextProducts,
     TResult? Function(_SearchProducts value)? searchProducts,
     TResult? Function(_ChangeFilter value)? changeFilter,
+    TResult? Function(_CreatePurchase value)? createPurchase,
+    TResult? Function(_RemovePurchase value)? removePurchase,
+    TResult? Function(_OpenUrl value)? openUrl,
   }) {
     return initial?.call(this);
   }
@@ -235,6 +268,9 @@ class _$_Initial implements _Initial {
     TResult Function(_GetNextProducts value)? getNextProducts,
     TResult Function(_SearchProducts value)? searchProducts,
     TResult Function(_ChangeFilter value)? changeFilter,
+    TResult Function(_CreatePurchase value)? createPurchase,
+    TResult Function(_RemovePurchase value)? removePurchase,
+    TResult Function(_OpenUrl value)? openUrl,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -321,6 +357,9 @@ class _$_ToggleCart implements _ToggleCart {
     required TResult Function() getNextProducts,
     required TResult Function(String query) searchProducts,
     required TResult Function(ProductsFilter filter) changeFilter,
+    required TResult Function() createPurchase,
+    required TResult Function() removePurchase,
+    required TResult Function() openUrl,
   }) {
     return toggleCart(product);
   }
@@ -336,6 +375,9 @@ class _$_ToggleCart implements _ToggleCart {
     TResult? Function()? getNextProducts,
     TResult? Function(String query)? searchProducts,
     TResult? Function(ProductsFilter filter)? changeFilter,
+    TResult? Function()? createPurchase,
+    TResult? Function()? removePurchase,
+    TResult? Function()? openUrl,
   }) {
     return toggleCart?.call(product);
   }
@@ -351,6 +393,9 @@ class _$_ToggleCart implements _ToggleCart {
     TResult Function()? getNextProducts,
     TResult Function(String query)? searchProducts,
     TResult Function(ProductsFilter filter)? changeFilter,
+    TResult Function()? createPurchase,
+    TResult Function()? removePurchase,
+    TResult Function()? openUrl,
     required TResult orElse(),
   }) {
     if (toggleCart != null) {
@@ -370,6 +415,9 @@ class _$_ToggleCart implements _ToggleCart {
     required TResult Function(_GetNextProducts value) getNextProducts,
     required TResult Function(_SearchProducts value) searchProducts,
     required TResult Function(_ChangeFilter value) changeFilter,
+    required TResult Function(_CreatePurchase value) createPurchase,
+    required TResult Function(_RemovePurchase value) removePurchase,
+    required TResult Function(_OpenUrl value) openUrl,
   }) {
     return toggleCart(this);
   }
@@ -385,6 +433,9 @@ class _$_ToggleCart implements _ToggleCart {
     TResult? Function(_GetNextProducts value)? getNextProducts,
     TResult? Function(_SearchProducts value)? searchProducts,
     TResult? Function(_ChangeFilter value)? changeFilter,
+    TResult? Function(_CreatePurchase value)? createPurchase,
+    TResult? Function(_RemovePurchase value)? removePurchase,
+    TResult? Function(_OpenUrl value)? openUrl,
   }) {
     return toggleCart?.call(this);
   }
@@ -400,6 +451,9 @@ class _$_ToggleCart implements _ToggleCart {
     TResult Function(_GetNextProducts value)? getNextProducts,
     TResult Function(_SearchProducts value)? searchProducts,
     TResult Function(_ChangeFilter value)? changeFilter,
+    TResult Function(_CreatePurchase value)? createPurchase,
+    TResult Function(_RemovePurchase value)? removePurchase,
+    TResult Function(_OpenUrl value)? openUrl,
     required TResult orElse(),
   }) {
     if (toggleCart != null) {
@@ -501,6 +555,9 @@ class _$_ToggleRemoteCart implements _ToggleRemoteCart {
     required TResult Function() getNextProducts,
     required TResult Function(String query) searchProducts,
     required TResult Function(ProductsFilter filter) changeFilter,
+    required TResult Function() createPurchase,
+    required TResult Function() removePurchase,
+    required TResult Function() openUrl,
   }) {
     return toggleRemoteCart(product, productIndex);
   }
@@ -516,6 +573,9 @@ class _$_ToggleRemoteCart implements _ToggleRemoteCart {
     TResult? Function()? getNextProducts,
     TResult? Function(String query)? searchProducts,
     TResult? Function(ProductsFilter filter)? changeFilter,
+    TResult? Function()? createPurchase,
+    TResult? Function()? removePurchase,
+    TResult? Function()? openUrl,
   }) {
     return toggleRemoteCart?.call(product, productIndex);
   }
@@ -531,6 +591,9 @@ class _$_ToggleRemoteCart implements _ToggleRemoteCart {
     TResult Function()? getNextProducts,
     TResult Function(String query)? searchProducts,
     TResult Function(ProductsFilter filter)? changeFilter,
+    TResult Function()? createPurchase,
+    TResult Function()? removePurchase,
+    TResult Function()? openUrl,
     required TResult orElse(),
   }) {
     if (toggleRemoteCart != null) {
@@ -550,6 +613,9 @@ class _$_ToggleRemoteCart implements _ToggleRemoteCart {
     required TResult Function(_GetNextProducts value) getNextProducts,
     required TResult Function(_SearchProducts value) searchProducts,
     required TResult Function(_ChangeFilter value) changeFilter,
+    required TResult Function(_CreatePurchase value) createPurchase,
+    required TResult Function(_RemovePurchase value) removePurchase,
+    required TResult Function(_OpenUrl value) openUrl,
   }) {
     return toggleRemoteCart(this);
   }
@@ -565,6 +631,9 @@ class _$_ToggleRemoteCart implements _ToggleRemoteCart {
     TResult? Function(_GetNextProducts value)? getNextProducts,
     TResult? Function(_SearchProducts value)? searchProducts,
     TResult? Function(_ChangeFilter value)? changeFilter,
+    TResult? Function(_CreatePurchase value)? createPurchase,
+    TResult? Function(_RemovePurchase value)? removePurchase,
+    TResult? Function(_OpenUrl value)? openUrl,
   }) {
     return toggleRemoteCart?.call(this);
   }
@@ -580,6 +649,9 @@ class _$_ToggleRemoteCart implements _ToggleRemoteCart {
     TResult Function(_GetNextProducts value)? getNextProducts,
     TResult Function(_SearchProducts value)? searchProducts,
     TResult Function(_ChangeFilter value)? changeFilter,
+    TResult Function(_CreatePurchase value)? createPurchase,
+    TResult Function(_RemovePurchase value)? removePurchase,
+    TResult Function(_OpenUrl value)? openUrl,
     required TResult orElse(),
   }) {
     if (toggleRemoteCart != null) {
@@ -647,6 +719,9 @@ class _$_Refresh implements _Refresh {
     required TResult Function() getNextProducts,
     required TResult Function(String query) searchProducts,
     required TResult Function(ProductsFilter filter) changeFilter,
+    required TResult Function() createPurchase,
+    required TResult Function() removePurchase,
+    required TResult Function() openUrl,
   }) {
     return refresh();
   }
@@ -662,6 +737,9 @@ class _$_Refresh implements _Refresh {
     TResult? Function()? getNextProducts,
     TResult? Function(String query)? searchProducts,
     TResult? Function(ProductsFilter filter)? changeFilter,
+    TResult? Function()? createPurchase,
+    TResult? Function()? removePurchase,
+    TResult? Function()? openUrl,
   }) {
     return refresh?.call();
   }
@@ -677,6 +755,9 @@ class _$_Refresh implements _Refresh {
     TResult Function()? getNextProducts,
     TResult Function(String query)? searchProducts,
     TResult Function(ProductsFilter filter)? changeFilter,
+    TResult Function()? createPurchase,
+    TResult Function()? removePurchase,
+    TResult Function()? openUrl,
     required TResult orElse(),
   }) {
     if (refresh != null) {
@@ -696,6 +777,9 @@ class _$_Refresh implements _Refresh {
     required TResult Function(_GetNextProducts value) getNextProducts,
     required TResult Function(_SearchProducts value) searchProducts,
     required TResult Function(_ChangeFilter value) changeFilter,
+    required TResult Function(_CreatePurchase value) createPurchase,
+    required TResult Function(_RemovePurchase value) removePurchase,
+    required TResult Function(_OpenUrl value) openUrl,
   }) {
     return refresh(this);
   }
@@ -711,6 +795,9 @@ class _$_Refresh implements _Refresh {
     TResult? Function(_GetNextProducts value)? getNextProducts,
     TResult? Function(_SearchProducts value)? searchProducts,
     TResult? Function(_ChangeFilter value)? changeFilter,
+    TResult? Function(_CreatePurchase value)? createPurchase,
+    TResult? Function(_RemovePurchase value)? removePurchase,
+    TResult? Function(_OpenUrl value)? openUrl,
   }) {
     return refresh?.call(this);
   }
@@ -726,6 +813,9 @@ class _$_Refresh implements _Refresh {
     TResult Function(_GetNextProducts value)? getNextProducts,
     TResult Function(_SearchProducts value)? searchProducts,
     TResult Function(_ChangeFilter value)? changeFilter,
+    TResult Function(_CreatePurchase value)? createPurchase,
+    TResult Function(_RemovePurchase value)? removePurchase,
+    TResult Function(_OpenUrl value)? openUrl,
     required TResult orElse(),
   }) {
     if (refresh != null) {
@@ -813,6 +903,9 @@ class _$_UpdateProductInList implements _UpdateProductInList {
     required TResult Function() getNextProducts,
     required TResult Function(String query) searchProducts,
     required TResult Function(ProductsFilter filter) changeFilter,
+    required TResult Function() createPurchase,
+    required TResult Function() removePurchase,
+    required TResult Function() openUrl,
   }) {
     return updateProductInList(product);
   }
@@ -828,6 +921,9 @@ class _$_UpdateProductInList implements _UpdateProductInList {
     TResult? Function()? getNextProducts,
     TResult? Function(String query)? searchProducts,
     TResult? Function(ProductsFilter filter)? changeFilter,
+    TResult? Function()? createPurchase,
+    TResult? Function()? removePurchase,
+    TResult? Function()? openUrl,
   }) {
     return updateProductInList?.call(product);
   }
@@ -843,6 +939,9 @@ class _$_UpdateProductInList implements _UpdateProductInList {
     TResult Function()? getNextProducts,
     TResult Function(String query)? searchProducts,
     TResult Function(ProductsFilter filter)? changeFilter,
+    TResult Function()? createPurchase,
+    TResult Function()? removePurchase,
+    TResult Function()? openUrl,
     required TResult orElse(),
   }) {
     if (updateProductInList != null) {
@@ -862,6 +961,9 @@ class _$_UpdateProductInList implements _UpdateProductInList {
     required TResult Function(_GetNextProducts value) getNextProducts,
     required TResult Function(_SearchProducts value) searchProducts,
     required TResult Function(_ChangeFilter value) changeFilter,
+    required TResult Function(_CreatePurchase value) createPurchase,
+    required TResult Function(_RemovePurchase value) removePurchase,
+    required TResult Function(_OpenUrl value) openUrl,
   }) {
     return updateProductInList(this);
   }
@@ -877,6 +979,9 @@ class _$_UpdateProductInList implements _UpdateProductInList {
     TResult? Function(_GetNextProducts value)? getNextProducts,
     TResult? Function(_SearchProducts value)? searchProducts,
     TResult? Function(_ChangeFilter value)? changeFilter,
+    TResult? Function(_CreatePurchase value)? createPurchase,
+    TResult? Function(_RemovePurchase value)? removePurchase,
+    TResult? Function(_OpenUrl value)? openUrl,
   }) {
     return updateProductInList?.call(this);
   }
@@ -892,6 +997,9 @@ class _$_UpdateProductInList implements _UpdateProductInList {
     TResult Function(_GetNextProducts value)? getNextProducts,
     TResult Function(_SearchProducts value)? searchProducts,
     TResult Function(_ChangeFilter value)? changeFilter,
+    TResult Function(_CreatePurchase value)? createPurchase,
+    TResult Function(_RemovePurchase value)? removePurchase,
+    TResult Function(_OpenUrl value)? openUrl,
     required TResult orElse(),
   }) {
     if (updateProductInList != null) {
@@ -958,6 +1066,9 @@ class _$_GetNextProducts implements _GetNextProducts {
     required TResult Function() getNextProducts,
     required TResult Function(String query) searchProducts,
     required TResult Function(ProductsFilter filter) changeFilter,
+    required TResult Function() createPurchase,
+    required TResult Function() removePurchase,
+    required TResult Function() openUrl,
   }) {
     return getNextProducts();
   }
@@ -973,6 +1084,9 @@ class _$_GetNextProducts implements _GetNextProducts {
     TResult? Function()? getNextProducts,
     TResult? Function(String query)? searchProducts,
     TResult? Function(ProductsFilter filter)? changeFilter,
+    TResult? Function()? createPurchase,
+    TResult? Function()? removePurchase,
+    TResult? Function()? openUrl,
   }) {
     return getNextProducts?.call();
   }
@@ -988,6 +1102,9 @@ class _$_GetNextProducts implements _GetNextProducts {
     TResult Function()? getNextProducts,
     TResult Function(String query)? searchProducts,
     TResult Function(ProductsFilter filter)? changeFilter,
+    TResult Function()? createPurchase,
+    TResult Function()? removePurchase,
+    TResult Function()? openUrl,
     required TResult orElse(),
   }) {
     if (getNextProducts != null) {
@@ -1007,6 +1124,9 @@ class _$_GetNextProducts implements _GetNextProducts {
     required TResult Function(_GetNextProducts value) getNextProducts,
     required TResult Function(_SearchProducts value) searchProducts,
     required TResult Function(_ChangeFilter value) changeFilter,
+    required TResult Function(_CreatePurchase value) createPurchase,
+    required TResult Function(_RemovePurchase value) removePurchase,
+    required TResult Function(_OpenUrl value) openUrl,
   }) {
     return getNextProducts(this);
   }
@@ -1022,6 +1142,9 @@ class _$_GetNextProducts implements _GetNextProducts {
     TResult? Function(_GetNextProducts value)? getNextProducts,
     TResult? Function(_SearchProducts value)? searchProducts,
     TResult? Function(_ChangeFilter value)? changeFilter,
+    TResult? Function(_CreatePurchase value)? createPurchase,
+    TResult? Function(_RemovePurchase value)? removePurchase,
+    TResult? Function(_OpenUrl value)? openUrl,
   }) {
     return getNextProducts?.call(this);
   }
@@ -1037,6 +1160,9 @@ class _$_GetNextProducts implements _GetNextProducts {
     TResult Function(_GetNextProducts value)? getNextProducts,
     TResult Function(_SearchProducts value)? searchProducts,
     TResult Function(_ChangeFilter value)? changeFilter,
+    TResult Function(_CreatePurchase value)? createPurchase,
+    TResult Function(_RemovePurchase value)? removePurchase,
+    TResult Function(_OpenUrl value)? openUrl,
     required TResult orElse(),
   }) {
     if (getNextProducts != null) {
@@ -1123,6 +1249,9 @@ class _$_SearchProducts implements _SearchProducts {
     required TResult Function() getNextProducts,
     required TResult Function(String query) searchProducts,
     required TResult Function(ProductsFilter filter) changeFilter,
+    required TResult Function() createPurchase,
+    required TResult Function() removePurchase,
+    required TResult Function() openUrl,
   }) {
     return searchProducts(query);
   }
@@ -1138,6 +1267,9 @@ class _$_SearchProducts implements _SearchProducts {
     TResult? Function()? getNextProducts,
     TResult? Function(String query)? searchProducts,
     TResult? Function(ProductsFilter filter)? changeFilter,
+    TResult? Function()? createPurchase,
+    TResult? Function()? removePurchase,
+    TResult? Function()? openUrl,
   }) {
     return searchProducts?.call(query);
   }
@@ -1153,6 +1285,9 @@ class _$_SearchProducts implements _SearchProducts {
     TResult Function()? getNextProducts,
     TResult Function(String query)? searchProducts,
     TResult Function(ProductsFilter filter)? changeFilter,
+    TResult Function()? createPurchase,
+    TResult Function()? removePurchase,
+    TResult Function()? openUrl,
     required TResult orElse(),
   }) {
     if (searchProducts != null) {
@@ -1172,6 +1307,9 @@ class _$_SearchProducts implements _SearchProducts {
     required TResult Function(_GetNextProducts value) getNextProducts,
     required TResult Function(_SearchProducts value) searchProducts,
     required TResult Function(_ChangeFilter value) changeFilter,
+    required TResult Function(_CreatePurchase value) createPurchase,
+    required TResult Function(_RemovePurchase value) removePurchase,
+    required TResult Function(_OpenUrl value) openUrl,
   }) {
     return searchProducts(this);
   }
@@ -1187,6 +1325,9 @@ class _$_SearchProducts implements _SearchProducts {
     TResult? Function(_GetNextProducts value)? getNextProducts,
     TResult? Function(_SearchProducts value)? searchProducts,
     TResult? Function(_ChangeFilter value)? changeFilter,
+    TResult? Function(_CreatePurchase value)? createPurchase,
+    TResult? Function(_RemovePurchase value)? removePurchase,
+    TResult? Function(_OpenUrl value)? openUrl,
   }) {
     return searchProducts?.call(this);
   }
@@ -1202,6 +1343,9 @@ class _$_SearchProducts implements _SearchProducts {
     TResult Function(_GetNextProducts value)? getNextProducts,
     TResult Function(_SearchProducts value)? searchProducts,
     TResult Function(_ChangeFilter value)? changeFilter,
+    TResult Function(_CreatePurchase value)? createPurchase,
+    TResult Function(_RemovePurchase value)? removePurchase,
+    TResult Function(_OpenUrl value)? openUrl,
     required TResult orElse(),
   }) {
     if (searchProducts != null) {
@@ -1293,6 +1437,9 @@ class _$_ChangeFilter implements _ChangeFilter {
     required TResult Function() getNextProducts,
     required TResult Function(String query) searchProducts,
     required TResult Function(ProductsFilter filter) changeFilter,
+    required TResult Function() createPurchase,
+    required TResult Function() removePurchase,
+    required TResult Function() openUrl,
   }) {
     return changeFilter(filter);
   }
@@ -1308,6 +1455,9 @@ class _$_ChangeFilter implements _ChangeFilter {
     TResult? Function()? getNextProducts,
     TResult? Function(String query)? searchProducts,
     TResult? Function(ProductsFilter filter)? changeFilter,
+    TResult? Function()? createPurchase,
+    TResult? Function()? removePurchase,
+    TResult? Function()? openUrl,
   }) {
     return changeFilter?.call(filter);
   }
@@ -1323,6 +1473,9 @@ class _$_ChangeFilter implements _ChangeFilter {
     TResult Function()? getNextProducts,
     TResult Function(String query)? searchProducts,
     TResult Function(ProductsFilter filter)? changeFilter,
+    TResult Function()? createPurchase,
+    TResult Function()? removePurchase,
+    TResult Function()? openUrl,
     required TResult orElse(),
   }) {
     if (changeFilter != null) {
@@ -1342,6 +1495,9 @@ class _$_ChangeFilter implements _ChangeFilter {
     required TResult Function(_GetNextProducts value) getNextProducts,
     required TResult Function(_SearchProducts value) searchProducts,
     required TResult Function(_ChangeFilter value) changeFilter,
+    required TResult Function(_CreatePurchase value) createPurchase,
+    required TResult Function(_RemovePurchase value) removePurchase,
+    required TResult Function(_OpenUrl value) openUrl,
   }) {
     return changeFilter(this);
   }
@@ -1357,6 +1513,9 @@ class _$_ChangeFilter implements _ChangeFilter {
     TResult? Function(_GetNextProducts value)? getNextProducts,
     TResult? Function(_SearchProducts value)? searchProducts,
     TResult? Function(_ChangeFilter value)? changeFilter,
+    TResult? Function(_CreatePurchase value)? createPurchase,
+    TResult? Function(_RemovePurchase value)? removePurchase,
+    TResult? Function(_OpenUrl value)? openUrl,
   }) {
     return changeFilter?.call(this);
   }
@@ -1372,6 +1531,9 @@ class _$_ChangeFilter implements _ChangeFilter {
     TResult Function(_GetNextProducts value)? getNextProducts,
     TResult Function(_SearchProducts value)? searchProducts,
     TResult Function(_ChangeFilter value)? changeFilter,
+    TResult Function(_CreatePurchase value)? createPurchase,
+    TResult Function(_RemovePurchase value)? removePurchase,
+    TResult Function(_OpenUrl value)? openUrl,
     required TResult orElse(),
   }) {
     if (changeFilter != null) {
@@ -1390,6 +1552,476 @@ abstract class _ChangeFilter implements CartEvent {
       throw _privateConstructorUsedError;
 }
 
+/// @nodoc
+abstract class _$$_CreatePurchaseCopyWith<$Res> {
+  factory _$$_CreatePurchaseCopyWith(
+          _$_CreatePurchase value, $Res Function(_$_CreatePurchase) then) =
+      __$$_CreatePurchaseCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_CreatePurchaseCopyWithImpl<$Res>
+    extends _$CartEventCopyWithImpl<$Res, _$_CreatePurchase>
+    implements _$$_CreatePurchaseCopyWith<$Res> {
+  __$$_CreatePurchaseCopyWithImpl(
+      _$_CreatePurchase _value, $Res Function(_$_CreatePurchase) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_CreatePurchase implements _CreatePurchase {
+  const _$_CreatePurchase();
+
+  @override
+  String toString() {
+    return 'CartEvent.createPurchase()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_CreatePurchase);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(Product product) toggleCart,
+    required TResult Function(Product product, int? productIndex)
+        toggleRemoteCart,
+    required TResult Function() refresh,
+    required TResult Function(Product product) updateProductInList,
+    required TResult Function() getNextProducts,
+    required TResult Function(String query) searchProducts,
+    required TResult Function(ProductsFilter filter) changeFilter,
+    required TResult Function() createPurchase,
+    required TResult Function() removePurchase,
+    required TResult Function() openUrl,
+  }) {
+    return createPurchase();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(Product product)? toggleCart,
+    TResult? Function(Product product, int? productIndex)? toggleRemoteCart,
+    TResult? Function()? refresh,
+    TResult? Function(Product product)? updateProductInList,
+    TResult? Function()? getNextProducts,
+    TResult? Function(String query)? searchProducts,
+    TResult? Function(ProductsFilter filter)? changeFilter,
+    TResult? Function()? createPurchase,
+    TResult? Function()? removePurchase,
+    TResult? Function()? openUrl,
+  }) {
+    return createPurchase?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(Product product)? toggleCart,
+    TResult Function(Product product, int? productIndex)? toggleRemoteCart,
+    TResult Function()? refresh,
+    TResult Function(Product product)? updateProductInList,
+    TResult Function()? getNextProducts,
+    TResult Function(String query)? searchProducts,
+    TResult Function(ProductsFilter filter)? changeFilter,
+    TResult Function()? createPurchase,
+    TResult Function()? removePurchase,
+    TResult Function()? openUrl,
+    required TResult orElse(),
+  }) {
+    if (createPurchase != null) {
+      return createPurchase();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_ToggleCart value) toggleCart,
+    required TResult Function(_ToggleRemoteCart value) toggleRemoteCart,
+    required TResult Function(_Refresh value) refresh,
+    required TResult Function(_UpdateProductInList value) updateProductInList,
+    required TResult Function(_GetNextProducts value) getNextProducts,
+    required TResult Function(_SearchProducts value) searchProducts,
+    required TResult Function(_ChangeFilter value) changeFilter,
+    required TResult Function(_CreatePurchase value) createPurchase,
+    required TResult Function(_RemovePurchase value) removePurchase,
+    required TResult Function(_OpenUrl value) openUrl,
+  }) {
+    return createPurchase(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_ToggleCart value)? toggleCart,
+    TResult? Function(_ToggleRemoteCart value)? toggleRemoteCart,
+    TResult? Function(_Refresh value)? refresh,
+    TResult? Function(_UpdateProductInList value)? updateProductInList,
+    TResult? Function(_GetNextProducts value)? getNextProducts,
+    TResult? Function(_SearchProducts value)? searchProducts,
+    TResult? Function(_ChangeFilter value)? changeFilter,
+    TResult? Function(_CreatePurchase value)? createPurchase,
+    TResult? Function(_RemovePurchase value)? removePurchase,
+    TResult? Function(_OpenUrl value)? openUrl,
+  }) {
+    return createPurchase?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_ToggleCart value)? toggleCart,
+    TResult Function(_ToggleRemoteCart value)? toggleRemoteCart,
+    TResult Function(_Refresh value)? refresh,
+    TResult Function(_UpdateProductInList value)? updateProductInList,
+    TResult Function(_GetNextProducts value)? getNextProducts,
+    TResult Function(_SearchProducts value)? searchProducts,
+    TResult Function(_ChangeFilter value)? changeFilter,
+    TResult Function(_CreatePurchase value)? createPurchase,
+    TResult Function(_RemovePurchase value)? removePurchase,
+    TResult Function(_OpenUrl value)? openUrl,
+    required TResult orElse(),
+  }) {
+    if (createPurchase != null) {
+      return createPurchase(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CreatePurchase implements CartEvent {
+  const factory _CreatePurchase() = _$_CreatePurchase;
+}
+
+/// @nodoc
+abstract class _$$_RemovePurchaseCopyWith<$Res> {
+  factory _$$_RemovePurchaseCopyWith(
+          _$_RemovePurchase value, $Res Function(_$_RemovePurchase) then) =
+      __$$_RemovePurchaseCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_RemovePurchaseCopyWithImpl<$Res>
+    extends _$CartEventCopyWithImpl<$Res, _$_RemovePurchase>
+    implements _$$_RemovePurchaseCopyWith<$Res> {
+  __$$_RemovePurchaseCopyWithImpl(
+      _$_RemovePurchase _value, $Res Function(_$_RemovePurchase) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_RemovePurchase implements _RemovePurchase {
+  const _$_RemovePurchase();
+
+  @override
+  String toString() {
+    return 'CartEvent.removePurchase()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_RemovePurchase);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(Product product) toggleCart,
+    required TResult Function(Product product, int? productIndex)
+        toggleRemoteCart,
+    required TResult Function() refresh,
+    required TResult Function(Product product) updateProductInList,
+    required TResult Function() getNextProducts,
+    required TResult Function(String query) searchProducts,
+    required TResult Function(ProductsFilter filter) changeFilter,
+    required TResult Function() createPurchase,
+    required TResult Function() removePurchase,
+    required TResult Function() openUrl,
+  }) {
+    return removePurchase();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(Product product)? toggleCart,
+    TResult? Function(Product product, int? productIndex)? toggleRemoteCart,
+    TResult? Function()? refresh,
+    TResult? Function(Product product)? updateProductInList,
+    TResult? Function()? getNextProducts,
+    TResult? Function(String query)? searchProducts,
+    TResult? Function(ProductsFilter filter)? changeFilter,
+    TResult? Function()? createPurchase,
+    TResult? Function()? removePurchase,
+    TResult? Function()? openUrl,
+  }) {
+    return removePurchase?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(Product product)? toggleCart,
+    TResult Function(Product product, int? productIndex)? toggleRemoteCart,
+    TResult Function()? refresh,
+    TResult Function(Product product)? updateProductInList,
+    TResult Function()? getNextProducts,
+    TResult Function(String query)? searchProducts,
+    TResult Function(ProductsFilter filter)? changeFilter,
+    TResult Function()? createPurchase,
+    TResult Function()? removePurchase,
+    TResult Function()? openUrl,
+    required TResult orElse(),
+  }) {
+    if (removePurchase != null) {
+      return removePurchase();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_ToggleCart value) toggleCart,
+    required TResult Function(_ToggleRemoteCart value) toggleRemoteCart,
+    required TResult Function(_Refresh value) refresh,
+    required TResult Function(_UpdateProductInList value) updateProductInList,
+    required TResult Function(_GetNextProducts value) getNextProducts,
+    required TResult Function(_SearchProducts value) searchProducts,
+    required TResult Function(_ChangeFilter value) changeFilter,
+    required TResult Function(_CreatePurchase value) createPurchase,
+    required TResult Function(_RemovePurchase value) removePurchase,
+    required TResult Function(_OpenUrl value) openUrl,
+  }) {
+    return removePurchase(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_ToggleCart value)? toggleCart,
+    TResult? Function(_ToggleRemoteCart value)? toggleRemoteCart,
+    TResult? Function(_Refresh value)? refresh,
+    TResult? Function(_UpdateProductInList value)? updateProductInList,
+    TResult? Function(_GetNextProducts value)? getNextProducts,
+    TResult? Function(_SearchProducts value)? searchProducts,
+    TResult? Function(_ChangeFilter value)? changeFilter,
+    TResult? Function(_CreatePurchase value)? createPurchase,
+    TResult? Function(_RemovePurchase value)? removePurchase,
+    TResult? Function(_OpenUrl value)? openUrl,
+  }) {
+    return removePurchase?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_ToggleCart value)? toggleCart,
+    TResult Function(_ToggleRemoteCart value)? toggleRemoteCart,
+    TResult Function(_Refresh value)? refresh,
+    TResult Function(_UpdateProductInList value)? updateProductInList,
+    TResult Function(_GetNextProducts value)? getNextProducts,
+    TResult Function(_SearchProducts value)? searchProducts,
+    TResult Function(_ChangeFilter value)? changeFilter,
+    TResult Function(_CreatePurchase value)? createPurchase,
+    TResult Function(_RemovePurchase value)? removePurchase,
+    TResult Function(_OpenUrl value)? openUrl,
+    required TResult orElse(),
+  }) {
+    if (removePurchase != null) {
+      return removePurchase(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RemovePurchase implements CartEvent {
+  const factory _RemovePurchase() = _$_RemovePurchase;
+}
+
+/// @nodoc
+abstract class _$$_OpenUrlCopyWith<$Res> {
+  factory _$$_OpenUrlCopyWith(
+          _$_OpenUrl value, $Res Function(_$_OpenUrl) then) =
+      __$$_OpenUrlCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_OpenUrlCopyWithImpl<$Res>
+    extends _$CartEventCopyWithImpl<$Res, _$_OpenUrl>
+    implements _$$_OpenUrlCopyWith<$Res> {
+  __$$_OpenUrlCopyWithImpl(_$_OpenUrl _value, $Res Function(_$_OpenUrl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_OpenUrl implements _OpenUrl {
+  const _$_OpenUrl();
+
+  @override
+  String toString() {
+    return 'CartEvent.openUrl()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_OpenUrl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(Product product) toggleCart,
+    required TResult Function(Product product, int? productIndex)
+        toggleRemoteCart,
+    required TResult Function() refresh,
+    required TResult Function(Product product) updateProductInList,
+    required TResult Function() getNextProducts,
+    required TResult Function(String query) searchProducts,
+    required TResult Function(ProductsFilter filter) changeFilter,
+    required TResult Function() createPurchase,
+    required TResult Function() removePurchase,
+    required TResult Function() openUrl,
+  }) {
+    return openUrl();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(Product product)? toggleCart,
+    TResult? Function(Product product, int? productIndex)? toggleRemoteCart,
+    TResult? Function()? refresh,
+    TResult? Function(Product product)? updateProductInList,
+    TResult? Function()? getNextProducts,
+    TResult? Function(String query)? searchProducts,
+    TResult? Function(ProductsFilter filter)? changeFilter,
+    TResult? Function()? createPurchase,
+    TResult? Function()? removePurchase,
+    TResult? Function()? openUrl,
+  }) {
+    return openUrl?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(Product product)? toggleCart,
+    TResult Function(Product product, int? productIndex)? toggleRemoteCart,
+    TResult Function()? refresh,
+    TResult Function(Product product)? updateProductInList,
+    TResult Function()? getNextProducts,
+    TResult Function(String query)? searchProducts,
+    TResult Function(ProductsFilter filter)? changeFilter,
+    TResult Function()? createPurchase,
+    TResult Function()? removePurchase,
+    TResult Function()? openUrl,
+    required TResult orElse(),
+  }) {
+    if (openUrl != null) {
+      return openUrl();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_ToggleCart value) toggleCart,
+    required TResult Function(_ToggleRemoteCart value) toggleRemoteCart,
+    required TResult Function(_Refresh value) refresh,
+    required TResult Function(_UpdateProductInList value) updateProductInList,
+    required TResult Function(_GetNextProducts value) getNextProducts,
+    required TResult Function(_SearchProducts value) searchProducts,
+    required TResult Function(_ChangeFilter value) changeFilter,
+    required TResult Function(_CreatePurchase value) createPurchase,
+    required TResult Function(_RemovePurchase value) removePurchase,
+    required TResult Function(_OpenUrl value) openUrl,
+  }) {
+    return openUrl(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_ToggleCart value)? toggleCart,
+    TResult? Function(_ToggleRemoteCart value)? toggleRemoteCart,
+    TResult? Function(_Refresh value)? refresh,
+    TResult? Function(_UpdateProductInList value)? updateProductInList,
+    TResult? Function(_GetNextProducts value)? getNextProducts,
+    TResult? Function(_SearchProducts value)? searchProducts,
+    TResult? Function(_ChangeFilter value)? changeFilter,
+    TResult? Function(_CreatePurchase value)? createPurchase,
+    TResult? Function(_RemovePurchase value)? removePurchase,
+    TResult? Function(_OpenUrl value)? openUrl,
+  }) {
+    return openUrl?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_ToggleCart value)? toggleCart,
+    TResult Function(_ToggleRemoteCart value)? toggleRemoteCart,
+    TResult Function(_Refresh value)? refresh,
+    TResult Function(_UpdateProductInList value)? updateProductInList,
+    TResult Function(_GetNextProducts value)? getNextProducts,
+    TResult Function(_SearchProducts value)? searchProducts,
+    TResult Function(_ChangeFilter value)? changeFilter,
+    TResult Function(_CreatePurchase value)? createPurchase,
+    TResult Function(_RemovePurchase value)? removePurchase,
+    TResult Function(_OpenUrl value)? openUrl,
+    required TResult orElse(),
+  }) {
+    if (openUrl != null) {
+      return openUrl(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _OpenUrl implements CartEvent {
+  const factory _OpenUrl() = _$_OpenUrl;
+}
+
 CartState _$CartStateFromJson(Map<String, dynamic> json) {
   return _CartState.fromJson(json);
 }
@@ -1401,6 +2033,7 @@ mixin _$CartState {
   ProductsFilter get filter => throw _privateConstructorUsedError;
   CartStatus get status => throw _privateConstructorUsedError;
   Failure get failure => throw _privateConstructorUsedError;
+  CreatePurchaseResponse? get purchase => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1418,7 +2051,8 @@ abstract class $CartStateCopyWith<$Res> {
       List<Product> products,
       ProductsFilter filter,
       CartStatus status,
-      Failure failure});
+      Failure failure,
+      CreatePurchaseResponse? purchase});
 
   $FailureCopyWith<$Res> get failure;
 }
@@ -1441,6 +2075,7 @@ class _$CartStateCopyWithImpl<$Res, $Val extends CartState>
     Object? filter = null,
     Object? status = null,
     Object? failure = null,
+    Object? purchase = freezed,
   }) {
     return _then(_value.copyWith(
       info: null == info
@@ -1463,6 +2098,10 @@ class _$CartStateCopyWithImpl<$Res, $Val extends CartState>
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
               as Failure,
+      purchase: freezed == purchase
+          ? _value.purchase
+          : purchase // ignore: cast_nullable_to_non_nullable
+              as CreatePurchaseResponse?,
     ) as $Val);
   }
 
@@ -1487,7 +2126,8 @@ abstract class _$$_CartStateCopyWith<$Res> implements $CartStateCopyWith<$Res> {
       List<Product> products,
       ProductsFilter filter,
       CartStatus status,
-      Failure failure});
+      Failure failure,
+      CreatePurchaseResponse? purchase});
 
   @override
   $FailureCopyWith<$Res> get failure;
@@ -1509,6 +2149,7 @@ class __$$_CartStateCopyWithImpl<$Res>
     Object? filter = null,
     Object? status = null,
     Object? failure = null,
+    Object? purchase = freezed,
   }) {
     return _then(_$_CartState(
       info: null == info
@@ -1531,6 +2172,10 @@ class __$$_CartStateCopyWithImpl<$Res>
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
               as Failure,
+      purchase: freezed == purchase
+          ? _value.purchase
+          : purchase // ignore: cast_nullable_to_non_nullable
+              as CreatePurchaseResponse?,
     ));
   }
 }
@@ -1543,7 +2188,8 @@ class _$_CartState extends _CartState {
       final List<Product> products = const [],
       this.filter = const ProductsFilter(),
       this.status = CartStatus.initial,
-      this.failure = const CasualFailure()})
+      this.failure = const CasualFailure(),
+      this.purchase})
       : _products = products,
         super._();
 
@@ -1571,10 +2217,12 @@ class _$_CartState extends _CartState {
   @override
   @JsonKey()
   final Failure failure;
+  @override
+  final CreatePurchaseResponse? purchase;
 
   @override
   String toString() {
-    return 'CartState(info: $info, products: $products, filter: $filter, status: $status, failure: $failure)';
+    return 'CartState(info: $info, products: $products, filter: $filter, status: $status, failure: $failure, purchase: $purchase)';
   }
 
   @override
@@ -1586,13 +2234,21 @@ class _$_CartState extends _CartState {
             const DeepCollectionEquality().equals(other._products, _products) &&
             (identical(other.filter, filter) || other.filter == filter) &&
             (identical(other.status, status) || other.status == status) &&
-            (identical(other.failure, failure) || other.failure == failure));
+            (identical(other.failure, failure) || other.failure == failure) &&
+            (identical(other.purchase, purchase) ||
+                other.purchase == purchase));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, info,
-      const DeepCollectionEquality().hash(_products), filter, status, failure);
+  int get hashCode => Object.hash(
+      runtimeType,
+      info,
+      const DeepCollectionEquality().hash(_products),
+      filter,
+      status,
+      failure,
+      purchase);
 
   @JsonKey(ignore: true)
   @override
@@ -1614,7 +2270,8 @@ abstract class _CartState extends CartState {
       final List<Product> products,
       final ProductsFilter filter,
       final CartStatus status,
-      final Failure failure}) = _$_CartState;
+      final Failure failure,
+      final CreatePurchaseResponse? purchase}) = _$_CartState;
   const _CartState._() : super._();
 
   factory _CartState.fromJson(Map<String, dynamic> json) =
@@ -1630,6 +2287,8 @@ abstract class _CartState extends CartState {
   CartStatus get status;
   @override
   Failure get failure;
+  @override
+  CreatePurchaseResponse? get purchase;
   @override
   @JsonKey(ignore: true)
   _$$_CartStateCopyWith<_$_CartState> get copyWith =>

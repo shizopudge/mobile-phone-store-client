@@ -23,7 +23,6 @@ CreatePurchaseResponseModel _$CreatePurchaseResponseModelFromJson(
 mixin _$CreatePurchaseResponseModel {
   PurchaseModel get purchase => throw _privateConstructorUsedError;
   PaymentModel get payment => throw _privateConstructorUsedError;
-  List<ProductModel> get products => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -39,10 +38,7 @@ abstract class $CreatePurchaseResponseModelCopyWith<$Res> {
       _$CreatePurchaseResponseModelCopyWithImpl<$Res,
           CreatePurchaseResponseModel>;
   @useResult
-  $Res call(
-      {PurchaseModel purchase,
-      PaymentModel payment,
-      List<ProductModel> products});
+  $Res call({PurchaseModel purchase, PaymentModel payment});
 
   $PurchaseModelCopyWith<$Res> get purchase;
   $PaymentModelCopyWith<$Res> get payment;
@@ -64,7 +60,6 @@ class _$CreatePurchaseResponseModelCopyWithImpl<$Res,
   $Res call({
     Object? purchase = null,
     Object? payment = null,
-    Object? products = null,
   }) {
     return _then(_value.copyWith(
       purchase: null == purchase
@@ -75,10 +70,6 @@ class _$CreatePurchaseResponseModelCopyWithImpl<$Res,
           ? _value.payment
           : payment // ignore: cast_nullable_to_non_nullable
               as PaymentModel,
-      products: null == products
-          ? _value.products
-          : products // ignore: cast_nullable_to_non_nullable
-              as List<ProductModel>,
     ) as $Val);
   }
 
@@ -108,10 +99,7 @@ abstract class _$$_CreatePurchaseResponseModelCopyWith<$Res>
       __$$_CreatePurchaseResponseModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {PurchaseModel purchase,
-      PaymentModel payment,
-      List<ProductModel> products});
+  $Res call({PurchaseModel purchase, PaymentModel payment});
 
   @override
   $PurchaseModelCopyWith<$Res> get purchase;
@@ -134,7 +122,6 @@ class __$$_CreatePurchaseResponseModelCopyWithImpl<$Res>
   $Res call({
     Object? purchase = null,
     Object? payment = null,
-    Object? products = null,
   }) {
     return _then(_$_CreatePurchaseResponseModel(
       purchase: null == purchase
@@ -145,10 +132,6 @@ class __$$_CreatePurchaseResponseModelCopyWithImpl<$Res>
           ? _value.payment
           : payment // ignore: cast_nullable_to_non_nullable
               as PaymentModel,
-      products: null == products
-          ? _value._products
-          : products // ignore: cast_nullable_to_non_nullable
-              as List<ProductModel>,
     ));
   }
 }
@@ -157,10 +140,7 @@ class __$$_CreatePurchaseResponseModelCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_CreatePurchaseResponseModel implements _CreatePurchaseResponseModel {
   const _$_CreatePurchaseResponseModel(
-      {required this.purchase,
-      required this.payment,
-      required final List<ProductModel> products})
-      : _products = products;
+      {required this.purchase, required this.payment});
 
   factory _$_CreatePurchaseResponseModel.fromJson(Map<String, dynamic> json) =>
       _$$_CreatePurchaseResponseModelFromJson(json);
@@ -169,17 +149,10 @@ class _$_CreatePurchaseResponseModel implements _CreatePurchaseResponseModel {
   final PurchaseModel purchase;
   @override
   final PaymentModel payment;
-  final List<ProductModel> _products;
-  @override
-  List<ProductModel> get products {
-    if (_products is EqualUnmodifiableListView) return _products;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_products);
-  }
 
   @override
   String toString() {
-    return 'CreatePurchaseResponseModel(purchase: $purchase, payment: $payment, products: $products)';
+    return 'CreatePurchaseResponseModel(purchase: $purchase, payment: $payment)';
   }
 
   @override
@@ -189,14 +162,12 @@ class _$_CreatePurchaseResponseModel implements _CreatePurchaseResponseModel {
             other is _$_CreatePurchaseResponseModel &&
             (identical(other.purchase, purchase) ||
                 other.purchase == purchase) &&
-            (identical(other.payment, payment) || other.payment == payment) &&
-            const DeepCollectionEquality().equals(other._products, _products));
+            (identical(other.payment, payment) || other.payment == payment));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, purchase, payment,
-      const DeepCollectionEquality().hash(_products));
+  int get hashCode => Object.hash(runtimeType, purchase, payment);
 
   @JsonKey(ignore: true)
   @override
@@ -216,10 +187,8 @@ class _$_CreatePurchaseResponseModel implements _CreatePurchaseResponseModel {
 abstract class _CreatePurchaseResponseModel
     implements CreatePurchaseResponseModel {
   const factory _CreatePurchaseResponseModel(
-          {required final PurchaseModel purchase,
-          required final PaymentModel payment,
-          required final List<ProductModel> products}) =
-      _$_CreatePurchaseResponseModel;
+      {required final PurchaseModel purchase,
+      required final PaymentModel payment}) = _$_CreatePurchaseResponseModel;
 
   factory _CreatePurchaseResponseModel.fromJson(Map<String, dynamic> json) =
       _$_CreatePurchaseResponseModel.fromJson;
@@ -228,8 +197,6 @@ abstract class _CreatePurchaseResponseModel
   PurchaseModel get purchase;
   @override
   PaymentModel get payment;
-  @override
-  List<ProductModel> get products;
   @override
   @JsonKey(ignore: true)
   _$$_CreatePurchaseResponseModelCopyWith<_$_CreatePurchaseResponseModel>

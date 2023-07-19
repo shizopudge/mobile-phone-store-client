@@ -2,10 +2,6 @@ import 'package:dio/dio.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
-import '../data/datasources/purchases/purchases_local_data_source.dart';
-import '../domain/usecases/purchases/open_url.dart';
-import '../data/datasources/purchases/purchases_remote_data_source.dart';
-import '../domain/usecases/purchases/create_purchase.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../features/auth/data/datasources/auth_local_data_source.dart';
@@ -66,6 +62,12 @@ import '../../features/models/domain/usecases/get_models.dart';
 import '../../features/models/presentation/bloc/models_bloc.dart';
 import '../../features/profile/data/datasources/profile_remote_data_source.dart';
 import '../../features/profile/data/repositories/profile_repository_impl.dart';
+import '../../features/purchases/data/datasources/purchases_remote_data_source.dart';
+import '../../features/purchases/data/repositories/purchases_repository_impl.dart';
+import '../../features/purchases/domain/usecases/change_purchase.dart';
+import '../../features/purchases/domain/usecases/get_purchases.dart';
+import '../../features/purchases/domain/usecases/get_user_purchases.dart';
+import '../../features/purchases/presentation/bloc/purchases_bloc.dart';
 import '../../features/wishlist/data/datasources/wishlist_remote_data_source.dart';
 import '../../features/wishlist/data/repositories/wishlist_repository_impl.dart';
 import '../../features/wishlist/domain/usecases/get_wishlist.dart';
@@ -74,13 +76,17 @@ import '../api/dio_client.dart';
 import '../api/interceptors.dart';
 import '../data/datasources/image/image_local_data_source.dart';
 import '../data/datasources/products/products_remote_data_source.dart';
+import '../data/datasources/purchases/purchase_local_data_source.dart';
+import '../data/datasources/purchases/purchase_remote_data_source.dart';
 import '../data/repositories/image/image_repository_impl.dart';
 import '../data/repositories/products/products_repository_impl.dart';
-import '../data/repositories/purchases/purchases_repository_impl.dart';
+import '../data/repositories/purchase/purchase_repository_impl.dart';
 import '../domain/usecases/image/pick_image.dart';
 import '../domain/usecases/image/pick_images.dart';
 import '../domain/usecases/products/toggle_cart.dart';
 import '../domain/usecases/products/toggle_wishlist.dart';
+import '../domain/usecases/purchases/create_purchase.dart';
+import '../domain/usecases/purchases/open_url.dart';
 import '../utils/app_router.dart';
 import '../utils/internet_connection_check/internet_connection_check_cubit.dart';
 
@@ -135,8 +141,10 @@ Future<void> appSetup() async {
   getIt.registerSingleton(ModelsRepositoryImpl(
       remoteDataSource: ModelsRemoteDataSourceImpl(getIt<DioClient>())));
   getIt.registerSingleton(PurchaseRepositoryImpl(
-      remoteDataSource: PurchasesRemoteDataSourceImpl(getIt<DioClient>()),
-      localDataSource: PurchasesLocalDataSourceImpl()));
+      remoteDataSource: PurchaseRemoteDataSourceImpl(getIt<DioClient>()),
+      localDataSource: PurchaseLocalDataSourceImpl()));
+  getIt.registerSingleton(PurchasesRepositoryImpl(
+      remoteDataSource: PurchasesRemoteDataSourceImpl(getIt<DioClient>())));
 
   /// Interceptors initialization
   getIt<DioClient>().dio.interceptors.addAll({
@@ -148,13 +156,20 @@ Future<void> appSetup() async {
     const AwaitInterceptor(),
   });
 
+  /// Global blocs
+  getIt.registerSingleton(InternetConnectionCheckCubit(
+      internetConnection: getIt<InternetConnection>()));
+  getIt.registerSingleton(AuthBloc(
+      getCurrentUserUsecase: GetCurrentUser(getIt<AuthRepositoryImpl>()),
+      getLoginTypeUsecase: GetLoginType(getIt<AuthRepositoryImpl>()),
+      logoutUsecase: Logout(getIt<AuthRepositoryImpl>())));
+
   /// Blocs
   getIt.registerSingleton(HomeCubit());
   getIt.registerSingleton(BrowseProductsBloc(
     getManyProductsUsecase:
         BrowseProducts(getIt<BrowseProductsRepositoryImpl>()),
   ));
-
   getIt.registerSingleton(WishlistBloc(
       getWishlistUsecase: GetWishlist(getIt<WishlistRepositoryImpl>()),
       toggleWishlistUsecase: ToggleWishlist(getIt<ProductsRepositoryImpl>())));
@@ -162,7 +177,9 @@ Future<void> appSetup() async {
       getCartUsecase: GetCart(
         getIt<CartRepositoryImpl>(),
       ),
-      toggleCartUsecase: ToggleCart(getIt<ProductsRepositoryImpl>())));
+      toggleCartUsecase: ToggleCart(getIt<ProductsRepositoryImpl>()),
+      createPurchaseUsecase: CreatePurchase(getIt<PurchaseRepositoryImpl>()),
+      openUrlUsecase: OpenUrl(getIt<PurchaseRepositoryImpl>())));
   getIt.registerSingleton(DetailedProductBloc(
       cartBloc: getIt<CartBloc>(),
       wishlistBloc: getIt<WishlistBloc>(),
@@ -214,14 +231,14 @@ Future<void> appSetup() async {
           DeleteProductImage(getIt<CreateEditProductRepositoryImpl>()),
       deleteProductUsecase:
           DeleteProduct(getIt<CreateEditProductRepositoryImpl>())));
-
-  /// Global blocs
-  getIt.registerSingleton(InternetConnectionCheckCubit(
-      internetConnection: getIt<InternetConnection>()));
-  getIt.registerSingleton(AuthBloc(
-      getCurrentUserUsecase: GetCurrentUser(getIt<AuthRepositoryImpl>()),
-      getLoginTypeUsecase: GetLoginType(getIt<AuthRepositoryImpl>()),
-      logoutUsecase: Logout(getIt<AuthRepositoryImpl>())));
+  getIt.registerSingleton(PurchasesBloc(
+      authBloc: getIt<AuthBloc>(),
+      getUserPurchasesUsecase:
+          GetUserPurchases(getIt<PurchasesRepositoryImpl>()),
+      getPurchasesUsecase: GetPurchases(getIt<PurchasesRepositoryImpl>()),
+      cancelPurchaseUsecase:
+          ChangePurchaseStatus(getIt<PurchasesRepositoryImpl>()),
+      openUrlUsecase: OpenUrl(getIt<PurchaseRepositoryImpl>())));
 
   /// Router
   getIt.registerSingleton(AppRouter());

@@ -11,6 +11,7 @@ class DetailedProductEvent with _$DetailedProductEvent {
   const factory DetailedProductEvent.changeStorage(int? newStorage) =
       _ChangeStorage;
   const factory DetailedProductEvent.createPurchase() = _CreatePurchase;
+  const factory DetailedProductEvent.removePurchase() = _RemovePurchase;
   const factory DetailedProductEvent.openUrl() = _OpenUrl;
   const factory DetailedProductEvent.reset() = _Reset;
 }

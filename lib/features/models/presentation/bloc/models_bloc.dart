@@ -53,7 +53,9 @@ class ModelsBloc extends Bloc<ModelsEvent, ModelsState> {
 
   FutureOr<void> _refresh(_Refresh event, Emitter<ModelsState> emit) async {
     if (!state.isRefreshing) {
-      emit(state.copyWith(status: ModelsStatus.refreshing));
+      emit(state.copyWith(
+          status: ModelsStatus.refreshing,
+          filter: state.filter.copyWith(page: 1)));
       final res = await _getModels();
       res.fold(
           (failure) => _throwFailure(emit, failure),

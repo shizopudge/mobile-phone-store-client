@@ -13,4 +13,7 @@ class CartEvent with _$CartEvent {
   const factory CartEvent.getNextProducts() = _GetNextProducts;
   const factory CartEvent.searchProducts(String query) = _SearchProducts;
   const factory CartEvent.changeFilter(ProductsFilter filter) = _ChangeFilter;
+  const factory CartEvent.createPurchase() = _CreatePurchase;
+  const factory CartEvent.removePurchase() = _RemovePurchase;
+  const factory CartEvent.openUrl() = _OpenUrl;
 }

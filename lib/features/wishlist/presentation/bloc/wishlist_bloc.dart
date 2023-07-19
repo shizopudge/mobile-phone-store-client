@@ -2,13 +2,13 @@ import 'dart:async';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
-import '../../../../core/domain/entities/cart_wishlist_response.dart';
 import 'package:rxdart/rxdart.dart';
 
 import '../../../../core/constants/type_defs.dart';
+import '../../../../core/domain/entities/cart_wishlist_response.dart';
+import '../../../../core/domain/entities/filters.dart';
 import '../../../../core/domain/entities/info.dart';
 import '../../../../core/domain/entities/product.dart';
-import '../../../../core/domain/entities/filters.dart';
 import '../../../../core/domain/usecases/products/toggle_wishlist.dart';
 import '../../../../core/failure/failure.dart';
 import '../../domain/usecases/get_wishlist.dart';

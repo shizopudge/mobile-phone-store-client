@@ -26,6 +26,8 @@ import '../../features/profile/domain/usecases/edit_profile.dart';
 import '../../features/profile/domain/usecases/upload_user_image.dart';
 import '../../features/profile/presentation/bloc/profile_bloc.dart';
 import '../../features/profile/presentation/pages/profile_edit_page.dart';
+import '../../features/purchases/presentation/bloc/purchases_bloc.dart';
+import '../../features/purchases/presentation/pages/purchases_page.dart';
 import '../../features/wishlist/presentation/bloc/wishlist_bloc.dart';
 import '../data/repositories/image/image_repository_impl.dart';
 import '../di/get_it.dart';
@@ -129,6 +131,22 @@ class AppRouter {
           page: BlocProvider.value(
             value: getIt<CreateEditProductBloc>(),
             child: const CreateEditProductPage(),
+          ),
+          duration: const Duration(milliseconds: 500),
+        );
+      case PurchasesPage.path:
+        return PageTransitionUtil.go(
+          page: MultiBlocProvider(
+            providers: [
+              BlocProvider.value(
+                value: getIt<PurchasesBloc>()
+                  ..add(const PurchasesEvent.initial()),
+              ),
+              BlocProvider.value(
+                value: getIt<DetailedProductBloc>(),
+              ),
+            ],
+            child: const PurchasesPage(),
           ),
           duration: const Duration(milliseconds: 500),
         );

@@ -21,35 +21,33 @@ class CasualBottomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SizeConfig.init(context);
-    return FractionallySizedBox(
-      heightFactor: heightFactor,
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: SizeConfig.setPadding(15)),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const FadeAnimationYDown(delay: .2, child: BottomSheetDivider()),
-            SizedBox(height: SizeConfig.setPadding(15)),
-            FadeAnimationYDown(
-              delay: .3,
-              child: Text(
-                title,
-                style:
-                    kBold.copyWith(color: kDarkBlue, fontSize: SizeConfig.h1),
-              ),
+    return Padding(
+      padding: EdgeInsets.symmetric(
+          horizontal: SizeConfig.setPadding(15),
+          vertical: SizeConfig.setPadding(25)),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const FadeAnimationYDown(delay: .2, child: BottomSheetDivider()),
+          SizedBox(height: SizeConfig.setPadding(15)),
+          FadeAnimationYDown(
+            delay: .3,
+            child: Text(
+              title,
+              style: kBold.copyWith(color: kDarkBlue, fontSize: SizeConfig.h1),
             ),
-            SizedBox(height: SizeConfig.setPadding(15)),
-            if (subtitle != null)
-              FadeAnimationYDown(
-                delay: .4,
-                child: Text(title,
-                    style: kMedium.copyWith(
-                        color: kDarkBlue, fontSize: SizeConfig.body1)),
-              ),
-            if (subtitle != null) SizedBox(height: SizeConfig.setPadding(15)),
-            child,
-          ],
-        ),
+          ),
+          SizedBox(height: SizeConfig.setPadding(15)),
+          if (subtitle != null)
+            FadeAnimationYDown(
+              delay: .4,
+              child: Text(title,
+                  style: kMedium.copyWith(
+                      color: kDarkBlue, fontSize: SizeConfig.body1)),
+            ),
+          if (subtitle != null) SizedBox(height: SizeConfig.setPadding(15)),
+          child,
+        ],
       ),
     );
   }

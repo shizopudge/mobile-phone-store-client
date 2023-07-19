@@ -6,6 +6,7 @@ import '../../browse_products/presentation/pages/browse_products_page.dart';
 import '../../cart/presentation/bloc/cart_bloc.dart';
 import '../../cart/presentation/pages/cart_page.dart';
 import '../../profile/presentation/pages/profile_page.dart';
+import '../../purchases/presentation/bloc/purchases_bloc.dart';
 import '../../wishlist/presentation/bloc/wishlist_bloc.dart';
 import '../../wishlist/presentation/pages/wishlist_page.dart';
 import 'home_body.dart';
@@ -28,7 +29,10 @@ class UserUI extends StatelessWidget {
           value: getIt<CartBloc>()..add(const CartEvent.initial()),
           child: const CartPage(),
         ),
-        const ProfilePage(),
+        BlocProvider.value(
+          value: getIt<PurchasesBloc>()..add(const PurchasesEvent.initial()),
+          child: const ProfilePage(),
+        ),
       ],
       navBottomBarItems: const [
         BottomNavigationBarItem(

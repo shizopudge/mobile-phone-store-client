@@ -23,6 +23,7 @@ mixin _$DetailedProductEvent {
     required TResult Function(String? newColorCode) changeColor,
     required TResult Function(int? newStorage) changeStorage,
     required TResult Function() createPurchase,
+    required TResult Function() removePurchase,
     required TResult Function() openUrl,
     required TResult Function() reset,
   }) =>
@@ -34,6 +35,7 @@ mixin _$DetailedProductEvent {
     TResult? Function(String? newColorCode)? changeColor,
     TResult? Function(int? newStorage)? changeStorage,
     TResult? Function()? createPurchase,
+    TResult? Function()? removePurchase,
     TResult? Function()? openUrl,
     TResult? Function()? reset,
   }) =>
@@ -45,6 +47,7 @@ mixin _$DetailedProductEvent {
     TResult Function(String? newColorCode)? changeColor,
     TResult Function(int? newStorage)? changeStorage,
     TResult Function()? createPurchase,
+    TResult Function()? removePurchase,
     TResult Function()? openUrl,
     TResult Function()? reset,
     required TResult orElse(),
@@ -57,6 +60,7 @@ mixin _$DetailedProductEvent {
     required TResult Function(_ChangeColor value) changeColor,
     required TResult Function(_ChangeStorage value) changeStorage,
     required TResult Function(_CreatePurchase value) createPurchase,
+    required TResult Function(_RemovePurchase value) removePurchase,
     required TResult Function(_OpenUrl value) openUrl,
     required TResult Function(_Reset value) reset,
   }) =>
@@ -68,6 +72,7 @@ mixin _$DetailedProductEvent {
     TResult? Function(_ChangeColor value)? changeColor,
     TResult? Function(_ChangeStorage value)? changeStorage,
     TResult? Function(_CreatePurchase value)? createPurchase,
+    TResult? Function(_RemovePurchase value)? removePurchase,
     TResult? Function(_OpenUrl value)? openUrl,
     TResult? Function(_Reset value)? reset,
   }) =>
@@ -79,6 +84,7 @@ mixin _$DetailedProductEvent {
     TResult Function(_ChangeColor value)? changeColor,
     TResult Function(_ChangeStorage value)? changeStorage,
     TResult Function(_CreatePurchase value)? createPurchase,
+    TResult Function(_RemovePurchase value)? removePurchase,
     TResult Function(_OpenUrl value)? openUrl,
     TResult Function(_Reset value)? reset,
     required TResult orElse(),
@@ -193,6 +199,7 @@ class _$_GetOneProduct with DiagnosticableTreeMixin implements _GetOneProduct {
     required TResult Function(String? newColorCode) changeColor,
     required TResult Function(int? newStorage) changeStorage,
     required TResult Function() createPurchase,
+    required TResult Function() removePurchase,
     required TResult Function() openUrl,
     required TResult Function() reset,
   }) {
@@ -207,6 +214,7 @@ class _$_GetOneProduct with DiagnosticableTreeMixin implements _GetOneProduct {
     TResult? Function(String? newColorCode)? changeColor,
     TResult? Function(int? newStorage)? changeStorage,
     TResult? Function()? createPurchase,
+    TResult? Function()? removePurchase,
     TResult? Function()? openUrl,
     TResult? Function()? reset,
   }) {
@@ -221,6 +229,7 @@ class _$_GetOneProduct with DiagnosticableTreeMixin implements _GetOneProduct {
     TResult Function(String? newColorCode)? changeColor,
     TResult Function(int? newStorage)? changeStorage,
     TResult Function()? createPurchase,
+    TResult Function()? removePurchase,
     TResult Function()? openUrl,
     TResult Function()? reset,
     required TResult orElse(),
@@ -239,6 +248,7 @@ class _$_GetOneProduct with DiagnosticableTreeMixin implements _GetOneProduct {
     required TResult Function(_ChangeColor value) changeColor,
     required TResult Function(_ChangeStorage value) changeStorage,
     required TResult Function(_CreatePurchase value) createPurchase,
+    required TResult Function(_RemovePurchase value) removePurchase,
     required TResult Function(_OpenUrl value) openUrl,
     required TResult Function(_Reset value) reset,
   }) {
@@ -253,6 +263,7 @@ class _$_GetOneProduct with DiagnosticableTreeMixin implements _GetOneProduct {
     TResult? Function(_ChangeColor value)? changeColor,
     TResult? Function(_ChangeStorage value)? changeStorage,
     TResult? Function(_CreatePurchase value)? createPurchase,
+    TResult? Function(_RemovePurchase value)? removePurchase,
     TResult? Function(_OpenUrl value)? openUrl,
     TResult? Function(_Reset value)? reset,
   }) {
@@ -267,6 +278,7 @@ class _$_GetOneProduct with DiagnosticableTreeMixin implements _GetOneProduct {
     TResult Function(_ChangeColor value)? changeColor,
     TResult Function(_ChangeStorage value)? changeStorage,
     TResult Function(_CreatePurchase value)? createPurchase,
+    TResult Function(_RemovePurchase value)? removePurchase,
     TResult Function(_OpenUrl value)? openUrl,
     TResult Function(_Reset value)? reset,
     required TResult orElse(),
@@ -366,6 +378,7 @@ class _$_ChangeProduct with DiagnosticableTreeMixin implements _ChangeProduct {
     required TResult Function(String? newColorCode) changeColor,
     required TResult Function(int? newStorage) changeStorage,
     required TResult Function() createPurchase,
+    required TResult Function() removePurchase,
     required TResult Function() openUrl,
     required TResult Function() reset,
   }) {
@@ -380,6 +393,7 @@ class _$_ChangeProduct with DiagnosticableTreeMixin implements _ChangeProduct {
     TResult? Function(String? newColorCode)? changeColor,
     TResult? Function(int? newStorage)? changeStorage,
     TResult? Function()? createPurchase,
+    TResult? Function()? removePurchase,
     TResult? Function()? openUrl,
     TResult? Function()? reset,
   }) {
@@ -394,6 +408,7 @@ class _$_ChangeProduct with DiagnosticableTreeMixin implements _ChangeProduct {
     TResult Function(String? newColorCode)? changeColor,
     TResult Function(int? newStorage)? changeStorage,
     TResult Function()? createPurchase,
+    TResult Function()? removePurchase,
     TResult Function()? openUrl,
     TResult Function()? reset,
     required TResult orElse(),
@@ -412,6 +427,7 @@ class _$_ChangeProduct with DiagnosticableTreeMixin implements _ChangeProduct {
     required TResult Function(_ChangeColor value) changeColor,
     required TResult Function(_ChangeStorage value) changeStorage,
     required TResult Function(_CreatePurchase value) createPurchase,
+    required TResult Function(_RemovePurchase value) removePurchase,
     required TResult Function(_OpenUrl value) openUrl,
     required TResult Function(_Reset value) reset,
   }) {
@@ -426,6 +442,7 @@ class _$_ChangeProduct with DiagnosticableTreeMixin implements _ChangeProduct {
     TResult? Function(_ChangeColor value)? changeColor,
     TResult? Function(_ChangeStorage value)? changeStorage,
     TResult? Function(_CreatePurchase value)? createPurchase,
+    TResult? Function(_RemovePurchase value)? removePurchase,
     TResult? Function(_OpenUrl value)? openUrl,
     TResult? Function(_Reset value)? reset,
   }) {
@@ -440,6 +457,7 @@ class _$_ChangeProduct with DiagnosticableTreeMixin implements _ChangeProduct {
     TResult Function(_ChangeColor value)? changeColor,
     TResult Function(_ChangeStorage value)? changeStorage,
     TResult Function(_CreatePurchase value)? createPurchase,
+    TResult Function(_RemovePurchase value)? removePurchase,
     TResult Function(_OpenUrl value)? openUrl,
     TResult Function(_Reset value)? reset,
     required TResult orElse(),
@@ -538,6 +556,7 @@ class _$_ChangeColor with DiagnosticableTreeMixin implements _ChangeColor {
     required TResult Function(String? newColorCode) changeColor,
     required TResult Function(int? newStorage) changeStorage,
     required TResult Function() createPurchase,
+    required TResult Function() removePurchase,
     required TResult Function() openUrl,
     required TResult Function() reset,
   }) {
@@ -552,6 +571,7 @@ class _$_ChangeColor with DiagnosticableTreeMixin implements _ChangeColor {
     TResult? Function(String? newColorCode)? changeColor,
     TResult? Function(int? newStorage)? changeStorage,
     TResult? Function()? createPurchase,
+    TResult? Function()? removePurchase,
     TResult? Function()? openUrl,
     TResult? Function()? reset,
   }) {
@@ -566,6 +586,7 @@ class _$_ChangeColor with DiagnosticableTreeMixin implements _ChangeColor {
     TResult Function(String? newColorCode)? changeColor,
     TResult Function(int? newStorage)? changeStorage,
     TResult Function()? createPurchase,
+    TResult Function()? removePurchase,
     TResult Function()? openUrl,
     TResult Function()? reset,
     required TResult orElse(),
@@ -584,6 +605,7 @@ class _$_ChangeColor with DiagnosticableTreeMixin implements _ChangeColor {
     required TResult Function(_ChangeColor value) changeColor,
     required TResult Function(_ChangeStorage value) changeStorage,
     required TResult Function(_CreatePurchase value) createPurchase,
+    required TResult Function(_RemovePurchase value) removePurchase,
     required TResult Function(_OpenUrl value) openUrl,
     required TResult Function(_Reset value) reset,
   }) {
@@ -598,6 +620,7 @@ class _$_ChangeColor with DiagnosticableTreeMixin implements _ChangeColor {
     TResult? Function(_ChangeColor value)? changeColor,
     TResult? Function(_ChangeStorage value)? changeStorage,
     TResult? Function(_CreatePurchase value)? createPurchase,
+    TResult? Function(_RemovePurchase value)? removePurchase,
     TResult? Function(_OpenUrl value)? openUrl,
     TResult? Function(_Reset value)? reset,
   }) {
@@ -612,6 +635,7 @@ class _$_ChangeColor with DiagnosticableTreeMixin implements _ChangeColor {
     TResult Function(_ChangeColor value)? changeColor,
     TResult Function(_ChangeStorage value)? changeStorage,
     TResult Function(_CreatePurchase value)? createPurchase,
+    TResult Function(_RemovePurchase value)? removePurchase,
     TResult Function(_OpenUrl value)? openUrl,
     TResult Function(_Reset value)? reset,
     required TResult orElse(),
@@ -710,6 +734,7 @@ class _$_ChangeStorage with DiagnosticableTreeMixin implements _ChangeStorage {
     required TResult Function(String? newColorCode) changeColor,
     required TResult Function(int? newStorage) changeStorage,
     required TResult Function() createPurchase,
+    required TResult Function() removePurchase,
     required TResult Function() openUrl,
     required TResult Function() reset,
   }) {
@@ -724,6 +749,7 @@ class _$_ChangeStorage with DiagnosticableTreeMixin implements _ChangeStorage {
     TResult? Function(String? newColorCode)? changeColor,
     TResult? Function(int? newStorage)? changeStorage,
     TResult? Function()? createPurchase,
+    TResult? Function()? removePurchase,
     TResult? Function()? openUrl,
     TResult? Function()? reset,
   }) {
@@ -738,6 +764,7 @@ class _$_ChangeStorage with DiagnosticableTreeMixin implements _ChangeStorage {
     TResult Function(String? newColorCode)? changeColor,
     TResult Function(int? newStorage)? changeStorage,
     TResult Function()? createPurchase,
+    TResult Function()? removePurchase,
     TResult Function()? openUrl,
     TResult Function()? reset,
     required TResult orElse(),
@@ -756,6 +783,7 @@ class _$_ChangeStorage with DiagnosticableTreeMixin implements _ChangeStorage {
     required TResult Function(_ChangeColor value) changeColor,
     required TResult Function(_ChangeStorage value) changeStorage,
     required TResult Function(_CreatePurchase value) createPurchase,
+    required TResult Function(_RemovePurchase value) removePurchase,
     required TResult Function(_OpenUrl value) openUrl,
     required TResult Function(_Reset value) reset,
   }) {
@@ -770,6 +798,7 @@ class _$_ChangeStorage with DiagnosticableTreeMixin implements _ChangeStorage {
     TResult? Function(_ChangeColor value)? changeColor,
     TResult? Function(_ChangeStorage value)? changeStorage,
     TResult? Function(_CreatePurchase value)? createPurchase,
+    TResult? Function(_RemovePurchase value)? removePurchase,
     TResult? Function(_OpenUrl value)? openUrl,
     TResult? Function(_Reset value)? reset,
   }) {
@@ -784,6 +813,7 @@ class _$_ChangeStorage with DiagnosticableTreeMixin implements _ChangeStorage {
     TResult Function(_ChangeColor value)? changeColor,
     TResult Function(_ChangeStorage value)? changeStorage,
     TResult Function(_CreatePurchase value)? createPurchase,
+    TResult Function(_RemovePurchase value)? removePurchase,
     TResult Function(_OpenUrl value)? openUrl,
     TResult Function(_Reset value)? reset,
     required TResult orElse(),
@@ -856,6 +886,7 @@ class _$_CreatePurchase
     required TResult Function(String? newColorCode) changeColor,
     required TResult Function(int? newStorage) changeStorage,
     required TResult Function() createPurchase,
+    required TResult Function() removePurchase,
     required TResult Function() openUrl,
     required TResult Function() reset,
   }) {
@@ -870,6 +901,7 @@ class _$_CreatePurchase
     TResult? Function(String? newColorCode)? changeColor,
     TResult? Function(int? newStorage)? changeStorage,
     TResult? Function()? createPurchase,
+    TResult? Function()? removePurchase,
     TResult? Function()? openUrl,
     TResult? Function()? reset,
   }) {
@@ -884,6 +916,7 @@ class _$_CreatePurchase
     TResult Function(String? newColorCode)? changeColor,
     TResult Function(int? newStorage)? changeStorage,
     TResult Function()? createPurchase,
+    TResult Function()? removePurchase,
     TResult Function()? openUrl,
     TResult Function()? reset,
     required TResult orElse(),
@@ -902,6 +935,7 @@ class _$_CreatePurchase
     required TResult Function(_ChangeColor value) changeColor,
     required TResult Function(_ChangeStorage value) changeStorage,
     required TResult Function(_CreatePurchase value) createPurchase,
+    required TResult Function(_RemovePurchase value) removePurchase,
     required TResult Function(_OpenUrl value) openUrl,
     required TResult Function(_Reset value) reset,
   }) {
@@ -916,6 +950,7 @@ class _$_CreatePurchase
     TResult? Function(_ChangeColor value)? changeColor,
     TResult? Function(_ChangeStorage value)? changeStorage,
     TResult? Function(_CreatePurchase value)? createPurchase,
+    TResult? Function(_RemovePurchase value)? removePurchase,
     TResult? Function(_OpenUrl value)? openUrl,
     TResult? Function(_Reset value)? reset,
   }) {
@@ -930,6 +965,7 @@ class _$_CreatePurchase
     TResult Function(_ChangeColor value)? changeColor,
     TResult Function(_ChangeStorage value)? changeStorage,
     TResult Function(_CreatePurchase value)? createPurchase,
+    TResult Function(_RemovePurchase value)? removePurchase,
     TResult Function(_OpenUrl value)? openUrl,
     TResult Function(_Reset value)? reset,
     required TResult orElse(),
@@ -943,6 +979,153 @@ class _$_CreatePurchase
 
 abstract class _CreatePurchase implements DetailedProductEvent {
   const factory _CreatePurchase() = _$_CreatePurchase;
+}
+
+/// @nodoc
+abstract class _$$_RemovePurchaseCopyWith<$Res> {
+  factory _$$_RemovePurchaseCopyWith(
+          _$_RemovePurchase value, $Res Function(_$_RemovePurchase) then) =
+      __$$_RemovePurchaseCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_RemovePurchaseCopyWithImpl<$Res>
+    extends _$DetailedProductEventCopyWithImpl<$Res, _$_RemovePurchase>
+    implements _$$_RemovePurchaseCopyWith<$Res> {
+  __$$_RemovePurchaseCopyWithImpl(
+      _$_RemovePurchase _value, $Res Function(_$_RemovePurchase) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_RemovePurchase
+    with DiagnosticableTreeMixin
+    implements _RemovePurchase {
+  const _$_RemovePurchase();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'DetailedProductEvent.removePurchase()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(
+        DiagnosticsProperty('type', 'DetailedProductEvent.removePurchase'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_RemovePurchase);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String id, bool isInitial) getOneProduct,
+    required TResult Function(Product product) changeProduct,
+    required TResult Function(String? newColorCode) changeColor,
+    required TResult Function(int? newStorage) changeStorage,
+    required TResult Function() createPurchase,
+    required TResult Function() removePurchase,
+    required TResult Function() openUrl,
+    required TResult Function() reset,
+  }) {
+    return removePurchase();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String id, bool isInitial)? getOneProduct,
+    TResult? Function(Product product)? changeProduct,
+    TResult? Function(String? newColorCode)? changeColor,
+    TResult? Function(int? newStorage)? changeStorage,
+    TResult? Function()? createPurchase,
+    TResult? Function()? removePurchase,
+    TResult? Function()? openUrl,
+    TResult? Function()? reset,
+  }) {
+    return removePurchase?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String id, bool isInitial)? getOneProduct,
+    TResult Function(Product product)? changeProduct,
+    TResult Function(String? newColorCode)? changeColor,
+    TResult Function(int? newStorage)? changeStorage,
+    TResult Function()? createPurchase,
+    TResult Function()? removePurchase,
+    TResult Function()? openUrl,
+    TResult Function()? reset,
+    required TResult orElse(),
+  }) {
+    if (removePurchase != null) {
+      return removePurchase();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetOneProduct value) getOneProduct,
+    required TResult Function(_ChangeProduct value) changeProduct,
+    required TResult Function(_ChangeColor value) changeColor,
+    required TResult Function(_ChangeStorage value) changeStorage,
+    required TResult Function(_CreatePurchase value) createPurchase,
+    required TResult Function(_RemovePurchase value) removePurchase,
+    required TResult Function(_OpenUrl value) openUrl,
+    required TResult Function(_Reset value) reset,
+  }) {
+    return removePurchase(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetOneProduct value)? getOneProduct,
+    TResult? Function(_ChangeProduct value)? changeProduct,
+    TResult? Function(_ChangeColor value)? changeColor,
+    TResult? Function(_ChangeStorage value)? changeStorage,
+    TResult? Function(_CreatePurchase value)? createPurchase,
+    TResult? Function(_RemovePurchase value)? removePurchase,
+    TResult? Function(_OpenUrl value)? openUrl,
+    TResult? Function(_Reset value)? reset,
+  }) {
+    return removePurchase?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetOneProduct value)? getOneProduct,
+    TResult Function(_ChangeProduct value)? changeProduct,
+    TResult Function(_ChangeColor value)? changeColor,
+    TResult Function(_ChangeStorage value)? changeStorage,
+    TResult Function(_CreatePurchase value)? createPurchase,
+    TResult Function(_RemovePurchase value)? removePurchase,
+    TResult Function(_OpenUrl value)? openUrl,
+    TResult Function(_Reset value)? reset,
+    required TResult orElse(),
+  }) {
+    if (removePurchase != null) {
+      return removePurchase(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RemovePurchase implements DetailedProductEvent {
+  const factory _RemovePurchase() = _$_RemovePurchase;
 }
 
 /// @nodoc
@@ -993,6 +1176,7 @@ class _$_OpenUrl with DiagnosticableTreeMixin implements _OpenUrl {
     required TResult Function(String? newColorCode) changeColor,
     required TResult Function(int? newStorage) changeStorage,
     required TResult Function() createPurchase,
+    required TResult Function() removePurchase,
     required TResult Function() openUrl,
     required TResult Function() reset,
   }) {
@@ -1007,6 +1191,7 @@ class _$_OpenUrl with DiagnosticableTreeMixin implements _OpenUrl {
     TResult? Function(String? newColorCode)? changeColor,
     TResult? Function(int? newStorage)? changeStorage,
     TResult? Function()? createPurchase,
+    TResult? Function()? removePurchase,
     TResult? Function()? openUrl,
     TResult? Function()? reset,
   }) {
@@ -1021,6 +1206,7 @@ class _$_OpenUrl with DiagnosticableTreeMixin implements _OpenUrl {
     TResult Function(String? newColorCode)? changeColor,
     TResult Function(int? newStorage)? changeStorage,
     TResult Function()? createPurchase,
+    TResult Function()? removePurchase,
     TResult Function()? openUrl,
     TResult Function()? reset,
     required TResult orElse(),
@@ -1039,6 +1225,7 @@ class _$_OpenUrl with DiagnosticableTreeMixin implements _OpenUrl {
     required TResult Function(_ChangeColor value) changeColor,
     required TResult Function(_ChangeStorage value) changeStorage,
     required TResult Function(_CreatePurchase value) createPurchase,
+    required TResult Function(_RemovePurchase value) removePurchase,
     required TResult Function(_OpenUrl value) openUrl,
     required TResult Function(_Reset value) reset,
   }) {
@@ -1053,6 +1240,7 @@ class _$_OpenUrl with DiagnosticableTreeMixin implements _OpenUrl {
     TResult? Function(_ChangeColor value)? changeColor,
     TResult? Function(_ChangeStorage value)? changeStorage,
     TResult? Function(_CreatePurchase value)? createPurchase,
+    TResult? Function(_RemovePurchase value)? removePurchase,
     TResult? Function(_OpenUrl value)? openUrl,
     TResult? Function(_Reset value)? reset,
   }) {
@@ -1067,6 +1255,7 @@ class _$_OpenUrl with DiagnosticableTreeMixin implements _OpenUrl {
     TResult Function(_ChangeColor value)? changeColor,
     TResult Function(_ChangeStorage value)? changeStorage,
     TResult Function(_CreatePurchase value)? createPurchase,
+    TResult Function(_RemovePurchase value)? removePurchase,
     TResult Function(_OpenUrl value)? openUrl,
     TResult Function(_Reset value)? reset,
     required TResult orElse(),
@@ -1129,6 +1318,7 @@ class _$_Reset with DiagnosticableTreeMixin implements _Reset {
     required TResult Function(String? newColorCode) changeColor,
     required TResult Function(int? newStorage) changeStorage,
     required TResult Function() createPurchase,
+    required TResult Function() removePurchase,
     required TResult Function() openUrl,
     required TResult Function() reset,
   }) {
@@ -1143,6 +1333,7 @@ class _$_Reset with DiagnosticableTreeMixin implements _Reset {
     TResult? Function(String? newColorCode)? changeColor,
     TResult? Function(int? newStorage)? changeStorage,
     TResult? Function()? createPurchase,
+    TResult? Function()? removePurchase,
     TResult? Function()? openUrl,
     TResult? Function()? reset,
   }) {
@@ -1157,6 +1348,7 @@ class _$_Reset with DiagnosticableTreeMixin implements _Reset {
     TResult Function(String? newColorCode)? changeColor,
     TResult Function(int? newStorage)? changeStorage,
     TResult Function()? createPurchase,
+    TResult Function()? removePurchase,
     TResult Function()? openUrl,
     TResult Function()? reset,
     required TResult orElse(),
@@ -1175,6 +1367,7 @@ class _$_Reset with DiagnosticableTreeMixin implements _Reset {
     required TResult Function(_ChangeColor value) changeColor,
     required TResult Function(_ChangeStorage value) changeStorage,
     required TResult Function(_CreatePurchase value) createPurchase,
+    required TResult Function(_RemovePurchase value) removePurchase,
     required TResult Function(_OpenUrl value) openUrl,
     required TResult Function(_Reset value) reset,
   }) {
@@ -1189,6 +1382,7 @@ class _$_Reset with DiagnosticableTreeMixin implements _Reset {
     TResult? Function(_ChangeColor value)? changeColor,
     TResult? Function(_ChangeStorage value)? changeStorage,
     TResult? Function(_CreatePurchase value)? createPurchase,
+    TResult? Function(_RemovePurchase value)? removePurchase,
     TResult? Function(_OpenUrl value)? openUrl,
     TResult? Function(_Reset value)? reset,
   }) {
@@ -1203,6 +1397,7 @@ class _$_Reset with DiagnosticableTreeMixin implements _Reset {
     TResult Function(_ChangeColor value)? changeColor,
     TResult Function(_ChangeStorage value)? changeStorage,
     TResult Function(_CreatePurchase value)? createPurchase,
+    TResult Function(_RemovePurchase value)? removePurchase,
     TResult Function(_OpenUrl value)? openUrl,
     TResult Function(_Reset value)? reset,
     required TResult orElse(),

@@ -55,7 +55,9 @@ class ManufacturersBloc extends Bloc<ManufacturersEvent, ManufacturersState>
   FutureOr<void> _refresh(
       _Refresh event, Emitter<ManufacturersState> emit) async {
     if (!state.isRefreshing) {
-      emit(state.copyWith(status: ManufacturersStatus.refreshing));
+      emit(state.copyWith(
+          status: ManufacturersStatus.refreshing,
+          filter: state.filter.copyWith(page: 1)));
       final res = await _getManufacturers();
       res.fold(
           (failure) => _throwFailure(emit, failure),

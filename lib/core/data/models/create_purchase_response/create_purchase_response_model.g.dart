@@ -12,9 +12,6 @@ _$_CreatePurchaseResponseModel _$$_CreatePurchaseResponseModelFromJson(
       purchase:
           PurchaseModel.fromJson(json['purchase'] as Map<String, dynamic>),
       payment: PaymentModel.fromJson(json['payment'] as Map<String, dynamic>),
-      products: (json['products'] as List<dynamic>)
-          .map((e) => ProductModel.fromJson(e as Map<String, dynamic>))
-          .toList(),
     );
 
 Map<String, dynamic> _$$_CreatePurchaseResponseModelToJson(
@@ -22,5 +19,4 @@ Map<String, dynamic> _$$_CreatePurchaseResponseModelToJson(
     <String, dynamic>{
       'purchase': instance.purchase,
       'payment': instance.payment,
-      'products': instance.products,
     };

@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../core/presentation/widgets/buttons/casual_button.dart';
-import '../../../../core/presentation/widgets/loading/stack_loading.dart';
-import '../../../../core/presentation/widgets/bottom_sheets/casual_bottom_sheet.dart';
-import '../../../../core/presentation/widgets/cards/rectangle_product_card.dart';
-import '../../../../core/styles/styles.dart';
 
 import '../../../../core/domain/entities/product.dart';
 import '../../../../core/failure/failure.dart';
 import '../../../../core/presentation/animations/fade_animation_y_down.dart';
+import '../../../../core/presentation/widgets/bottom_sheets/create_purchase_bottom_sheet.dart';
 import '../../../../core/presentation/widgets/buttons/casual_text_button.dart';
 import '../../../../core/presentation/widgets/loading/casual_loader.dart';
+import '../../../../core/presentation/widgets/loading/stack_loading.dart';
 import '../../../../core/presentation/widgets/other/access_listener.dart';
 import '../../../../core/presentation/widgets/pages/error_page.dart';
+import '../../../../core/styles/styles.dart';
 import '../../../../core/utils/size_config.dart';
 import '../../../create_edit_product/presentation/bloc/create_edit_product_bloc.dart';
 import '../../../create_edit_product/presentation/pages/create_edit_product_page.dart';
@@ -85,77 +83,22 @@ class _DetailedProductPageState extends State<DetailedProductPage> {
                   backgroundColor: kLightWhite,
                   useSafeArea: true,
                   isScrollControlled: true,
-                  builder: (bottomSheetContext) => CasualBottomSheet(
-                    title: 'Purchase',
-                    child: Expanded(
-                      child: FadeAnimationYDown(
-                        delay: .5,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Cost: ${state.purchase!.payment.cost} ${state.purchase!.payment.currency}',
-                                  style: kBold.copyWith(
-                                      color: kDarkBlue,
-                                      fontSize: SizeConfig.h2),
-                                ),
-                                Text(
-                                  'Description: ${state.purchase!.payment.description}',
-                                  style: kMedium.copyWith(
-                                      color: kDarkBlue,
-                                      fontSize: SizeConfig.body1),
-                                ),
-                              ],
-                            ),
-                            Expanded(
-                              child: SizeConfig.isMobile
-                                  ? ListView.builder(
-                                      itemCount:
-                                          state.purchase!.products.length,
-                                      itemBuilder: (context, index) =>
-                                          RectangleProductCard(
-                                        product:
-                                            state.purchase!.products[index],
-                                      ),
-                                    )
-                                  : GridView.builder(
-                                      gridDelegate:
-                                          SliverGridDelegateWithFixedCrossAxisCount(
-                                              crossAxisCount:
-                                                  SizeConfig.isTablet ? 2 : 3,
-                                              childAspectRatio:
-                                                  SizeConfig.isTablet
-                                                      ? 1.5
-                                                      : 1.75),
-                                      itemCount:
-                                          state.purchase!.products.length,
-                                      itemBuilder: (context, index) =>
-                                          RectangleProductCard(
-                                        product:
-                                            state.purchase!.products[index],
-                                      ),
-                                    ),
-                            ),
-                            CasualButton(
-                              onTap: () {
-                                context
-                                    .read<DetailedProductBloc>()
-                                    .add(const DetailedProductEvent.openUrl());
-                                Navigator.of(bottomSheetContext).pop();
-                              },
-                              text: 'Pay',
-                              fontSize: SizeConfig.h1,
-                              borderRadius: SizeConfig.borderRadiusSmall,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
+                  builder: (bottomSheetContext) => CreatePurchaseBottomSheet(
+                    onPay: () {
+                      context
+                          .read<DetailedProductBloc>()
+                          .add(const DetailedProductEvent.openUrl());
+                      context
+                          .read<DetailedProductBloc>()
+                          .add(const DetailedProductEvent.removePurchase());
+                      Navigator.of(context).pop();
+                    },
+                    payment: state.purchase!.payment,
+                    products: state.purchase!.purchase.products,
                   ),
-                );
+                ).whenComplete(() => context
+                    .read<DetailedProductBloc>()
+                    .add(const DetailedProductEvent.removePurchase()));
               }
             },
           ),

@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
+
 import '../../../constants/type_defs.dart';
-import '../../repositories/purchases/purchases_repository.dart';
+import '../../repositories/purchase/purchase_repository.dart';
 import '../usecase.dart';
 
 class OpenUrl implements UseCase<void, OpenUrlParams> {

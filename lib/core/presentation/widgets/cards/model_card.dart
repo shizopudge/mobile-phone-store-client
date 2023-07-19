@@ -20,7 +20,7 @@ class ModelCard extends StatelessWidget {
       width: double.infinity,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(SizeConfig.borderRadiusSmall),
-          color: kDarkBlue,
+          color: kBlack,
           boxShadow: const [
             BoxShadow(
               color: kGrey,

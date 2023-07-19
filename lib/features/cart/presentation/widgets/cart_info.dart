@@ -6,10 +6,12 @@ import '../../../../core/styles/styles.dart';
 import '../../../../core/utils/size_config.dart';
 
 class CartInfo extends StatefulWidget {
+  final VoidCallback onBuyAllTap;
   final double totalCost;
   final int productsCount;
   const CartInfo({
     super.key,
+    required this.onBuyAllTap,
     required this.totalCost,
     required this.productsCount,
   });
@@ -166,10 +168,11 @@ class _CartInfoState extends State<CartInfo> {
                     FadeAnimationX(
                       delay: .5,
                       child: CasualButton(
-                        onTap: () {},
-                        text: 'Buy all',
+                        onTap: widget.onBuyAllTap,
+                        text: 'Checkout',
                         fontSize: SizeConfig.body2,
                         borderRadius: SizeConfig.borderRadiusSmall,
+                        isEnabled: widget.productsCount > 0,
                       ),
                     ),
                   ],

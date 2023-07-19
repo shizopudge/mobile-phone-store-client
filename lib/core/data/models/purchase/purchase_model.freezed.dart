@@ -24,7 +24,12 @@ mixin _$PurchaseModel {
   String get createdAt => throw _privateConstructorUsedError;
   String get updatedAt => throw _privateConstructorUsedError;
   PurchaseStatus get status => throw _privateConstructorUsedError;
+  String get cost => throw _privateConstructorUsedError;
+  String get paymentUrl => throw _privateConstructorUsedError;
+  String get currency => throw _privateConstructorUsedError;
+  String get description => throw _privateConstructorUsedError;
   String get userId => throw _privateConstructorUsedError;
+  List<ProductModel> get products => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -43,7 +48,12 @@ abstract class $PurchaseModelCopyWith<$Res> {
       String createdAt,
       String updatedAt,
       PurchaseStatus status,
-      String userId});
+      String cost,
+      String paymentUrl,
+      String currency,
+      String description,
+      String userId,
+      List<ProductModel> products});
 }
 
 /// @nodoc
@@ -63,7 +73,12 @@ class _$PurchaseModelCopyWithImpl<$Res, $Val extends PurchaseModel>
     Object? createdAt = null,
     Object? updatedAt = null,
     Object? status = null,
+    Object? cost = null,
+    Object? paymentUrl = null,
+    Object? currency = null,
+    Object? description = null,
     Object? userId = null,
+    Object? products = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -82,10 +97,30 @@ class _$PurchaseModelCopyWithImpl<$Res, $Val extends PurchaseModel>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as PurchaseStatus,
+      cost: null == cost
+          ? _value.cost
+          : cost // ignore: cast_nullable_to_non_nullable
+              as String,
+      paymentUrl: null == paymentUrl
+          ? _value.paymentUrl
+          : paymentUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+      currency: null == currency
+          ? _value.currency
+          : currency // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
       userId: null == userId
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
               as String,
+      products: null == products
+          ? _value.products
+          : products // ignore: cast_nullable_to_non_nullable
+              as List<ProductModel>,
     ) as $Val);
   }
 }
@@ -103,7 +138,12 @@ abstract class _$$_PurchaseModelCopyWith<$Res>
       String createdAt,
       String updatedAt,
       PurchaseStatus status,
-      String userId});
+      String cost,
+      String paymentUrl,
+      String currency,
+      String description,
+      String userId,
+      List<ProductModel> products});
 }
 
 /// @nodoc
@@ -121,7 +161,12 @@ class __$$_PurchaseModelCopyWithImpl<$Res>
     Object? createdAt = null,
     Object? updatedAt = null,
     Object? status = null,
+    Object? cost = null,
+    Object? paymentUrl = null,
+    Object? currency = null,
+    Object? description = null,
     Object? userId = null,
+    Object? products = null,
   }) {
     return _then(_$_PurchaseModel(
       id: null == id
@@ -140,10 +185,30 @@ class __$$_PurchaseModelCopyWithImpl<$Res>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as PurchaseStatus,
+      cost: null == cost
+          ? _value.cost
+          : cost // ignore: cast_nullable_to_non_nullable
+              as String,
+      paymentUrl: null == paymentUrl
+          ? _value.paymentUrl
+          : paymentUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+      currency: null == currency
+          ? _value.currency
+          : currency // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
       userId: null == userId
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
               as String,
+      products: null == products
+          ? _value._products
+          : products // ignore: cast_nullable_to_non_nullable
+              as List<ProductModel>,
     ));
   }
 }
@@ -156,7 +221,13 @@ class _$_PurchaseModel implements _PurchaseModel {
       required this.createdAt,
       required this.updatedAt,
       required this.status,
-      required this.userId});
+      required this.cost,
+      required this.paymentUrl,
+      required this.currency,
+      required this.description,
+      required this.userId,
+      required final List<ProductModel> products})
+      : _products = products;
 
   factory _$_PurchaseModel.fromJson(Map<String, dynamic> json) =>
       _$$_PurchaseModelFromJson(json);
@@ -170,11 +241,26 @@ class _$_PurchaseModel implements _PurchaseModel {
   @override
   final PurchaseStatus status;
   @override
+  final String cost;
+  @override
+  final String paymentUrl;
+  @override
+  final String currency;
+  @override
+  final String description;
+  @override
   final String userId;
+  final List<ProductModel> _products;
+  @override
+  List<ProductModel> get products {
+    if (_products is EqualUnmodifiableListView) return _products;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_products);
+  }
 
   @override
   String toString() {
-    return 'PurchaseModel(id: $id, createdAt: $createdAt, updatedAt: $updatedAt, status: $status, userId: $userId)';
+    return 'PurchaseModel(id: $id, createdAt: $createdAt, updatedAt: $updatedAt, status: $status, cost: $cost, paymentUrl: $paymentUrl, currency: $currency, description: $description, userId: $userId, products: $products)';
   }
 
   @override
@@ -188,13 +274,31 @@ class _$_PurchaseModel implements _PurchaseModel {
             (identical(other.updatedAt, updatedAt) ||
                 other.updatedAt == updatedAt) &&
             (identical(other.status, status) || other.status == status) &&
-            (identical(other.userId, userId) || other.userId == userId));
+            (identical(other.cost, cost) || other.cost == cost) &&
+            (identical(other.paymentUrl, paymentUrl) ||
+                other.paymentUrl == paymentUrl) &&
+            (identical(other.currency, currency) ||
+                other.currency == currency) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.userId, userId) || other.userId == userId) &&
+            const DeepCollectionEquality().equals(other._products, _products));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, createdAt, updatedAt, status, userId);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      createdAt,
+      updatedAt,
+      status,
+      cost,
+      paymentUrl,
+      currency,
+      description,
+      userId,
+      const DeepCollectionEquality().hash(_products));
 
   @JsonKey(ignore: true)
   @override
@@ -216,7 +320,12 @@ abstract class _PurchaseModel implements PurchaseModel {
       required final String createdAt,
       required final String updatedAt,
       required final PurchaseStatus status,
-      required final String userId}) = _$_PurchaseModel;
+      required final String cost,
+      required final String paymentUrl,
+      required final String currency,
+      required final String description,
+      required final String userId,
+      required final List<ProductModel> products}) = _$_PurchaseModel;
 
   factory _PurchaseModel.fromJson(Map<String, dynamic> json) =
       _$_PurchaseModel.fromJson;
@@ -230,7 +339,17 @@ abstract class _PurchaseModel implements PurchaseModel {
   @override
   PurchaseStatus get status;
   @override
+  String get cost;
+  @override
+  String get paymentUrl;
+  @override
+  String get currency;
+  @override
+  String get description;
+  @override
   String get userId;
+  @override
+  List<ProductModel> get products;
   @override
   @JsonKey(ignore: true)
   _$$_PurchaseModelCopyWith<_$_PurchaseModel> get copyWith =>

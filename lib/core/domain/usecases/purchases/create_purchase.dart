@@ -2,7 +2,7 @@ import 'package:equatable/equatable.dart';
 
 import '../../../constants/type_defs.dart';
 import '../../entities/create_purchase_response.dart';
-import '../../repositories/purchases/purchases_repository.dart';
+import '../../repositories/purchase/purchase_repository.dart';
 import '../usecase.dart';
 
 class CreatePurchase

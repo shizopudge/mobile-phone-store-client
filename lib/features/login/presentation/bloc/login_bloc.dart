@@ -6,7 +6,7 @@ import 'package:equatable/equatable.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../../core/constants/extensions.dart';
-import '../../../../core/constants/password_validation.dart';
+import '../../../../core/domain/entities/password_validation.dart';
 import '../../../../core/domain/usecases/usecase.dart';
 import '../../../../core/failure/failure.dart';
 import '../../../auth/presentation/bloc/auth_bloc.dart';

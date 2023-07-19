@@ -84,8 +84,7 @@ class LoggerInterceptor extends Interceptor {
 
   @override
   void onResponse(Response response, ResponseInterceptorHandler handler) {
-    print(
-        'Response status code: ${response.statusCode}; Data: ${response.data}');
+    print('Response status code: ${response.statusCode}');
     return handler.next(response);
   }
 

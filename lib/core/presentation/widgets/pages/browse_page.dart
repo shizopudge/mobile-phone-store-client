@@ -237,7 +237,7 @@ class _BrowsePageState extends State<BrowsePage> {
                     if (!widget.isLastPage &&
                         !widget.isPaginating &&
                         !widget.isNothingFound)
-                      NextPageButton(
+                      LoadMoreButton(
                         onTap: widget.onPagination,
                         showNextButton: _showNextButton,
                       ),

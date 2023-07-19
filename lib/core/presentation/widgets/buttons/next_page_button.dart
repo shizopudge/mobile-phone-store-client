@@ -4,11 +4,11 @@ import '../../../utils/size_config.dart';
 import '../../animations/fade_animation_y_down.dart';
 import 'casual_button.dart';
 
-class NextPageButton extends StatelessWidget {
+class LoadMoreButton extends StatelessWidget {
   final VoidCallback onTap;
   final ValueNotifier<bool> _showNextButton;
 
-  const NextPageButton({
+  const LoadMoreButton({
     super.key,
     required this.onTap,
     required ValueNotifier<bool> showNextButton,
@@ -39,7 +39,7 @@ class NextPageButton extends StatelessWidget {
                   child: CasualButton(
                     onTap: onTap,
                     borderRadius: SizeConfig.borderRadiusSmall,
-                    text: 'Next page',
+                    text: 'Load more',
                     expand: false,
                     fontSize: SizeConfig.body1,
                   ),

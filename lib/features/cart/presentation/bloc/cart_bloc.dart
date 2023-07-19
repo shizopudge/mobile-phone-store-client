@@ -6,10 +6,13 @@ import 'package:rxdart/rxdart.dart';
 
 import '../../../../core/constants/type_defs.dart';
 import '../../../../core/domain/entities/cart_wishlist_response.dart';
+import '../../../../core/domain/entities/create_purchase_response.dart';
 import '../../../../core/domain/entities/filters.dart';
 import '../../../../core/domain/entities/info.dart';
 import '../../../../core/domain/entities/product.dart';
 import '../../../../core/domain/usecases/products/toggle_cart.dart';
+import '../../../../core/domain/usecases/purchases/create_purchase.dart';
+import '../../../../core/domain/usecases/purchases/open_url.dart';
 import '../../../../core/failure/failure.dart';
 import '../../domain/usecases/get_cart.dart';
 
@@ -22,8 +25,12 @@ class CartBloc extends Bloc<CartEvent, CartState> with HydratedMixin {
   CartBloc({
     required GetCart getCartUsecase,
     required ToggleCart toggleCartUsecase,
+    required CreatePurchase createPurchaseUsecase,
+    required OpenUrl openUrlUsecase,
   })  : _getCartUsecase = getCartUsecase,
         _toggleCartUsecase = toggleCartUsecase,
+        _createPurchaseUsecase = createPurchaseUsecase,
+        _openUrlUsecase = openUrlUsecase,
         super(const CartState()) {
     on<_Initial>(_initial);
     on<_Refresh>(_refresh);
@@ -36,10 +43,15 @@ class CartBloc extends Bloc<CartEvent, CartState> with HydratedMixin {
     on<_SearchProducts>(_searchProducts);
     on<_UpdateProductInList>(_updateProductInList);
     on<_ChangeFilter>(_changeFilter);
+    on<_CreatePurchase>(_createPurchase);
+    on<_RemovePurchase>(_removePurchase);
+    on<_OpenUrl>(_openUrl);
   }
 
   final GetCart _getCartUsecase;
   final ToggleCart _toggleCartUsecase;
+  final CreatePurchase _createPurchaseUsecase;
+  final OpenUrl _openUrlUsecase;
 
   FutureOr<void> _initial(_Initial event, Emitter<CartState> emit) async {
     emit(state.copyWith(status: CartStatus.loading));
@@ -178,6 +190,36 @@ class CartBloc extends Bloc<CartEvent, CartState> with HydratedMixin {
         ),
       ),
     );
+  }
+
+  FutureOr<void> _createPurchase(
+      _CreatePurchase event, Emitter<CartState> emit) async {
+    if (state.products.isNotEmpty) {
+      emit(state.copyWith(status: CartStatus.creatingPurchase));
+      final List<String> productIds = [];
+      for (Product product in state.products) {
+        productIds.add(product.id);
+      }
+      final res = await _createPurchaseUsecase
+          .call(CreatePurchaseParams(productIds: productIds));
+      res.fold(
+          (failure) => _throwFailure(emit, failure),
+          (purchase) => emit(
+              state.copyWith(status: CartStatus.success, purchase: purchase)));
+    }
+  }
+
+  void _removePurchase(_RemovePurchase event, Emitter<CartState> emit) =>
+      emit(state.copyWith(purchase: null));
+
+  FutureOr<void> _openUrl(event, Emitter<CartState> emit) async {
+    if (state.purchase != null) {
+      emit(state.copyWith(status: CartStatus.creatingPurchase));
+      final res = await _openUrlUsecase
+          .call(OpenUrlParams(url: state.purchase!.payment.url));
+      res.fold((failure) => _throwFailure(emit, failure),
+          (r) => emit(state.copyWith(status: CartStatus.initial)));
+    }
   }
 
   FutureEither<CartWishlistResponse> _getProducts() async =>

@@ -1,16 +1,15 @@
 import 'package:dartz/dartz.dart';
-import '../../datasources/purchases/purchases_local_data_source.dart';
+
 import '../../../constants/type_defs.dart';
-import '../../datasources/purchases/purchases_remote_data_source.dart';
-
 import '../../../domain/entities/create_purchase_response.dart';
-
-import '../../../domain/repositories/purchases/purchases_repository.dart';
+import '../../../domain/repositories/purchase/purchase_repository.dart';
 import '../../../failure/failure.dart';
+import '../../datasources/purchases/purchase_local_data_source.dart';
+import '../../datasources/purchases/purchase_remote_data_source.dart';
 
 class PurchaseRepositoryImpl implements PurchaseRepository {
-  final PurchasesRemoteDataSource remoteDataSource;
-  final PurchasesLocalDataSource localDataSource;
+  final PurchaseRemoteDataSource remoteDataSource;
+  final PurchaseLocalDataSource localDataSource;
 
   const PurchaseRepositoryImpl({
     required this.remoteDataSource,

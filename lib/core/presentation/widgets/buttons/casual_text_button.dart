@@ -7,11 +7,13 @@ class CasualTextButton extends StatelessWidget {
   final VoidCallback onTap;
   final String text;
   final Color color;
+  final double? fontSize;
   const CasualTextButton({
     super.key,
     required this.onTap,
     this.color = kLightBlue,
     required this.text,
+    this.fontSize,
   });
 
   @override
@@ -21,7 +23,7 @@ class CasualTextButton extends StatelessWidget {
       child: Text(
         text,
         style: kMedium.copyWith(
-          fontSize: SizeConfig.body1,
+          fontSize: fontSize ?? SizeConfig.body1,
           color: kLightBlue,
         ),
       ),

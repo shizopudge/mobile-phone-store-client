@@ -47,6 +47,7 @@ class DetailedProductBloc
     on<_ChangeColor>(_changeColor);
     on<_ChangeStorage>(_changeStorage);
     on<_CreatePurchase>(_createPurchase);
+    on<_RemovePurchase>(_removePurchase);
     on<_OpenUrl>(_openUrl);
     on<_Reset>(_reset);
   }
@@ -126,11 +127,17 @@ class DetailedProductBloc
     }
   }
 
+  void _removePurchase(
+          _RemovePurchase event, Emitter<DetailedProductState> emit) =>
+      emit(state.copyWith(purchase: null));
+
   FutureOr<void> _openUrl(event, Emitter<DetailedProductState> emit) async {
     if (state.purchase != null) {
+      emit(state.copyWith(status: DetailedProductStatus.creatingPurchase));
       final res = await _openUrlUsecase
           .call(OpenUrlParams(url: state.purchase!.payment.url));
-      res.fold((failure) => _throwFailure(emit, failure), (r) => null);
+      res.fold((failure) => _throwFailure(emit, failure),
+          (r) => emit(state.copyWith(status: DetailedProductStatus.initial)));
     }
   }
 

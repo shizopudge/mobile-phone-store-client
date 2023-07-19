@@ -8,7 +8,7 @@ import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../../core/constants/extensions.dart';
-import '../../../../core/constants/password_validation.dart';
+import '../../../../core/domain/entities/password_validation.dart';
 import '../../../../core/domain/entities/current_user.dart';
 import '../../../../core/domain/usecases/image/pick_image.dart';
 import '../../../../core/domain/usecases/usecase.dart';
