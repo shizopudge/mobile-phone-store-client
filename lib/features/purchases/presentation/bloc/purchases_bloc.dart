@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../../../core/domain/usecases/purchases/open_url.dart';
-import '../../domain/usecases/change_purchase.dart';
+import '../../domain/usecases/change_purchase_status.dart';
 import '../../../../core/constants/enums.dart';
 import '../../../../core/domain/entities/purchase.dart';
 import 'package:rxdart/rxdart.dart';
@@ -54,7 +54,9 @@ class PurchasesBloc extends Bloc<PurchasesEvent, PurchasesState> {
 
   FutureOr<void> _initial(_Initial event, Emitter<PurchasesState> emit) async {
     emit(state.copyWith(
-        status: PurchasesStatus.loading, filter: const SimpleFilter()));
+        status: PurchasesStatus.loading,
+        filter: const SimpleFilter(),
+        purchases: []));
     final res = await _getPurchases();
     res.fold(
         (failure) => _throwFailure(emit, failure),

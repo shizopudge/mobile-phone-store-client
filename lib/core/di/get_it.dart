@@ -64,7 +64,7 @@ import '../../features/profile/data/datasources/profile_remote_data_source.dart'
 import '../../features/profile/data/repositories/profile_repository_impl.dart';
 import '../../features/purchases/data/datasources/purchases_remote_data_source.dart';
 import '../../features/purchases/data/repositories/purchases_repository_impl.dart';
-import '../../features/purchases/domain/usecases/change_purchase.dart';
+import '../../features/purchases/domain/usecases/change_purchase_status.dart';
 import '../../features/purchases/domain/usecases/get_purchases.dart';
 import '../../features/purchases/domain/usecases/get_user_purchases.dart';
 import '../../features/purchases/presentation/bloc/purchases_bloc.dart';

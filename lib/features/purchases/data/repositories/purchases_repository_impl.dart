@@ -44,10 +44,10 @@ class PurchasesRepositoryImpl implements PurchasesRepository {
   }
 
   @override
-  FutureEither<void> changePurchase(
+  FutureEither<void> changePurchaseStatus(
       {required String id, required PurchaseStatus status}) async {
     try {
-      await remoteDataSource.changePurchase(id: id, status: status);
+      await remoteDataSource.changePurchaseStatus(id: id, status: status);
       return const Right(null);
     } on Failure catch (e) {
       return Left(e);

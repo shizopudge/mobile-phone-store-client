@@ -17,7 +17,7 @@ abstract interface class PurchasesRemoteDataSource {
     required int page,
     required int limit,
   });
-  Future<void> changePurchase({
+  Future<void> changePurchaseStatus({
     required String id,
     required PurchaseStatus status,
   });
@@ -75,7 +75,7 @@ class PurchasesRemoteDataSourceImpl implements PurchasesRemoteDataSource {
   }
 
   @override
-  Future<void> changePurchase(
+  Future<void> changePurchaseStatus(
       {required String id, required PurchaseStatus status}) async {
     try {
       await dioClient.dio

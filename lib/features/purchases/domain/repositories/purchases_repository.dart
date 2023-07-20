@@ -13,7 +13,7 @@ abstract interface class PurchasesRepository {
     required int page,
     required int limit,
   });
-  FutureEither<void> changePurchase({
+  FutureEither<void> changePurchaseStatus({
     required String id,
     required PurchaseStatus status,
   });

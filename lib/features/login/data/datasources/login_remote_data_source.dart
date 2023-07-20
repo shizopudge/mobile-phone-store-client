@@ -1,7 +1,9 @@
 import 'package:dio/dio.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../core/api/api_constants.dart';
 import '../../../../core/api/dio_client.dart';
+import '../../../../core/di/get_it.dart';
 import '../../../../core/failure/failure.dart';
 import '../models/auth_response/auth_response_model.dart';
 
@@ -25,11 +27,14 @@ class LoginDataRemoteSourceImpl implements LoginRemoteDataSource {
   Future<AuthResponseModel> login(
       {required String email, required String password}) async {
     try {
+      final String? deviceToken =
+          getIt<SharedPreferences>().getString('deviceToken');
       final res = await dioClient.dio.post(
         '${ApiConstants.auth}/login',
         data: {
           'email': email,
           'password': password,
+          'deviceToken': deviceToken
         },
       );
       return AuthResponseModel.fromJson(res.data);
@@ -49,12 +54,15 @@ class LoginDataRemoteSourceImpl implements LoginRemoteDataSource {
     required String password,
   }) async {
     try {
+      final String? deviceToken =
+          getIt<SharedPreferences>().getString('deviceToken');
       final res = await dioClient.dio.post(
         '${ApiConstants.auth}/registration',
         data: {
           'email': email,
           'username': username,
           'password': password,
+          'deviceToken': deviceToken
         },
       );
       return AuthResponseModel.fromJson(res.data);

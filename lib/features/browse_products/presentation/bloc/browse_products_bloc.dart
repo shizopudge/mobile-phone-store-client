@@ -4,9 +4,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 
 import '../../../../core/constants/type_defs.dart';
+import '../../../../core/domain/entities/filters.dart';
 import '../../../../core/domain/entities/info.dart';
 import '../../../../core/domain/entities/product.dart';
-import '../../../../core/domain/entities/filters.dart';
 import '../../../../core/failure/failure.dart';
 import '../../domain/entities/browse_products_response.dart';
 import '../../domain/usecases/browse_products.dart';

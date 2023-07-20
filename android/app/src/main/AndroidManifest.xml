@@ -27,7 +27,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data
-                    android:scheme="com.example.client"/>
+                    android:scheme="com.kurmantaev.mobilestore"/>
             </intent-filter>
         </activity>
         <meta-data

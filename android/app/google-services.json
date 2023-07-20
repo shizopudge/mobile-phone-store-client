@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "366249433376",
+    "project_id": "mobile-store-475a0",
+    "storage_bucket": "mobile-store-475a0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:366249433376:android:f0e5b0540c428cc44c1f45",
+        "android_client_info": {
+          "package_name": "com.kurmantaev.mobilestore"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "366249433376-msrocdboe3fcet8jphphq4cp4l6ilfbp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyADV2Y8tfLpaJUtXdI8vN3Nm1Qz3BCuxPI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "366249433376-msrocdboe3fcet8jphphq4cp4l6ilfbp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

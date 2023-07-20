@@ -12,7 +12,8 @@ class ChangePurchaseStatus
   const ChangePurchaseStatus(this.repository);
   @override
   FutureEither<void> call(ChangePurchaseStatusParams params) async =>
-      await repository.changePurchase(id: params.id, status: params.status);
+      await repository.changePurchaseStatus(
+          id: params.id, status: params.status);
 }
 
 class ChangePurchaseStatusParams extends Equatable {

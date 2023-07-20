@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
-import '../buttons/casual_button.dart';
 
 import '../../../../features/detailed_product/presentation/bloc/detailed_product_bloc.dart';
 import '../../../domain/entities/purchase.dart';
 import '../../../styles/styles.dart';
 import '../../../utils/popup_utils.dart';
 import '../../../utils/size_config.dart';
+import '../buttons/casual_button.dart';
 import '../buttons/casual_text_button.dart';
 
 class PurchaseCard extends StatelessWidget {
@@ -36,8 +36,8 @@ class PurchaseCard extends StatelessWidget {
         boxShadow: [
           BoxShadow(
               color: kGrey.withOpacity(.75),
-              blurRadius: 5,
-              spreadRadius: 2,
+              blurRadius: 3,
+              spreadRadius: 1,
               offset: const Offset(0, 3)),
         ],
       ),

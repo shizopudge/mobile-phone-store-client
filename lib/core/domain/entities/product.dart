@@ -179,7 +179,7 @@ extension ProductMethods on Product {
 
   bool get isNew => DateTime.now().difference(createdAt).inDays < 7;
 
-  bool get isOutOfStock => inStockCount == 0;
+  bool get isOutOfStock => inStockCount <= 0;
 
   bool get isDiscounted => discount != null;
 }
