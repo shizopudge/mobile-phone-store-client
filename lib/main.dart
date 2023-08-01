@@ -14,6 +14,7 @@ import 'core/domain/entities/purchase_notification.dart';
 import 'core/utils/app_bloc_observer.dart';
 import 'core/utils/notifications_service.dart';
 import 'firebase_options.dart';
+import 'package:url_strategy/url_strategy.dart';
 
 @pragma('vm:entry-point')
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
@@ -50,6 +51,9 @@ Future<void> init() async {
 
 void bootstrap() async {
   WidgetsFlutterBinding.ensureInitialized();
+  if (kIsWeb) {
+    setPathUrlStrategy();
+  }
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   HydratedBloc.storage = await HydratedStorage.build(
     storageDirectory: kIsWeb
@@ -58,8 +62,8 @@ void bootstrap() async {
   );
   Bloc.observer = AppBlocObserver();
   await appSetup();
-  await init();
   if (!kIsWeb) {
+    await init();
     await NotifictaionsService().initNotification();
     FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
     FirebaseMessaging.onMessage.listen(_firebaseMessagingHandler);

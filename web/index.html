@@ -147,14 +147,6 @@
     });
   </script>
   <script src="main.dart.js" type="application/javascript"></script>
-  <script>
-       if ('serviceWorker' in navigator) {
-          window.addEventListener('load', function () {
-            navigator.serviceWorker.register('/firebase-messaging-sw.js');
-            var serviceWorkerUrl = 'flutter_service_worker.js?v=' + serviceWorkerVersion;
-          });
-      }
-  </script>
 
 
 </body></html>
