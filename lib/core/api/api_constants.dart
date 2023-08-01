@@ -1,9 +1,9 @@
 class ApiConstants {
   ApiConstants._();
 
-  static const String baseUrl = 'https://84.201.179.226:5000/api';
+  static const String baseUrl = 'http://84.201.179.226:5000/api';
 
-  static const String imagesUrl = 'https://84.201.179.226:5000';
+  static const String imagesUrl = 'http://84.201.179.226:5000';
 
   static const Duration receiveTimeout = Duration(milliseconds: 5000);
 

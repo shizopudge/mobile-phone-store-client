@@ -151,7 +151,8 @@ Future<void> appSetup() async {
     AccessInterceptor(
         dio: getIt<DioClient>().dio,
         refreshTokens: RefreshTokens(getIt<AuthRepositoryImpl>()),
-        storage: getIt<FlutterSecureStorage>()),
+        storage: getIt<FlutterSecureStorage>(),
+        prefs: getIt<SharedPreferences>()),
     const LoggerInterceptor(),
     const AwaitInterceptor(),
   });

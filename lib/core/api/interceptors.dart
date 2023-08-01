@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../features/auth/domain/usecases/refresh_tokens.dart';
 import '../domain/usecases/usecase.dart';
@@ -8,8 +9,13 @@ class AccessInterceptor extends Interceptor {
   final Dio dio;
   final RefreshTokens refreshTokens;
   final FlutterSecureStorage storage;
-  const AccessInterceptor(
-      {required this.dio, required this.refreshTokens, required this.storage});
+  final SharedPreferences prefs;
+  const AccessInterceptor({
+    required this.dio,
+    required this.refreshTokens,
+    required this.storage,
+    required this.prefs,
+  });
 
   static const List<String> _denyRefreshPaths = [
     '/auth/login',
@@ -20,10 +26,12 @@ class AccessInterceptor extends Interceptor {
   void onRequest(
       RequestOptions options, RequestInterceptorHandler handler) async {
     if (options.path == '/auth/refresh-tokens') {
-      final refreshToken = await storage.read(key: 'refreshToken');
+      // final refreshToken = await storage.read(key: 'refreshToken');
+      final refreshToken = prefs.getString('refreshToken');
       options.headers['Authorization'] = 'Bearer $refreshToken';
     } else {
-      final accessToken = await storage.read(key: 'accessToken');
+      // final accessToken = await storage.read(key: 'accessToken');
+      final accessToken = prefs.getString('accessToken');
       options.headers['Authorization'] = 'Bearer $accessToken';
     }
     return handler.next(options);
@@ -36,7 +44,13 @@ class AccessInterceptor extends Interceptor {
       if (response != null) {
         final statusCode = response.statusCode;
         if (statusCode == 401 && _validatePath(response.requestOptions.path)) {
-          if (await storage.containsKey(key: 'refreshToken')) {
+          // if (await storage.containsKey(key: 'refreshToken')) {
+          //   final res = await refreshTokens.call(NoParams());
+          //   if (res.isRight()) {
+          //     return handler.resolve(await _retry(err.requestOptions));
+          //   }
+          // }
+          if (prefs.containsKey('refreshToken')) {
             final res = await refreshTokens.call(NoParams());
             if (res.isRight()) {
               return handler.resolve(await _retry(err.requestOptions));

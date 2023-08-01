@@ -23,8 +23,10 @@ class AuthLocalDataSourceImpl extends AuthLocalDataSource {
   @override
   Future<void> storeTokens(TokensModel tokens) async {
     try {
-      await _storage.write(key: 'accessToken', value: tokens.accessToken);
-      await _storage.write(key: 'refreshToken', value: tokens.refreshToken);
+      await _prefs.setString('accessToken', tokens.accessToken);
+      await _prefs.setString('refreshToken', tokens.refreshToken);
+      // await _storage.write(key: 'accessToken', value: tokens.accessToken);
+      // await _storage.write(key: 'refreshToken', value: tokens.refreshToken);
     } on Exception catch (e) {
       throw CacheFailure(message: e.toString());
     }
@@ -33,7 +35,9 @@ class AuthLocalDataSourceImpl extends AuthLocalDataSource {
   @override
   Future<void> removeTokens() async {
     try {
-      await _storage.deleteAll();
+      // await _storage.deleteAll();
+      await _prefs.remove('accessToken');
+      await _prefs.remove('refreshToken');
     } on Exception catch (e) {
       throw CacheFailure(message: e.toString());
     }
