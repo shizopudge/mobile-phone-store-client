@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:device_preview/device_preview.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -8,6 +10,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'app.dart';
+import 'core/constants/objects.dart';
 import 'core/data/models/purchase_notification_model/purchase_notification_model.dart';
 import 'core/di/get_it.dart';
 import 'core/domain/entities/purchase_notification.dart';
@@ -51,6 +54,7 @@ Future<void> init() async {
 
 void bootstrap() async {
   WidgetsFlutterBinding.ensureInitialized();
+  HttpOverrides.global = MyHttpOverrides();
   if (kIsWeb) {
     setPathUrlStrategy();
   }
