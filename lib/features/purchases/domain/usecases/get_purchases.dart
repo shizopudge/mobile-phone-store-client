@@ -11,7 +11,7 @@ class GetPurchases implements UseCase<PurchasesResponse, GetPurchasesParams> {
   const GetPurchases(this.repository);
   @override
   FutureEither<PurchasesResponse> call(GetPurchasesParams params) async =>
-      await repository.getUserPurchases(
+      await repository.getPurchases(
           query: params.query, page: params.page, limit: params.limit);
 }
 

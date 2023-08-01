@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../../../core/domain/usecases/purchases/open_url.dart';
 import '../../domain/usecases/change_purchase_status.dart';
@@ -168,5 +169,11 @@ class PurchasesBloc extends Bloc<PurchasesEvent, PurchasesState> {
     emit(state.copyWith(status: PurchasesStatus.failure, failure: failure));
     emit(state.copyWith(
         status: PurchasesStatus.initial, failure: const CasualFailure()));
+  }
+
+  @override
+  void onEvent(PurchasesEvent event) {
+    debugPrint(state.toString());
+    super.onEvent(event);
   }
 }
