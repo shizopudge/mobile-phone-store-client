@@ -11,7 +11,12 @@ class DioClient {
       ..options.connectTimeout = ApiConstants.connectionTimeout
       ..options.receiveTimeout = ApiConstants.receiveTimeout
       ..options.responseType = ResponseType.json
-      ..options.contentType = 'application/x-www-form-urlencoded';
+      ..options.contentType = 'application/x-www-form-urlencoded'
+      ..options.headers.addAll({
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json',
+        'Accept': '*/*'
+      });
   }
 
   Dio get dio => _dio;
