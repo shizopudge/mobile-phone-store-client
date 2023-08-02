@@ -136,29 +136,44 @@ class _CreateEditProductPageState extends State<CreateEditProductPage> {
   ) =>
       showDialog(
         context: context,
-        builder: (dialogContext) => ActionsDialog(
-          title: 'Color Picker',
-          subtitle: 'What color do you want to set?',
-          actions: [
-            ColorPicker(
-              pickerColor: context
-                      .read<CreateEditProductBloc>()
-                      .state
-                      .colorCode
-                      .isNotEmpty
-                  ? HexColor.fromHex(
-                      context.read<CreateEditProductBloc>().state.colorCode)
-                  : kDarkBlue,
-              onColorChanged: (color) => context
-                  .read<CreateEditProductBloc>()
-                  .add(CreateEditProductEvent.changeColorCode(color.toHex())),
-            ),
-            CasualButton(
-              text: 'OK',
-              onTap: () => Navigator.of(dialogContext).pop(),
-              fontSize: SizeConfig.body2,
-            ),
-          ],
+        builder: (dialogContext) => StatefulBuilder(
+          builder: (_, setState) {
+            final pickerColor = context
+                    .watch<CreateEditProductBloc>()
+                    .state
+                    .colorCode
+                    .isNotEmpty
+                ? HexColor.fromHex(
+                    context.read<CreateEditProductBloc>().state.colorCode)
+                : kDarkBlue;
+            return ActionsDialog(
+              title: 'Color Picker',
+              subtitle: 'What color do you want to set?',
+              actions: [
+                ColorPicker(
+                  pickerColor: pickerColor,
+                  onColorChanged: (color) {
+                    context.read<CreateEditProductBloc>().add(
+                        CreateEditProductEvent.changeColorCode(color.toHex()));
+                    setState(() {});
+                  },
+                ),
+                ColorPickerInput(
+                  pickerColor,
+                  (color) {
+                    context.read<CreateEditProductBloc>().add(
+                        CreateEditProductEvent.changeColorCode(color.toHex()));
+                    setState(() {});
+                  },
+                ),
+                CasualButton(
+                  text: 'OK',
+                  onTap: () => Navigator.of(dialogContext).pop(),
+                  fontSize: SizeConfig.body2,
+                ),
+              ],
+            );
+          },
         ),
       );
 

@@ -24,6 +24,14 @@ extension FirstToUpperCase on String {
   }
 }
 
+extension RemoveFirst on String {
+  String removeFirst() {
+    List<String> splitted = split('');
+    splitted.removeAt(0);
+    return splitted.join();
+  }
+}
+
 extension HexColor on Color {
   static Color fromHex(String hexString) {
     final buffer = StringBuffer();

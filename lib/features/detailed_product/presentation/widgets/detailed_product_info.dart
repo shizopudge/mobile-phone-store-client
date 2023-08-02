@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:phone_store/core/constants/extensions.dart';
 
+import '../../../../core/domain/entities/current_user.dart';
 import '../../../../core/domain/entities/product.dart';
 import '../../../../core/styles/styles.dart';
 import '../../../../core/utils/size_config.dart';
+import '../../../auth/presentation/bloc/auth_bloc.dart';
 import 'detailed_product_characteristic.dart';
 import 'detailed_product_item.dart';
 
@@ -15,6 +19,8 @@ class DetailedProductInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final CurrentUser? user =
+        context.select<AuthBloc, CurrentUser?>((bloc) => bloc.state.user);
     return Container(
       padding: EdgeInsets.all(SizeConfig.setPadding(20)),
       decoration: BoxDecoration(
@@ -102,6 +108,16 @@ class DetailedProductInfo extends StatelessWidget {
             characteristic: product.model?.displayType.toString() ?? '...',
             showDivider: false,
           ),
+          if (user != null && user.isAdmin)
+            SizedBox(
+              height: SizeConfig.setPadding(20),
+            ),
+          if (user != null && user.isAdmin)
+            DetailedProductCharacteristic(
+              title: 'Color HEX',
+              characteristic: product.colorCode.removeFirst().toUpperCase(),
+              showDivider: false,
+            ),
         ],
       ),
     );

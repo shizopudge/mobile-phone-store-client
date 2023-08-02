@@ -20,7 +20,7 @@ class DetailedProductCharacteristic extends StatelessWidget {
       children: [
         Row(
           children: [
-            Text(
+            SelectableText(
               '$title:',
               style: kSemiBold.copyWith(
                 fontSize: SizeConfig.body1,
@@ -30,7 +30,7 @@ class DetailedProductCharacteristic extends StatelessWidget {
             SizedBox(
               width: SizeConfig.setPadding(8),
             ),
-            Text(
+            SelectableText(
               characteristic,
               style: kMedium.copyWith(
                 fontSize: SizeConfig.body2,

@@ -131,30 +131,13 @@ class _PurchasesPageState extends State<PurchasesPage> {
           isLoading: state.isLoading,
           isLastPage: state.isLastPage,
           isNothingFound: state.isNothingFound,
-          header: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              FadeAnimationYDown(
-                delay: .15,
-                child: IconButton(
-                  onPressed: () => Navigator.of(context).pop(),
-                  icon: Icon(
-                    Icons.arrow_back,
-                    color: kDarkBlue,
-                    size: SizeConfig.iconLarge,
-                  ),
-                ),
-              ),
-              FadeAnimationYDown(
-                delay: .25,
-                child: Text(
-                  'Purchases',
-                  overflow: TextOverflow.ellipsis,
-                  style:
-                      kBold.copyWith(color: kDarkBlue, fontSize: SizeConfig.h1),
-                ),
-              ),
-            ],
+          header: FadeAnimationYDown(
+            delay: .25,
+            child: Text(
+              'Purchases',
+              overflow: TextOverflow.ellipsis,
+              style: kBold.copyWith(color: kDarkBlue, fontSize: SizeConfig.h1),
+            ),
           ),
           child: SliverList.builder(
             itemCount: state.purchases.length,
