@@ -21,9 +21,10 @@ import 'package:url_strategy/url_strategy.dart';
 
 @pragma('vm:entry-point')
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   final PurchaseNotfication purchaseNotfication = PurchaseNotfication.fromModel(
       PurchaseNotficationModel.fromJson(message.data));
+  debugPrint(message.data.toString());
   await NotifictaionsService().initNotification();
   NotifictaionsService().showNotification(
     title: '${purchaseNotfication.status}',
