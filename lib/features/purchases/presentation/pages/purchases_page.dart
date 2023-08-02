@@ -133,10 +133,25 @@ class _PurchasesPageState extends State<PurchasesPage> {
           isNothingFound: state.isNothingFound,
           header: FadeAnimationYDown(
             delay: .25,
-            child: Text(
-              'Purchases',
-              overflow: TextOverflow.ellipsis,
-              style: kBold.copyWith(color: kDarkBlue, fontSize: SizeConfig.h1),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                if (currentUser != null && !currentUser.isAdmin)
+                  IconButton(
+                    onPressed: () => Navigator.of(context).pop(),
+                    icon: Icon(
+                      Icons.arrow_back,
+                      color: kDarkBlue,
+                      size: SizeConfig.iconLarge,
+                    ),
+                  ),
+                Text(
+                  'Purchases',
+                  overflow: TextOverflow.ellipsis,
+                  style:
+                      kBold.copyWith(color: kDarkBlue, fontSize: SizeConfig.h1),
+                ),
+              ],
             ),
           ),
           child: SliverList.builder(

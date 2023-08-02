@@ -19,8 +19,7 @@ class App extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (_) =>
-              getIt<InternetConnectionCheckCubit>()..checkInternetConnection(),
+          create: (_) => getIt<InternetConnectionCheckCubit>(),
         ),
         BlocProvider(
           create: (_) => getIt<AuthBloc>()..add(const AuthEvent.start()),
