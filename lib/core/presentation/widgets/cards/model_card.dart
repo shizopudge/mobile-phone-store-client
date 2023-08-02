@@ -32,10 +32,7 @@ class ModelCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            model.name +
-                (model.name.contains('14')
-                    ? ' Max Limited Edititon Plus Exclusive'
-                    : ''),
+            model.name,
             overflow: TextOverflow.ellipsis,
             style: kBold.copyWith(
               color: kLightWhite,
